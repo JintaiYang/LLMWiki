@@ -4,8 +4,8 @@ source_url:
 evidence_level: "待验证"
 updated_date: "2026-07-19"
 related_links:
-  - "[[知识库规则]]"
-  - "[[首页]]"
+  - "[[06_维护契约]]"
+  - "[[07_导航首页]]"
 key_insight: "本清单追踪所有未核验线索，提醒建库时严禁虚构。"
 next_action: "逐项核查并在核验完成后更新等级或移除。"
 ---
