@@ -1,9 +1,9 @@
-# macOS
-.DS_Store
+# macOS local metadata
+**/.DS_Store
 
-# Obsidian
-.obsidian/workspace.json
-.obsidian/workspace-mobile.json
+# Obsidian local workspace state
+**/.obsidian/workspace.json
+**/.obsidian/workspace-mobile.json
 
-# Claudian sessions
-.claudian/sessions/
+# Claudian local sessions
+**/.claudian/sessions/**
