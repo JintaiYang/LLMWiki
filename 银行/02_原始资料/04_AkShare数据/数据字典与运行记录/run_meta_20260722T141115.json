@@ -1,0 +1,788 @@
+{
+  "run_id": "20260722T141115",
+  "started_at": "2026-07-22T14:11:15",
+  "ended_at": "2026-07-22T14:11:44",
+  "vault": "/Users/yangjintai/Documents/LLM wiki/银行",
+  "data_cutoff": "2026-07-22",
+  "report_date": "20251231",
+  "dry_run": false,
+  "python_version": "3.9.6",
+  "akshare_version": "1.16.99",
+  "akshare_import_error": null,
+  "steps": [
+    "abstract"
+  ],
+  "universe_files": [
+    "02_原始资料/04_AkShare数据/数据字典与运行记录/a_share_banks_universe.json",
+    "02_原始资料/04_AkShare数据/数据字典与运行记录/a_share_banks_universe.csv"
+  ],
+  "step_results": {
+    "abstract": {
+      "status": "success",
+      "records": 42,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/财务摘要/bank_financial_abstract_all_latest.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/000001_平安银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/001227_兰州银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/002142_宁波银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/002807_江阴银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/002839_张家港行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/002936_郑州银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/002948_青岛银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/002958_青农商行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/002966_苏州银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/600000_浦发银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/600015_华夏银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/600016_民生银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/600036_招商银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/600908_无锡银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/600919_江苏银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/600926_杭州银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/600928_西安银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/601009_南京银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/601077_渝农商行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/601128_常熟银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/601166_兴业银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/601169_北京银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/601187_厦门银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/601229_上海银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/601288_农业银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/601328_交通银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/601398_工商银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/601528_瑞丰银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/601577_长沙银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/601658_邮储银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/601665_齐鲁银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/601818_光大银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/601825_沪农商行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/601838_成都银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/601860_紫金银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/601916_浙商银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/601939_建设银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/601963_重庆银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/601988_中国银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/601997_贵阳银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/601998_中信银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/603323_苏农银行_financial_abstract.csv"
+      ],
+      "error": null
+    }
+  },
+  "interface_runs": [
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "000001",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T14:11:15",
+      "ended_at": "2026-07-22T14:11:15",
+      "status": "success",
+      "error": null,
+      "records": 121,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/财务摘要/000001_平安银行_financial_abstract.csv"
+      ],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "001227",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T14:11:15",
+      "ended_at": "2026-07-22T14:11:16",
+      "status": "success",
+      "error": null,
+      "records": 50,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/财务摘要/001227_兰州银行_financial_abstract.csv"
+      ],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "002142",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T14:11:16",
+      "ended_at": "2026-07-22T14:11:16",
+      "status": "success",
+      "error": null,
+      "records": 82,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/财务摘要/002142_宁波银行_financial_abstract.csv"
+      ],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "002807",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T14:11:16",
+      "ended_at": "2026-07-22T14:11:17",
+      "status": "success",
+      "error": null,
+      "records": 52,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/财务摘要/002807_江阴银行_financial_abstract.csv"
+      ],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "002839",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T14:11:17",
+      "ended_at": "2026-07-22T14:11:17",
+      "status": "success",
+      "error": null,
+      "records": 53,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/财务摘要/002839_张家港行_financial_abstract.csv"
+      ],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "002936",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T14:11:18",
+      "ended_at": "2026-07-22T14:11:18",
+      "status": "success",
+      "error": null,
+      "records": 54,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/财务摘要/002936_郑州银行_financial_abstract.csv"
+      ],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "002948",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T14:11:18",
+      "ended_at": "2026-07-22T14:11:19",
+      "status": "success",
+      "error": null,
+      "records": 50,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/财务摘要/002948_青岛银行_financial_abstract.csv"
+      ],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "002958",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T14:11:19",
+      "ended_at": "2026-07-22T14:11:19",
+      "status": "success",
+      "error": null,
+      "records": 44,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/财务摘要/002958_青农商行_financial_abstract.csv"
+      ],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "002966",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T14:11:19",
+      "ended_at": "2026-07-22T14:11:20",
+      "status": "success",
+      "error": null,
+      "records": 49,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/财务摘要/002966_苏州银行_financial_abstract.csv"
+      ],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "600000",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T14:11:20",
+      "ended_at": "2026-07-22T14:11:21",
+      "status": "success",
+      "error": null,
+      "records": 107,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/财务摘要/600000_浦发银行_financial_abstract.csv"
+      ],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "600015",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T14:11:21",
+      "ended_at": "2026-07-22T14:11:21",
+      "status": "success",
+      "error": null,
+      "records": 97,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/财务摘要/600015_华夏银行_financial_abstract.csv"
+      ],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "600016",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T14:11:21",
+      "ended_at": "2026-07-22T14:11:22",
+      "status": "success",
+      "error": null,
+      "records": 106,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/财务摘要/600016_民生银行_financial_abstract.csv"
+      ],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "600036",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T14:11:22",
+      "ended_at": "2026-07-22T14:11:23",
+      "status": "success",
+      "error": null,
+      "records": 101,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/财务摘要/600036_招商银行_financial_abstract.csv"
+      ],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "600908",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T14:11:23",
+      "ended_at": "2026-07-22T14:11:23",
+      "status": "success",
+      "error": null,
+      "records": 48,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/财务摘要/600908_无锡银行_financial_abstract.csv"
+      ],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "600919",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T14:11:23",
+      "ended_at": "2026-07-22T14:11:24",
+      "status": "success",
+      "error": null,
+      "records": 56,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/财务摘要/600919_江苏银行_financial_abstract.csv"
+      ],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "600926",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T14:11:24",
+      "ended_at": "2026-07-22T14:11:24",
+      "status": "success",
+      "error": null,
+      "records": 59,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/财务摘要/600926_杭州银行_financial_abstract.csv"
+      ],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "600928",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T14:11:24",
+      "ended_at": "2026-07-22T14:11:25",
+      "status": "success",
+      "error": null,
+      "records": 54,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/财务摘要/600928_西安银行_financial_abstract.csv"
+      ],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "601009",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T14:11:25",
+      "ended_at": "2026-07-22T14:11:25",
+      "status": "success",
+      "error": null,
+      "records": 83,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/财务摘要/601009_南京银行_financial_abstract.csv"
+      ],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "601077",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T14:11:26",
+      "ended_at": "2026-07-22T14:11:26",
+      "status": "success",
+      "error": null,
+      "records": 48,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/财务摘要/601077_渝农商行_financial_abstract.csv"
+      ],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "601128",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T14:11:26",
+      "ended_at": "2026-07-22T14:11:27",
+      "status": "success",
+      "error": null,
+      "records": 53,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/财务摘要/601128_常熟银行_financial_abstract.csv"
+      ],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "601166",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T14:11:27",
+      "ended_at": "2026-07-22T14:11:27",
+      "status": "success",
+      "error": null,
+      "records": 82,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/财务摘要/601166_兴业银行_financial_abstract.csv"
+      ],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "601169",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T14:11:27",
+      "ended_at": "2026-07-22T14:11:28",
+      "status": "success",
+      "error": null,
+      "records": 81,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/财务摘要/601169_北京银行_financial_abstract.csv"
+      ],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "601187",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T14:11:28",
+      "ended_at": "2026-07-22T14:11:28",
+      "status": "success",
+      "error": null,
+      "records": 59,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/财务摘要/601187_厦门银行_financial_abstract.csv"
+      ],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "601229",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T14:11:28",
+      "ended_at": "2026-07-22T14:11:29",
+      "status": "success",
+      "error": null,
+      "records": 67,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/财务摘要/601229_上海银行_financial_abstract.csv"
+      ],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "601288",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T14:11:29",
+      "ended_at": "2026-07-22T14:11:29",
+      "status": "success",
+      "error": null,
+      "records": 70,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/财务摘要/601288_农业银行_financial_abstract.csv"
+      ],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "601328",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T14:11:30",
+      "ended_at": "2026-07-22T14:11:30",
+      "status": "success",
+      "error": null,
+      "records": 86,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/财务摘要/601328_交通银行_financial_abstract.csv"
+      ],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "601398",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T14:11:30",
+      "ended_at": "2026-07-22T14:11:31",
+      "status": "success",
+      "error": null,
+      "records": 84,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/财务摘要/601398_工商银行_financial_abstract.csv"
+      ],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "601528",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T14:11:31",
+      "ended_at": "2026-07-22T14:11:32",
+      "status": "success",
+      "error": null,
+      "records": 49,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/财务摘要/601528_瑞丰银行_financial_abstract.csv"
+      ],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "601577",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T14:11:32",
+      "ended_at": "2026-07-22T14:11:33",
+      "status": "success",
+      "error": null,
+      "records": 53,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/财务摘要/601577_长沙银行_financial_abstract.csv"
+      ],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "601658",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T14:11:34",
+      "ended_at": "2026-07-22T14:11:35",
+      "status": "success",
+      "error": null,
+      "records": 42,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/财务摘要/601658_邮储银行_financial_abstract.csv"
+      ],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "601665",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T14:11:35",
+      "ended_at": "2026-07-22T14:11:36",
+      "status": "success",
+      "error": null,
+      "records": 57,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/财务摘要/601665_齐鲁银行_financial_abstract.csv"
+      ],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "601818",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T14:11:36",
+      "ended_at": "2026-07-22T14:11:37",
+      "status": "success",
+      "error": null,
+      "records": 71,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/财务摘要/601818_光大银行_financial_abstract.csv"
+      ],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "601825",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T14:11:37",
+      "ended_at": "2026-07-22T14:11:38",
+      "status": "success",
+      "error": null,
+      "records": 62,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/财务摘要/601825_沪农商行_financial_abstract.csv"
+      ],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "601838",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T14:11:38",
+      "ended_at": "2026-07-22T14:11:38",
+      "status": "success",
+      "error": null,
+      "records": 49,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/财务摘要/601838_成都银行_financial_abstract.csv"
+      ],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "601860",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T14:11:38",
+      "ended_at": "2026-07-22T14:11:39",
+      "status": "success",
+      "error": null,
+      "records": 48,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/财务摘要/601860_紫金银行_financial_abstract.csv"
+      ],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "601916",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T14:11:39",
+      "ended_at": "2026-07-22T14:11:40",
+      "status": "success",
+      "error": null,
+      "records": 60,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/财务摘要/601916_浙商银行_financial_abstract.csv"
+      ],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "601939",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T14:11:40",
+      "ended_at": "2026-07-22T14:11:40",
+      "status": "success",
+      "error": null,
+      "records": 84,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/财务摘要/601939_建设银行_financial_abstract.csv"
+      ],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "601963",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T14:11:40",
+      "ended_at": "2026-07-22T14:11:41",
+      "status": "success",
+      "error": null,
+      "records": 55,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/财务摘要/601963_重庆银行_financial_abstract.csv"
+      ],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "601988",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T14:11:41",
+      "ended_at": "2026-07-22T14:11:42",
+      "status": "success",
+      "error": null,
+      "records": 84,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/财务摘要/601988_中国银行_financial_abstract.csv"
+      ],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "601997",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T14:11:42",
+      "ended_at": "2026-07-22T14:11:42",
+      "status": "success",
+      "error": null,
+      "records": 56,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/财务摘要/601997_贵阳银行_financial_abstract.csv"
+      ],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "601998",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T14:11:42",
+      "ended_at": "2026-07-22T14:11:43",
+      "status": "success",
+      "error": null,
+      "records": 82,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/财务摘要/601998_中信银行_financial_abstract.csv"
+      ],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "603323",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T14:11:43",
+      "ended_at": "2026-07-22T14:11:44",
+      "status": "success",
+      "error": null,
+      "records": 57,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/财务摘要/603323_苏农银行_financial_abstract.csv"
+      ],
+      "last_success_date": "2026-07-22"
+    }
+  ],
+  "failure_count": 0
+}

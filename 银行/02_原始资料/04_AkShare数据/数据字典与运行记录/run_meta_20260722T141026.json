@@ -1,0 +1,42 @@
+{
+  "run_id": "20260722T141026",
+  "started_at": "2026-07-22T14:10:26",
+  "ended_at": "2026-07-22T14:10:27",
+  "vault": "/Users/yangjintai/Documents/LLM wiki/银行",
+  "data_cutoff": "2026-07-22",
+  "report_date": "20251231",
+  "dry_run": false,
+  "python_version": "3.9.6",
+  "akshare_version": "1.16.99",
+  "akshare_import_error": null,
+  "steps": [
+    "spot"
+  ],
+  "universe_files": [
+    "02_原始资料/04_AkShare数据/数据字典与运行记录/a_share_banks_universe.json",
+    "02_原始资料/04_AkShare数据/数据字典与运行记录/a_share_banks_universe.csv"
+  ],
+  "step_results": {
+    "spot": {
+      "status": "failed",
+      "records": 0,
+      "output_files": [],
+      "error": "attempt=1/1: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+    }
+  },
+  "interface_runs": [
+    {
+      "step": "spot",
+      "interface": "stock_zh_a_spot_em",
+      "params": {},
+      "started_at": "2026-07-22T14:10:26",
+      "ended_at": "2026-07-22T14:10:27",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    }
+  ],
+  "failure_count": 1
+}

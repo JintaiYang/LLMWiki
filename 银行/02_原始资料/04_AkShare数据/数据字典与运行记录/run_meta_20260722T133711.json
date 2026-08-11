@@ -1,0 +1,2491 @@
+{
+  "run_id": "20260722T133711",
+  "started_at": "2026-07-22T13:37:11",
+  "ended_at": "2026-07-22T13:37:11",
+  "vault": "/Users/yangjintai/Documents/LLM wiki/银行",
+  "data_cutoff": "2026-07-22",
+  "report_date": "20251231",
+  "dry_run": false,
+  "python_version": "3.9.6",
+  "akshare_version": null,
+  "steps": [
+    "spot",
+    "yjbb",
+    "abstract",
+    "valuation",
+    "dividend"
+  ],
+  "universe_files": [
+    "02_原始资料/04_AkShare数据/数据字典与运行记录/a_share_banks_universe.json",
+    "02_原始资料/04_AkShare数据/数据字典与运行记录/a_share_banks_universe.csv"
+  ],
+  "step_results": {
+    "spot": {
+      "status": "failed",
+      "records": 0,
+      "output_files": [],
+      "error": "AkShare not installed"
+    },
+    "yjbb": {
+      "status": "failed",
+      "records": 0,
+      "output_files": [],
+      "error": "AkShare not installed"
+    },
+    "abstract": {
+      "status": "failed",
+      "records": 0,
+      "output_files": [],
+      "error": "000001 平安银行: AkShare not installed; 001227 兰州银行: AkShare not installed; 002142 宁波银行: AkShare not installed; 002807 江阴银行: AkShare not installed; 002839 张家港行: AkShare not installed; 002936 郑州银行: AkShare not installed; 002948 青岛银行: AkShare not installed; 002958 青农商行: AkShare not installed; 002966 苏州银行: AkShare not installed; 600000 浦发银行: AkShare not installed; 600015 华夏银行: AkShare not installed; 600016 民生银行: AkShare not installed; 600036 招商银行: AkShare not installed; 600908 无锡银行: AkShare not installed; 600919 江苏银行: AkShare not installed; 600926 杭州银行: AkShare not installed; 600928 西安银行: AkShare not installed; 601009 南京银行: AkShare not installed; 601077 渝农商行: AkShare not installed; 601128 常熟银行: AkShare not installed; 601166 兴业银行: AkShare not installed; 601169 北京银行: AkShare not installed; 601187 厦门银行: AkShare not installed; 601229 上海银行: AkShare not installed; 601288 农业银行: AkShare not installed; 601328 交通银行: AkShare not installed; 601398 工商银行: AkShare not installed; 601528 瑞丰银行: AkShare not installed; 601577 长沙银行: AkShare not installed; 601658 邮储银行: AkShare not installed; 601665 齐鲁银行: AkShare not installed; 601818 光大银行: AkShare not installed; 601825 沪农商行: AkShare not installed; 601838 成都银行: AkShare not installed; 601860 紫金银行: AkShare not installed; 601916 浙商银行: AkShare not installed; 601939 建设银行: AkShare not installed; 601963 重庆银行: AkShare not installed; 601988 中国银行: AkShare not installed; 601997 贵阳银行: AkShare not installed; 601998 中信银行: AkShare not installed; 603323 苏农银行: AkShare not installed"
+    },
+    "valuation": {
+      "status": "failed",
+      "records": 0,
+      "output_files": [],
+      "error": "000001 平安银行: AkShare not installed; 001227 兰州银行: AkShare not installed; 002142 宁波银行: AkShare not installed; 002807 江阴银行: AkShare not installed; 002839 张家港行: AkShare not installed; 002936 郑州银行: AkShare not installed; 002948 青岛银行: AkShare not installed; 002958 青农商行: AkShare not installed; 002966 苏州银行: AkShare not installed; 600000 浦发银行: AkShare not installed; 600015 华夏银行: AkShare not installed; 600016 民生银行: AkShare not installed; 600036 招商银行: AkShare not installed; 600908 无锡银行: AkShare not installed; 600919 江苏银行: AkShare not installed; 600926 杭州银行: AkShare not installed; 600928 西安银行: AkShare not installed; 601009 南京银行: AkShare not installed; 601077 渝农商行: AkShare not installed; 601128 常熟银行: AkShare not installed; 601166 兴业银行: AkShare not installed; 601169 北京银行: AkShare not installed; 601187 厦门银行: AkShare not installed; 601229 上海银行: AkShare not installed; 601288 农业银行: AkShare not installed; 601328 交通银行: AkShare not installed; 601398 工商银行: AkShare not installed; 601528 瑞丰银行: AkShare not installed; 601577 长沙银行: AkShare not installed; 601658 邮储银行: AkShare not installed; 601665 齐鲁银行: AkShare not installed; 601818 光大银行: AkShare not installed; 601825 沪农商行: AkShare not installed; 601838 成都银行: AkShare not installed; 601860 紫金银行: AkShare not installed; 601916 浙商银行: AkShare not installed; 601939 建设银行: AkShare not installed; 601963 重庆银行: AkShare not installed; 601988 中国银行: AkShare not installed; 601997 贵阳银行: AkShare not installed; 601998 中信银行: AkShare not installed; 603323 苏农银行: AkShare not installed"
+    },
+    "dividend": {
+      "status": "failed",
+      "records": 0,
+      "output_files": [],
+      "error": "AkShare not installed"
+    }
+  },
+  "interface_runs": [
+    {
+      "step": "spot",
+      "interface": "stock_zh_a_spot_em",
+      "params": {},
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "yjbb",
+      "interface": "stock_yjbb_em",
+      "params": {
+        "date": "20251231"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "000001",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "001227",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "002142",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "002807",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "002839",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "002936",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "002948",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "002958",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "002966",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "600000",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "600015",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "600016",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "600036",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "600908",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "600919",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "600926",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "600928",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "601009",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "601077",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "601128",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "601166",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "601169",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "601187",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "601229",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "601288",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "601328",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "601398",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "601528",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "601577",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "601658",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "601665",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "601818",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "601825",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "601838",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "601860",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "601916",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "601939",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "601963",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "601988",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "601997",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "601998",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "603323",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "000001"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sz000001"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "000001.SZ"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "001227"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sz001227"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "001227.SZ"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "002142"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sz002142"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "002142.SZ"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "002807"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sz002807"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "002807.SZ"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "002839"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sz002839"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "002839.SZ"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "002936"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sz002936"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "002936.SZ"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "002948"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sz002948"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "002948.SZ"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "002958"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sz002958"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "002958.SZ"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "002966"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sz002966"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "002966.SZ"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "600000"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh600000"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "600000.SH"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "600015"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh600015"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "600015.SH"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "600016"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh600016"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "600016.SH"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "600036"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh600036"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "600036.SH"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "600908"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh600908"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "600908.SH"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "600919"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh600919"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "600919.SH"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "600926"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh600926"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "600926.SH"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "600928"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh600928"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "600928.SH"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601009"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh601009"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601009.SH"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601077"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh601077"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601077.SH"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601128"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh601128"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601128.SH"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601166"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh601166"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601166.SH"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601169"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh601169"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601169.SH"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601187"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh601187"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601187.SH"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601229"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh601229"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601229.SH"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601288"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh601288"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601288.SH"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601328"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh601328"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601328.SH"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601398"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh601398"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601398.SH"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601528"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh601528"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601528.SH"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601577"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh601577"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601577.SH"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601658"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh601658"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601658.SH"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601665"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh601665"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601665.SH"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601818"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh601818"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601818.SH"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601825"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh601825"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601825.SH"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601838"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh601838"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601838.SH"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601860"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh601860"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601860.SH"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601916"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh601916"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601916.SH"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601939"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh601939"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601939.SH"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601963"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh601963"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601963.SH"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601988"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh601988"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601988.SH"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601997"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh601997"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601997.SH"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601998"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh601998"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601998.SH"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "603323"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh603323"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "603323.SH"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "dividend",
+      "interface": "stock_fhps_em",
+      "params": {
+        "date": "20251231"
+      },
+      "started_at": "2026-07-22T13:37:11",
+      "ended_at": "2026-07-22T13:37:11",
+      "status": "failed",
+      "error": "AkShare not installed",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    }
+  ],
+  "failure_count": 5
+}

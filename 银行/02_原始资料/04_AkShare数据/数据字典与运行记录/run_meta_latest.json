@@ -1,0 +1,267 @@
+{
+  "status_index_version": 1,
+  "updated_at": "2026-07-22T15:15:16",
+  "steps": {
+    "valuation": {
+      "status": "success",
+      "records": 42,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/历史估值/bank_valuation_history_all_latest.csv",
+        "02_原始资料/04_AkShare数据/历史估值/000001_平安银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/001227_兰州银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/002142_宁波银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/002807_江阴银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/002839_张家港行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/002936_郑州银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/002948_青岛银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/002958_青农商行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/002966_苏州银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/600000_浦发银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/600015_华夏银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/600016_民生银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/600036_招商银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/600908_无锡银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/600919_江苏银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/600926_杭州银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/600928_西安银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/601009_南京银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/601077_渝农商行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/601128_常熟银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/601166_兴业银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/601169_北京银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/601187_厦门银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/601229_上海银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/601288_农业银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/601328_交通银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/601398_工商银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/601528_瑞丰银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/601577_长沙银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/601658_邮储银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/601665_齐鲁银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/601818_光大银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/601825_沪农商行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/601838_成都银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/601860_紫金银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/601916_浙商银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/601939_建设银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/601963_重庆银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/601988_中国银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/601997_贵阳银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/601998_中信银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/603323_苏农银行_valuation_history.csv"
+      ],
+      "error": null,
+      "run_id": "20260722T145410",
+      "updated_at": "2026-07-22T15:14:55"
+    },
+    "spot": {
+      "status": "failed",
+      "records": 0,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/数据字典与运行记录/spot_failure_details_20260722T145410.json"
+      ],
+      "error": "spot 全部接口失败: attempt=1/1: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "run_id": "20260722T145410",
+      "updated_at": "2026-07-22T15:14:55"
+    },
+    "yjbb": {
+      "status": "success",
+      "records": 42,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/财务报表/bank_yjbb_em_20251231.csv",
+        "02_原始资料/04_AkShare数据/财务报表/bank_yjbb_em_latest.csv"
+      ],
+      "error": null,
+      "run_id": "20260722T141053",
+      "updated_at": "2026-07-22T15:14:55"
+    },
+    "abstract": {
+      "status": "success",
+      "records": 42,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/财务摘要/bank_financial_abstract_all_latest.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/000001_平安银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/001227_兰州银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/002142_宁波银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/002807_江阴银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/002839_张家港行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/002936_郑州银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/002948_青岛银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/002958_青农商行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/002966_苏州银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/600000_浦发银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/600015_华夏银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/600016_民生银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/600036_招商银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/600908_无锡银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/600919_江苏银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/600926_杭州银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/600928_西安银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/601009_南京银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/601077_渝农商行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/601128_常熟银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/601166_兴业银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/601169_北京银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/601187_厦门银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/601229_上海银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/601288_农业银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/601328_交通银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/601398_工商银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/601528_瑞丰银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/601577_长沙银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/601658_邮储银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/601665_齐鲁银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/601818_光大银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/601825_沪农商行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/601838_成都银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/601860_紫金银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/601916_浙商银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/601939_建设银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/601963_重庆银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/601988_中国银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/601997_贵阳银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/601998_中信银行_financial_abstract.csv",
+        "02_原始资料/04_AkShare数据/财务摘要/603323_苏农银行_financial_abstract.csv"
+      ],
+      "error": null,
+      "run_id": "20260722T141115",
+      "updated_at": "2026-07-22T15:14:55"
+    },
+    "dividend": {
+      "status": "success",
+      "records": 41,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/分红/bank_dividend_em_20251231.csv",
+        "02_原始资料/04_AkShare数据/分红/bank_dividend_em_latest.csv"
+      ],
+      "error": null,
+      "run_id": "20260722T141528",
+      "updated_at": "2026-07-22T15:14:55"
+    }
+  },
+  "interfaces": {
+    "stock_individual_info_em": {
+      "step": "spot",
+      "interface": "stock_individual_info_em",
+      "params": {
+        "symbol": "603323",
+        "timeout": 5.0
+      },
+      "started_at": "2026-07-22T14:54:21",
+      "ended_at": "2026-07-22T14:54:21",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null,
+      "run_id": "20260722T145410"
+    },
+    "stock_zh_a_spot_em": {
+      "step": "spot",
+      "interface": "stock_zh_a_spot_em",
+      "params": {},
+      "started_at": "2026-07-22T14:54:10",
+      "ended_at": "2026-07-22T14:54:10",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null,
+      "run_id": "20260722T145410"
+    },
+    "stock_yjbb_em": {
+      "step": "yjbb",
+      "interface": "stock_yjbb_em",
+      "params": {
+        "date": "20251231"
+      },
+      "started_at": "2026-07-22T14:10:53",
+      "ended_at": "2026-07-22T14:11:04",
+      "status": "success",
+      "error": null,
+      "records": 11506,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/财务报表/bank_yjbb_em_20251231.csv",
+        "02_原始资料/04_AkShare数据/财务报表/bank_yjbb_em_latest.csv"
+      ],
+      "last_success_date": "2026-07-22",
+      "run_id": "20260722T141053"
+    },
+    "stock_financial_abstract_ths": {
+      "step": "abstract",
+      "interface": "stock_financial_abstract_ths",
+      "params": {
+        "symbol": "603323",
+        "indicator": "按报告期"
+      },
+      "started_at": "2026-07-22T14:11:43",
+      "ended_at": "2026-07-22T14:11:44",
+      "status": "success",
+      "error": null,
+      "records": 57,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/财务摘要/603323_苏农银行_financial_abstract.csv"
+      ],
+      "last_success_date": "2026-07-22",
+      "run_id": "20260722T141115"
+    },
+    "stock_a_indicator_lg": {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "603323"
+      },
+      "started_at": "2026-07-22T14:58:25",
+      "ended_at": "2026-07-22T14:58:30",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=5.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null,
+      "run_id": "20260722T145410"
+    },
+    "stock_fhps_em": {
+      "step": "dividend",
+      "interface": "stock_fhps_em",
+      "params": {
+        "date": "20251231"
+      },
+      "started_at": "2026-07-22T14:15:28",
+      "ended_at": "2026-07-22T14:15:32",
+      "status": "success",
+      "error": null,
+      "records": 3653,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/分红/bank_dividend_em_20251231.csv",
+        "02_原始资料/04_AkShare数据/分红/bank_dividend_em_latest.csv"
+      ],
+      "last_success_date": "2026-07-22",
+      "run_id": "20260722T141528"
+    },
+    "stock_value_em": {
+      "step": "valuation",
+      "interface": "stock_value_em",
+      "params": {
+        "symbol": "603323"
+      },
+      "started_at": "2026-07-22T14:58:30",
+      "ended_at": "2026-07-22T14:58:31",
+      "status": "success",
+      "error": null,
+      "records": 2073,
+      "output_files": [],
+      "last_success_date": "2026-07-22",
+      "run_id": "20260722T145410"
+    }
+  },
+  "capability_status": {
+    "bank_universe": "implemented",
+    "spot_and_market_cap": "implemented_with_fallback",
+    "earnings_report": "implemented",
+    "financial_abstract": "implemented",
+    "historical_valuation": "implemented_with_fallback",
+    "dividend": "implemented",
+    "a_h_comparison": "deferred_to_later_task",
+    "historical_market_data": "deferred_to_later_task"
+  }
+}

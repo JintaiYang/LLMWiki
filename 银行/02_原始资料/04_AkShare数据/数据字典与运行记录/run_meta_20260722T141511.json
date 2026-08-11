@@ -1,0 +1,1794 @@
+{
+  "run_id": "20260722T141511",
+  "started_at": "2026-07-22T14:15:11",
+  "ended_at": "2026-07-22T14:23:31",
+  "vault": "/Users/yangjintai/Documents/LLM wiki/银行",
+  "data_cutoff": "2026-07-22",
+  "report_date": "20251231",
+  "dry_run": false,
+  "python_version": "3.9.6",
+  "akshare_version": "1.16.99",
+  "akshare_import_error": null,
+  "steps": [
+    "valuation"
+  ],
+  "universe_files": [
+    "02_原始资料/04_AkShare数据/数据字典与运行记录/a_share_banks_universe.json",
+    "02_原始资料/04_AkShare数据/数据字典与运行记录/a_share_banks_universe.csv"
+  ],
+  "step_results": {
+    "valuation": {
+      "status": "failed",
+      "records": 0,
+      "output_files": [],
+      "error": "000001 平安银行: attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s')); 001227 兰州银行: attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s')); 002142 宁波银行: attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s')); 002807 江阴银行: attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s')); 002839 张家港行: attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s')); 002936 郑州银行: attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s')); 002948 青岛银行: attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s')); 002958 青农商行: attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s')); 002966 苏州银行: attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s')); 600000 浦发银行: attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s')); 600015 华夏银行: attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s')); 600016 民生银行: attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s')); 600036 招商银行: attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s')); 600908 无锡银行: attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s')); 600919 江苏银行: attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s')); 600926 杭州银行: attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s')); 600928 西安银行: attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s')); 601009 南京银行: attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s')); 601077 渝农商行: attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s')); 601128 常熟银行: attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s')); 601166 兴业银行: attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s')); 601169 北京银行: attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s')); 601187 厦门银行: attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s')); 601229 上海银行: attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s')); 601288 农业银行: attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s')); 601328 交通银行: attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s')); 601398 工商银行: attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s')); 601528 瑞丰银行: attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s')); 601577 长沙银行: attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s')); 601658 邮储银行: attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s')); 601665 齐鲁银行: attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s')); 601818 光大银行: attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s')); 601825 沪农商行: attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s')); 601838 成都银行: attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s')); 601860 紫金银行: attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s')); 601916 浙商银行: attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s')); 601939 建设银行: attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s')); 601963 重庆银行: attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s')); 601988 中国银行: attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s')); 601997 贵阳银行: attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s')); 601998 中信银行: attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s')); 603323 苏农银行: attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))"
+    }
+  },
+  "interface_runs": [
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "000001"
+      },
+      "started_at": "2026-07-22T14:15:11",
+      "ended_at": "2026-07-22T14:15:15",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sz000001"
+      },
+      "started_at": "2026-07-22T14:15:15",
+      "ended_at": "2026-07-22T14:15:19",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "000001.SZ"
+      },
+      "started_at": "2026-07-22T14:15:19",
+      "ended_at": "2026-07-22T14:15:23",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "001227"
+      },
+      "started_at": "2026-07-22T14:15:23",
+      "ended_at": "2026-07-22T14:15:27",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sz001227"
+      },
+      "started_at": "2026-07-22T14:15:27",
+      "ended_at": "2026-07-22T14:15:31",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "001227.SZ"
+      },
+      "started_at": "2026-07-22T14:15:31",
+      "ended_at": "2026-07-22T14:15:35",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "002142"
+      },
+      "started_at": "2026-07-22T14:15:35",
+      "ended_at": "2026-07-22T14:15:38",
+      "status": "failed",
+      "error": "attempt=1/1: Expecting value: line 1 column 1 (char 0)",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sz002142"
+      },
+      "started_at": "2026-07-22T14:15:38",
+      "ended_at": "2026-07-22T14:15:38",
+      "status": "failed",
+      "error": "attempt=1/1: Expecting value: line 1 column 1 (char 0)",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "002142.SZ"
+      },
+      "started_at": "2026-07-22T14:15:38",
+      "ended_at": "2026-07-22T14:15:42",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "002807"
+      },
+      "started_at": "2026-07-22T14:15:42",
+      "ended_at": "2026-07-22T14:15:46",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sz002807"
+      },
+      "started_at": "2026-07-22T14:15:46",
+      "ended_at": "2026-07-22T14:15:50",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "002807.SZ"
+      },
+      "started_at": "2026-07-22T14:15:50",
+      "ended_at": "2026-07-22T14:15:54",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "002839"
+      },
+      "started_at": "2026-07-22T14:15:54",
+      "ended_at": "2026-07-22T14:15:58",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sz002839"
+      },
+      "started_at": "2026-07-22T14:15:58",
+      "ended_at": "2026-07-22T14:16:02",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "002839.SZ"
+      },
+      "started_at": "2026-07-22T14:16:02",
+      "ended_at": "2026-07-22T14:16:06",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "002936"
+      },
+      "started_at": "2026-07-22T14:16:06",
+      "ended_at": "2026-07-22T14:16:10",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sz002936"
+      },
+      "started_at": "2026-07-22T14:16:10",
+      "ended_at": "2026-07-22T14:16:14",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "002936.SZ"
+      },
+      "started_at": "2026-07-22T14:16:14",
+      "ended_at": "2026-07-22T14:16:18",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "002948"
+      },
+      "started_at": "2026-07-22T14:16:18",
+      "ended_at": "2026-07-22T14:16:22",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sz002948"
+      },
+      "started_at": "2026-07-22T14:16:22",
+      "ended_at": "2026-07-22T14:16:26",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "002948.SZ"
+      },
+      "started_at": "2026-07-22T14:16:26",
+      "ended_at": "2026-07-22T14:16:30",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "002958"
+      },
+      "started_at": "2026-07-22T14:16:30",
+      "ended_at": "2026-07-22T14:16:34",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sz002958"
+      },
+      "started_at": "2026-07-22T14:16:34",
+      "ended_at": "2026-07-22T14:16:38",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "002958.SZ"
+      },
+      "started_at": "2026-07-22T14:16:38",
+      "ended_at": "2026-07-22T14:16:42",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "002966"
+      },
+      "started_at": "2026-07-22T14:16:42",
+      "ended_at": "2026-07-22T14:16:46",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sz002966"
+      },
+      "started_at": "2026-07-22T14:16:46",
+      "ended_at": "2026-07-22T14:16:50",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "002966.SZ"
+      },
+      "started_at": "2026-07-22T14:16:50",
+      "ended_at": "2026-07-22T14:16:54",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "600000"
+      },
+      "started_at": "2026-07-22T14:16:54",
+      "ended_at": "2026-07-22T14:16:58",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh600000"
+      },
+      "started_at": "2026-07-22T14:16:58",
+      "ended_at": "2026-07-22T14:17:02",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "600000.SH"
+      },
+      "started_at": "2026-07-22T14:17:02",
+      "ended_at": "2026-07-22T14:17:06",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "600015"
+      },
+      "started_at": "2026-07-22T14:17:06",
+      "ended_at": "2026-07-22T14:17:10",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh600015"
+      },
+      "started_at": "2026-07-22T14:17:10",
+      "ended_at": "2026-07-22T14:17:14",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "600015.SH"
+      },
+      "started_at": "2026-07-22T14:17:14",
+      "ended_at": "2026-07-22T14:17:18",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "600016"
+      },
+      "started_at": "2026-07-22T14:17:18",
+      "ended_at": "2026-07-22T14:17:22",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh600016"
+      },
+      "started_at": "2026-07-22T14:17:22",
+      "ended_at": "2026-07-22T14:17:26",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "600016.SH"
+      },
+      "started_at": "2026-07-22T14:17:26",
+      "ended_at": "2026-07-22T14:17:30",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "600036"
+      },
+      "started_at": "2026-07-22T14:17:30",
+      "ended_at": "2026-07-22T14:17:34",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh600036"
+      },
+      "started_at": "2026-07-22T14:17:34",
+      "ended_at": "2026-07-22T14:17:38",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "600036.SH"
+      },
+      "started_at": "2026-07-22T14:17:38",
+      "ended_at": "2026-07-22T14:17:42",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "600908"
+      },
+      "started_at": "2026-07-22T14:17:42",
+      "ended_at": "2026-07-22T14:17:46",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh600908"
+      },
+      "started_at": "2026-07-22T14:17:46",
+      "ended_at": "2026-07-22T14:17:50",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "600908.SH"
+      },
+      "started_at": "2026-07-22T14:17:50",
+      "ended_at": "2026-07-22T14:17:54",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "600919"
+      },
+      "started_at": "2026-07-22T14:17:54",
+      "ended_at": "2026-07-22T14:17:58",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh600919"
+      },
+      "started_at": "2026-07-22T14:17:58",
+      "ended_at": "2026-07-22T14:18:02",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "600919.SH"
+      },
+      "started_at": "2026-07-22T14:18:02",
+      "ended_at": "2026-07-22T14:18:06",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "600926"
+      },
+      "started_at": "2026-07-22T14:18:06",
+      "ended_at": "2026-07-22T14:18:10",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh600926"
+      },
+      "started_at": "2026-07-22T14:18:10",
+      "ended_at": "2026-07-22T14:18:14",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "600926.SH"
+      },
+      "started_at": "2026-07-22T14:18:14",
+      "ended_at": "2026-07-22T14:18:18",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "600928"
+      },
+      "started_at": "2026-07-22T14:18:18",
+      "ended_at": "2026-07-22T14:18:22",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh600928"
+      },
+      "started_at": "2026-07-22T14:18:22",
+      "ended_at": "2026-07-22T14:18:26",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "600928.SH"
+      },
+      "started_at": "2026-07-22T14:18:26",
+      "ended_at": "2026-07-22T14:18:30",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601009"
+      },
+      "started_at": "2026-07-22T14:18:30",
+      "ended_at": "2026-07-22T14:18:34",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh601009"
+      },
+      "started_at": "2026-07-22T14:18:34",
+      "ended_at": "2026-07-22T14:18:38",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601009.SH"
+      },
+      "started_at": "2026-07-22T14:18:38",
+      "ended_at": "2026-07-22T14:18:42",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601077"
+      },
+      "started_at": "2026-07-22T14:18:42",
+      "ended_at": "2026-07-22T14:18:46",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh601077"
+      },
+      "started_at": "2026-07-22T14:18:46",
+      "ended_at": "2026-07-22T14:18:50",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601077.SH"
+      },
+      "started_at": "2026-07-22T14:18:50",
+      "ended_at": "2026-07-22T14:18:54",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601128"
+      },
+      "started_at": "2026-07-22T14:18:54",
+      "ended_at": "2026-07-22T14:18:58",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh601128"
+      },
+      "started_at": "2026-07-22T14:18:58",
+      "ended_at": "2026-07-22T14:19:02",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601128.SH"
+      },
+      "started_at": "2026-07-22T14:19:02",
+      "ended_at": "2026-07-22T14:19:06",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601166"
+      },
+      "started_at": "2026-07-22T14:19:06",
+      "ended_at": "2026-07-22T14:19:10",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh601166"
+      },
+      "started_at": "2026-07-22T14:19:10",
+      "ended_at": "2026-07-22T14:19:14",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601166.SH"
+      },
+      "started_at": "2026-07-22T14:19:14",
+      "ended_at": "2026-07-22T14:19:18",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601169"
+      },
+      "started_at": "2026-07-22T14:19:18",
+      "ended_at": "2026-07-22T14:19:22",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh601169"
+      },
+      "started_at": "2026-07-22T14:19:22",
+      "ended_at": "2026-07-22T14:19:26",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601169.SH"
+      },
+      "started_at": "2026-07-22T14:19:26",
+      "ended_at": "2026-07-22T14:19:30",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601187"
+      },
+      "started_at": "2026-07-22T14:19:30",
+      "ended_at": "2026-07-22T14:19:34",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh601187"
+      },
+      "started_at": "2026-07-22T14:19:34",
+      "ended_at": "2026-07-22T14:19:38",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601187.SH"
+      },
+      "started_at": "2026-07-22T14:19:38",
+      "ended_at": "2026-07-22T14:19:42",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601229"
+      },
+      "started_at": "2026-07-22T14:19:42",
+      "ended_at": "2026-07-22T14:19:46",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh601229"
+      },
+      "started_at": "2026-07-22T14:19:46",
+      "ended_at": "2026-07-22T14:19:50",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601229.SH"
+      },
+      "started_at": "2026-07-22T14:19:50",
+      "ended_at": "2026-07-22T14:19:55",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601288"
+      },
+      "started_at": "2026-07-22T14:19:55",
+      "ended_at": "2026-07-22T14:19:59",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh601288"
+      },
+      "started_at": "2026-07-22T14:19:59",
+      "ended_at": "2026-07-22T14:20:03",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601288.SH"
+      },
+      "started_at": "2026-07-22T14:20:03",
+      "ended_at": "2026-07-22T14:20:07",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601328"
+      },
+      "started_at": "2026-07-22T14:20:07",
+      "ended_at": "2026-07-22T14:20:11",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh601328"
+      },
+      "started_at": "2026-07-22T14:20:11",
+      "ended_at": "2026-07-22T14:20:15",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601328.SH"
+      },
+      "started_at": "2026-07-22T14:20:15",
+      "ended_at": "2026-07-22T14:20:19",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601398"
+      },
+      "started_at": "2026-07-22T14:20:19",
+      "ended_at": "2026-07-22T14:20:23",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh601398"
+      },
+      "started_at": "2026-07-22T14:20:23",
+      "ended_at": "2026-07-22T14:20:27",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601398.SH"
+      },
+      "started_at": "2026-07-22T14:20:27",
+      "ended_at": "2026-07-22T14:20:31",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601528"
+      },
+      "started_at": "2026-07-22T14:20:31",
+      "ended_at": "2026-07-22T14:20:35",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh601528"
+      },
+      "started_at": "2026-07-22T14:20:35",
+      "ended_at": "2026-07-22T14:20:39",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601528.SH"
+      },
+      "started_at": "2026-07-22T14:20:39",
+      "ended_at": "2026-07-22T14:20:43",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601577"
+      },
+      "started_at": "2026-07-22T14:20:43",
+      "ended_at": "2026-07-22T14:20:47",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh601577"
+      },
+      "started_at": "2026-07-22T14:20:47",
+      "ended_at": "2026-07-22T14:20:51",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601577.SH"
+      },
+      "started_at": "2026-07-22T14:20:51",
+      "ended_at": "2026-07-22T14:20:55",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601658"
+      },
+      "started_at": "2026-07-22T14:20:55",
+      "ended_at": "2026-07-22T14:20:59",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh601658"
+      },
+      "started_at": "2026-07-22T14:20:59",
+      "ended_at": "2026-07-22T14:21:03",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601658.SH"
+      },
+      "started_at": "2026-07-22T14:21:03",
+      "ended_at": "2026-07-22T14:21:07",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601665"
+      },
+      "started_at": "2026-07-22T14:21:07",
+      "ended_at": "2026-07-22T14:21:11",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh601665"
+      },
+      "started_at": "2026-07-22T14:21:11",
+      "ended_at": "2026-07-22T14:21:15",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601665.SH"
+      },
+      "started_at": "2026-07-22T14:21:15",
+      "ended_at": "2026-07-22T14:21:19",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601818"
+      },
+      "started_at": "2026-07-22T14:21:19",
+      "ended_at": "2026-07-22T14:21:23",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh601818"
+      },
+      "started_at": "2026-07-22T14:21:23",
+      "ended_at": "2026-07-22T14:21:27",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601818.SH"
+      },
+      "started_at": "2026-07-22T14:21:27",
+      "ended_at": "2026-07-22T14:21:31",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601825"
+      },
+      "started_at": "2026-07-22T14:21:31",
+      "ended_at": "2026-07-22T14:21:35",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh601825"
+      },
+      "started_at": "2026-07-22T14:21:35",
+      "ended_at": "2026-07-22T14:21:39",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601825.SH"
+      },
+      "started_at": "2026-07-22T14:21:39",
+      "ended_at": "2026-07-22T14:21:43",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601838"
+      },
+      "started_at": "2026-07-22T14:21:43",
+      "ended_at": "2026-07-22T14:21:47",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh601838"
+      },
+      "started_at": "2026-07-22T14:21:47",
+      "ended_at": "2026-07-22T14:21:51",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601838.SH"
+      },
+      "started_at": "2026-07-22T14:21:51",
+      "ended_at": "2026-07-22T14:21:55",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601860"
+      },
+      "started_at": "2026-07-22T14:21:55",
+      "ended_at": "2026-07-22T14:21:59",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh601860"
+      },
+      "started_at": "2026-07-22T14:21:59",
+      "ended_at": "2026-07-22T14:22:03",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601860.SH"
+      },
+      "started_at": "2026-07-22T14:22:03",
+      "ended_at": "2026-07-22T14:22:07",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601916"
+      },
+      "started_at": "2026-07-22T14:22:07",
+      "ended_at": "2026-07-22T14:22:11",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh601916"
+      },
+      "started_at": "2026-07-22T14:22:11",
+      "ended_at": "2026-07-22T14:22:15",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601916.SH"
+      },
+      "started_at": "2026-07-22T14:22:15",
+      "ended_at": "2026-07-22T14:22:19",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601939"
+      },
+      "started_at": "2026-07-22T14:22:19",
+      "ended_at": "2026-07-22T14:22:23",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh601939"
+      },
+      "started_at": "2026-07-22T14:22:23",
+      "ended_at": "2026-07-22T14:22:27",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601939.SH"
+      },
+      "started_at": "2026-07-22T14:22:27",
+      "ended_at": "2026-07-22T14:22:31",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601963"
+      },
+      "started_at": "2026-07-22T14:22:31",
+      "ended_at": "2026-07-22T14:22:35",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh601963"
+      },
+      "started_at": "2026-07-22T14:22:35",
+      "ended_at": "2026-07-22T14:22:39",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601963.SH"
+      },
+      "started_at": "2026-07-22T14:22:39",
+      "ended_at": "2026-07-22T14:22:43",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601988"
+      },
+      "started_at": "2026-07-22T14:22:43",
+      "ended_at": "2026-07-22T14:22:47",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh601988"
+      },
+      "started_at": "2026-07-22T14:22:47",
+      "ended_at": "2026-07-22T14:22:51",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601988.SH"
+      },
+      "started_at": "2026-07-22T14:22:51",
+      "ended_at": "2026-07-22T14:22:55",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601997"
+      },
+      "started_at": "2026-07-22T14:22:55",
+      "ended_at": "2026-07-22T14:22:59",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh601997"
+      },
+      "started_at": "2026-07-22T14:22:59",
+      "ended_at": "2026-07-22T14:23:03",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601997.SH"
+      },
+      "started_at": "2026-07-22T14:23:03",
+      "ended_at": "2026-07-22T14:23:07",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601998"
+      },
+      "started_at": "2026-07-22T14:23:07",
+      "ended_at": "2026-07-22T14:23:11",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh601998"
+      },
+      "started_at": "2026-07-22T14:23:11",
+      "ended_at": "2026-07-22T14:23:15",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601998.SH"
+      },
+      "started_at": "2026-07-22T14:23:15",
+      "ended_at": "2026-07-22T14:23:19",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "603323"
+      },
+      "started_at": "2026-07-22T14:23:19",
+      "ended_at": "2026-07-22T14:23:23",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "sh603323"
+      },
+      "started_at": "2026-07-22T14:23:23",
+      "ended_at": "2026-07-22T14:23:27",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "603323.SH"
+      },
+      "started_at": "2026-07-22T14:23:27",
+      "ended_at": "2026-07-22T14:23:31",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=4.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    }
+  ],
+  "failure_count": 1
+}

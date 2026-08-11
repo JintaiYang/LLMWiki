@@ -1,0 +1,1911 @@
+{
+  "run_id": "20260722T145410",
+  "started_at": "2026-07-22T14:54:10",
+  "ended_at": "2026-07-22T14:58:31",
+  "vault": "/Users/yangjintai/Documents/LLM wiki/银行",
+  "data_cutoff": "2026-07-22",
+  "report_date": "20251231",
+  "dry_run": false,
+  "python_version": "3.9.6",
+  "akshare_version": "1.16.99",
+  "akshare_import_error": null,
+  "steps": [
+    "spot",
+    "valuation"
+  ],
+  "capability_status": {
+    "bank_universe": "implemented",
+    "spot_and_market_cap": "implemented_with_fallback",
+    "earnings_report": "implemented",
+    "financial_abstract": "implemented",
+    "historical_valuation": "implemented_with_fallback",
+    "dividend": "implemented",
+    "a_h_comparison": "deferred_to_later_task",
+    "historical_market_data": "deferred_to_later_task"
+  },
+  "universe_files": [
+    "02_原始资料/04_AkShare数据/数据字典与运行记录/a_share_banks_universe.json",
+    "02_原始资料/04_AkShare数据/数据字典与运行记录/a_share_banks_universe.csv"
+  ],
+  "step_results": {
+    "spot": {
+      "status": "failed",
+      "records": 0,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/数据字典与运行记录/spot_failure_details_20260722T145410.json"
+      ],
+      "error": "spot 全部接口失败: attempt=1/1: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+    },
+    "valuation": {
+      "status": "success",
+      "records": 42,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/历史估值/bank_valuation_history_all_latest.csv",
+        "02_原始资料/04_AkShare数据/历史估值/000001_平安银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/001227_兰州银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/002142_宁波银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/002807_江阴银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/002839_张家港行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/002936_郑州银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/002948_青岛银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/002958_青农商行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/002966_苏州银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/600000_浦发银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/600015_华夏银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/600016_民生银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/600036_招商银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/600908_无锡银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/600919_江苏银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/600926_杭州银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/600928_西安银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/601009_南京银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/601077_渝农商行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/601128_常熟银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/601166_兴业银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/601169_北京银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/601187_厦门银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/601229_上海银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/601288_农业银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/601328_交通银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/601398_工商银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/601528_瑞丰银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/601577_长沙银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/601658_邮储银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/601665_齐鲁银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/601818_光大银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/601825_沪农商行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/601838_成都银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/601860_紫金银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/601916_浙商银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/601939_建设银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/601963_重庆银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/601988_中国银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/601997_贵阳银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/601998_中信银行_valuation_history.csv",
+        "02_原始资料/04_AkShare数据/历史估值/603323_苏农银行_valuation_history.csv"
+      ],
+      "error": null
+    }
+  },
+  "interface_runs": [
+    {
+      "step": "spot",
+      "interface": "stock_zh_a_spot_em",
+      "params": {},
+      "started_at": "2026-07-22T14:54:10",
+      "ended_at": "2026-07-22T14:54:10",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "spot",
+      "interface": "stock_individual_info_em",
+      "params": {
+        "symbol": "000001",
+        "timeout": 5.0
+      },
+      "started_at": "2026-07-22T14:54:10",
+      "ended_at": "2026-07-22T14:54:10",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "spot",
+      "interface": "stock_individual_info_em",
+      "params": {
+        "symbol": "001227",
+        "timeout": 5.0
+      },
+      "started_at": "2026-07-22T14:54:10",
+      "ended_at": "2026-07-22T14:54:10",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "spot",
+      "interface": "stock_individual_info_em",
+      "params": {
+        "symbol": "002142",
+        "timeout": 5.0
+      },
+      "started_at": "2026-07-22T14:54:10",
+      "ended_at": "2026-07-22T14:54:11",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "spot",
+      "interface": "stock_individual_info_em",
+      "params": {
+        "symbol": "002807",
+        "timeout": 5.0
+      },
+      "started_at": "2026-07-22T14:54:11",
+      "ended_at": "2026-07-22T14:54:11",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "spot",
+      "interface": "stock_individual_info_em",
+      "params": {
+        "symbol": "002839",
+        "timeout": 5.0
+      },
+      "started_at": "2026-07-22T14:54:11",
+      "ended_at": "2026-07-22T14:54:11",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "spot",
+      "interface": "stock_individual_info_em",
+      "params": {
+        "symbol": "002936",
+        "timeout": 5.0
+      },
+      "started_at": "2026-07-22T14:54:11",
+      "ended_at": "2026-07-22T14:54:11",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "spot",
+      "interface": "stock_individual_info_em",
+      "params": {
+        "symbol": "002948",
+        "timeout": 5.0
+      },
+      "started_at": "2026-07-22T14:54:11",
+      "ended_at": "2026-07-22T14:54:12",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "spot",
+      "interface": "stock_individual_info_em",
+      "params": {
+        "symbol": "002958",
+        "timeout": 5.0
+      },
+      "started_at": "2026-07-22T14:54:12",
+      "ended_at": "2026-07-22T14:54:12",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "spot",
+      "interface": "stock_individual_info_em",
+      "params": {
+        "symbol": "002966",
+        "timeout": 5.0
+      },
+      "started_at": "2026-07-22T14:54:12",
+      "ended_at": "2026-07-22T14:54:12",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "spot",
+      "interface": "stock_individual_info_em",
+      "params": {
+        "symbol": "600000",
+        "timeout": 5.0
+      },
+      "started_at": "2026-07-22T14:54:12",
+      "ended_at": "2026-07-22T14:54:12",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "spot",
+      "interface": "stock_individual_info_em",
+      "params": {
+        "symbol": "600015",
+        "timeout": 5.0
+      },
+      "started_at": "2026-07-22T14:54:12",
+      "ended_at": "2026-07-22T14:54:13",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "spot",
+      "interface": "stock_individual_info_em",
+      "params": {
+        "symbol": "600016",
+        "timeout": 5.0
+      },
+      "started_at": "2026-07-22T14:54:13",
+      "ended_at": "2026-07-22T14:54:13",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "spot",
+      "interface": "stock_individual_info_em",
+      "params": {
+        "symbol": "600036",
+        "timeout": 5.0
+      },
+      "started_at": "2026-07-22T14:54:13",
+      "ended_at": "2026-07-22T14:54:13",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "spot",
+      "interface": "stock_individual_info_em",
+      "params": {
+        "symbol": "600908",
+        "timeout": 5.0
+      },
+      "started_at": "2026-07-22T14:54:13",
+      "ended_at": "2026-07-22T14:54:13",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "spot",
+      "interface": "stock_individual_info_em",
+      "params": {
+        "symbol": "600919",
+        "timeout": 5.0
+      },
+      "started_at": "2026-07-22T14:54:13",
+      "ended_at": "2026-07-22T14:54:14",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "spot",
+      "interface": "stock_individual_info_em",
+      "params": {
+        "symbol": "600926",
+        "timeout": 5.0
+      },
+      "started_at": "2026-07-22T14:54:14",
+      "ended_at": "2026-07-22T14:54:14",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "spot",
+      "interface": "stock_individual_info_em",
+      "params": {
+        "symbol": "600928",
+        "timeout": 5.0
+      },
+      "started_at": "2026-07-22T14:54:14",
+      "ended_at": "2026-07-22T14:54:14",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "spot",
+      "interface": "stock_individual_info_em",
+      "params": {
+        "symbol": "601009",
+        "timeout": 5.0
+      },
+      "started_at": "2026-07-22T14:54:14",
+      "ended_at": "2026-07-22T14:54:14",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "spot",
+      "interface": "stock_individual_info_em",
+      "params": {
+        "symbol": "601077",
+        "timeout": 5.0
+      },
+      "started_at": "2026-07-22T14:54:14",
+      "ended_at": "2026-07-22T14:54:14",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "spot",
+      "interface": "stock_individual_info_em",
+      "params": {
+        "symbol": "601128",
+        "timeout": 5.0
+      },
+      "started_at": "2026-07-22T14:54:14",
+      "ended_at": "2026-07-22T14:54:15",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "spot",
+      "interface": "stock_individual_info_em",
+      "params": {
+        "symbol": "601166",
+        "timeout": 5.0
+      },
+      "started_at": "2026-07-22T14:54:15",
+      "ended_at": "2026-07-22T14:54:15",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "spot",
+      "interface": "stock_individual_info_em",
+      "params": {
+        "symbol": "601169",
+        "timeout": 5.0
+      },
+      "started_at": "2026-07-22T14:54:15",
+      "ended_at": "2026-07-22T14:54:15",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "spot",
+      "interface": "stock_individual_info_em",
+      "params": {
+        "symbol": "601187",
+        "timeout": 5.0
+      },
+      "started_at": "2026-07-22T14:54:15",
+      "ended_at": "2026-07-22T14:54:15",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "spot",
+      "interface": "stock_individual_info_em",
+      "params": {
+        "symbol": "601229",
+        "timeout": 5.0
+      },
+      "started_at": "2026-07-22T14:54:15",
+      "ended_at": "2026-07-22T14:54:16",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "spot",
+      "interface": "stock_individual_info_em",
+      "params": {
+        "symbol": "601288",
+        "timeout": 5.0
+      },
+      "started_at": "2026-07-22T14:54:16",
+      "ended_at": "2026-07-22T14:54:16",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "spot",
+      "interface": "stock_individual_info_em",
+      "params": {
+        "symbol": "601328",
+        "timeout": 5.0
+      },
+      "started_at": "2026-07-22T14:54:16",
+      "ended_at": "2026-07-22T14:54:16",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "spot",
+      "interface": "stock_individual_info_em",
+      "params": {
+        "symbol": "601398",
+        "timeout": 5.0
+      },
+      "started_at": "2026-07-22T14:54:16",
+      "ended_at": "2026-07-22T14:54:16",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "spot",
+      "interface": "stock_individual_info_em",
+      "params": {
+        "symbol": "601528",
+        "timeout": 5.0
+      },
+      "started_at": "2026-07-22T14:54:16",
+      "ended_at": "2026-07-22T14:54:17",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "spot",
+      "interface": "stock_individual_info_em",
+      "params": {
+        "symbol": "601577",
+        "timeout": 5.0
+      },
+      "started_at": "2026-07-22T14:54:17",
+      "ended_at": "2026-07-22T14:54:17",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "spot",
+      "interface": "stock_individual_info_em",
+      "params": {
+        "symbol": "601658",
+        "timeout": 5.0
+      },
+      "started_at": "2026-07-22T14:54:17",
+      "ended_at": "2026-07-22T14:54:17",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "spot",
+      "interface": "stock_individual_info_em",
+      "params": {
+        "symbol": "601665",
+        "timeout": 5.0
+      },
+      "started_at": "2026-07-22T14:54:17",
+      "ended_at": "2026-07-22T14:54:17",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "spot",
+      "interface": "stock_individual_info_em",
+      "params": {
+        "symbol": "601818",
+        "timeout": 5.0
+      },
+      "started_at": "2026-07-22T14:54:17",
+      "ended_at": "2026-07-22T14:54:18",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "spot",
+      "interface": "stock_individual_info_em",
+      "params": {
+        "symbol": "601825",
+        "timeout": 5.0
+      },
+      "started_at": "2026-07-22T14:54:18",
+      "ended_at": "2026-07-22T14:54:18",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "spot",
+      "interface": "stock_individual_info_em",
+      "params": {
+        "symbol": "601838",
+        "timeout": 5.0
+      },
+      "started_at": "2026-07-22T14:54:18",
+      "ended_at": "2026-07-22T14:54:18",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "spot",
+      "interface": "stock_individual_info_em",
+      "params": {
+        "symbol": "601860",
+        "timeout": 5.0
+      },
+      "started_at": "2026-07-22T14:54:18",
+      "ended_at": "2026-07-22T14:54:18",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "spot",
+      "interface": "stock_individual_info_em",
+      "params": {
+        "symbol": "601916",
+        "timeout": 5.0
+      },
+      "started_at": "2026-07-22T14:54:18",
+      "ended_at": "2026-07-22T14:54:18",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "spot",
+      "interface": "stock_individual_info_em",
+      "params": {
+        "symbol": "601939",
+        "timeout": 5.0
+      },
+      "started_at": "2026-07-22T14:54:18",
+      "ended_at": "2026-07-22T14:54:19",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "spot",
+      "interface": "stock_individual_info_em",
+      "params": {
+        "symbol": "601963",
+        "timeout": 5.0
+      },
+      "started_at": "2026-07-22T14:54:19",
+      "ended_at": "2026-07-22T14:54:19",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "spot",
+      "interface": "stock_individual_info_em",
+      "params": {
+        "symbol": "601988",
+        "timeout": 5.0
+      },
+      "started_at": "2026-07-22T14:54:19",
+      "ended_at": "2026-07-22T14:54:19",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "spot",
+      "interface": "stock_individual_info_em",
+      "params": {
+        "symbol": "601997",
+        "timeout": 5.0
+      },
+      "started_at": "2026-07-22T14:54:19",
+      "ended_at": "2026-07-22T14:54:20",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "spot",
+      "interface": "stock_individual_info_em",
+      "params": {
+        "symbol": "601998",
+        "timeout": 5.0
+      },
+      "started_at": "2026-07-22T14:54:20",
+      "ended_at": "2026-07-22T14:54:21",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "spot",
+      "interface": "stock_individual_info_em",
+      "params": {
+        "symbol": "603323",
+        "timeout": 5.0
+      },
+      "started_at": "2026-07-22T14:54:21",
+      "ended_at": "2026-07-22T14:54:21",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "000001"
+      },
+      "started_at": "2026-07-22T14:54:21",
+      "ended_at": "2026-07-22T14:54:26",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=5.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_value_em",
+      "params": {
+        "symbol": "000001"
+      },
+      "started_at": "2026-07-22T14:54:26",
+      "ended_at": "2026-07-22T14:54:26",
+      "status": "success",
+      "error": null,
+      "records": 2073,
+      "output_files": [],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "001227"
+      },
+      "started_at": "2026-07-22T14:54:27",
+      "ended_at": "2026-07-22T14:54:32",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=5.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_value_em",
+      "params": {
+        "symbol": "001227"
+      },
+      "started_at": "2026-07-22T14:54:32",
+      "ended_at": "2026-07-22T14:54:32",
+      "status": "success",
+      "error": null,
+      "records": 1091,
+      "output_files": [],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "002142"
+      },
+      "started_at": "2026-07-22T14:54:32",
+      "ended_at": "2026-07-22T14:54:37",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=5.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_value_em",
+      "params": {
+        "symbol": "002142"
+      },
+      "started_at": "2026-07-22T14:54:37",
+      "ended_at": "2026-07-22T14:54:38",
+      "status": "success",
+      "error": null,
+      "records": 2073,
+      "output_files": [],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "002807"
+      },
+      "started_at": "2026-07-22T14:54:38",
+      "ended_at": "2026-07-22T14:54:43",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=5.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_value_em",
+      "params": {
+        "symbol": "002807"
+      },
+      "started_at": "2026-07-22T14:54:43",
+      "ended_at": "2026-07-22T14:54:44",
+      "status": "success",
+      "error": null,
+      "records": 2073,
+      "output_files": [],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "002839"
+      },
+      "started_at": "2026-07-22T14:54:44",
+      "ended_at": "2026-07-22T14:54:49",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=5.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_value_em",
+      "params": {
+        "symbol": "002839"
+      },
+      "started_at": "2026-07-22T14:54:49",
+      "ended_at": "2026-07-22T14:54:50",
+      "status": "success",
+      "error": null,
+      "records": 2073,
+      "output_files": [],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "002936"
+      },
+      "started_at": "2026-07-22T14:54:50",
+      "ended_at": "2026-07-22T14:54:55",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=5.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_value_em",
+      "params": {
+        "symbol": "002936"
+      },
+      "started_at": "2026-07-22T14:54:55",
+      "ended_at": "2026-07-22T14:54:56",
+      "status": "success",
+      "error": null,
+      "records": 1897,
+      "output_files": [],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "002948"
+      },
+      "started_at": "2026-07-22T14:54:56",
+      "ended_at": "2026-07-22T14:55:01",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=5.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_value_em",
+      "params": {
+        "symbol": "002948"
+      },
+      "started_at": "2026-07-22T14:55:01",
+      "ended_at": "2026-07-22T14:55:01",
+      "status": "success",
+      "error": null,
+      "records": 1820,
+      "output_files": [],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "002958"
+      },
+      "started_at": "2026-07-22T14:55:02",
+      "ended_at": "2026-07-22T14:55:07",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=5.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_value_em",
+      "params": {
+        "symbol": "002958"
+      },
+      "started_at": "2026-07-22T14:55:07",
+      "ended_at": "2026-07-22T14:55:07",
+      "status": "success",
+      "error": null,
+      "records": 1776,
+      "output_files": [],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "002966"
+      },
+      "started_at": "2026-07-22T14:55:07",
+      "ended_at": "2026-07-22T14:55:12",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=5.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_value_em",
+      "params": {
+        "symbol": "002966"
+      },
+      "started_at": "2026-07-22T14:55:12",
+      "ended_at": "2026-07-22T14:55:13",
+      "status": "success",
+      "error": null,
+      "records": 1688,
+      "output_files": [],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "600000"
+      },
+      "started_at": "2026-07-22T14:55:13",
+      "ended_at": "2026-07-22T14:55:18",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=5.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_value_em",
+      "params": {
+        "symbol": "600000"
+      },
+      "started_at": "2026-07-22T14:55:18",
+      "ended_at": "2026-07-22T14:55:19",
+      "status": "success",
+      "error": null,
+      "records": 2073,
+      "output_files": [],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "600015"
+      },
+      "started_at": "2026-07-22T14:55:19",
+      "ended_at": "2026-07-22T14:55:24",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=5.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_value_em",
+      "params": {
+        "symbol": "600015"
+      },
+      "started_at": "2026-07-22T14:55:24",
+      "ended_at": "2026-07-22T14:55:25",
+      "status": "success",
+      "error": null,
+      "records": 2073,
+      "output_files": [],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "600016"
+      },
+      "started_at": "2026-07-22T14:55:26",
+      "ended_at": "2026-07-22T14:55:31",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=5.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_value_em",
+      "params": {
+        "symbol": "600016"
+      },
+      "started_at": "2026-07-22T14:55:31",
+      "ended_at": "2026-07-22T14:55:31",
+      "status": "success",
+      "error": null,
+      "records": 2073,
+      "output_files": [],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "600036"
+      },
+      "started_at": "2026-07-22T14:55:31",
+      "ended_at": "2026-07-22T14:55:36",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=5.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_value_em",
+      "params": {
+        "symbol": "600036"
+      },
+      "started_at": "2026-07-22T14:55:36",
+      "ended_at": "2026-07-22T14:55:37",
+      "status": "success",
+      "error": null,
+      "records": 2073,
+      "output_files": [],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "600908"
+      },
+      "started_at": "2026-07-22T14:55:37",
+      "ended_at": "2026-07-22T14:55:42",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=5.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_value_em",
+      "params": {
+        "symbol": "600908"
+      },
+      "started_at": "2026-07-22T14:55:42",
+      "ended_at": "2026-07-22T14:55:43",
+      "status": "success",
+      "error": null,
+      "records": 2073,
+      "output_files": [],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "600919"
+      },
+      "started_at": "2026-07-22T14:55:43",
+      "ended_at": "2026-07-22T14:55:48",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=5.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_value_em",
+      "params": {
+        "symbol": "600919"
+      },
+      "started_at": "2026-07-22T14:55:48",
+      "ended_at": "2026-07-22T14:55:49",
+      "status": "success",
+      "error": null,
+      "records": 2073,
+      "output_files": [],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "600926"
+      },
+      "started_at": "2026-07-22T14:55:49",
+      "ended_at": "2026-07-22T14:55:54",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=5.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_value_em",
+      "params": {
+        "symbol": "600926"
+      },
+      "started_at": "2026-07-22T14:55:54",
+      "ended_at": "2026-07-22T14:55:55",
+      "status": "success",
+      "error": null,
+      "records": 2073,
+      "output_files": [],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "600928"
+      },
+      "started_at": "2026-07-22T14:55:55",
+      "ended_at": "2026-07-22T14:56:00",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=5.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_value_em",
+      "params": {
+        "symbol": "600928"
+      },
+      "started_at": "2026-07-22T14:56:00",
+      "ended_at": "2026-07-22T14:56:01",
+      "status": "success",
+      "error": null,
+      "records": 1793,
+      "output_files": [],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601009"
+      },
+      "started_at": "2026-07-22T14:56:01",
+      "ended_at": "2026-07-22T14:56:06",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=5.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_value_em",
+      "params": {
+        "symbol": "601009"
+      },
+      "started_at": "2026-07-22T14:56:06",
+      "ended_at": "2026-07-22T14:56:07",
+      "status": "success",
+      "error": null,
+      "records": 2073,
+      "output_files": [],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601077"
+      },
+      "started_at": "2026-07-22T14:56:07",
+      "ended_at": "2026-07-22T14:56:12",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=5.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_value_em",
+      "params": {
+        "symbol": "601077"
+      },
+      "started_at": "2026-07-22T14:56:12",
+      "ended_at": "2026-07-22T14:56:13",
+      "status": "success",
+      "error": null,
+      "records": 1632,
+      "output_files": [],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601128"
+      },
+      "started_at": "2026-07-22T14:56:13",
+      "ended_at": "2026-07-22T14:56:18",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=5.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_value_em",
+      "params": {
+        "symbol": "601128"
+      },
+      "started_at": "2026-07-22T14:56:18",
+      "ended_at": "2026-07-22T14:56:19",
+      "status": "success",
+      "error": null,
+      "records": 2073,
+      "output_files": [],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601166"
+      },
+      "started_at": "2026-07-22T14:56:19",
+      "ended_at": "2026-07-22T14:56:24",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=5.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_value_em",
+      "params": {
+        "symbol": "601166"
+      },
+      "started_at": "2026-07-22T14:56:24",
+      "ended_at": "2026-07-22T14:56:25",
+      "status": "success",
+      "error": null,
+      "records": 2073,
+      "output_files": [],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601169"
+      },
+      "started_at": "2026-07-22T14:56:25",
+      "ended_at": "2026-07-22T14:56:30",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=5.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_value_em",
+      "params": {
+        "symbol": "601169"
+      },
+      "started_at": "2026-07-22T14:56:30",
+      "ended_at": "2026-07-22T14:56:31",
+      "status": "success",
+      "error": null,
+      "records": 2073,
+      "output_files": [],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601187"
+      },
+      "started_at": "2026-07-22T14:56:31",
+      "ended_at": "2026-07-22T14:56:36",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=5.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_value_em",
+      "params": {
+        "symbol": "601187"
+      },
+      "started_at": "2026-07-22T14:56:36",
+      "ended_at": "2026-07-22T14:56:37",
+      "status": "success",
+      "error": null,
+      "records": 1391,
+      "output_files": [],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601229"
+      },
+      "started_at": "2026-07-22T14:56:37",
+      "ended_at": "2026-07-22T14:56:42",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=5.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_value_em",
+      "params": {
+        "symbol": "601229"
+      },
+      "started_at": "2026-07-22T14:56:42",
+      "ended_at": "2026-07-22T14:56:43",
+      "status": "success",
+      "error": null,
+      "records": 2073,
+      "output_files": [],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601288"
+      },
+      "started_at": "2026-07-22T14:56:43",
+      "ended_at": "2026-07-22T14:56:48",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=5.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_value_em",
+      "params": {
+        "symbol": "601288"
+      },
+      "started_at": "2026-07-22T14:56:48",
+      "ended_at": "2026-07-22T14:56:49",
+      "status": "success",
+      "error": null,
+      "records": 2073,
+      "output_files": [],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601328"
+      },
+      "started_at": "2026-07-22T14:56:49",
+      "ended_at": "2026-07-22T14:56:54",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=5.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_value_em",
+      "params": {
+        "symbol": "601328"
+      },
+      "started_at": "2026-07-22T14:56:54",
+      "ended_at": "2026-07-22T14:56:55",
+      "status": "success",
+      "error": null,
+      "records": 2073,
+      "output_files": [],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601398"
+      },
+      "started_at": "2026-07-22T14:56:55",
+      "ended_at": "2026-07-22T14:57:00",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=5.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_value_em",
+      "params": {
+        "symbol": "601398"
+      },
+      "started_at": "2026-07-22T14:57:00",
+      "ended_at": "2026-07-22T14:57:02",
+      "status": "success",
+      "error": null,
+      "records": 2073,
+      "output_files": [],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601528"
+      },
+      "started_at": "2026-07-22T14:57:02",
+      "ended_at": "2026-07-22T14:57:07",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=5.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_value_em",
+      "params": {
+        "symbol": "601528"
+      },
+      "started_at": "2026-07-22T14:57:07",
+      "ended_at": "2026-07-22T14:57:07",
+      "status": "success",
+      "error": null,
+      "records": 1229,
+      "output_files": [],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601577"
+      },
+      "started_at": "2026-07-22T14:57:07",
+      "ended_at": "2026-07-22T14:57:12",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=5.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_value_em",
+      "params": {
+        "symbol": "601577"
+      },
+      "started_at": "2026-07-22T14:57:12",
+      "ended_at": "2026-07-22T14:57:13",
+      "status": "success",
+      "error": null,
+      "records": 1893,
+      "output_files": [],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601658"
+      },
+      "started_at": "2026-07-22T14:57:13",
+      "ended_at": "2026-07-22T14:57:18",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=5.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_value_em",
+      "params": {
+        "symbol": "601658"
+      },
+      "started_at": "2026-07-22T14:57:18",
+      "ended_at": "2026-07-22T14:57:19",
+      "status": "success",
+      "error": null,
+      "records": 1602,
+      "output_files": [],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601665"
+      },
+      "started_at": "2026-07-22T14:57:19",
+      "ended_at": "2026-07-22T14:57:24",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=5.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_value_em",
+      "params": {
+        "symbol": "601665"
+      },
+      "started_at": "2026-07-22T14:57:24",
+      "ended_at": "2026-07-22T14:57:25",
+      "status": "success",
+      "error": null,
+      "records": 1234,
+      "output_files": [],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601818"
+      },
+      "started_at": "2026-07-22T14:57:25",
+      "ended_at": "2026-07-22T14:57:30",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=5.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_value_em",
+      "params": {
+        "symbol": "601818"
+      },
+      "started_at": "2026-07-22T14:57:30",
+      "ended_at": "2026-07-22T14:57:31",
+      "status": "success",
+      "error": null,
+      "records": 2073,
+      "output_files": [],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601825"
+      },
+      "started_at": "2026-07-22T14:57:31",
+      "ended_at": "2026-07-22T14:57:36",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=5.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_value_em",
+      "params": {
+        "symbol": "601825"
+      },
+      "started_at": "2026-07-22T14:57:36",
+      "ended_at": "2026-07-22T14:57:37",
+      "status": "success",
+      "error": null,
+      "records": 1190,
+      "output_files": [],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601838"
+      },
+      "started_at": "2026-07-22T14:57:37",
+      "ended_at": "2026-07-22T14:57:42",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=5.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_value_em",
+      "params": {
+        "symbol": "601838"
+      },
+      "started_at": "2026-07-22T14:57:42",
+      "ended_at": "2026-07-22T14:57:43",
+      "status": "success",
+      "error": null,
+      "records": 2052,
+      "output_files": [],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601860"
+      },
+      "started_at": "2026-07-22T14:57:43",
+      "ended_at": "2026-07-22T14:57:48",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=5.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_value_em",
+      "params": {
+        "symbol": "601860"
+      },
+      "started_at": "2026-07-22T14:57:48",
+      "ended_at": "2026-07-22T14:57:49",
+      "status": "success",
+      "error": null,
+      "records": 1829,
+      "output_files": [],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601916"
+      },
+      "started_at": "2026-07-22T14:57:49",
+      "ended_at": "2026-07-22T14:57:54",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=5.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_value_em",
+      "params": {
+        "symbol": "601916"
+      },
+      "started_at": "2026-07-22T14:57:54",
+      "ended_at": "2026-07-22T14:57:55",
+      "status": "success",
+      "error": null,
+      "records": 1612,
+      "output_files": [],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601939"
+      },
+      "started_at": "2026-07-22T14:57:55",
+      "ended_at": "2026-07-22T14:58:00",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=5.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_value_em",
+      "params": {
+        "symbol": "601939"
+      },
+      "started_at": "2026-07-22T14:58:00",
+      "ended_at": "2026-07-22T14:58:01",
+      "status": "success",
+      "error": null,
+      "records": 2073,
+      "output_files": [],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601963"
+      },
+      "started_at": "2026-07-22T14:58:01",
+      "ended_at": "2026-07-22T14:58:06",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=5.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_value_em",
+      "params": {
+        "symbol": "601963"
+      },
+      "started_at": "2026-07-22T14:58:06",
+      "ended_at": "2026-07-22T14:58:07",
+      "status": "success",
+      "error": null,
+      "records": 1319,
+      "output_files": [],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601988"
+      },
+      "started_at": "2026-07-22T14:58:07",
+      "ended_at": "2026-07-22T14:58:12",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=5.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_value_em",
+      "params": {
+        "symbol": "601988"
+      },
+      "started_at": "2026-07-22T14:58:12",
+      "ended_at": "2026-07-22T14:58:13",
+      "status": "success",
+      "error": null,
+      "records": 2073,
+      "output_files": [],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601997"
+      },
+      "started_at": "2026-07-22T14:58:13",
+      "ended_at": "2026-07-22T14:58:18",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=5.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_value_em",
+      "params": {
+        "symbol": "601997"
+      },
+      "started_at": "2026-07-22T14:58:18",
+      "ended_at": "2026-07-22T14:58:19",
+      "status": "success",
+      "error": null,
+      "records": 2073,
+      "output_files": [],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "601998"
+      },
+      "started_at": "2026-07-22T14:58:19",
+      "ended_at": "2026-07-22T14:58:24",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=5.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_value_em",
+      "params": {
+        "symbol": "601998"
+      },
+      "started_at": "2026-07-22T14:58:24",
+      "ended_at": "2026-07-22T14:58:25",
+      "status": "success",
+      "error": null,
+      "records": 2073,
+      "output_files": [],
+      "last_success_date": "2026-07-22"
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_a_indicator_lg",
+      "params": {
+        "symbol": "603323"
+      },
+      "started_at": "2026-07-22T14:58:25",
+      "ended_at": "2026-07-22T14:58:30",
+      "status": "failed",
+      "error": "attempt=1/1: ('Connection aborted.', TimeoutError('stock_a_indicator_lg exceeded timeout=5.0s'))",
+      "records": 0,
+      "output_files": [],
+      "last_success_date": null
+    },
+    {
+      "step": "valuation",
+      "interface": "stock_value_em",
+      "params": {
+        "symbol": "603323"
+      },
+      "started_at": "2026-07-22T14:58:30",
+      "ended_at": "2026-07-22T14:58:31",
+      "status": "success",
+      "error": null,
+      "records": 2073,
+      "output_files": [],
+      "last_success_date": "2026-07-22"
+    }
+  ],
+  "failure_count": 1
+}

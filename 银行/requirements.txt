@@ -1,0 +1,5 @@
+# Python 3.9.x（当前验证环境：3.9.6；AkShare 1.18.x 要求更高版本 Python）
+akshare==1.16.99
+pandas==2.3.3
+numpy==2.0.2
+requests==2.32.5
