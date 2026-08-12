@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>银行研究标的对比仪表盘</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div id="app">
+
+  <header class="app-header">
+    <div class="header-title">
+      <h1>银行研究标的对比仪表盘</h1>
+      <p class="subtitle">对比18家重点覆盖银行的核心指标，快速跳转到知识库对应页面</p>
+    </div>
+    <div class="header-meta">
+      <span id="generated-at">数据生成时间：加载中…</span>
+      <span id="bank-count"></span>
+    </div>
+  </header>
+
+  <div id="load-error" class="load-error hidden">
+    <p><strong>数据加载失败。</strong>浏览器直接双击打开 HTML 文件时，本地 <code>fetch</code> 可能被跨域策略拦截。</p>
+    <p>请在终端进入 <code>dashboard/</code> 目录后运行：</p>
+    <pre>python3 -m http.server 8000</pre>
+    <p>然后在浏览器访问 <code>http://localhost:8000</code>。</p>
+  </div>
+
+  <main id="main-content" class="hidden">
+
+    <section class="toolbar">
+      <div class="toolbar-group view-switch">
+        <button class="view-btn active" data-view="table">表格视图</button>
+        <button class="view-btn" data-view="card">卡片视图</button>
+      </div>
+
+      <div class="toolbar-group filter-group">
+        <span class="filter-label">银行类型：</span>
+        <div id="type-filters" class="filter-chips"></div>
+      </div>
+
+      <div class="toolbar-group filter-group">
+        <span class="filter-label">命题状态：</span>
+        <div id="status-filters" class="filter-chips"></div>
+      </div>
+
+      <div class="toolbar-group">
+        <button id="reset-filters" class="reset-btn">重置筛选</button>
+      </div>
+    </section>
+
+    <section id="table-view" class="view-panel">
+      <div class="table-scroll">
+        <table id="bank-table">
+          <thead>
+            <tr class="group-row">
+              <th rowspan="2" class="col-name" data-sort="name">银行</th>
+              <th rowspan="2" class="col-type">类型</th>
+              <th colspan="5" class="group-header group-profit">盈利能力</th>
+              <th colspan="3" class="group-header group-quality">资产质量与资本</th>
+              <th colspan="3" class="group-header group-valuation">估值</th>
+              <th colspan="2" class="group-header group-status">研究状态</th>
+            </tr>
+            <tr class="metric-row">
+              <th data-sort="revenue">营业收入</th>
+              <th data-sort="net_profit">归母净利润</th>
+              <th data-sort="eps">EPS</th>
+              <th data-sort="bvps">每股净资产</th>
+              <th data-sort="roe">ROE</th>
+              <th data-sort="nim">NIM</th>
+              <th data-sort="npl_ratio">不良率</th>
+              <th data-sort="provision_coverage">拨备覆盖率</th>
+              <th data-sort="pb">PB</th>
+              <th data-sort="pe">PE</th>
+              <th data-sort="dividend_yield">股息率</th>
+              <th data-sort="thesis_status">命题状态</th>
+              <th data-sort="updated">更新日期</th>
+            </tr>
+          </thead>
+          <tbody id="table-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="card-view" class="view-panel hidden">
+      <div id="card-grid" class="card-grid"></div>
+    </section>
+
+  </main>
+
+  <aside id="detail-panel" class="detail-panel hidden">
+    <div class="detail-panel-inner">
+      <button id="detail-close" class="detail-close" aria-label="关闭">&times;</button>
+      <h2 id="detail-title">银行名称</h2>
+      <div id="detail-meta" class="detail-meta"></div>
+      <div id="detail-body" class="detail-body"></div>
+      <div class="detail-actions">
+        <a id="detail-obsidian-link" class="obsidian-btn" href="#" target="_blank">在 Obsidian 中打开</a>
+        <a id="detail-stock-link" class="obsidian-btn stock-btn" href="#">查看历史数据分析 &rarr;</a>
+      </div>
+    </div>
+  </aside>
+  <div id="detail-overlay" class="detail-overlay hidden"></div>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

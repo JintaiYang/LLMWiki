@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>个股数据分析对比</title>
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="stock.css" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+</head>
+<body>
+<div id="app" class="stock-app">
+
+  <header class="app-header">
+    <div class="header-title">
+      <div class="breadcrumb">
+        <a href="index.html">&larr; 返回对比仪表盘</a>
+      </div>
+      <h1 id="page-title">个股数据分析对比</h1>
+      <p class="subtitle">季度/年度财务时间序列，含同比、环比与估值走势，可选择第二只银行进行对比</p>
+    </div>
+    <div class="header-meta">
+      <span id="generated-at">数据生成时间：加载中…</span>
+    </div>
+  </header>
+
+  <div id="load-error" class="load-error hidden">
+    <p><strong>数据加载失败。</strong>浏览器直接双击打开 HTML 文件时，本地 <code>fetch</code> 可能被跨域策略拦截。</p>
+    <p>请在终端进入 <code>dashboard/</code> 目录后运行：</p>
+    <pre>python3 -m http.server 8000</pre>
+    <p>然后在浏览器访问 <code>http://localhost:8000/stock.html</code>。</p>
+  </div>
+
+  <main id="main-content" class="hidden">
+
+    <section class="control-bar">
+      <div class="control-group">
+        <label for="primary-select">主标的</label>
+        <select id="primary-select"></select>
+        <span class="legend-dot legend-primary"></span>
+      </div>
+
+      <div class="control-group">
+        <label for="compare-select">对比标的</label>
+        <select id="compare-select">
+          <option value="">无对比</option>
+        </select>
+        <span class="legend-dot legend-compare"></span>
+      </div>
+
+      <div class="control-group">
+        <label for="granularity-select">报告期粒度</label>
+        <select id="granularity-select">
+          <option value="quarter">季度</option>
+          <option value="year">年度（年报）</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+        <label for="range-select">时间范围</label>
+        <select id="range-select">
+          <option value="20">近20期</option>
+          <option value="40">近40期</option>
+          <option value="all">全部历史</option>
+        </select>
+      </div>
+    </section>
+
+    <nav class="group-nav" id="group-nav">
+      <a href="#group-profit" class="group-nav-item active" data-group="group-profit">盈利能力</a>
+      <a href="#group-balance" class="group-nav-item" data-group="group-balance">规模与资产负债</a>
+      <a href="#group-pershare" class="group-nav-item" data-group="group-pershare">每股指标</a>
+      <a href="#group-valuation" class="group-nav-item" data-group="group-valuation">估值与市场表现</a>
+    </nav>
+
+    <!-- 盈利能力 -->
+    <section id="group-profit" class="metric-group">
+      <h2 class="group-heading">盈利能力</h2>
+      <div class="chart-row">
+        <div class="chart-card">
+          <h3>营业总收入（单季度，亿元）与同比</h3>
+          <canvas id="chart-revenue"></canvas>
+        </div>
+        <div class="chart-card">
+          <h3>归母净利润（单季度，亿元）与同比</h3>
+          <canvas id="chart-net-profit"></canvas>
+        </div>
+        <div class="chart-card">
+          <h3>ROE（加权，%）</h3>
+          <canvas id="chart-roe"></canvas>
+        </div>
+      </div>
+      <div class="table-scroll">
+        <table class="metric-table" id="table-profit"></table>
+      </div>
+    </section>
+
+    <!-- 规模与资产负债 -->
+    <section id="group-balance" class="metric-group">
+      <h2 class="group-heading">规模与资产负债</h2>
+      <div class="chart-row">
+        <div class="chart-card">
+          <h3>总资产（亿元）与同比</h3>
+          <canvas id="chart-total-assets"></canvas>
+        </div>
+        <div class="chart-card">
+          <h3>贷款 / 存款（亿元）</h3>
+          <canvas id="chart-loans-deposits"></canvas>
+        </div>
+        <div class="chart-card">
+          <h3>归母净资产（亿元）与同比</h3>
+          <canvas id="chart-net-assets"></canvas>
+        </div>
+      </div>
+      <div class="table-scroll">
+        <table class="metric-table" id="table-balance"></table>
+      </div>
+    </section>
+
+    <!-- 每股指标 -->
+    <section id="group-pershare" class="metric-group">
+      <h2 class="group-heading">每股指标</h2>
+      <div class="chart-row">
+        <div class="chart-card">
+          <h3>基本每股收益 EPS（元）</h3>
+          <canvas id="chart-eps"></canvas>
+        </div>
+        <div class="chart-card">
+          <h3>每股净资产 BVPS（元）</h3>
+          <canvas id="chart-bvps"></canvas>
+        </div>
+        <div class="chart-card">
+          <h3>每股经营现金流（元）</h3>
+          <canvas id="chart-ocfps"></canvas>
+        </div>
+      </div>
+      <div class="table-scroll">
+        <table class="metric-table" id="table-pershare"></table>
+      </div>
+    </section>
+
+    <!-- 估值与市场表现 -->
+    <section id="group-valuation" class="metric-group">
+      <h2 class="group-heading">估值与市场表现</h2>
+      <div class="chart-row">
+        <div class="chart-card">
+          <h3>收盘价（元，报告期末快照）</h3>
+          <canvas id="chart-close"></canvas>
+        </div>
+        <div class="chart-card">
+          <h3>PE(TTM) / PB</h3>
+          <canvas id="chart-pe-pb"></canvas>
+        </div>
+        <div class="chart-card">
+          <h3>总市值（亿元）</h3>
+          <canvas id="chart-market-cap"></canvas>
+        </div>
+      </div>
+      <div class="table-scroll">
+        <table class="metric-table" id="table-valuation"></table>
+      </div>
+    </section>
+
+  </main>
+
+</div>
+
+<script src="stock.js"></script>
+</body>
+</html>

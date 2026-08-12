@@ -72,7 +72,20 @@ A_SHARE_BANKS: List[Dict[str, Any]] = [
     {"code": "603323", "name": "苏农银行", "market": "SH", "focus18": False},
 ]
 
-STEP_CHOICES = ["spot", "yjbb", "abstract", "valuation", "dividend"]
+STEP_CHOICES = ["spot", "yjbb", "abstract", "valuation", "dividend", "balance_sheet"]
+
+# 银行专属资产负债表（东方财富 stock_balance_sheet_by_report_em）中，
+# 可直接映射为"核心财务摘要"字段、且不需要额外估算的科目。
+# 注意：不良率/拨备覆盖率/拨贷比/NIM/核心一级资本充足率等监管指标不在
+# 三大报表科目范围内（属于银行年报"经营情况讨论与分析"专项披露），
+# AkShare 财务报表接口无法提供，因此不在此列。
+BALANCE_SHEET_FIELD_MAP: Dict[str, str] = {
+    "TOTAL_ASSETS": "总资产",
+    "LOAN_ADVANCE": "发放贷款及垫款",
+    "ACCEPT_DEPOSIT": "吸收存款",
+    "TOTAL_PARENT_EQUITY": "归母净资产",
+    "TOTAL_EQUITY": "股东权益合计",
+}
 SIGNAL_TIMEOUT_AVAILABLE = all(
     hasattr(signal, name) for name in ("SIGALRM", "ITIMER_REAL", "setitimer")
 )
@@ -86,6 +99,7 @@ def capability_status() -> Dict[str, str]:
         "financial_abstract": "implemented",
         "historical_valuation": "implemented_with_fallback",
         "dividend": "implemented",
+        "balance_sheet": "implemented",
         "a_h_comparison": "deferred_to_later_task",
         "historical_market_data": "deferred_to_later_task",
     }
@@ -188,6 +202,7 @@ class BankDataFetcher:
         self.dir_abstract = self.akshare_base / "财务摘要"
         self.dir_valuation = self.akshare_base / "历史估值"
         self.dir_dividend = self.akshare_base / "分红"
+        self.dir_balance_sheet = self.akshare_base / "资产负债表"
         self.dir_meta = self.akshare_base / "数据字典与运行记录"
 
         self.run_id = datetime_tag()
@@ -694,6 +709,77 @@ class BankDataFetcher:
         self.interface_runs[-1]["output_files"] = files
         return FetchResult(status="success", records=len(bank_df), output_files=files)
 
+    def _fetch_balance_sheet(self) -> FetchResult:
+        """采集18/42家银行的资产负债表（按报告期），仅用于回填总资产/贷款/存款/
+        归母净资产等可直接从报表科目取得的字段。不良率/拨备覆盖率/NIM/CET1 等
+        监管指标不在三大报表范围内，AkShare 无法提供，需人工从年报补入。"""
+        merged: List[pd.DataFrame] = []
+        output_files: List[str] = []
+        failures: List[Dict[str, Any]] = []
+
+        keep_cols = ["SECURITY_CODE", "SECURITY_NAME_ABBR", "REPORT_DATE", "REPORT_TYPE"] + list(
+            BALANCE_SHEET_FIELD_MAP.keys()
+        )
+
+        for bank in A_SHARE_BANKS:
+            symbol = f"{bank['market']}{bank['code']}"
+            df, err = self._call_interface(
+                step="balance_sheet",
+                interface="stock_balance_sheet_by_report_em",
+                func=ak.stock_balance_sheet_by_report_em if ak else (lambda **_: None),
+                params={"symbol": symbol},
+            )
+            if err:
+                failures.append({"code": bank["code"], "name": bank["name"], "error": err})
+                continue
+            if df is None:
+                continue
+            if df.empty:
+                failures.append({"code": bank["code"], "name": bank["name"], "error": "empty result"})
+                continue
+
+            available_cols = [c for c in keep_cols if c in df.columns]
+            out = df[available_cols].copy()
+            out = out.sort_values("REPORT_DATE", ascending=False).reset_index(drop=True)
+            out.insert(0, "银行代码", bank["code"])
+            out.insert(1, "银行名称", bank["name"])
+            out = out.rename(columns=BALANCE_SHEET_FIELD_MAP)
+            merged.append(out)
+
+            file_bank = self.dir_balance_sheet / f"{bank['code']}_{bank['name']}_balance_sheet.csv"
+            write_csv(file_bank, out)
+            output_files.append(file_bank.relative_to(self.vault).as_posix())
+
+            if self.interface_runs:
+                self.interface_runs[-1]["output_files"] = [file_bank.relative_to(self.vault).as_posix()]
+
+        if self.dry_run:
+            return FetchResult(status="dry_run", records=0, output_files=[])
+
+        coverage = {
+            "expected": len(A_SHARE_BANKS),
+            "succeeded": len(merged),
+            "failed": len(failures),
+            "coverage_ratio": round(len(merged) / len(A_SHARE_BANKS), 4),
+        }
+        if failures:
+            output_files.append(self._write_failure_details("balance_sheet", failures, coverage))
+        if merged:
+            merged_df = pd.concat(merged, ignore_index=True)
+            file_all = self.dir_balance_sheet / "bank_balance_sheet_all_latest.csv"
+            write_csv(file_all, merged_df)
+            output_files.insert(0, file_all.relative_to(self.vault).as_posix())
+
+        if not merged:
+            return FetchResult(status="failed", records=0, output_files=output_files, error="balance_sheet 全部接口失败")
+        status = "success" if len(merged) == len(A_SHARE_BANKS) else "partial"
+        return FetchResult(
+            status=status,
+            records=len(merged),
+            output_files=output_files,
+            error=None if status == "success" else f"部分覆盖 {len(merged)}/{len(A_SHARE_BANKS)}",
+        )
+
     def run(self) -> Tuple[int, Dict[str, Any]]:
         started_at = now_iso()
         universe_files = self._write_universe()
@@ -707,6 +793,7 @@ class BankDataFetcher:
             "abstract": self._fetch_financial_abstract,
             "valuation": self._fetch_valuation,
             "dividend": self._fetch_dividend,
+            "balance_sheet": self._fetch_balance_sheet,
         }
 
         for step in self.steps:
@@ -772,7 +859,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--steps",
         default="all",
-        help="Comma-separated steps: spot,yjbb,abstract,valuation,dividend or all",
+        help="Comma-separated steps: spot,yjbb,abstract,valuation,dividend,balance_sheet or all",
     )
     parser.add_argument(
         "--report-date",

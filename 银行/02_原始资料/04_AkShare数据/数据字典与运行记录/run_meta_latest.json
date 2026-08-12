@@ -1,6 +1,6 @@
 {
   "status_index_version": 1,
-  "updated_at": "2026-07-22T15:15:16",
+  "updated_at": "2026-08-12T01:02:10",
   "steps": {
     "valuation": {
       "status": "success",
@@ -137,6 +137,58 @@
       "error": null,
       "run_id": "20260722T141528",
       "updated_at": "2026-07-22T15:14:55"
+    },
+    "balance_sheet": {
+      "status": "success",
+      "records": 42,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/资产负债表/bank_balance_sheet_all_latest.csv",
+        "02_原始资料/04_AkShare数据/资产负债表/000001_平安银行_balance_sheet.csv",
+        "02_原始资料/04_AkShare数据/资产负债表/001227_兰州银行_balance_sheet.csv",
+        "02_原始资料/04_AkShare数据/资产负债表/002142_宁波银行_balance_sheet.csv",
+        "02_原始资料/04_AkShare数据/资产负债表/002807_江阴银行_balance_sheet.csv",
+        "02_原始资料/04_AkShare数据/资产负债表/002839_张家港行_balance_sheet.csv",
+        "02_原始资料/04_AkShare数据/资产负债表/002936_郑州银行_balance_sheet.csv",
+        "02_原始资料/04_AkShare数据/资产负债表/002948_青岛银行_balance_sheet.csv",
+        "02_原始资料/04_AkShare数据/资产负债表/002958_青农商行_balance_sheet.csv",
+        "02_原始资料/04_AkShare数据/资产负债表/002966_苏州银行_balance_sheet.csv",
+        "02_原始资料/04_AkShare数据/资产负债表/600000_浦发银行_balance_sheet.csv",
+        "02_原始资料/04_AkShare数据/资产负债表/600015_华夏银行_balance_sheet.csv",
+        "02_原始资料/04_AkShare数据/资产负债表/600016_民生银行_balance_sheet.csv",
+        "02_原始资料/04_AkShare数据/资产负债表/600036_招商银行_balance_sheet.csv",
+        "02_原始资料/04_AkShare数据/资产负债表/600908_无锡银行_balance_sheet.csv",
+        "02_原始资料/04_AkShare数据/资产负债表/600919_江苏银行_balance_sheet.csv",
+        "02_原始资料/04_AkShare数据/资产负债表/600926_杭州银行_balance_sheet.csv",
+        "02_原始资料/04_AkShare数据/资产负债表/600928_西安银行_balance_sheet.csv",
+        "02_原始资料/04_AkShare数据/资产负债表/601009_南京银行_balance_sheet.csv",
+        "02_原始资料/04_AkShare数据/资产负债表/601077_渝农商行_balance_sheet.csv",
+        "02_原始资料/04_AkShare数据/资产负债表/601128_常熟银行_balance_sheet.csv",
+        "02_原始资料/04_AkShare数据/资产负债表/601166_兴业银行_balance_sheet.csv",
+        "02_原始资料/04_AkShare数据/资产负债表/601169_北京银行_balance_sheet.csv",
+        "02_原始资料/04_AkShare数据/资产负债表/601187_厦门银行_balance_sheet.csv",
+        "02_原始资料/04_AkShare数据/资产负债表/601229_上海银行_balance_sheet.csv",
+        "02_原始资料/04_AkShare数据/资产负债表/601288_农业银行_balance_sheet.csv",
+        "02_原始资料/04_AkShare数据/资产负债表/601328_交通银行_balance_sheet.csv",
+        "02_原始资料/04_AkShare数据/资产负债表/601398_工商银行_balance_sheet.csv",
+        "02_原始资料/04_AkShare数据/资产负债表/601528_瑞丰银行_balance_sheet.csv",
+        "02_原始资料/04_AkShare数据/资产负债表/601577_长沙银行_balance_sheet.csv",
+        "02_原始资料/04_AkShare数据/资产负债表/601658_邮储银行_balance_sheet.csv",
+        "02_原始资料/04_AkShare数据/资产负债表/601665_齐鲁银行_balance_sheet.csv",
+        "02_原始资料/04_AkShare数据/资产负债表/601818_光大银行_balance_sheet.csv",
+        "02_原始资料/04_AkShare数据/资产负债表/601825_沪农商行_balance_sheet.csv",
+        "02_原始资料/04_AkShare数据/资产负债表/601838_成都银行_balance_sheet.csv",
+        "02_原始资料/04_AkShare数据/资产负债表/601860_紫金银行_balance_sheet.csv",
+        "02_原始资料/04_AkShare数据/资产负债表/601916_浙商银行_balance_sheet.csv",
+        "02_原始资料/04_AkShare数据/资产负债表/601939_建设银行_balance_sheet.csv",
+        "02_原始资料/04_AkShare数据/资产负债表/601963_重庆银行_balance_sheet.csv",
+        "02_原始资料/04_AkShare数据/资产负债表/601988_中国银行_balance_sheet.csv",
+        "02_原始资料/04_AkShare数据/资产负债表/601997_贵阳银行_balance_sheet.csv",
+        "02_原始资料/04_AkShare数据/资产负债表/601998_中信银行_balance_sheet.csv",
+        "02_原始资料/04_AkShare数据/资产负债表/603323_苏农银行_balance_sheet.csv"
+      ],
+      "error": null,
+      "run_id": "20260812T005917",
+      "updated_at": "2026-08-12T01:02:10"
     }
   },
   "interfaces": {
@@ -252,6 +304,23 @@
       "output_files": [],
       "last_success_date": "2026-07-22",
       "run_id": "20260722T145410"
+    },
+    "stock_balance_sheet_by_report_em": {
+      "step": "balance_sheet",
+      "interface": "stock_balance_sheet_by_report_em",
+      "params": {
+        "symbol": "SH603323"
+      },
+      "started_at": "2026-08-12T01:02:07",
+      "ended_at": "2026-08-12T01:02:09",
+      "status": "success",
+      "error": null,
+      "records": 52,
+      "output_files": [
+        "02_原始资料/04_AkShare数据/资产负债表/603323_苏农银行_balance_sheet.csv"
+      ],
+      "last_success_date": "2026-08-12",
+      "run_id": "20260812T005917"
     }
   },
   "capability_status": {
@@ -261,6 +330,7 @@
     "financial_abstract": "implemented",
     "historical_valuation": "implemented_with_fallback",
     "dividend": "implemented",
+    "balance_sheet": "implemented",
     "a_h_comparison": "deferred_to_later_task",
     "historical_market_data": "deferred_to_later_task"
   }

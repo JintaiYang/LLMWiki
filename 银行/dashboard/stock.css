@@ -1,0 +1,254 @@
+/* 个股数据分析对比页面样式，复用 style.css 中定义的 :root 配色变量 */
+
+:root {
+  --stock-primary: #2f6fed;
+  --stock-primary-bg: #e9f0fe;
+  --stock-compare: #d1453b;
+  --stock-compare-bg: #fbe9e8;
+  --stock-up: #d1453b;
+  --stock-down: #1a9e5c;
+}
+
+.stock-app #app,
+.stock-app {
+  max-width: 1400px;
+}
+
+.breadcrumb {
+  margin-bottom: 6px;
+}
+
+.breadcrumb a {
+  color: var(--color-text-muted, #6b7280);
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  color: var(--color-primary, #2f6fed);
+  text-decoration: underline;
+}
+
+/* 控制栏 */
+.control-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  background: var(--color-surface, #fff);
+  border: 1px solid var(--color-border, #e2e5ea);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin-bottom: 18px;
+}
+
+.control-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.control-group label {
+  font-size: 12px;
+  color: var(--color-text-muted, #6b7280);
+  white-space: nowrap;
+}
+
+.control-group select {
+  border: 1px solid var(--color-border, #e2e5ea);
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 13px;
+  background: #fff;
+  color: var(--color-text, #1f2430);
+  min-width: 140px;
+}
+
+.legend-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-left: 2px;
+}
+
+.legend-primary {
+  background: var(--stock-primary);
+}
+
+.legend-compare {
+  background: var(--stock-compare);
+}
+
+/* 分组导航 */
+.group-nav {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  position: sticky;
+  top: 0;
+  background: var(--color-bg, #f5f6f8);
+  padding: 8px 0;
+  z-index: 5;
+}
+
+.group-nav-item {
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  text-decoration: none;
+  color: var(--color-text-muted, #6b7280);
+  background: var(--color-surface, #fff);
+  border: 1px solid var(--color-border, #e2e5ea);
+}
+
+.group-nav-item:hover {
+  color: var(--color-text, #1f2430);
+}
+
+.group-nav-item.active {
+  background: var(--color-primary, #2f6fed);
+  border-color: var(--color-primary, #2f6fed);
+  color: #fff;
+}
+
+/* 指标分组 */
+.metric-group {
+  background: var(--color-surface, #fff);
+  border: 1px solid var(--color-border, #e2e5ea);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 24px;
+  scroll-margin-top: 60px;
+}
+
+.group-heading {
+  margin: 0 0 16px;
+  font-size: 17px;
+  color: var(--color-text, #1f2430);
+}
+
+.chart-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.chart-card {
+  border: 1px solid var(--color-border, #e2e5ea);
+  border-radius: 8px;
+  padding: 12px;
+  background: #fafbfc;
+}
+
+.chart-card h3 {
+  margin: 0 0 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-muted, #6b7280);
+}
+
+.chart-card canvas {
+  max-height: 220px;
+}
+
+@media (max-width: 1100px) {
+  .chart-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 时间序列表格 */
+.table-scroll {
+  overflow-x: auto;
+  border: 1px solid var(--color-border, #e2e5ea);
+  border-radius: 8px;
+}
+
+.metric-table {
+  border-collapse: collapse;
+  font-size: 12.5px;
+  width: 100%;
+}
+
+.metric-table th,
+.metric-table td {
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--color-border, #e2e5ea);
+  white-space: nowrap;
+  text-align: right;
+}
+
+.metric-table th:first-child,
+.metric-table td:first-child {
+  text-align: left;
+  position: sticky;
+  left: 0;
+  background: #fafbfc;
+  z-index: 2;
+  border-right: 1px solid var(--color-border, #e2e5ea);
+  font-weight: 500;
+}
+
+.metric-table thead th {
+  background: #fafbfc;
+  color: var(--color-text-muted, #6b7280);
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+  z-index: 3;
+}
+
+.metric-table thead th:first-child {
+  z-index: 4;
+}
+
+.metric-table tr.row-primary td:first-child {
+  color: var(--stock-primary);
+}
+
+.metric-table tr.row-compare td:first-child {
+  color: var(--stock-compare);
+}
+
+.metric-table tr.row-yoy td {
+  color: var(--color-text-muted, #6b7280);
+  font-size: 11.5px;
+}
+
+.metric-table tr.row-separator td {
+  border-bottom: 2px solid var(--color-border, #e2e5ea);
+}
+
+.metric-table td.value-up {
+  color: var(--stock-up);
+}
+
+.metric-table td.value-down {
+  color: var(--stock-down);
+}
+
+.metric-table td.na {
+  color: var(--color-na, #b0b4bc);
+  text-align: right;
+}
+
+.entity-badge {
+  display: inline-block;
+  font-size: 10px;
+  padding: 1px 6px;
+  border-radius: 999px;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+
+.entity-badge.primary {
+  background: var(--stock-primary-bg);
+  color: var(--stock-primary);
+}
+
+.entity-badge.compare {
+  background: var(--stock-compare-bg);
+  color: var(--stock-compare);
+}
