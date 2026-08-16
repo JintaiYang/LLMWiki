@@ -238,7 +238,7 @@ def build_bank_metrics(
         op_profit = safe_float(income_row.get("营业利润"))
         total_profit = safe_float(income_row.get("利润总额"))
         net_profit = safe_float(income_row.get("净利润"))
-        parent_net_profit = safe_float(income_row.get("归属于母公司股东的净利润"))
+        parent_net_profit = safe_float(income_row.get("归属于母公司的净利润"))
         
         metrics["营业收入"] = {"value_yi": fmt_yi(revenue), "raw": revenue}
         metrics["净利息收入"] = {"value_yi": fmt_yi(net_int_income), "raw": net_int_income}
@@ -284,7 +284,7 @@ def build_bank_metrics(
     # Previous period income for YoY
     if income_prev is not None:
         prev_revenue = safe_float(income_prev.get("营业收入"))
-        prev_net_profit = safe_float(income_prev.get("归属于母公司股东的净利润"))
+        prev_net_profit = safe_float(income_prev.get("归属于母公司的净利润"))
         prev_net_int_income = safe_float(income_prev.get("净利息收入"))
         prev_fee_income = safe_float(income_prev.get("手续费及佣金净收入"))
         prev_biz_mgmt_fee = safe_float(income_prev.get("业务及管理费用"))
@@ -418,7 +418,7 @@ def build_bank_metrics(
     if indicator_row is not None:
         roe = safe_float(indicator_row.get("净资产收益率(%)"))
         weighted_roe = safe_float(indicator_row.get("加权净资产收益率(%)"))
-        roa = safe_float(indicator_row.get("总资产净利润率(%"))
+        roa = safe_float(indicator_row.get("总资产净利润率(%)"))
         eps = safe_float(indicator_row.get("摊薄每股收益(元)"))
         bvps = safe_float(indicator_row.get("每股净资产_调整前(元)"))
         div_payout = safe_float(indicator_row.get("股息发放率(%)"))
