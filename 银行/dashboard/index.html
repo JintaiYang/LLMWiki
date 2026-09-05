@@ -12,11 +12,12 @@
   <header class="app-header">
     <div class="header-title">
       <h1>银行研究标的对比仪表盘</h1>
-      <p class="subtitle">对比18家重点覆盖银行的核心指标，快速跳转到知识库对应页面</p>
+      <p class="subtitle">对比18家重点覆盖银行的核心指标与AkShare深度数据（2024年报），快速跳转到知识库对应页面</p>
     </div>
     <div class="header-meta">
       <span id="generated-at">数据生成时间：加载中…</span>
       <span id="bank-count"></span>
+      <a href="nim_etf_chart.html" style="color:#3949ab;text-decoration:none;font-size:0.85rem;margin-left:15px;border:1px solid #3949ab;padding:4px 12px;border-radius:6px;">📊 30年NIM与银行指数对照图</a>
     </div>
   </header>
 
@@ -50,39 +51,33 @@
       </div>
     </section>
 
+    <!-- 表格视图 -->
     <section id="table-view" class="view-panel">
+      <div class="table-toolbar">
+        <div class="table-toolbar-left">
+          <span class="table-toolbar-label">指标列分组：</span>
+          <button class="col-toggle-btn active" data-group="basic">基本信息</button>
+          <button class="col-toggle-btn active" data-group="profit">盈利能力</button>
+          <button class="col-toggle-btn active" data-group="growth">增长速度</button>
+          <button class="col-toggle-btn active" data-group="balance">规模与资产负债</button>
+          <button class="col-toggle-btn active" data-group="structure">结构与效率</button>
+          <button class="col-toggle-btn active" data-group="pershare">每股与估值</button>
+          <button class="col-toggle-btn active" data-group="evaluation">四维评价</button>
+        </div>
+        <div class="table-toolbar-right">
+          <button id="expand-all-rows" class="reset-btn">展开全部评价</button>
+          <button id="collapse-all-rows" class="reset-btn">收起全部评价</button>
+        </div>
+      </div>
       <div class="table-scroll">
         <table id="bank-table">
-          <thead>
-            <tr class="group-row">
-              <th rowspan="2" class="col-name" data-sort="name">银行</th>
-              <th rowspan="2" class="col-type">类型</th>
-              <th colspan="5" class="group-header group-profit">盈利能力</th>
-              <th colspan="3" class="group-header group-quality">资产质量与资本</th>
-              <th colspan="3" class="group-header group-valuation">估值</th>
-              <th colspan="2" class="group-header group-status">研究状态</th>
-            </tr>
-            <tr class="metric-row">
-              <th data-sort="revenue">营业收入</th>
-              <th data-sort="net_profit">归母净利润</th>
-              <th data-sort="eps">EPS</th>
-              <th data-sort="bvps">每股净资产</th>
-              <th data-sort="roe">ROE</th>
-              <th data-sort="nim">NIM</th>
-              <th data-sort="npl_ratio">不良率</th>
-              <th data-sort="provision_coverage">拨备覆盖率</th>
-              <th data-sort="pb">PB</th>
-              <th data-sort="pe">PE</th>
-              <th data-sort="dividend_yield">股息率</th>
-              <th data-sort="thesis_status">命题状态</th>
-              <th data-sort="updated">更新日期</th>
-            </tr>
-          </thead>
+          <thead id="table-head"></thead>
           <tbody id="table-body"></tbody>
         </table>
       </div>
     </section>
 
+    <!-- 卡片视图 -->
     <section id="card-view" class="view-panel hidden">
       <div id="card-grid" class="card-grid"></div>
     </section>

@@ -184,15 +184,15 @@ body {
 #bank-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 13px;
+  font-size: 12px;
   min-width: 1100px;
 }
 
 #bank-table thead th {
   background: #fafbfc;
   border-bottom: 1px solid var(--color-border);
-  padding: 8px 10px;
-  text-align: left;
+  padding: 6px 8px;
+  text-align: center;
   white-space: nowrap;
   font-weight: 600;
   color: var(--color-text-muted);
@@ -201,11 +201,18 @@ body {
 #bank-table thead .group-row th {
   text-align: center;
   border-bottom: 1px solid var(--color-border);
+  font-size: 12px;
 }
 
 #bank-table thead .metric-row th {
   cursor: pointer;
   position: relative;
+  font-size: 11px;
+}
+
+#bank-table thead .col-name,
+#bank-table thead .col-type {
+  text-align: left;
 }
 
 #bank-table thead .metric-row th:hover {
@@ -214,22 +221,37 @@ body {
 
 #bank-table thead .metric-row th.sorted-asc::after {
   content: " ▲";
-  font-size: 10px;
+  font-size: 9px;
 }
 
 #bank-table thead .metric-row th.sorted-desc::after {
   content: " ▼";
-  font-size: 10px;
+  font-size: 9px;
 }
 
 #bank-table tbody td {
-  padding: 8px 10px;
+  padding: 6px 8px;
   border-bottom: 1px solid var(--color-border);
   white-space: nowrap;
+  text-align: right;
+}
+
+#bank-table tbody td.col-name,
+#bank-table tbody td.col-type {
+  text-align: left;
 }
 
 #bank-table tbody tr:hover {
   background: #f7f9fc;
+}
+
+/* Value color coding */
+#bank-table tbody td.value-up {
+  color: #d1453b;
+}
+
+#bank-table tbody td.value-down {
+  color: #1a9e5c;
 }
 
 .bank-name-link {
@@ -250,6 +272,11 @@ body {
 .group-header.group-quality { color: #c48a00; }
 .group-header.group-valuation { color: #5b4fdb; }
 .group-header.group-status { color: #1a9e5c; }
+.group-header.group-growth { color: #d1453b; }
+.group-header.group-balance { color: #c48a00; }
+.group-header.group-structure { color: #5b4fdb; }
+.group-header.group-pershare { color: #1a9e5c; }
+.group-header.group-evaluation { color: #8b5cf6; }
 
 /* Status badge */
 .status-badge {
@@ -274,6 +301,100 @@ body {
   font-size: 12px;
   background: #eef1f6;
   color: var(--color-text-muted);
+}
+
+/* Table toolbar: column group toggles */
+.table-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.table-toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.table-toolbar-right {
+  display: flex;
+  gap: 6px;
+}
+
+.table-toolbar-label {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.col-toggle-btn {
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  color: var(--color-text-muted);
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.col-toggle-btn.active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+
+.col-toggle-btn:hover {
+  opacity: 0.85;
+}
+
+/* Evaluation cell */
+#bank-table td.col-evaluation {
+  max-width: 300px;
+  text-align: left;
+}
+
+.eval-summary {
+  color: var(--color-text-muted);
+  font-size: 11px;
+  display: inline-block;
+}
+
+.eval-toggle {
+  color: var(--color-primary);
+  cursor: pointer;
+  font-size: 11px;
+  margin-top: 4px;
+  user-select: none;
+}
+
+.eval-item {
+  margin-bottom: 4px;
+  padding-bottom: 4px;
+  border-bottom: 1px dashed var(--color-border);
+}
+
+.eval-item:last-child {
+  border-bottom: none;
+}
+
+.eval-label {
+  display: inline-block;
+  font-weight: 600;
+  font-size: 11px;
+  color: var(--color-text);
+  margin-right: 4px;
+}
+
+.eval-text {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  white-space: normal;
+  line-height: 1.5;
 }
 
 /* Card view */
@@ -351,6 +472,36 @@ body {
   cursor: pointer;
   text-align: center;
   margin-top: 4px;
+}
+
+/* Card evaluation section */
+.card-eval {
+  border-top: 1px dashed var(--color-border);
+  margin-top: 8px;
+  padding-top: 8px;
+  display: none;
+}
+
+.bank-card.expanded .card-eval {
+  display: block;
+}
+
+.card-eval-item {
+  margin-bottom: 6px;
+}
+
+.card-eval-label {
+  display: inline-block;
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--color-text);
+  margin-right: 4px;
+}
+
+.card-eval-text {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  line-height: 1.5;
 }
 
 /* Detail panel */
@@ -431,6 +582,60 @@ body {
 .detail-body table td, .detail-body table th {
   border: 1px solid var(--color-border);
   padding: 4px 6px;
+}
+
+/* Detail deep metrics grid */
+.detail-metrics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 10px 0;
+}
+
+.detail-metric-group h4 {
+  margin: 0 0 4px;
+  font-size: 12px;
+  color: var(--color-primary);
+}
+
+.detail-metric-group table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+}
+
+.detail-metric-group table td {
+  padding: 2px 4px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.detail-metric-group table td:first-child {
+  color: var(--color-text-muted);
+}
+
+.detail-metric-group table td:last-child {
+  text-align: right;
+  font-weight: 500;
+}
+
+.detail-eval-card {
+  border-left: 3px solid var(--color-primary);
+  padding: 6px 10px;
+  margin-bottom: 8px;
+  background: #f9fafe;
+  border-radius: 0 6px 6px 0;
+}
+
+.detail-eval-title {
+  font-weight: 600;
+  font-size: 13px;
+  margin-bottom: 2px;
+}
+
+.detail-eval-text {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  line-height: 1.6;
 }
 
 .detail-actions {

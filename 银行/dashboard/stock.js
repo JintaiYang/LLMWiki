@@ -19,6 +19,8 @@
     granularity: "quarter", // 'quarter' | 'year'
     range: "20", // '20' | '40' | 'all'
     charts: {},
+    dashboardData: null, // from data.json, for deep metrics
+    bankNameByCode: {},
   };
 
   function el(id) {
@@ -46,6 +48,206 @@
     const div = document.createElement("div");
     div.textContent = str;
     return div.innerHTML;
+  }
+
+  // ---------- 深度数据定义 ----------
+  const DEEP_METRIC_GROUPS = [
+    {
+      groupLabel: "盈利能力",
+      metrics: [
+        { key: "营业收入", label: "营业收入", fmt: "yi" },
+        { key: "净利息收入", label: "净利息收入", fmt: "yi" },
+        { key: "手续费及佣金净收入", label: "中收", fmt: "yi" },
+        { key: "投资收益", label: "投资收益", fmt: "yi" },
+        { key: "非息收入", label: "非息收入", fmt: "yi" },
+        { key: "PPOP", label: "PPOP", fmt: "yi" },
+        { key: "业务及管理费", label: "业务管理费", fmt: "yi" },
+        { key: "信用减值损失", label: "信用减值", fmt: "yi" },
+        { key: "营业利润", label: "营业利润", fmt: "yi" },
+        { key: "归母净利润", label: "归母净利润", fmt: "yi" },
+        { key: "净利润", label: "净利润", fmt: "yi" },
+      ],
+    },
+    {
+      groupLabel: "增长速度",
+      metrics: [
+        { key: "营业收入增速", label: "营收增速", fmt: "pct" },
+        { key: "归母净利润增速", label: "归母净利润增速", fmt: "pct" },
+        { key: "净利息收入增速", label: "净利息增速", fmt: "pct" },
+        { key: "中收增速", label: "中收增速", fmt: "pct" },
+        { key: "PPOP增速", label: "PPOP增速", fmt: "pct" },
+        { key: "总资产增速", label: "总资产增速", fmt: "pct" },
+        { key: "贷款增速", label: "贷款增速", fmt: "pct" },
+        { key: "存款增速", label: "存款增速", fmt: "pct" },
+        { key: "净资产增速", label: "净资产增速", fmt: "pct" },
+      ],
+    },
+    {
+      groupLabel: "规模与资产负债",
+      metrics: [
+        { key: "总资产", label: "总资产", fmt: "yi" },
+        { key: "贷款总额", label: "贷款总额", fmt: "yi" },
+        { key: "客户存款", label: "客户存款", fmt: "yi" },
+        { key: "归母净资产", label: "归母净资产", fmt: "yi" },
+        { key: "股东权益合计", label: "股东权益", fmt: "yi" },
+        { key: "负债合计", label: "负债合计", fmt: "yi" },
+        { key: "贷款损失准备", label: "贷款损失准备", fmt: "yi" },
+        { key: "同业负债", label: "同业负债", fmt: "yi" },
+        { key: "应付债券", label: "应付债券", fmt: "yi" },
+        { key: "股本", label: "股本", fmt: "yi" },
+      ],
+    },
+    {
+      groupLabel: "结构与效率",
+      metrics: [
+        { key: "成本收入比(CIR)", label: "CIR", fmt: "pct" },
+        { key: "非息收入占比", label: "非息占比", fmt: "pct" },
+        { key: "中收占比", label: "中收占比", fmt: "pct" },
+        { key: "贷款/总资产", label: "贷款/总资产", fmt: "pct" },
+        { key: "存贷比", label: "存贷比", fmt: "pct" },
+        { key: "拨贷比", label: "拨贷比", fmt: "pct" },
+        { key: "同业负债占比(粗略)", label: "同业负债占比", fmt: "pct" },
+        { key: "杠杆倍数", label: "杠杆倍数", fmt: "raw" },
+        { key: "资产负债率", label: "资产负债率", fmt: "pct" },
+        { key: "ROE(摊薄)", label: "ROE(摊薄)", fmt: "pct" },
+        { key: "加权ROE", label: "加权ROE", fmt: "pct" },
+        { key: "ROA", label: "ROA", fmt: "pct" },
+        { key: "信用成本率", label: "信用成本率", fmt: "pct" },
+      ],
+    },
+    {
+      groupLabel: "每股与估值",
+      metrics: [
+        { key: "EPS", label: "EPS", fmt: "raw" },
+        { key: "每股净资产", label: "每股净资产", fmt: "raw" },
+        { key: "收盘价", label: "收盘价", fmt: "raw" },
+        { key: "总市值", label: "总市值", fmt: "yi" },
+        { key: "PB", label: "PB", fmt: "raw" },
+        { key: "PE(TTM)", label: "PE(TTM)", fmt: "raw" },
+        { key: "PE(静)", label: "PE(静)", fmt: "raw" },
+      ],
+    },
+  ];
+
+  const DEEP_EVAL_KEYS = [
+    { key: "盈利能力评价", label: "盈利能力" },
+    { key: "资产质量评价", label: "资产质量" },
+    { key: "资产风险评价", label: "资产风险" },
+    { key: "可持续性评价", label: "可持续性" },
+  ];
+
+  // ---------- 深度数据加载与渲染 ----------
+
+  function loadDashboardData() {
+    return fetch("./data.json")
+      .then((res) => {
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        return res.json();
+      })
+      .then((data) => {
+        state.dashboardData = data;
+        (data.banks || []).forEach((b) => {
+          if (b.name) state.bankNameByCode[b.name] = b;
+        });
+      })
+      .catch((err) => {
+        console.warn("加载 data.json 失败（深度数据模块将不可用）：", err);
+      });
+  }
+
+  function getDeepMetric(bankEntry, metricKey, fmt) {
+    if (!bankEntry || !bankEntry.deep_metrics) return null;
+    const metrics = bankEntry.deep_metrics.metrics;
+    if (!metrics || !metrics[metricKey]) return null;
+    const m = metrics[metricKey];
+    if (fmt === "yi") return m.value_yi || null;
+    if (fmt === "pct") return m.value_pct || null;
+    if (fmt === "raw") {
+      if (isNA(m.raw)) return null;
+      if (typeof m.raw === "number") {
+        return m.raw.toLocaleString("zh-CN", { maximumFractionDigits: 4 });
+      }
+      return String(m.raw);
+    }
+    return m.value_yi || m.value_pct || m.raw || null;
+  }
+
+  function renderDeepSection() {
+    const container = el("deep-content");
+    const periodSpan = el("deep-report-period");
+
+    if (!state.primaryData) {
+      container.innerHTML = '<p class="deep-placeholder" style="color: var(--color-text-muted, #6b7280); font-size: 13px;">请选择主标的后加载深度数据…</p>';
+      periodSpan.textContent = "";
+      return;
+    }
+
+    const primaryEntry = state.bankNameByCode[state.primaryData.name];
+    const compareEntry = state.compareData ? state.bankNameByCode[state.compareData.name] : null;
+
+    if (!primaryEntry || !primaryEntry.deep_metrics) {
+      container.innerHTML = '<p class="deep-placeholder" style="color: var(--color-text-muted, #6b7280); font-size: 13px;">该银行暂无 AkShare 深度采集数据。</p>';
+      periodSpan.textContent = "";
+      return;
+    }
+
+    const dm = primaryEntry.deep_metrics;
+    periodSpan.textContent = "（报告期：" + (dm.report_period || "未知") + "）";
+
+    let html = '';
+
+    // Deep metrics comparison table
+    html += '<div class="table-scroll"><table class="metric-table deep-table">';
+    html += '<thead><tr><th>指标</th>';
+    html += '<th>' + escapeHtml(state.primaryData.name) + '<span class="entity-badge primary">主</span></th>';
+    if (compareEntry && compareEntry.deep_metrics) {
+      html += '<th>' + escapeHtml(state.compareData.name) + '<span class="entity-badge compare">对比</span></th>';
+    }
+    html += '</tr></thead><tbody>';
+
+    DEEP_METRIC_GROUPS.forEach((grp) => {
+      // Group header row
+      html += '<tr class="deep-group-row"><td colspan="' + (compareEntry && compareEntry.deep_metrics ? 3 : 2) + '">' + escapeHtml(grp.groupLabel) + '</td></tr>';
+      grp.metrics.forEach((m) => {
+        const pVal = getDeepMetric(primaryEntry, m.key, m.fmt);
+        html += '<tr class="row-primary">';
+        html += '<td>' + escapeHtml(m.label) + '</td>';
+        html += '<td>' + (pVal ? escapeHtml(pVal) : '<span class="na">NA</span>') + '</td>';
+        if (compareEntry && compareEntry.deep_metrics) {
+          const cVal = getDeepMetric(compareEntry, m.key, m.fmt);
+          html += '<td>' + (cVal ? escapeHtml(cVal) : '<span class="na">NA</span>') + '</td>';
+        }
+        html += '</tr>';
+      });
+    });
+
+    html += '</tbody></table></div>';
+
+    // Evaluations
+    html += '<div class="deep-eval-grid">';
+    DEEP_EVAL_KEYS.forEach((e) => {
+      const primaryText = dm.evaluations ? (dm.evaluations[e.key] || "") : "";
+      const compareText = compareEntry && compareEntry.deep_metrics && compareEntry.deep_metrics.evaluations ? (compareEntry.deep_metrics.evaluations[e.key] || "") : "";
+      html += '<div class="deep-eval-card">';
+      html += '<div class="deep-eval-title">' + escapeHtml(e.label) + '</div>';
+      html += '<div class="deep-eval-item primary"><span class="entity-badge primary">' + escapeHtml(state.primaryData.name) + '</span><span class="deep-eval-text">' + escapeHtml(primaryText) + '</span></div>';
+      if (compareEntry && compareEntry.deep_metrics) {
+        html += '<div class="deep-eval-item compare"><span class="entity-badge compare">' + escapeHtml(state.compareData.name) + '</span><span class="deep-eval-text">' + escapeHtml(compareText) + '</span></div>';
+      }
+      html += '</div>';
+    });
+    html += '</div>';
+
+    // Data gaps
+    if (dm.not_available_from_akshare && dm.not_available_from_akshare.length > 0) {
+      html += '<div class="deep-gaps"><div class="deep-gaps-title">AkShare 数据缺口（需从年报附注获取）：</div><ul>';
+      dm.not_available_from_akshare.forEach((item) => {
+        html += '<li>' + escapeHtml(item) + '</li>';
+      });
+      html += '</ul></div>';
+    }
+
+    container.innerHTML = html;
   }
 
   // ---------- URL 参数 ----------
@@ -555,6 +757,7 @@
     });
 
     renderCharts(dates, primaryMap, compareMap);
+    renderDeepSection();
   }
 
   // ---------- 初始化 ----------
@@ -565,6 +768,7 @@
     state.compareCode = params.get("compare") || null;
 
     loadIndex()
+      .then(() => loadDashboardData())
       .then(() => {
         if (!state.primaryCode && state.index.length > 0) {
           state.primaryCode = state.index[0].code;

@@ -22,6 +22,7 @@ VAULT_ROOT = Path(__file__).resolve().parent.parent
 BANK_LIB = VAULT_ROOT / "05_知识库" / "03_银行库"
 THESIS_LIB = VAULT_ROOT / "05_知识库" / "17_投资命题"
 DASHBOARD_DIR = VAULT_ROOT / "dashboard"
+DEEP_JSON_DIR = VAULT_ROOT / "02_原始资料" / "04_AkShare数据" / "深度采集"
 
 PLACEHOLDER_VALUES = {"待验证", "待获取", "待评估", "待补入", "na", "n/a", "无", "-", "—", ""}
 
@@ -288,6 +289,32 @@ def relative_path(path: Path) -> str:
     return str(path.relative_to(VAULT_ROOT))
 
 
+def load_deep_metrics(bank_name: str) -> Optional[Dict]:
+    """Load the AkShare deep metrics JSON for a given bank, if it exists."""
+    # Try common code patterns
+    deep_research_files = list(DEEP_JSON_DIR.glob(f"*_{bank_name}_deep_metrics.json"))
+    if not deep_research_files:
+        return None
+    json_path = deep_research_files[0]
+    try:
+        text = json_path.read_text(encoding="utf-8")
+        data = json.loads(text)
+        # Return only the fields needed by the frontend
+        return {
+            "bank_code": data.get("bank_code"),
+            "bank_type": data.get("bank_type"),
+            "report_period": data.get("report_period"),
+            "fetch_time": data.get("fetch_time"),
+            "report_date": data.get("report_date"),
+            "metrics": data.get("metrics", {}),
+            "evaluations": data.get("evaluations", {}),
+            "not_available_from_akshare": data.get("not_available_from_akshare", []),
+        }
+    except Exception as exc:
+        warnings.warn(f"读取 deep_metrics JSON 失败 {json_path}: {exc}")
+        return None
+
+
 def build_bank_record(deep_research_path: Path) -> Optional[Dict[str, object]]:
     bank_name = deep_research_path.stem.replace(" 深度研究", "")
     profile_path = BANK_LIB / f"{bank_name}.md"
@@ -329,6 +356,9 @@ def build_bank_record(deep_research_path: Path) -> Optional[Dict[str, object]]:
 
     bank_type = extract_bank_type(profile_text, frontmatter)
 
+    # Load AkShare deep metrics JSON if available
+    deep_metrics = load_deep_metrics(bank_name)
+
     record: Dict[str, object] = {
         "name": bank_name,
         "type": bank_type,
@@ -342,6 +372,8 @@ def build_bank_record(deep_research_path: Path) -> Optional[Dict[str, object]]:
             "thesis": relative_path(thesis_path) if thesis_path.exists() else None,
         },
     }
+    if deep_metrics:
+        record["deep_metrics"] = deep_metrics
     return record
 
 

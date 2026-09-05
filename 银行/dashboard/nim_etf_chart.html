@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>近30年银行NIM与银行板块指数对照图 | 银行研究</title>
+<link rel="stylesheet" href="style.css" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+  body { background: #f5f6fa; margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+  .chart-page-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 30px; background: #fff; border-bottom: 1px solid #e0e0e0;
+  }
+  .chart-page-header h1 { font-size: 1.4rem; margin: 0; color: #1a237e; }
+  .chart-page-header .back-link {
+    color: #3949ab; text-decoration: none; font-size: 0.9rem;
+  }
+  .chart-page-header .back-link:hover { text-decoration: underline; }
+
+  .chart-container {
+    max-width: 1200px; margin: 30px auto; padding: 0 20px;
+  }
+  .chart-card {
+    background: #fff; border-radius: 12px; padding: 30px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  }
+  .chart-card h2 {
+    font-size: 1.15rem; margin: 0 0 8px; color: #333;
+  }
+  .chart-card .chart-desc {
+    font-size: 0.85rem; color: #888; margin-bottom: 20px; line-height: 1.6;
+  }
+  .chart-wrapper {
+    position: relative; height: 560px; width: 100%;
+  }
+  .chart-legend {
+    display: flex; gap: 30px; justify-content: center; margin-top: 15px;
+    font-size: 0.85rem;
+  }
+  .chart-legend-item { display: flex; align-items: center; gap: 8px; }
+  .chart-legend-dot {
+    width: 14px; height: 14px; border-radius: 50%;
+  }
+  .data-note {
+    margin-top: 20px; padding: 15px; background: #f5f5f5; border-radius: 8px;
+    font-size: 0.8rem; color: #666; line-height: 1.7;
+  }
+  .data-note strong { color: #333; }
+
+  .insights {
+    max-width: 1200px; margin: 0 auto 30px; padding: 0 20px;
+  }
+  .insights-card {
+    background: #fff; border-radius: 12px; padding: 25px 30px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  }
+  .insights-card h3 {
+    font-size: 1.05rem; margin: 0 0 12px; color: #1a237e;
+    border-left: 4px solid #3949ab; padding-left: 10px;
+  }
+  .insights-card ul {
+    margin: 0; padding-left: 20px; font-size: 0.88rem; color: #444; line-height: 1.8;
+  }
+  .insights-card li { margin-bottom: 6px; }
+
+  .metric-row {
+    display: flex; gap: 16px; max-width: 1200px; margin: 0 auto 30px; padding: 0 20px;
+  }
+  .metric-mini {
+    flex: 1; background: #fff; border-radius: 10px; padding: 18px 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06); text-align: center;
+  }
+  .metric-mini .label { font-size: 0.8rem; color: #888; margin-bottom: 6px; }
+  .metric-mini .value { font-size: 1.4rem; font-weight: 700; }
+  .metric-mini .change { font-size: 0.75rem; margin-top: 4px; }
+  .metric-mini.nim .value { color: #e53935; }
+  .metric-mini.etf .value { color: #1e88e5; }
+  .metric-mini .change.down { color: #e53935; }
+  .metric-mini .change.up { color: #43a047; }
+
+  .phase-marker {
+    display: flex; gap: 0; max-width: 1200px; margin: 0 auto 20px; padding: 0 20px;
+  }
+  .phase {
+    flex: 1; padding: 10px 15px; text-align: center; font-size: 0.75rem;
+    border-radius: 6px; margin: 0 4px;
+  }
+  .phase-1 { background: #fff3e0; color: #e65100; }
+  .phase-2 { background: #e8f5e9; color: #2e7d32; }
+  .phase-3 { background: #ffebee; color: #c62828; }
+  .phase strong { display: block; font-size: 0.9rem; margin-bottom: 2px; }
+</style>
+</head>
+<body>
+
+<header class="chart-page-header">
+  <h1>近30年（1995-2025）银行行业平均NIM 与 银行板块指数 对照图</h1>
+  <a class="back-link" href="index.html">&larr; 返回仪表盘</a>
+</header>
+
+<div id="load-error" class="load-error hidden" style="margin:20px;">
+  <p><strong>数据加载失败。</strong>请在终端进入 <code>dashboard/</code> 目录运行：</p>
+  <pre>python3 -m http.server 8000</pre>
+</div>
+
+<main id="main-content" class="hidden">
+  <!-- 阶段标记 -->
+  <div class="phase-marker">
+    <div class="phase phase-1"><strong>阶段① 1995-2003</strong>高位下行期<br>NIM 3.95%→2.69%</div>
+    <div class="phase phase-2"><strong>阶段② 2004-2014</strong>震荡平台期<br>NIM 2.6%~2.9%</div>
+    <div class="phase phase-3"><strong>阶段③ 2015-2025</strong>加速下行期<br>NIM 2.70%→1.43%</div>
+  </div>
+
+  <!-- 指标卡片 -->
+  <div class="metric-row">
+    <div class="metric-mini nim">
+      <div class="label">最新行业NIM</div>
+      <div class="value" id="latest-nim">—</div>
+      <div class="change down" id="nim-change">—</div>
+    </div>
+    <div class="metric-mini nim">
+      <div class="label">30年前NIM（1995）</div>
+      <div class="value" id="earliest-nim">—</div>
+    </div>
+    <div class="metric-mini etf">
+      <div class="label">最新板块指数</div>
+      <div class="value" id="latest-etf">—</div>
+      <div class="change up" id="etf-change">—</div>
+    </div>
+    <div class="metric-mini etf">
+      <div class="label">30年前板块指数（1995）</div>
+      <div class="value" id="earliest-etf">—</div>
+    </div>
+  </div>
+
+  <!-- 主图表 -->
+  <div class="chart-container">
+    <div class="chart-card">
+      <h2>NIM（左轴，%）与 银行板块指数（右轴，基准=100）</h2>
+      <p class="chart-desc">
+        左轴（红色）为商业银行行业平均净息差（NIM），反映银行盈利能力核心指标；右轴（蓝色）为银行板块指数（申万银行指数801193标准化至基准=100），反映银行板块长期市场表现。
+        两条曲线对照可观察 NIM 长期变化趋势与银行股估值走势的关联关系。
+      </p>
+      <div class="chart-wrapper">
+        <canvas id="nimEtfChart"></canvas>
+      </div>
+      <div class="chart-legend">
+        <div class="chart-legend-item">
+          <div class="chart-legend-dot" style="background:#e53935;"></div>
+          <span>行业平均NIM（%）— 左轴</span>
+        </div>
+        <div class="chart-legend-item">
+          <div class="chart-legend-dot" style="background:#1e88e5;"></div>
+          <span>银行板块指数（基准=100）— 右轴</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 关键洞察 -->
+  <div class="insights">
+    <div class="insights-card">
+      <h3>关键洞察</h3>
+      <ul>
+        <li>NIM 从 1995 年的 3.95% 持续下降至 2025H1 的 1.43%，30年累计降幅超过 252BP，反映利率市场化改革、LPR机制推行和多次降息周期下银行业息差长期承压。</li>
+        <li>NIM 经历三个阶段：①1995-2003年高位下行期（3.95%→2.69%，降息+亚洲金融危机）；②2004-2014年震荡平台期（2.6%~2.9%，经济高增长）；③2015-2025年加速下行期（2.70%→1.43%，利率市场化+LPR改革+让利实体经济）。</li>
+        <li>银行板块指数在 2007 年大牛市中飙升（从164涨至412），2008年金融危机暴跌至198，之后经历了长达10年的震荡低迷期（200~400区间）。</li>
+        <li>2022 年后 NIM 跌破 2%，但银行板块指数反而走强，体现了"低息差环境→政策宽松预期→估值修复"的市场逻辑。</li>
+        <li>2024 年以来银行板块大幅上涨（指数从425涨至518），而 NIM 仍在创新低，表明当前银行股行情主要由估值修复和高股息策略驱动，而非基本面息差改善。</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 数据说明 -->
+  <div class="chart-container">
+    <div class="data-note">
+      <strong>数据来源：</strong>
+      <span id="nim-source"></span><br/>
+      <span id="etf-source"></span><br/>
+      <strong>说明：</strong>NIM 在 1995-2008 年为年度频率、2009-2025 年为半年度频率；银行板块指数为年度/季度末收盘值（基准=100，1999.12.31=1000）。两条曲线在同一时间轴上对照展示，左Y轴对应NIM（%），右Y轴对应银行板块指数。数据生成时间：<span id="generated-at"></span>
+    </div>
+  </div>
+</main>
+
+<script>
+(async function() {
+  try {
+    const resp = await fetch('nim_etf_chart.json');
+    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+    const data = await resp.json();
+
+    document.getElementById('main-content').classList.remove('hidden');
+    document.getElementById('generated-at').textContent = data.generated_at || '';
+    document.getElementById('nim-source').textContent = '• NIM：' + (data.nim_source || '');
+    document.getElementById('etf-source').textContent = '• 指数：' + (data.etf_source || '');
+
+    const nimRecords = data.nim_records || [];
+    const etfRecords = data.etf_records || [];
+
+    // 指标卡片
+    if (nimRecords.length > 0) {
+      const latest = nimRecords[nimRecords.length - 1];
+      const earliest = nimRecords[0];
+      document.getElementById('latest-nim').textContent = latest.NIM.toFixed(2) + '%';
+      document.getElementById('earliest-nim').textContent = earliest.NIM.toFixed(2) + '%';
+      const diff = latest.NIM - earliest.NIM;
+      const el = document.getElementById('nim-change');
+      el.textContent = (diff > 0 ? '↑' : '↓') + ' ' + Math.abs(diff).toFixed(2) + ' 个百分点（30年累计）';
+      el.className = 'change ' + (diff > 0 ? 'up' : 'down');
+    }
+    if (etfRecords.length > 0) {
+      const latest = etfRecords[etfRecords.length - 1];
+      const earliest = etfRecords[0];
+      document.getElementById('latest-etf').textContent = latest['收盘'].toFixed(1);
+      document.getElementById('earliest-etf').textContent = earliest['收盘'].toFixed(1);
+      const pct = ((latest['收盘'] - earliest['收盘']) / earliest['收盘'] * 100);
+      const el = document.getElementById('etf-change');
+      el.textContent = (pct > 0 ? '↑' : '↓') + ' ' + Math.abs(pct).toFixed(0) + '%（30年累计）';
+      el.className = 'change ' + (pct > 0 ? 'up' : 'down');
+    }
+
+    // 构建合并的有序时间轴
+    const allDatesSet = new Set();
+    nimRecords.forEach(r => allDatesSet.add(r['日期']));
+    etfRecords.forEach(r => allDatesSet.add(r['日期']));
+    const sortedDates = Array.from(allDatesSet).sort();
+
+    // 构建 lookup
+    const nimMap = {};
+    nimRecords.forEach(r => { nimMap[r['日期']] = r.NIM; });
+    const etfMap = {};
+    etfRecords.forEach(r => { etfMap[r['日期']] = r['收盘']; });
+
+    // 两条数据序列（在缺少数据的点上用 null）
+    const nimSeries = sortedDates.map(d => nimMap[d] !== undefined ? nimMap[d] : null);
+    const etfSeries = sortedDates.map(d => etfMap[d] !== undefined ? etfMap[d] : null);
+
+    // X轴标签：只显示年份，H1/H2 后缀用于密集区间
+    const labels = sortedDates.map(d => {
+      const parts = d.split('-');
+      const y = parseInt(parts[0]);
+      const m = parseInt(parts[1]);
+      return m <= 6 ? y + ' H1' : y + '';
+    });
+
+    // 渲染图表
+    const ctx = document.getElementById('nimEtfChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: labels,
+        datasets: [
+          {
+            label: '行业平均NIM（%）',
+            data: nimSeries,
+            borderColor: '#e53935',
+            backgroundColor: 'rgba(229,57,53,0.06)',
+            borderWidth: 2.5,
+            pointRadius: 3,
+            pointHoverRadius: 7,
+            pointBackgroundColor: '#e53935',
+            pointBorderColor: '#fff',
+            pointBorderWidth: 1,
+            yAxisID: 'yNim',
+            tension: 0.25,
+            spanGaps: true,
+            fill: true,
+          },
+          {
+            label: '银行板块指数（基准=100）',
+            data: etfSeries,
+            borderColor: '#1e88e5',
+            backgroundColor: 'rgba(30,136,229,0.06)',
+            borderWidth: 2.5,
+            pointRadius: 3,
+            pointHoverRadius: 7,
+            pointBackgroundColor: '#1e88e5',
+            pointBorderColor: '#fff',
+            pointBorderWidth: 1,
+            yAxisID: 'yEtf',
+            tension: 0.25,
+            spanGaps: true,
+            fill: true,
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: { mode: 'index', intersect: false },
+        plugins: {
+          tooltip: {
+            backgroundColor: 'rgba(33,33,33,0.9)',
+            titleFont: { size: 13 },
+            bodyFont: { size: 12 },
+            padding: 12,
+            cornerRadius: 6,
+            displayColors: true,
+            callbacks: {
+              title: function(items) {
+                // 显示完整日期
+                const idx = items[0].dataIndex;
+                return sortedDates[idx];
+              },
+              label: function(ctx) {
+                const val = ctx.parsed.y;
+                if (val === null) return null;
+                if (ctx.datasetIndex === 0) {
+                  return '  NIM: ' + val.toFixed(2) + '%';
+                } else {
+                  return '  银行指数: ' + val.toFixed(1);
+                }
+              }
+            }
+          },
+          legend: { display: false }
+        },
+        scales: {
+          x: {
+            grid: { color: '#f0f0f0', drawTicks: true },
+            ticks: {
+              font: { size: 10 },
+              maxRotation: 50,
+              minRotation: 40,
+              autoSkip: true,
+              maxTicksLimit: 20,
+              callback: function(val, index) {
+                // 只显示年份标签（跳过 H1 标签以减少密度）
+                const label = this.getLabelForValue(val);
+                if (label.endsWith(' H1')) {
+                  // 只在 2009 年后显示 H1（半年度数据开始）
+                  const year = parseInt(label);
+                  if (year >= 2009 && year % 2 === 0) return label;
+                  return '';
+                }
+                return label;
+              }
+            }
+          },
+          yNim: {
+            type: 'linear',
+            position: 'left',
+            min: 1.0,
+            max: 4.2,
+            title: {
+              display: true,
+              text: 'NIM（%）',
+              font: { size: 13, weight: 'bold' },
+              color: '#e53935'
+            },
+            grid: { color: '#f5f5f5' },
+            ticks: {
+              font: { size: 11 },
+              color: '#e53935',
+              stepSize: 0.5,
+              callback: function(v) { return v.toFixed(1) + '%'; }
+            }
+          },
+          yEtf: {
+            type: 'linear',
+            position: 'right',
+            min: 0,
+            max: 600,
+            title: {
+              display: true,
+              text: '银行板块指数（基准=100）',
+              font: { size: 13, weight: 'bold' },
+              color: '#1e88e5'
+            },
+            grid: { drawOnChartArea: false },
+            ticks: {
+              font: { size: 11 },
+              color: '#1e88e5',
+              stepSize: 100,
+              callback: function(v) { return v.toFixed(0); }
+            }
+          }
+        }
+      }
+    });
+
+  } catch (err) {
+    console.error('Chart data load error:', err);
+    document.getElementById('load-error').classList.remove('hidden');
+  }
+})();
+</script>
+</body>
+</html>

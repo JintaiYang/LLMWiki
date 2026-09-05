@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(/opt/homebrew/bin/python3.10 -c ' *)",
+      "Bash(/opt/homebrew/bin/python3.10 verify_mt_3s.py)",
+      "Bash(/opt/homebrew/bin/python3.10)",
+      "Bash(grep -n \"put\\(ws2, f'{L}16'\" /tmp/build_mt_3s.py)",
+      "mcp__akshare__get_industry_stocks",
+      "Bash(cd \"/Users/yangjintai/Documents/LLM wiki\" && find 银行 -maxdepth 2 -type d | sort | head -30; echo \"---\"; find 投资学院 -maxdepth 2 -type d | sort)",
+      "Read(//Users/yangjintai/Documents/LLM wiki/**)",
+      "Bash(cd ~/Documents/tools/claude-for-financial-services-cn && ls vertical-plugins/ && echo \"=== china-finance 技能数 ===\" && ls vertical-plugins/china-finance/skills/ | wc -l && echo \"=== IB ===\" && ls vertical-plugins/investment-banking/skills/ 2>/dev/null | head -12 && echo \"=== PE ===\" && ls vertical-plugins/private-equity/skills/ 2>/dev/null && echo \"=== WM ===\" && ls vertical-plugins/wealth-management/skills/ 2>/dev/null && echo \"=== agents ===\" && ls agent-plugins/)",
+      "Read(//Users/yangjintai/Documents/tools/claude-for-financial-services-cn/**)",
+      "Bash(command claude mcp list)",
+      "Read(//Users/yangjintai/.claude/plugins/cache/claude-for-financial-services-china/**)",
+      "Bash(ls -la ~/.claude/plugins/cache/claude-for-financial-services-china/china-finance/0.1.0/ 2>/dev/null | head; echo \"===\"; find ~/.claude/plugins -name \"plugin.json\" -path \"*china-finance*\" | head -3)",
+      "Read(//Users/yangjintai/.claude/plugins/**)",
+      "Read(//Users/yangjintai/.claude/**)",
+      "Read(//Users/yangjintai/**)",
+      "WebFetch(domain:mcp.51ifind.com)",
+      "Bash(curl -sL --max-time 30 \"https://mcp.51ifind.com/gwstatic/static/ds_web/ifind-mcp-web/skills/SKILL_INSTALL_GUIDE.md\" -H \"User-Agent: Mozilla/5.0 \\(Macintosh; Intel Mac OS X 10_15_7\\)\" -o /tmp/ifind_skill_guide.md)",
+      "Bash(rm -f /tmp/__skill_selfcheck.js /tmp/ifind-skill.zip && rm -rf /tmp/ifind_extract_* && echo \"临时文件已清理\"; ls ~/.claude/skills/ifind-finance-data/)"
+    ],
+    "additionalDirectories": [
+      "/tmp",
+      "/private/tmp",
+      "/Users/yangjintai/Documents/LLM wiki/银行/05_知识库/09_综合分析"
+    ]
+  }
+}
