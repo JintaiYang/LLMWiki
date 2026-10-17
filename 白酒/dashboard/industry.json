@@ -1,0 +1,399 @@
+{
+  "generated_at": "2026-10-17T01:15:40.177981+00:00",
+  "series": [],
+  "sample_series": [
+    {
+      "key": "revenue",
+      "name": "申万白酒Ⅲ19家营业收入合计",
+      "unit": "CNY",
+      "scope": "listed_sample_not_industry",
+      "source": "申万白酒Ⅲ上市公司同一完整年度的 AKShare 财报字段求和；逐项来源见 data.json",
+      "points": [
+        {
+          "year": 2016,
+          "value": 131010131963.93001,
+          "coverage": 19,
+          "report_date": "2016-12-31"
+        },
+        {
+          "year": 2017,
+          "value": 166482181717.48996,
+          "coverage": 19,
+          "report_date": "2017-12-31"
+        },
+        {
+          "year": 2018,
+          "value": 208659651198.42004,
+          "coverage": 19,
+          "report_date": "2018-12-31"
+        },
+        {
+          "year": 2019,
+          "value": 242953611466.55005,
+          "coverage": 19,
+          "report_date": "2019-12-31"
+        },
+        {
+          "year": 2020,
+          "value": 258935704665.10995,
+          "coverage": 19,
+          "report_date": "2020-12-31"
+        },
+        {
+          "year": 2021,
+          "value": 305664787678.85,
+          "coverage": 19,
+          "report_date": "2021-12-31"
+        },
+        {
+          "year": 2022,
+          "value": 351796100716.25995,
+          "coverage": 19,
+          "report_date": "2022-12-31"
+        },
+        {
+          "year": 2023,
+          "value": 407670756618.8901,
+          "coverage": 19,
+          "report_date": "2023-12-31"
+        },
+        {
+          "year": 2024,
+          "value": 438695780026.12,
+          "coverage": 19,
+          "report_date": "2024-12-31"
+        },
+        {
+          "year": 2025,
+          "value": 358592900349.2601,
+          "coverage": 19,
+          "report_date": "2025-12-31"
+        }
+      ]
+    },
+    {
+      "key": "net_profit",
+      "name": "申万白酒Ⅲ19家归母净利润合计",
+      "unit": "CNY",
+      "scope": "listed_sample_not_industry",
+      "source": "申万白酒Ⅲ上市公司同一完整年度的 AKShare 财报字段求和；逐项来源见 data.json",
+      "points": [
+        {
+          "year": 2016,
+          "value": 36449538689.16999,
+          "coverage": 19,
+          "report_date": "2016-12-31"
+        },
+        {
+          "year": 2017,
+          "value": 52374440011.649994,
+          "coverage": 19,
+          "report_date": "2017-12-31"
+        },
+        {
+          "year": 2018,
+          "value": 69892112407.96,
+          "coverage": 19,
+          "report_date": "2018-12-31"
+        },
+        {
+          "year": 2019,
+          "value": 82273136786.51999,
+          "coverage": 19,
+          "report_date": "2019-12-31"
+        },
+        {
+          "year": 2020,
+          "value": 92067599797.3,
+          "coverage": 19,
+          "report_date": "2020-12-31"
+        },
+        {
+          "year": 2021,
+          "value": 108405416648.31001,
+          "coverage": 19,
+          "report_date": "2021-12-31"
+        },
+        {
+          "year": 2022,
+          "value": 130473829889.02003,
+          "coverage": 19,
+          "report_date": "2022-12-31"
+        },
+        {
+          "year": 2023,
+          "value": 155051473528.78003,
+          "coverage": 19,
+          "report_date": "2023-12-31"
+        },
+        {
+          "year": 2024,
+          "value": 166848055673.72998,
+          "coverage": 19,
+          "report_date": "2024-12-31"
+        },
+        {
+          "year": 2025,
+          "value": 126632165576.86996,
+          "coverage": 19,
+          "report_date": "2025-12-31"
+        }
+      ]
+    },
+    {
+      "key": "cfo",
+      "name": "申万白酒Ⅲ19家经营现金流合计",
+      "unit": "CNY",
+      "scope": "listed_sample_not_industry",
+      "source": "申万白酒Ⅲ上市公司同一完整年度的 AKShare 财报字段求和；逐项来源见 data.json",
+      "points": [
+        {
+          "year": 2016,
+          "value": 67138904406.48,
+          "coverage": 19,
+          "report_date": "2016-12-31"
+        },
+        {
+          "year": 2017,
+          "value": 51447271934.89001,
+          "coverage": 19,
+          "report_date": "2017-12-31"
+        },
+        {
+          "year": 2018,
+          "value": 77590373944.06999,
+          "coverage": 19,
+          "report_date": "2018-12-31"
+        },
+        {
+          "year": 2019,
+          "value": 90905643852.77998,
+          "coverage": 19,
+          "report_date": "2019-12-31"
+        },
+        {
+          "year": 2020,
+          "value": 88505136409.04001,
+          "coverage": 19,
+          "report_date": "2020-12-31"
+        },
+        {
+          "year": 2021,
+          "value": 138245960759.42996,
+          "coverage": 19,
+          "report_date": "2021-12-31"
+        },
+        {
+          "year": 2022,
+          "value": 96448694714.79,
+          "coverage": 19,
+          "report_date": "2022-12-31"
+        },
+        {
+          "year": 2023,
+          "value": 146243682050.42004,
+          "coverage": 19,
+          "report_date": "2023-12-31"
+        },
+        {
+          "year": 2024,
+          "value": 174059293538.05,
+          "coverage": 19,
+          "report_date": "2024-12-31"
+        },
+        {
+          "year": 2025,
+          "value": 109407132932.87001,
+          "coverage": 19,
+          "report_date": "2025-12-31"
+        }
+      ]
+    }
+  ],
+  "monitoring": {
+    "scope": "listed_sample_not_industry",
+    "classification": "申万三级白酒Ⅲ 851251.SI",
+    "sample_count": 19,
+    "latest_ytd": {
+      "period": "2026-06-30",
+      "sample_count": 19,
+      "rows_with_data": 19,
+      "revenue_CNY": 196318740718.96,
+      "net_profit_CNY": 73100323740.48001,
+      "cfo_CNY": 80778007314.79997,
+      "owner_fcf_CNY": 76443975989.15001,
+      "inventory_CNY": 189188311584.81003,
+      "contract_liabilities_CNY": 32383889821.409992,
+      "median_operating_margin_pct": 19.678681669378616,
+      "median_sales_cash_ratio_pct": 102.59721198215178,
+      "negative_owner_fcf_count": 9,
+      "coverage": {
+        "revenue": 19,
+        "net_profit": 19,
+        "cfo": 19,
+        "owner_fcf": 19,
+        "inventory": 19,
+        "contract_liabilities": 19,
+        "operating_margin": 19,
+        "sales_cash_ratio": 19
+      }
+    },
+    "prior_ytd": {
+      "period": "2025-06-30",
+      "sample_count": 19,
+      "rows_with_data": 19,
+      "revenue_CNY": 210513509455.55994,
+      "net_profit_CNY": 79760194918.49002,
+      "cfo_CNY": 60428871896.99001,
+      "owner_fcf_CNY": 52715667099.73998,
+      "inventory_CNY": 168325471364.91,
+      "contract_liabilities_CNY": 37496686871.399994,
+      "median_operating_margin_pct": 21.847656070832166,
+      "median_sales_cash_ratio_pct": 101.25656671056558,
+      "negative_owner_fcf_count": 10,
+      "coverage": {
+        "revenue": 19,
+        "net_profit": 19,
+        "cfo": 19,
+        "owner_fcf": 19,
+        "inventory": 19,
+        "contract_liabilities": 19,
+        "operating_margin": 19,
+        "sales_cash_ratio": 19
+      }
+    },
+    "full_year": {
+      "2025": {
+        "period": "2025A",
+        "sample_count": 19,
+        "rows_with_data": 19,
+        "revenue_CNY": 358592900349.2601,
+        "net_profit_CNY": 126632165576.86996,
+        "cfo_CNY": 109407132932.87001,
+        "owner_fcf_CNY": 93989474733.74,
+        "inventory_CNY": 185801999778.88998,
+        "contract_liabilities_CNY": 48059801722.29001,
+        "median_operating_margin_pct": 19.152633717297178,
+        "median_sales_cash_ratio_pct": 107.60099407199878,
+        "negative_owner_fcf_count": 11,
+        "coverage": {
+          "revenue": 19,
+          "net_profit": 19,
+          "cfo": 19,
+          "owner_fcf": 19,
+          "inventory": 19,
+          "contract_liabilities": 19,
+          "operating_margin": 19,
+          "sales_cash_ratio": 19
+        }
+      },
+      "2024": {
+        "period": "2024A",
+        "sample_count": 19,
+        "rows_with_data": 19,
+        "revenue_CNY": 438695780026.12,
+        "net_profit_CNY": 166848055673.72998,
+        "cfo_CNY": 174059293538.05,
+        "owner_fcf_CNY": 155042156539.20993,
+        "inventory_CNY": 167862743394.47,
+        "contract_liabilities_CNY": 55986118811.5,
+        "median_operating_margin_pct": 31.724186005923947,
+        "median_sales_cash_ratio_pct": 106.7098521708726,
+        "negative_owner_fcf_count": 5,
+        "coverage": {
+          "revenue": 19,
+          "net_profit": 19,
+          "cfo": 19,
+          "owner_fcf": 19,
+          "inventory": 19,
+          "contract_liabilities": 19,
+          "operating_margin": 19,
+          "sales_cash_ratio": 19
+        }
+      }
+    },
+    "signals": [
+      {
+        "key": "revenue_CNY",
+        "label": "样本营收同比",
+        "value": -6.742925322612847,
+        "unit": "%",
+        "status": "listed_sample_not_industry",
+        "current_coverage": 19,
+        "prior_coverage": 19,
+        "matched_coverage": true
+      },
+      {
+        "key": "net_profit_CNY",
+        "label": "样本净利同比",
+        "value": -8.349868232914915,
+        "unit": "%",
+        "status": "listed_sample_not_industry",
+        "current_coverage": 19,
+        "prior_coverage": 19,
+        "matched_coverage": true
+      },
+      {
+        "key": "cfo_CNY",
+        "label": "样本经营现金流同比",
+        "value": 33.674524741249655,
+        "unit": "%",
+        "status": "listed_sample_not_industry",
+        "current_coverage": 19,
+        "prior_coverage": 19,
+        "matched_coverage": true
+      },
+      {
+        "key": "inventory_CNY",
+        "label": "样本存货同比",
+        "value": 12.394345342227986,
+        "unit": "%",
+        "status": "listed_sample_not_industry",
+        "current_coverage": 19,
+        "prior_coverage": 19,
+        "matched_coverage": true
+      },
+      {
+        "key": "contract_liabilities_CNY",
+        "label": "样本合同负债同比",
+        "value": -13.635330149367697,
+        "unit": "%",
+        "status": "listed_sample_not_industry",
+        "current_coverage": 19,
+        "prior_coverage": 19,
+        "matched_coverage": true
+      }
+    ],
+    "note": "监控值是申万白酒Ⅲ上市样本聚合，不代表未上市品牌或全行业；YTD 仅和同报告期 YTD 比较，不年化。"
+  },
+  "sample": {
+    "codes": [
+      "600519",
+      "000858",
+      "000568",
+      "600809",
+      "002304",
+      "000596",
+      "000799",
+      "000860",
+      "000995",
+      "002646",
+      "600197",
+      "600199",
+      "600559",
+      "600702",
+      "600779",
+      "603198",
+      "603369",
+      "603589",
+      "603919"
+    ],
+    "count": 19,
+    "representative": false,
+    "classification": "申万三级白酒Ⅲ 851251.SI",
+    "as_of_constituents": "2026-10-09",
+    "status": "no_verified_industry_aggregate",
+    "note": "这是申万白酒Ⅲ 19 家上市公司样本，不是白酒行业总体。未上市的郎酒、剑南春不在其中；顺鑫农业虽在该成分内，但业务含农业。未取得可靠同口径全行业序列。"
+  },
+  "observations": []
+}
