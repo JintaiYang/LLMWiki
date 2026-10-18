@@ -1,0 +1,4894 @@
+{
+  "version": "V5-book-model-comparison",
+  "designed_at": "2026-10-17",
+  "financial_as_of": "2026-10-10",
+  "source_sha256": "c0721bac9381fbfa89f13ce776d8a3f704d81fbce888ddc56e1218265b71214e",
+  "source": "/Users/yangjintai/Documents/LLM wiki/白酒/dashboard/data.json",
+  "production_model": "V5.0-book-financial-quality",
+  "v4_baseline_file": "/Users/yangjintai/Documents/LLM wiki/白酒/04_运维报告/白酒评分V4切换前基线_20261017.json",
+  "verified_supplements": [
+    {
+      "code": "600519",
+      "name": "贵州茅台",
+      "field": "2021-12-31.receivables",
+      "provider": "iFind/manual verified import",
+      "file": "02_原始资料/05_iFind数据/supplement.csv",
+      "indicator": "iFind:search_notice:2021年报合并附注7.4;gross=3097678.25;allowance=3097678.25;net=0",
+      "report_date": "2021-12-31",
+      "source_date": "2022-03-31",
+      "unit": "CNY"
+    }
+  ],
+  "dimensions": [
+    [
+      "盈利质量",
+      25,
+      [
+        [
+          "operating_margin",
+          10,
+          0,
+          35
+        ],
+        [
+          "roa",
+          8,
+          0,
+          15
+        ],
+        [
+          "nonrecurring",
+          7,
+          30,
+          0
+        ]
+      ]
+    ],
+    [
+      "现金创造",
+      30,
+      [
+        [
+          "cfo_conversion",
+          12,
+          0.5,
+          1
+        ],
+        [
+          "fcf_conversion",
+          10,
+          0,
+          0.9
+        ],
+        [
+          "cfo_positive",
+          8,
+          60,
+          100
+        ]
+      ]
+    ],
+    [
+      "家底质量",
+      25,
+      [
+        [
+          "liquidity",
+          10,
+          0,
+          1
+        ],
+        [
+          "other_receivables",
+          8,
+          5,
+          0.5
+        ],
+        [
+          "receivables",
+          7,
+          15,
+          1
+        ]
+      ]
+    ],
+    [
+      "经营韧性",
+      10,
+      [
+        [
+          "revenue_cagr",
+          5,
+          0,
+          10
+        ],
+        [
+          "worst_revenue_yoy",
+          5,
+          -30,
+          0
+        ]
+      ]
+    ],
+    [
+      "股东回报",
+      10,
+      [
+        [
+          "payout",
+          6,
+          0,
+          60
+        ],
+        [
+          "dividend_consistency",
+          4,
+          0,
+          100
+        ]
+      ]
+    ]
+  ],
+  "scenarios": {
+    "基准": [
+      25,
+      30,
+      25,
+      10,
+      10
+    ],
+    "偏现金": [
+      20,
+      40,
+      25,
+      5,
+      10
+    ],
+    "偏盈利": [
+      35,
+      25,
+      20,
+      10,
+      10
+    ],
+    "偏家底": [
+      20,
+      25,
+      35,
+      10,
+      10
+    ]
+  },
+  "companies": [
+    {
+      "code": "600519",
+      "name": "贵州茅台",
+      "previous": 93.16,
+      "preview": {
+        "version": "V5.0-book-financial-quality",
+        "years": [
+          2021,
+          2022,
+          2023,
+          2024,
+          2025
+        ],
+        "dimensions": [
+          {
+            "name": "盈利质量",
+            "max": 25,
+            "items": [
+              {
+                "key": "operating_margin",
+                "max": 10,
+                "zero": 0,
+                "full": 35,
+                "value": 70.21878517522462,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 10
+              },
+              {
+                "key": "roa",
+                "max": 8,
+                "zero": 0,
+                "full": 15,
+                "value": 28.30565259710719,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 8
+              },
+              {
+                "key": "nonrecurring",
+                "max": 7,
+                "zero": 30,
+                "full": 0,
+                "value": 0.03274954379798178,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 6.992358
+              }
+            ],
+            "score": 24.992358
+          },
+          {
+            "name": "现金创造",
+            "max": 30,
+            "items": [
+              {
+                "key": "cfo_conversion",
+                "max": 12,
+                "zero": 0.5,
+                "full": 1,
+                "value": 0.8608041289711249,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 8.659299
+              },
+              {
+                "key": "fcf_conversion",
+                "max": 10,
+                "zero": 0,
+                "full": 0.9,
+                "value": 0.8095228910026799,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 8.994699
+              },
+              {
+                "key": "cfo_positive",
+                "max": 8,
+                "zero": 60,
+                "full": 100,
+                "value": 100.0,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 8
+              }
+            ],
+            "score": 25.653998
+          },
+          {
+            "name": "家底质量",
+            "max": 25,
+            "items": [
+              {
+                "key": "liquidity",
+                "max": 10,
+                "zero": 0,
+                "full": 1,
+                "value": 1,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 10
+              },
+              {
+                "key": "other_receivables",
+                "max": 8,
+                "zero": 5,
+                "full": 0.5,
+                "value": 0.011941126455344871,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 8
+              },
+              {
+                "key": "receivables",
+                "max": 7,
+                "zero": 15,
+                "full": 1,
+                "value": 0.011102566921642285,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 7
+              }
+            ],
+            "score": 25
+          },
+          {
+            "name": "经营韧性",
+            "max": 10,
+            "items": [
+              {
+                "key": "revenue_cagr",
+                "max": 5,
+                "zero": 0,
+                "full": 10,
+                "value": 12.208762702380938,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 5
+              },
+              {
+                "key": "worst_revenue_yoy",
+                "max": 5,
+                "zero": -30,
+                "full": 0,
+                "value": -1.2060035021222992,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 4.798999
+              }
+            ],
+            "score": 9.798999
+          },
+          {
+            "name": "股东回报",
+            "max": 10,
+            "items": [
+              {
+                "key": "payout",
+                "max": 6,
+                "zero": 0,
+                "full": 60,
+                "value": 63.70594951189305,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 6
+              },
+              {
+                "key": "dividend_consistency",
+                "max": 4,
+                "zero": 0,
+                "full": 100,
+                "value": 100.0,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 4
+              }
+            ],
+            "score": 10
+          }
+        ],
+        "raw_total": 95.45,
+        "total": 95.45,
+        "rankable": true,
+        "known_points": 95.45,
+        "coverage": 1.0,
+        "score_range": [
+          95.45,
+          95.45
+        ],
+        "missing": [],
+        "risk_cap": 100,
+        "risk_gates": [],
+        "risk_missing": [],
+        "observations": [],
+        "liquidity_components": [
+          {
+            "cash_ratio_pct": 89.4603114570843,
+            "quick_ratio_pct": 323.5324942067848,
+            "year": 2021,
+            "factor": 0.8682538932135537
+          },
+          {
+            "cash_ratio_pct": 118.76801062814424,
+            "quick_ratio_pct": 362.3451300893101,
+            "year": 2022,
+            "factor": 1
+          },
+          {
+            "cash_ratio_pct": 141.83475174017104,
+            "quick_ratio_pct": 367.0351116817004,
+            "year": 2023,
+            "factor": 1
+          },
+          {
+            "cash_ratio_pct": 104.91866515562309,
+            "quick_ratio_pct": 349.2522865076911,
+            "year": 2024,
+            "factor": 1
+          },
+          {
+            "cash_ratio_pct": 104.19293315065103,
+            "quick_ratio_pct": 385.18323721046943,
+            "year": 2025,
+            "factor": 1
+          }
+        ],
+        "strict_safety_status": "unverified",
+        "safety_pending": [
+          "受限现金与现金等价物",
+          "全部有息债务及到期结构",
+          "审计与持续经营",
+          "资金占用、担保及或有事项"
+        ]
+      },
+      "scenarios": {
+        "基准": 95.45,
+        "偏现金": 94.1,
+        "偏盈利": 96.17,
+        "偏家底": 96.17
+      },
+      "ranks": {
+        "基准": 1,
+        "偏现金": 3,
+        "偏盈利": 1,
+        "偏家底": 1
+      }
+    },
+    {
+      "code": "000858",
+      "name": "五粮液",
+      "previous": 91.59,
+      "preview": {
+        "version": "V5.0-book-financial-quality",
+        "years": [
+          2021,
+          2022,
+          2023,
+          2024,
+          2025
+        ],
+        "dimensions": [
+          {
+            "name": "盈利质量",
+            "max": 25,
+            "items": [
+              {
+                "key": "operating_margin",
+                "max": 10,
+                "zero": 0,
+                "full": 35,
+                "value": 49.56544695702464,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 10
+              },
+              {
+                "key": "roa",
+                "max": 8,
+                "zero": 0,
+                "full": 15,
+                "value": 19.39432092656399,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 8
+              },
+              {
+                "key": "nonrecurring",
+                "max": 7,
+                "zero": 30,
+                "full": 0,
+                "value": 1.548104506101772,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 6.638776
+              }
+            ],
+            "score": 24.638776
+          },
+          {
+            "name": "现金创造",
+            "max": 30,
+            "items": [
+              {
+                "key": "cfo_conversion",
+                "max": 12,
+                "zero": 0.5,
+                "full": 1,
+                "value": 1.237817737706048,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 12
+              },
+              {
+                "key": "fcf_conversion",
+                "max": 10,
+                "zero": 0,
+                "full": 0.9,
+                "value": 1.151573640775321,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 10
+              },
+              {
+                "key": "cfo_positive",
+                "max": 8,
+                "zero": 60,
+                "full": 100,
+                "value": 100.0,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 8
+              }
+            ],
+            "score": 30
+          },
+          {
+            "name": "家底质量",
+            "max": 25,
+            "items": [
+              {
+                "key": "liquidity",
+                "max": 10,
+                "zero": 0,
+                "full": 1,
+                "value": 1,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 10
+              },
+              {
+                "key": "other_receivables",
+                "max": 8,
+                "zero": 5,
+                "full": 0.5,
+                "value": 0.033874577102495376,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 8
+              },
+              {
+                "key": "receivables",
+                "max": 7,
+                "zero": 15,
+                "full": 1,
+                "value": 0.09313300618254089,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 7
+              }
+            ],
+            "score": 25
+          },
+          {
+            "name": "经营韧性",
+            "max": 10,
+            "items": [
+              {
+                "key": "revenue_cagr",
+                "max": 5,
+                "zero": 0,
+                "full": 10,
+                "value": -6.698358350490041,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 0
+              },
+              {
+                "key": "worst_revenue_yoy",
+                "max": 5,
+                "zero": -30,
+                "full": 0,
+                "value": -54.55180406416606,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 0
+              }
+            ],
+            "score": 0
+          },
+          {
+            "name": "股东回报",
+            "max": 10,
+            "items": [
+              {
+                "key": "payout",
+                "max": 6,
+                "zero": 0,
+                "full": 60,
+                "value": 71.7358464169288,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 6
+              },
+              {
+                "key": "dividend_consistency",
+                "max": 4,
+                "zero": 0,
+                "full": 100,
+                "value": 100.0,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 4
+              }
+            ],
+            "score": 10
+          }
+        ],
+        "raw_total": 89.64,
+        "total": 89.64,
+        "rankable": true,
+        "known_points": 89.64,
+        "coverage": 1.0,
+        "score_range": [
+          89.64,
+          89.64
+        ],
+        "missing": [],
+        "risk_cap": 100,
+        "risk_gates": [],
+        "risk_missing": [],
+        "observations": [],
+        "liquidity_components": [
+          {
+            "cash_ratio_pct": 244.9337813304279,
+            "quick_ratio_pct": 321.6443075286716,
+            "year": 2021,
+            "factor": 1
+          },
+          {
+            "cash_ratio_pct": 258.27917957326224,
+            "quick_ratio_pct": 340.0112443788625,
+            "year": 2022,
+            "factor": 1
+          },
+          {
+            "cash_ratio_pct": 353.2595122894108,
+            "quick_ratio_pct": 397.1296811682091,
+            "year": 2023,
+            "factor": 1
+          },
+          {
+            "cash_ratio_pct": 249.67203239945738,
+            "quick_ratio_pct": 289.1626454822438,
+            "year": 2024,
+            "factor": 1
+          },
+          {
+            "cash_ratio_pct": 188.5835479722521,
+            "quick_ratio_pct": 214.82156880202012,
+            "year": 2025,
+            "factor": 1
+          }
+        ],
+        "strict_safety_status": "unverified",
+        "safety_pending": [
+          "受限现金与现金等价物",
+          "全部有息债务及到期结构",
+          "审计与持续经营",
+          "资金占用、担保及或有事项"
+        ]
+      },
+      "scenarios": {
+        "基准": 89.64,
+        "偏现金": 94.71,
+        "偏盈利": 89.49,
+        "偏家底": 89.71
+      },
+      "ranks": {
+        "基准": 4,
+        "偏现金": 2,
+        "偏盈利": 4,
+        "偏家底": 3
+      }
+    },
+    {
+      "code": "000568",
+      "name": "泸州老窖",
+      "previous": 93.8,
+      "preview": {
+        "version": "V5.0-book-financial-quality",
+        "years": [
+          2021,
+          2022,
+          2023,
+          2024,
+          2025
+        ],
+        "dimensions": [
+          {
+            "name": "盈利质量",
+            "max": 25,
+            "items": [
+              {
+                "key": "operating_margin",
+                "max": 10,
+                "zero": 0,
+                "full": 35,
+                "value": 57.06939360891159,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 10
+              },
+              {
+                "key": "roa",
+                "max": 8,
+                "zero": 0,
+                "full": 15,
+                "value": 20.508813962150125,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 8
+              },
+              {
+                "key": "nonrecurring",
+                "max": 7,
+                "zero": 30,
+                "full": 0,
+                "value": 0.6525437639357259,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 6.84774
+              }
+            ],
+            "score": 24.84774
+          },
+          {
+            "name": "现金创造",
+            "max": 30,
+            "items": [
+              {
+                "key": "cfo_conversion",
+                "max": 12,
+                "zero": 0.5,
+                "full": 1,
+                "value": 0.9450022971610968,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 10.680055
+              },
+              {
+                "key": "fcf_conversion",
+                "max": 10,
+                "zero": 0,
+                "full": 0.9,
+                "value": 0.8086073819510938,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 8.984526
+              },
+              {
+                "key": "cfo_positive",
+                "max": 8,
+                "zero": 60,
+                "full": 100,
+                "value": 100.0,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 8
+              }
+            ],
+            "score": 27.664581
+          },
+          {
+            "name": "家底质量",
+            "max": 25,
+            "items": [
+              {
+                "key": "liquidity",
+                "max": 10,
+                "zero": 0,
+                "full": 1,
+                "value": 1,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 10
+              },
+              {
+                "key": "other_receivables",
+                "max": 8,
+                "zero": 5,
+                "full": 0.5,
+                "value": 0.0358908107315943,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 8
+              },
+              {
+                "key": "receivables",
+                "max": 7,
+                "zero": 15,
+                "full": 1,
+                "value": 0.023640837550735767,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 7
+              }
+            ],
+            "score": 25
+          },
+          {
+            "name": "经营韧性",
+            "max": 10,
+            "items": [
+              {
+                "key": "revenue_cagr",
+                "max": 5,
+                "zero": 0,
+                "full": 10,
+                "value": 9.092182698874552,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 4.546091
+              },
+              {
+                "key": "worst_revenue_yoy",
+                "max": 5,
+                "zero": -30,
+                "full": 0,
+                "value": -17.518893696808956,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 2.080184
+              }
+            ],
+            "score": 6.626275
+          },
+          {
+            "name": "股东回报",
+            "max": 10,
+            "items": [
+              {
+                "key": "payout",
+                "max": 6,
+                "zero": 0,
+                "full": 60,
+                "value": 64.79274859882692,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 6
+              },
+              {
+                "key": "dividend_consistency",
+                "max": 4,
+                "zero": 0,
+                "full": 100,
+                "value": 100.0,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 4
+              }
+            ],
+            "score": 10
+          }
+        ],
+        "raw_total": 94.14,
+        "total": 94.14,
+        "rankable": true,
+        "known_points": 94.14,
+        "coverage": 1.0,
+        "score_range": [
+          94.14,
+          94.14
+        ],
+        "missing": [],
+        "risk_cap": 100,
+        "risk_gates": [],
+        "risk_missing": [],
+        "observations": [],
+        "liquidity_components": [
+          {
+            "cash_ratio_pct": 123.4451985607569,
+            "quick_ratio_pct": 176.2844404857716,
+            "year": 2021,
+            "factor": 1
+          },
+          {
+            "cash_ratio_pct": 166.7038272379837,
+            "quick_ratio_pct": 222.59351359323878,
+            "year": 2022,
+            "factor": 1
+          },
+          {
+            "cash_ratio_pct": 257.6950172496403,
+            "quick_ratio_pct": 334.9908896032778,
+            "year": 2023,
+            "factor": 1
+          },
+          {
+            "cash_ratio_pct": 235.19040059726626,
+            "quick_ratio_pct": 262.4035925880558,
+            "year": 2024,
+            "factor": 1
+          },
+          {
+            "cash_ratio_pct": 227.76365398527446,
+            "quick_ratio_pct": 258.17525044329074,
+            "year": 2025,
+            "factor": 1
+          }
+        ],
+        "strict_safety_status": "unverified",
+        "safety_pending": [
+          "受限现金与现金等价物",
+          "全部有息债务及到期结构",
+          "审计与持续经营",
+          "资金占用、担保及或有事项"
+        ]
+      },
+      "scenarios": {
+        "基准": 94.14,
+        "偏现金": 95.08,
+        "偏盈利": 94.47,
+        "偏家底": 94.56
+      },
+      "ranks": {
+        "基准": 2,
+        "偏现金": 1,
+        "偏盈利": 2,
+        "偏家底": 2
+      }
+    },
+    {
+      "code": "600809",
+      "name": "山西汾酒",
+      "previous": 91.63,
+      "preview": {
+        "version": "V5.0-book-financial-quality",
+        "years": [
+          2021,
+          2022,
+          2023,
+          2024,
+          2025
+        ],
+        "dimensions": [
+          {
+            "name": "盈利质量",
+            "max": 25,
+            "items": [
+              {
+                "key": "operating_margin",
+                "max": 10,
+                "zero": 0,
+                "full": 35,
+                "value": 43.03226709376295,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 10
+              },
+              {
+                "key": "roa",
+                "max": 8,
+                "zero": 0,
+                "full": 15,
+                "value": 24.47888334804861,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 8
+              },
+              {
+                "key": "nonrecurring",
+                "max": 7,
+                "zero": 30,
+                "full": 0,
+                "value": 0,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 7
+              }
+            ],
+            "score": 25
+          },
+          {
+            "name": "现金创造",
+            "max": 30,
+            "items": [
+              {
+                "key": "cfo_conversion",
+                "max": 12,
+                "zero": 0.5,
+                "full": 1,
+                "value": 0.9549505234957002,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 10.918813
+              },
+              {
+                "key": "fcf_conversion",
+                "max": 10,
+                "zero": 0,
+                "full": 0.9,
+                "value": 0.8870081220274136,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 9.855646
+              },
+              {
+                "key": "cfo_positive",
+                "max": 8,
+                "zero": 60,
+                "full": 100,
+                "value": 100.0,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 8
+              }
+            ],
+            "score": 28.774459
+          },
+          {
+            "name": "家底质量",
+            "max": 25,
+            "items": [
+              {
+                "key": "liquidity",
+                "max": 10,
+                "zero": 0,
+                "full": 1,
+                "value": 0.28853214489134116,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 2.885321
+              },
+              {
+                "key": "other_receivables",
+                "max": 8,
+                "zero": 5,
+                "full": 0.5,
+                "value": 0.0825759575404189,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 8
+              },
+              {
+                "key": "receivables",
+                "max": 7,
+                "zero": 15,
+                "full": 1,
+                "value": 0.0007238441914355259,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 7
+              }
+            ],
+            "score": 17.885320999999998
+          },
+          {
+            "name": "经营韧性",
+            "max": 10,
+            "items": [
+              {
+                "key": "revenue_cagr",
+                "max": 5,
+                "zero": 0,
+                "full": 10,
+                "value": 22.58034232110855,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 5
+              },
+              {
+                "key": "worst_revenue_yoy",
+                "max": 5,
+                "zero": -30,
+                "full": 0,
+                "value": 7.517885961355919,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 5
+              }
+            ],
+            "score": 10
+          },
+          {
+            "name": "股东回报",
+            "max": 10,
+            "items": [
+              {
+                "key": "payout",
+                "max": 6,
+                "zero": 0,
+                "full": 60,
+                "value": 55.803443108487905,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 5.580344
+              },
+              {
+                "key": "dividend_consistency",
+                "max": 4,
+                "zero": 0,
+                "full": 100,
+                "value": 100.0,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 4
+              }
+            ],
+            "score": 9.580344
+          }
+        ],
+        "raw_total": 91.24,
+        "total": 91.24,
+        "rankable": true,
+        "known_points": 91.24,
+        "coverage": 1.0,
+        "score_range": [
+          91.24,
+          91.24
+        ],
+        "missing": [],
+        "risk_cap": 100,
+        "risk_gates": [],
+        "risk_missing": [],
+        "observations": [],
+        "liquidity_components": [
+          {
+            "cash_ratio_pct": 43.08257159130729,
+            "quick_ratio_pct": 119.84902008346285,
+            "year": 2021,
+            "factor": 0.28853214489134116
+          },
+          {
+            "cash_ratio_pct": 75.44709420284964,
+            "quick_ratio_pct": 131.69788562281107,
+            "year": 2022,
+            "factor": 0.6930886775356205
+          },
+          {
+            "cash_ratio_pct": 24.92129376354807,
+            "quick_ratio_pct": 152.0812894490756,
+            "year": 2023,
+            "factor": 0.06151617204435089
+          },
+          {
+            "cash_ratio_pct": 34.98672504726874,
+            "quick_ratio_pct": 171.25873698310528,
+            "year": 2024,
+            "factor": 0.18733406309085926
+          },
+          {
+            "cash_ratio_pct": 60.85657177685998,
+            "quick_ratio_pct": 196.39210841210132,
+            "year": 2025,
+            "factor": 0.5107071472107497
+          }
+        ],
+        "strict_safety_status": "unverified",
+        "safety_pending": [
+          "受限现金与现金等价物",
+          "全部有息债务及到期结构",
+          "审计与持续经营",
+          "资金占用、担保及或有事项"
+        ]
+      },
+      "scenarios": {
+        "基准": 91.24,
+        "偏现金": 90.83,
+        "偏盈利": 92.87,
+        "偏家底": 88.6
+      },
+      "ranks": {
+        "基准": 3,
+        "偏现金": 4,
+        "偏盈利": 3,
+        "偏家底": 4
+      }
+    },
+    {
+      "code": "002304",
+      "name": "洋河股份",
+      "previous": 77.91,
+      "preview": {
+        "version": "V5.0-book-financial-quality",
+        "years": [
+          2021,
+          2022,
+          2023,
+          2024,
+          2025
+        ],
+        "dimensions": [
+          {
+            "name": "盈利质量",
+            "max": 25,
+            "items": [
+              {
+                "key": "operating_margin",
+                "max": 10,
+                "zero": 0,
+                "full": 35,
+                "value": 39.403782918088254,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 10
+              },
+              {
+                "key": "roa",
+                "max": 8,
+                "zero": 0,
+                "full": 15,
+                "value": 12.350009700957806,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 6.586672
+              },
+              {
+                "key": "nonrecurring",
+                "max": 7,
+                "zero": 30,
+                "full": 0,
+                "value": 3.2333458330302607,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 6.245553
+              }
+            ],
+            "score": 22.832225
+          },
+          {
+            "name": "现金创造",
+            "max": 30,
+            "items": [
+              {
+                "key": "cfo_conversion",
+                "max": 12,
+                "zero": 0.5,
+                "full": 1,
+                "value": 0.8094272330923884,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 7.426254
+              },
+              {
+                "key": "fcf_conversion",
+                "max": 10,
+                "zero": 0,
+                "full": 0.9,
+                "value": 0.6918544563658132,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 7.687272
+              },
+              {
+                "key": "cfo_positive",
+                "max": 8,
+                "zero": 60,
+                "full": 100,
+                "value": 80.0,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 4.0
+              }
+            ],
+            "score": 19.113526
+          },
+          {
+            "name": "家底质量",
+            "max": 25,
+            "items": [
+              {
+                "key": "liquidity",
+                "max": 10,
+                "zero": 0,
+                "full": 1,
+                "value": 1,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 10
+              },
+              {
+                "key": "other_receivables",
+                "max": 8,
+                "zero": 5,
+                "full": 0.5,
+                "value": 0.025320039537140626,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 8
+              },
+              {
+                "key": "receivables",
+                "max": 7,
+                "zero": 15,
+                "full": 1,
+                "value": 0.044879882584617184,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 7
+              }
+            ],
+            "score": 25
+          },
+          {
+            "name": "经营韧性",
+            "max": 10,
+            "items": [
+              {
+                "key": "revenue_cagr",
+                "max": 5,
+                "zero": 0,
+                "full": 10,
+                "value": -1.8592354604877848,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 0
+              },
+              {
+                "key": "worst_revenue_yoy",
+                "max": 5,
+                "zero": -30,
+                "full": 0,
+                "value": -33.47118705236183,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 0
+              }
+            ],
+            "score": 0
+          },
+          {
+            "name": "股东回报",
+            "max": 10,
+            "items": [
+              {
+                "key": "payout",
+                "max": 6,
+                "zero": 0,
+                "full": 60,
+                "value": 73.76013073607183,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 6
+              },
+              {
+                "key": "dividend_consistency",
+                "max": 4,
+                "zero": 0,
+                "full": 100,
+                "value": 100.0,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 4
+              }
+            ],
+            "score": 10
+          }
+        ],
+        "raw_total": 76.95,
+        "total": 76.95,
+        "rankable": true,
+        "known_points": 76.95,
+        "coverage": 1.0,
+        "score_range": [
+          76.95,
+          76.95
+        ],
+        "missing": [],
+        "risk_cap": 100,
+        "risk_gates": [],
+        "risk_missing": [],
+        "observations": [],
+        "liquidity_components": [
+          {
+            "cash_ratio_pct": 84.72716407781306,
+            "quick_ratio_pct": 133.2678538830124,
+            "year": 2021,
+            "factor": 0.8090895509726632
+          },
+          {
+            "cash_ratio_pct": 122.31575020741481,
+            "quick_ratio_pct": 169.52231354533728,
+            "year": 2022,
+            "factor": 1
+          },
+          {
+            "cash_ratio_pct": 150.28584702770812,
+            "quick_ratio_pct": 195.51062389824645,
+            "year": 2023,
+            "factor": 1
+          },
+          {
+            "cash_ratio_pct": 142.53213709968819,
+            "quick_ratio_pct": 200.4911273443742,
+            "year": 2024,
+            "factor": 1
+          },
+          {
+            "cash_ratio_pct": 117.26184566757993,
+            "quick_ratio_pct": 196.3674326545019,
+            "year": 2025,
+            "factor": 1
+          }
+        ],
+        "strict_safety_status": "unverified",
+        "safety_pending": [
+          "受限现金与现金等价物",
+          "全部有息债务及到期结构",
+          "审计与持续经营",
+          "资金占用、担保及或有事项"
+        ]
+      },
+      "scenarios": {
+        "基准": 76.95,
+        "偏现金": 78.75,
+        "偏盈利": 77.89,
+        "偏家底": 79.19
+      },
+      "ranks": {
+        "基准": 9,
+        "偏现金": 8,
+        "偏盈利": 8,
+        "偏家底": 7
+      }
+    },
+    {
+      "code": "000596",
+      "name": "古井贡酒",
+      "previous": 83.88,
+      "preview": {
+        "version": "V5.0-book-financial-quality",
+        "years": [
+          2021,
+          2022,
+          2023,
+          2024,
+          2025
+        ],
+        "dimensions": [
+          {
+            "name": "盈利质量",
+            "max": 25,
+            "items": [
+              {
+                "key": "operating_margin",
+                "max": 10,
+                "zero": 0,
+                "full": 35,
+                "value": 26.764686472175192,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 7.647053
+              },
+              {
+                "key": "roa",
+                "max": 8,
+                "zero": 0,
+                "full": 15,
+                "value": 11.780320024163569,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 6.282837
+              },
+              {
+                "key": "nonrecurring",
+                "max": 7,
+                "zero": 30,
+                "full": 0,
+                "value": 2.0471019154933376,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 6.522343
+              }
+            ],
+            "score": 20.452233
+          },
+          {
+            "name": "现金创造",
+            "max": 30,
+            "items": [
+              {
+                "key": "cfo_conversion",
+                "max": 12,
+                "zero": 0.5,
+                "full": 1,
+                "value": 0.9915595059838105,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 11.797428
+              },
+              {
+                "key": "fcf_conversion",
+                "max": 10,
+                "zero": 0,
+                "full": 0.9,
+                "value": 0.5534817829376245,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 6.149798
+              },
+              {
+                "key": "cfo_positive",
+                "max": 8,
+                "zero": 60,
+                "full": 100,
+                "value": 100.0,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 8
+              }
+            ],
+            "score": 25.947226
+          },
+          {
+            "name": "家底质量",
+            "max": 25,
+            "items": [
+              {
+                "key": "liquidity",
+                "max": 10,
+                "zero": 0,
+                "full": 1,
+                "value": 0.8904734242756035,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 8.904734
+              },
+              {
+                "key": "other_receivables",
+                "max": 8,
+                "zero": 5,
+                "full": 0.5,
+                "value": 0.21443683569500274,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 8
+              },
+              {
+                "key": "receivables",
+                "max": 7,
+                "zero": 15,
+                "full": 1,
+                "value": 0.3387455460557035,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 7
+              }
+            ],
+            "score": 23.904733999999998
+          },
+          {
+            "name": "经营韧性",
+            "max": 10,
+            "items": [
+              {
+                "key": "revenue_cagr",
+                "max": 5,
+                "zero": 0,
+                "full": 10,
+                "value": 12.844061424313491,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 5
+              },
+              {
+                "key": "worst_revenue_yoy",
+                "max": 5,
+                "zero": -30,
+                "full": 0,
+                "value": -20.128763907782854,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 1.645206
+              }
+            ],
+            "score": 6.645206
+          },
+          {
+            "name": "股东回报",
+            "max": 10,
+            "items": [
+              {
+                "key": "payout",
+                "max": 6,
+                "zero": 0,
+                "full": 60,
+                "value": 55.63755169137815,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 5.563755
+              },
+              {
+                "key": "dividend_consistency",
+                "max": 4,
+                "zero": 0,
+                "full": 100,
+                "value": 100.0,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 4
+              }
+            ],
+            "score": 9.563755
+          }
+        ],
+        "raw_total": 86.51,
+        "total": 86.51,
+        "rankable": true,
+        "known_points": 86.51,
+        "coverage": 1.0,
+        "score_range": [
+          86.51,
+          86.51
+        ],
+        "missing": [],
+        "risk_cap": 100,
+        "risk_gates": [],
+        "risk_missing": [],
+        "observations": [],
+        "liquidity_components": [
+          {
+            "cash_ratio_pct": 155.27996710110688,
+            "quick_ratio_pct": 203.48361080827493,
+            "year": 2021,
+            "factor": 1
+          },
+          {
+            "cash_ratio_pct": 137.6085852885226,
+            "quick_ratio_pct": 162.56289216993193,
+            "year": 2022,
+            "factor": 1
+          },
+          {
+            "cash_ratio_pct": 128.67169405922215,
+            "quick_ratio_pct": 144.96692768052924,
+            "year": 2023,
+            "factor": 0.9496692768052923
+          },
+          {
+            "cash_ratio_pct": 111.08050463367493,
+            "quick_ratio_pct": 136.61479145429962,
+            "year": 2024,
+            "factor": 0.8661479145429962
+          },
+          {
+            "cash_ratio_pct": 125.72369334579443,
+            "quick_ratio_pct": 139.04734242756035,
+            "year": 2025,
+            "factor": 0.8904734242756035
+          }
+        ],
+        "strict_safety_status": "unverified",
+        "safety_pending": [
+          "受限现金与现金等价物",
+          "全部有息债务及到期结构",
+          "审计与持续经营",
+          "资金占用、担保及或有事项"
+        ]
+      },
+      "scenarios": {
+        "基准": 86.51,
+        "偏现金": 87.75,
+        "偏盈利": 85.59,
+        "偏家底": 87.66
+      },
+      "ranks": {
+        "基准": 5,
+        "偏现金": 5,
+        "偏盈利": 5,
+        "偏家底": 5
+      }
+    },
+    {
+      "code": "000799",
+      "name": "酒鬼酒",
+      "previous": 48.66,
+      "preview": {
+        "version": "V5.0-book-financial-quality",
+        "years": [
+          2021,
+          2022,
+          2023,
+          2024,
+          2025
+        ],
+        "dimensions": [
+          {
+            "name": "盈利质量",
+            "max": 25,
+            "items": [
+              {
+                "key": "operating_margin",
+                "max": 10,
+                "zero": 0,
+                "full": 35,
+                "value": 25.668544407143816,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 7.33387
+              },
+              {
+                "key": "roa",
+                "max": 8,
+                "zero": 0,
+                "full": 15,
+                "value": 9.522871407470774,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 5.078865
+              },
+              {
+                "key": "nonrecurring",
+                "max": 7,
+                "zero": 30,
+                "full": 0,
+                "value": 0,
+                "status": "economic_invalid",
+                "valid_years": 5,
+                "score": 0
+              }
+            ],
+            "score": 12.412735000000001
+          },
+          {
+            "name": "现金创造",
+            "max": 30,
+            "items": [
+              {
+                "key": "cfo_conversion",
+                "max": 12,
+                "zero": 0.5,
+                "full": 1,
+                "value": 0.601204750221879,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 2.428914
+              },
+              {
+                "key": "fcf_conversion",
+                "max": 10,
+                "zero": 0,
+                "full": 0.9,
+                "value": 0.02811959165813381,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 0.31244
+              },
+              {
+                "key": "cfo_positive",
+                "max": 8,
+                "zero": 60,
+                "full": 100,
+                "value": 60.0,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 0
+              }
+            ],
+            "score": 2.741354
+          },
+          {
+            "name": "家底质量",
+            "max": 25,
+            "items": [
+              {
+                "key": "liquidity",
+                "max": 10,
+                "zero": 0,
+                "full": 1,
+                "value": 0.2751172696852672,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 2.751173
+              },
+              {
+                "key": "other_receivables",
+                "max": 8,
+                "zero": 5,
+                "full": 0.5,
+                "value": 0.40584111576278625,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 8
+              },
+              {
+                "key": "receivables",
+                "max": 7,
+                "zero": 15,
+                "full": 1,
+                "value": 2.8249808630134807,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 6.08751
+              }
+            ],
+            "score": 16.838683
+          },
+          {
+            "name": "经营韧性",
+            "max": 10,
+            "items": [
+              {
+                "key": "revenue_cagr",
+                "max": 5,
+                "zero": 0,
+                "full": 10,
+                "value": -9.51268776264287,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 0
+              },
+              {
+                "key": "worst_revenue_yoy",
+                "max": 5,
+                "zero": -30,
+                "full": 0,
+                "value": -49.69980478034651,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 0
+              }
+            ],
+            "score": 0
+          },
+          {
+            "name": "股东回报",
+            "max": 10,
+            "items": [
+              {
+                "key": "payout",
+                "max": 6,
+                "zero": 0,
+                "full": 60,
+                "value": 59.22862033897252,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 5.922862
+              },
+              {
+                "key": "dividend_consistency",
+                "max": 4,
+                "zero": 0,
+                "full": 100,
+                "value": 100.0,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 4
+              }
+            ],
+            "score": 9.922862
+          }
+        ],
+        "raw_total": 41.92,
+        "total": 41.92,
+        "rankable": true,
+        "known_points": 41.92,
+        "coverage": 1.0,
+        "score_range": [
+          41.92,
+          41.92
+        ],
+        "missing": [],
+        "risk_cap": 49,
+        "risk_gates": [
+          {
+            "key": "latest_loss",
+            "label": "最新年归母亏损",
+            "cap": 49
+          },
+          {
+            "key": "two_negative_cfo",
+            "label": "连续两年经营现金流为负",
+            "cap": 49
+          }
+        ],
+        "risk_missing": [],
+        "observations": [
+          "最近三年简化 FCF 合计非正；需区分扩产与经营问题，未自动压分"
+        ],
+        "liquidity_components": [
+          {
+            "cash_ratio_pct": 135.98039948812018,
+            "quick_ratio_pct": 157.47418409849388,
+            "year": 2021,
+            "factor": 1
+          },
+          {
+            "cash_ratio_pct": 187.20634733149024,
+            "quick_ratio_pct": 202.30957078319554,
+            "year": 2022,
+            "factor": 1
+          },
+          {
+            "cash_ratio_pct": 174.60401651498452,
+            "quick_ratio_pct": 199.87157032141988,
+            "year": 2023,
+            "factor": 1
+          },
+          {
+            "cash_ratio_pct": 117.1460089621714,
+            "quick_ratio_pct": 134.9799949707688,
+            "year": 2024,
+            "factor": 0.8497999497076879
+          },
+          {
+            "cash_ratio_pct": 58.13210725327026,
+            "quick_ratio_pct": 77.51172696852672,
+            "year": 2025,
+            "factor": 0.2751172696852672
+          }
+        ],
+        "strict_safety_status": "unverified",
+        "safety_pending": [
+          "受限现金与现金等价物",
+          "全部有息债务及到期结构",
+          "审计与持续经营",
+          "资金占用、担保及或有事项"
+        ]
+      },
+      "scenarios": {
+        "基准": 41.92,
+        "偏现金": 40.35,
+        "偏盈利": 43.06,
+        "偏家底": 45.71
+      },
+      "ranks": {
+        "基准": 15,
+        "偏现金": 15,
+        "偏盈利": 15,
+        "偏家底": 15
+      }
+    },
+    {
+      "code": "000860",
+      "name": "顺鑫农业",
+      "previous": null,
+      "preview": {
+        "version": "V5.0-book-financial-quality",
+        "years": [
+          2021,
+          2022,
+          2023,
+          2024,
+          2025
+        ],
+        "dimensions": [
+          {
+            "name": "盈利质量",
+            "max": 25,
+            "items": [
+              {
+                "key": "operating_margin",
+                "max": 10,
+                "zero": 0,
+                "full": 35,
+                "value": 0.7072042687630977,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 0.202058
+              },
+              {
+                "key": "roa",
+                "max": 8,
+                "zero": 0,
+                "full": 15,
+                "value": -1.0091963652579616,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 0
+              },
+              {
+                "key": "nonrecurring",
+                "max": 7,
+                "zero": 30,
+                "full": 0,
+                "value": 0,
+                "status": "economic_invalid",
+                "valid_years": 5,
+                "score": 0
+              }
+            ],
+            "score": 0.202058
+          },
+          {
+            "name": "现金创造",
+            "max": 30,
+            "items": [
+              {
+                "key": "cfo_conversion",
+                "max": 12,
+                "zero": 0.5,
+                "full": 1,
+                "value": 0,
+                "status": "economic_invalid",
+                "valid_years": 5,
+                "score": 0
+              },
+              {
+                "key": "fcf_conversion",
+                "max": 10,
+                "zero": 0,
+                "full": 0.9,
+                "value": 0,
+                "status": "economic_invalid",
+                "valid_years": 5,
+                "score": 0
+              },
+              {
+                "key": "cfo_positive",
+                "max": 8,
+                "zero": 60,
+                "full": 100,
+                "value": 40.0,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 0
+              }
+            ],
+            "score": 0
+          },
+          {
+            "name": "家底质量",
+            "max": 25,
+            "items": [
+              {
+                "key": "liquidity",
+                "max": 10,
+                "zero": 0,
+                "full": 1,
+                "value": 0.5847204323250541,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 5.847204
+              },
+              {
+                "key": "other_receivables",
+                "max": 8,
+                "zero": 5,
+                "full": 0.5,
+                "value": 0.07616577651651442,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 8
+              },
+              {
+                "key": "receivables",
+                "max": 7,
+                "zero": 15,
+                "full": 1,
+                "value": 0.6681872144608719,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 7
+              }
+            ],
+            "score": 20.847203999999998
+          },
+          {
+            "name": "经营韧性",
+            "max": 10,
+            "items": [
+              {
+                "key": "revenue_cagr",
+                "max": 5,
+                "zero": 0,
+                "full": 10,
+                "value": -14.173112735855952,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 0
+              },
+              {
+                "key": "worst_revenue_yoy",
+                "max": 5,
+                "zero": -30,
+                "full": 0,
+                "value": -21.46048274320097,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 1.423253
+              }
+            ],
+            "score": 1.423253
+          },
+          {
+            "name": "股东回报",
+            "max": 10,
+            "items": [
+              {
+                "key": "payout",
+                "max": 6,
+                "zero": 0,
+                "full": 60,
+                "value": null,
+                "status": "missing",
+                "valid_years": 2,
+                "score": null
+              },
+              {
+                "key": "dividend_consistency",
+                "max": 4,
+                "zero": 0,
+                "full": 100,
+                "value": null,
+                "status": "missing",
+                "valid_years": 2,
+                "score": null
+              }
+            ],
+            "score": null
+          }
+        ],
+        "raw_total": null,
+        "total": null,
+        "rankable": false,
+        "known_points": 22.47,
+        "coverage": 0.9,
+        "score_range": [
+          22.47,
+          32.47
+        ],
+        "missing": [
+          "payout",
+          "dividend_consistency"
+        ],
+        "risk_cap": 49,
+        "risk_gates": [
+          {
+            "key": "latest_loss",
+            "label": "最新年归母亏损",
+            "cap": 49
+          }
+        ],
+        "risk_missing": [],
+        "observations": [
+          "最近三年简化 FCF 合计非正；需区分扩产与经营问题，未自动压分"
+        ],
+        "liquidity_components": [
+          {
+            "cash_ratio_pct": 84.58361976380388,
+            "quick_ratio_pct": 96.40265162567371,
+            "year": 2021,
+            "factor": 0.46402651625673713
+          },
+          {
+            "cash_ratio_pct": 82.80971280254388,
+            "quick_ratio_pct": 91.10295647230664,
+            "year": 2022,
+            "factor": 0.41102956472306645
+          },
+          {
+            "cash_ratio_pct": 99.66576450518009,
+            "quick_ratio_pct": 108.47204323250541,
+            "year": 2023,
+            "factor": 0.5847204323250541
+          },
+          {
+            "cash_ratio_pct": 107.7327879165437,
+            "quick_ratio_pct": 121.28614884416547,
+            "year": 2024,
+            "factor": 0.7128614884416546
+          },
+          {
+            "cash_ratio_pct": 108.66413985991154,
+            "quick_ratio_pct": 126.60201089105098,
+            "year": 2025,
+            "factor": 0.7660201089105098
+          }
+        ],
+        "strict_safety_status": "unverified",
+        "safety_pending": [
+          "受限现金与现金等价物",
+          "全部有息债务及到期结构",
+          "审计与持续经营",
+          "资金占用、担保及或有事项"
+        ]
+      },
+      "scenarios": {
+        "基准": null,
+        "偏现金": null,
+        "偏盈利": null,
+        "偏家底": null
+      }
+    },
+    {
+      "code": "000995",
+      "name": "皇台酒业",
+      "previous": null,
+      "preview": {
+        "version": "V5.0-book-financial-quality",
+        "years": [
+          2021,
+          2022,
+          2023,
+          2024,
+          2025
+        ],
+        "dimensions": [
+          {
+            "name": "盈利质量",
+            "max": 25,
+            "items": [
+              {
+                "key": "operating_margin",
+                "max": 10,
+                "zero": 0,
+                "full": 35,
+                "value": 5.505500919283769,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 1.573
+              },
+              {
+                "key": "roa",
+                "max": 8,
+                "zero": 0,
+                "full": 15,
+                "value": 1.5548227243061792,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 0.829239
+              },
+              {
+                "key": "nonrecurring",
+                "max": 7,
+                "zero": 30,
+                "full": 0,
+                "value": 36.39797372835159,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 0
+              }
+            ],
+            "score": 2.402239
+          },
+          {
+            "name": "现金创造",
+            "max": 30,
+            "items": [
+              {
+                "key": "cfo_conversion",
+                "max": 12,
+                "zero": 0.5,
+                "full": 1,
+                "value": 3.385198264246372,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 12
+              },
+              {
+                "key": "fcf_conversion",
+                "max": 10,
+                "zero": 0,
+                "full": 0.9,
+                "value": 2.757866779174929,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 10
+              },
+              {
+                "key": "cfo_positive",
+                "max": 8,
+                "zero": 60,
+                "full": 100,
+                "value": 80.0,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 4.0
+              }
+            ],
+            "score": 26.0
+          },
+          {
+            "name": "家底质量",
+            "max": 25,
+            "items": [
+              {
+                "key": "liquidity",
+                "max": 10,
+                "zero": 0,
+                "full": 1,
+                "value": 0,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 0
+              },
+              {
+                "key": "other_receivables",
+                "max": 8,
+                "zero": 5,
+                "full": 0.5,
+                "value": 6.471977138680014,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 0
+              },
+              {
+                "key": "receivables",
+                "max": 7,
+                "zero": 15,
+                "full": 1,
+                "value": 5.296690226906026,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 4.851655
+              }
+            ],
+            "score": 4.851655
+          },
+          {
+            "name": "经营韧性",
+            "max": 10,
+            "items": [
+              {
+                "key": "revenue_cagr",
+                "max": 5,
+                "zero": 0,
+                "full": 10,
+                "value": 10.792380271270563,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 5
+              },
+              {
+                "key": "worst_revenue_yoy",
+                "max": 5,
+                "zero": -30,
+                "full": 0,
+                "value": -10.424322753202109,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 3.262613
+              }
+            ],
+            "score": 8.262613
+          },
+          {
+            "name": "股东回报",
+            "max": 10,
+            "items": [
+              {
+                "key": "payout",
+                "max": 6,
+                "zero": 0,
+                "full": 60,
+                "value": null,
+                "status": "missing",
+                "valid_years": 0,
+                "score": null
+              },
+              {
+                "key": "dividend_consistency",
+                "max": 4,
+                "zero": 0,
+                "full": 100,
+                "value": null,
+                "status": "missing",
+                "valid_years": 0,
+                "score": null
+              }
+            ],
+            "score": null
+          }
+        ],
+        "raw_total": null,
+        "total": null,
+        "rankable": false,
+        "known_points": 41.52,
+        "coverage": 0.9,
+        "score_range": [
+          41.52,
+          51.52
+        ],
+        "missing": [
+          "payout",
+          "dividend_consistency"
+        ],
+        "risk_cap": 100,
+        "risk_gates": [],
+        "risk_missing": [],
+        "observations": [],
+        "liquidity_components": [
+          {
+            "cash_ratio_pct": 3.2079269110452038,
+            "quick_ratio_pct": 18.5232308641006,
+            "year": 2021,
+            "factor": 0
+          },
+          {
+            "cash_ratio_pct": 6.718848084350126,
+            "quick_ratio_pct": 21.32648220061601,
+            "year": 2022,
+            "factor": 0
+          },
+          {
+            "cash_ratio_pct": 6.129879598472039,
+            "quick_ratio_pct": 19.39201951339524,
+            "year": 2023,
+            "factor": 0
+          },
+          {
+            "cash_ratio_pct": 12.981843357433808,
+            "quick_ratio_pct": 23.912639704117,
+            "year": 2024,
+            "factor": 0
+          },
+          {
+            "cash_ratio_pct": 19.017916019489085,
+            "quick_ratio_pct": 33.179513312329725,
+            "year": 2025,
+            "factor": 0
+          }
+        ],
+        "strict_safety_status": "unverified",
+        "safety_pending": [
+          "受限现金与现金等价物",
+          "全部有息债务及到期结构",
+          "审计与持续经营",
+          "资金占用、担保及或有事项"
+        ]
+      },
+      "scenarios": {
+        "基准": null,
+        "偏现金": null,
+        "偏盈利": null,
+        "偏家底": null
+      }
+    },
+    {
+      "code": "002646",
+      "name": "天佑德酒",
+      "previous": 47.35,
+      "preview": {
+        "version": "V5.0-book-financial-quality",
+        "years": [
+          2021,
+          2022,
+          2023,
+          2024,
+          2025
+        ],
+        "dimensions": [
+          {
+            "name": "盈利质量",
+            "max": 25,
+            "items": [
+              {
+                "key": "operating_margin",
+                "max": 10,
+                "zero": 0,
+                "full": 35,
+                "value": 8.959072152302111,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 2.559735
+              },
+              {
+                "key": "roa",
+                "max": 8,
+                "zero": 0,
+                "full": 15,
+                "value": 1.9980668095078313,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 1.065636
+              },
+              {
+                "key": "nonrecurring",
+                "max": 7,
+                "zero": 30,
+                "full": 0,
+                "value": 59.15323095830942,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 0
+              }
+            ],
+            "score": 3.625371
+          },
+          {
+            "name": "现金创造",
+            "max": 30,
+            "items": [
+              {
+                "key": "cfo_conversion",
+                "max": 12,
+                "zero": 0.5,
+                "full": 1,
+                "value": 0.7561113711136549,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 6.146673
+              },
+              {
+                "key": "fcf_conversion",
+                "max": 10,
+                "zero": 0,
+                "full": 0.9,
+                "value": -0.8161005206989612,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 0
+              },
+              {
+                "key": "cfo_positive",
+                "max": 8,
+                "zero": 60,
+                "full": 100,
+                "value": 80.0,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 4.0
+              }
+            ],
+            "score": 10.146673
+          },
+          {
+            "name": "家底质量",
+            "max": 25,
+            "items": [
+              {
+                "key": "liquidity",
+                "max": 10,
+                "zero": 0,
+                "full": 1,
+                "value": 0.2687844525301017,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 2.687845
+              },
+              {
+                "key": "other_receivables",
+                "max": 8,
+                "zero": 5,
+                "full": 0.5,
+                "value": 0.19200893783478426,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 8
+              },
+              {
+                "key": "receivables",
+                "max": 7,
+                "zero": 15,
+                "full": 1,
+                "value": 2.478228737365649,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 6.260886
+              }
+            ],
+            "score": 16.948731
+          },
+          {
+            "name": "经营韧性",
+            "max": 10,
+            "items": [
+              {
+                "key": "revenue_cagr",
+                "max": 5,
+                "zero": 0,
+                "full": 10,
+                "value": 7.591402533906755,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 3.795701
+              },
+              {
+                "key": "worst_revenue_yoy",
+                "max": 5,
+                "zero": -30,
+                "full": 0,
+                "value": -12.238427878792413,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 2.960262
+              }
+            ],
+            "score": 6.755963
+          },
+          {
+            "name": "股东回报",
+            "max": 10,
+            "items": [
+              {
+                "key": "payout",
+                "max": 6,
+                "zero": 0,
+                "full": 60,
+                "value": 50.285081242424845,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 5.028508
+              },
+              {
+                "key": "dividend_consistency",
+                "max": 4,
+                "zero": 0,
+                "full": 100,
+                "value": 100.0,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 4
+              }
+            ],
+            "score": 9.028508
+          }
+        ],
+        "raw_total": 46.51,
+        "total": 46.51,
+        "rankable": true,
+        "known_points": 46.51,
+        "coverage": 1.0,
+        "score_range": [
+          46.51,
+          46.51
+        ],
+        "missing": [],
+        "risk_cap": 100,
+        "risk_gates": [],
+        "risk_missing": [],
+        "observations": [
+          "最近三年简化 FCF 合计非正；需区分扩产与经营问题，未自动压分"
+        ],
+        "liquidity_components": [
+          {
+            "cash_ratio_pct": 116.07719911051892,
+            "quick_ratio_pct": 147.4948865821554,
+            "year": 2021,
+            "factor": 0.974948865821554
+          },
+          {
+            "cash_ratio_pct": 122.5547626697304,
+            "quick_ratio_pct": 137.67930494139864,
+            "year": 2022,
+            "factor": 0.8767930494139864
+          },
+          {
+            "cash_ratio_pct": 108.72542708735449,
+            "quick_ratio_pct": 119.09408518527296,
+            "year": 2023,
+            "factor": 0.6909408518527296
+          },
+          {
+            "cash_ratio_pct": 71.83088748978686,
+            "quick_ratio_pct": 80.21667734646844,
+            "year": 2024,
+            "factor": 0.30216677346468446
+          },
+          {
+            "cash_ratio_pct": 60.050960161275015,
+            "quick_ratio_pct": 76.87844525301017,
+            "year": 2025,
+            "factor": 0.2687844525301017
+          }
+        ],
+        "strict_safety_status": "unverified",
+        "safety_pending": [
+          "受限现金与现金等价物",
+          "全部有息债务及到期结构",
+          "审计与持续经营",
+          "资金占用、担保及或有事项"
+        ]
+      },
+      "scenarios": {
+        "基准": 46.51,
+        "偏现金": 45.78,
+        "偏盈利": 42.87,
+        "偏家底": 50.87
+      },
+      "ranks": {
+        "基准": 14,
+        "偏现金": 13,
+        "偏盈利": 16,
+        "偏家底": 13
+      }
+    },
+    {
+      "code": "600197",
+      "name": "伊力特",
+      "previous": 46.9,
+      "preview": {
+        "version": "V5.0-book-financial-quality",
+        "years": [
+          2021,
+          2022,
+          2023,
+          2024,
+          2025
+        ],
+        "dimensions": [
+          {
+            "name": "盈利质量",
+            "max": 25,
+            "items": [
+              {
+                "key": "operating_margin",
+                "max": 10,
+                "zero": 0,
+                "full": 35,
+                "value": 20.354529981816473,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 5.81558
+              },
+              {
+                "key": "roa",
+                "max": 8,
+                "zero": 0,
+                "full": 15,
+                "value": 5.762919743629108,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 3.073557
+              },
+              {
+                "key": "nonrecurring",
+                "max": 7,
+                "zero": 30,
+                "full": 0,
+                "value": 2.0593375104620724,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 6.519488
+              }
+            ],
+            "score": 15.408625
+          },
+          {
+            "name": "现金创造",
+            "max": 30,
+            "items": [
+              {
+                "key": "cfo_conversion",
+                "max": 12,
+                "zero": 0.5,
+                "full": 1,
+                "value": 0.19014082218009806,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 0
+              },
+              {
+                "key": "fcf_conversion",
+                "max": 10,
+                "zero": 0,
+                "full": 0.9,
+                "value": -0.519671397309938,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 0
+              },
+              {
+                "key": "cfo_positive",
+                "max": 8,
+                "zero": 60,
+                "full": 100,
+                "value": 60.0,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 0
+              }
+            ],
+            "score": 0
+          },
+          {
+            "name": "家底质量",
+            "max": 25,
+            "items": [
+              {
+                "key": "liquidity",
+                "max": 10,
+                "zero": 0,
+                "full": 1,
+                "value": 0.006902803201106949,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 0.069028
+              },
+              {
+                "key": "other_receivables",
+                "max": 8,
+                "zero": 5,
+                "full": 0.5,
+                "value": 1.1492000109079212,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 6.845867
+              },
+              {
+                "key": "receivables",
+                "max": 7,
+                "zero": 15,
+                "full": 1,
+                "value": 0.8837797824525111,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 7
+              }
+            ],
+            "score": 13.914895000000001
+          },
+          {
+            "name": "经营韧性",
+            "max": 10,
+            "items": [
+              {
+                "key": "revenue_cagr",
+                "max": 5,
+                "zero": 0,
+                "full": 10,
+                "value": -0.9013227413817382,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 0
+              },
+              {
+                "key": "worst_revenue_yoy",
+                "max": 5,
+                "zero": -30,
+                "full": 0,
+                "value": -21.818080121994875,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 1.363653
+              }
+            ],
+            "score": 1.363653
+          },
+          {
+            "name": "股东回报",
+            "max": 10,
+            "items": [
+              {
+                "key": "payout",
+                "max": 6,
+                "zero": 0,
+                "full": 60,
+                "value": 74.801850391279,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 6
+              },
+              {
+                "key": "dividend_consistency",
+                "max": 4,
+                "zero": 0,
+                "full": 100,
+                "value": 100.0,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 4
+              }
+            ],
+            "score": 10
+          }
+        ],
+        "raw_total": 40.69,
+        "total": 40.69,
+        "rankable": true,
+        "known_points": 40.69,
+        "coverage": 1.0,
+        "score_range": [
+          40.69,
+          40.69
+        ],
+        "missing": [],
+        "risk_cap": 100,
+        "risk_gates": [],
+        "risk_missing": [],
+        "observations": [
+          "最近三年简化 FCF 合计非正；需区分扩产与经营问题，未自动压分"
+        ],
+        "liquidity_components": [
+          {
+            "cash_ratio_pct": 110.13406079039211,
+            "quick_ratio_pct": 163.11059393078355,
+            "year": 2021,
+            "factor": 1
+          },
+          {
+            "cash_ratio_pct": 99.64725088119833,
+            "quick_ratio_pct": 127.07670597046909,
+            "year": 2022,
+            "factor": 0.770767059704691
+          },
+          {
+            "cash_ratio_pct": 70.00400578813752,
+            "quick_ratio_pct": 98.04226306078455,
+            "year": 2023,
+            "factor": 0.4804226306078455
+          },
+          {
+            "cash_ratio_pct": 43.513647238332496,
+            "quick_ratio_pct": 62.81062697431855,
+            "year": 2024,
+            "factor": 0.1281062697431855
+          },
+          {
+            "cash_ratio_pct": 33.209653540317944,
+            "quick_ratio_pct": 50.690280320110695,
+            "year": 2025,
+            "factor": 0.006902803201106949
+          }
+        ],
+        "strict_safety_status": "unverified",
+        "safety_pending": [
+          "受限现金与现金等价物",
+          "全部有息债务及到期结构",
+          "审计与持续经营",
+          "资金占用、担保及或有事项"
+        ]
+      },
+      "scenarios": {
+        "基准": 40.69,
+        "偏现金": 36.92,
+        "偏盈利": 44.07,
+        "偏家底": 43.17
+      },
+      "ranks": {
+        "基准": 16,
+        "偏现金": 16,
+        "偏盈利": 14,
+        "偏家底": 16
+      }
+    },
+    {
+      "code": "600199",
+      "name": "金种子酒",
+      "previous": null,
+      "preview": {
+        "version": "V5.0-book-financial-quality",
+        "years": [
+          2021,
+          2022,
+          2023,
+          2024,
+          2025
+        ],
+        "dimensions": [
+          {
+            "name": "盈利质量",
+            "max": 25,
+            "items": [
+              {
+                "key": "operating_margin",
+                "max": 10,
+                "zero": 0,
+                "full": 35,
+                "value": -14.503546324536465,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 0
+              },
+              {
+                "key": "roa",
+                "max": 8,
+                "zero": 0,
+                "full": 15,
+                "value": -5.126182106744677,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 0
+              },
+              {
+                "key": "nonrecurring",
+                "max": 7,
+                "zero": 30,
+                "full": 0,
+                "value": 0,
+                "status": "economic_invalid",
+                "valid_years": 5,
+                "score": 0
+              }
+            ],
+            "score": 0
+          },
+          {
+            "name": "现金创造",
+            "max": 30,
+            "items": [
+              {
+                "key": "cfo_conversion",
+                "max": 12,
+                "zero": 0.5,
+                "full": 1,
+                "value": 0,
+                "status": "economic_invalid",
+                "valid_years": 5,
+                "score": 0
+              },
+              {
+                "key": "fcf_conversion",
+                "max": 10,
+                "zero": 0,
+                "full": 0.9,
+                "value": 0,
+                "status": "economic_invalid",
+                "valid_years": 5,
+                "score": 0
+              },
+              {
+                "key": "cfo_positive",
+                "max": 8,
+                "zero": 60,
+                "full": 100,
+                "value": 20.0,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 0
+              }
+            ],
+            "score": 0
+          },
+          {
+            "name": "家底质量",
+            "max": 25,
+            "items": [
+              {
+                "key": "liquidity",
+                "max": 10,
+                "zero": 0,
+                "full": 1,
+                "value": 0,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 0
+              },
+              {
+                "key": "other_receivables",
+                "max": 8,
+                "zero": 5,
+                "full": 0.5,
+                "value": 0.03467260081398111,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 8
+              },
+              {
+                "key": "receivables",
+                "max": 7,
+                "zero": 15,
+                "full": 1,
+                "value": 6.775815471117282,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 4.112092
+              }
+            ],
+            "score": 12.112092
+          },
+          {
+            "name": "经营韧性",
+            "max": 10,
+            "items": [
+              {
+                "key": "revenue_cagr",
+                "max": 5,
+                "zero": 0,
+                "full": 10,
+                "value": -7.001206450509834,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 0
+              },
+              {
+                "key": "worst_revenue_yoy",
+                "max": 5,
+                "zero": -30,
+                "full": 0,
+                "value": -37.03774307100495,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 0
+              }
+            ],
+            "score": 0
+          },
+          {
+            "name": "股东回报",
+            "max": 10,
+            "items": [
+              {
+                "key": "payout",
+                "max": 6,
+                "zero": 0,
+                "full": 60,
+                "value": null,
+                "status": "missing",
+                "valid_years": 0,
+                "score": null
+              },
+              {
+                "key": "dividend_consistency",
+                "max": 4,
+                "zero": 0,
+                "full": 100,
+                "value": null,
+                "status": "missing",
+                "valid_years": 0,
+                "score": null
+              }
+            ],
+            "score": null
+          }
+        ],
+        "raw_total": null,
+        "total": null,
+        "rankable": false,
+        "known_points": 12.11,
+        "coverage": 0.9,
+        "score_range": [
+          12.11,
+          22.11
+        ],
+        "missing": [
+          "payout",
+          "dividend_consistency"
+        ],
+        "risk_cap": 49,
+        "risk_gates": [
+          {
+            "key": "latest_loss",
+            "label": "最新年归母亏损",
+            "cap": 49
+          },
+          {
+            "key": "two_negative_cfo",
+            "label": "连续两年经营现金流为负",
+            "cap": 49
+          }
+        ],
+        "risk_missing": [],
+        "observations": [
+          "最近三年简化 FCF 合计非正；需区分扩产与经营问题，未自动压分"
+        ],
+        "liquidity_components": [
+          {
+            "cash_ratio_pct": 93.28367275339814,
+            "quick_ratio_pct": 134.05452077572178,
+            "year": 2021,
+            "factor": 0.8405452077572179
+          },
+          {
+            "cash_ratio_pct": 75.84696772195527,
+            "quick_ratio_pct": 116.60035759924017,
+            "year": 2022,
+            "factor": 0.6660035759924017
+          },
+          {
+            "cash_ratio_pct": 64.73321679056208,
+            "quick_ratio_pct": 92.02287526909653,
+            "year": 2023,
+            "factor": 0.4202287526909653
+          },
+          {
+            "cash_ratio_pct": 41.58062522319037,
+            "quick_ratio_pct": 52.90618461013786,
+            "year": 2024,
+            "factor": 0.029061846101378633
+          },
+          {
+            "cash_ratio_pct": 30.35332611203731,
+            "quick_ratio_pct": 46.30530743129598,
+            "year": 2025,
+            "factor": 0
+          }
+        ],
+        "strict_safety_status": "unverified",
+        "safety_pending": [
+          "受限现金与现金等价物",
+          "全部有息债务及到期结构",
+          "审计与持续经营",
+          "资金占用、担保及或有事项"
+        ]
+      },
+      "scenarios": {
+        "基准": null,
+        "偏现金": null,
+        "偏盈利": null,
+        "偏家底": null
+      }
+    },
+    {
+      "code": "600559",
+      "name": "老白干酒",
+      "previous": 66.84,
+      "preview": {
+        "version": "V5.0-book-financial-quality",
+        "years": [
+          2021,
+          2022,
+          2023,
+          2024,
+          2025
+        ],
+        "dimensions": [
+          {
+            "name": "盈利质量",
+            "max": 25,
+            "items": [
+              {
+                "key": "operating_margin",
+                "max": 10,
+                "zero": 0,
+                "full": 35,
+                "value": 16.82238876065583,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 4.806397
+              },
+              {
+                "key": "roa",
+                "max": 8,
+                "zero": 0,
+                "full": 15,
+                "value": 7.231295552197611,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 3.856691
+              },
+              {
+                "key": "nonrecurring",
+                "max": 7,
+                "zero": 30,
+                "full": 0,
+                "value": 11.748273292403198,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 4.258736
+              }
+            ],
+            "score": 12.921824
+          },
+          {
+            "name": "现金创造",
+            "max": 30,
+            "items": [
+              {
+                "key": "cfo_conversion",
+                "max": 12,
+                "zero": 0.5,
+                "full": 1,
+                "value": 0.9346973378542337,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 10.432736
+              },
+              {
+                "key": "fcf_conversion",
+                "max": 10,
+                "zero": 0,
+                "full": 0.9,
+                "value": 0.5283927118675739,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 5.87103
+              },
+              {
+                "key": "cfo_positive",
+                "max": 8,
+                "zero": 60,
+                "full": 100,
+                "value": 80.0,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 4.0
+              }
+            ],
+            "score": 20.303766
+          },
+          {
+            "name": "家底质量",
+            "max": 25,
+            "items": [
+              {
+                "key": "liquidity",
+                "max": 10,
+                "zero": 0,
+                "full": 1,
+                "value": 0,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 0
+              },
+              {
+                "key": "other_receivables",
+                "max": 8,
+                "zero": 5,
+                "full": 0.5,
+                "value": 0.33827722639440916,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 8
+              },
+              {
+                "key": "receivables",
+                "max": 7,
+                "zero": 15,
+                "full": 1,
+                "value": 0.5060287346015255,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 7
+              }
+            ],
+            "score": 15
+          },
+          {
+            "name": "经营韧性",
+            "max": 10,
+            "items": [
+              {
+                "key": "revenue_cagr",
+                "max": 5,
+                "zero": 0,
+                "full": 10,
+                "value": 2.75510633002225,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 1.377553
+              },
+              {
+                "key": "worst_revenue_yoy",
+                "max": 5,
+                "zero": -30,
+                "full": 0,
+                "value": -23.071012939948364,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 1.154831
+              }
+            ],
+            "score": 2.532384
+          },
+          {
+            "name": "股东回报",
+            "max": 10,
+            "items": [
+              {
+                "key": "payout",
+                "max": 6,
+                "zero": 0,
+                "full": 60,
+                "value": 50.655243384841384,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 5.065524
+              },
+              {
+                "key": "dividend_consistency",
+                "max": 4,
+                "zero": 0,
+                "full": 100,
+                "value": 100.0,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 4
+              }
+            ],
+            "score": 9.065524
+          }
+        ],
+        "raw_total": 59.82,
+        "total": 59.82,
+        "rankable": true,
+        "known_points": 59.82,
+        "coverage": 1.0,
+        "score_range": [
+          59.82,
+          59.82
+        ],
+        "missing": [],
+        "risk_cap": 100,
+        "risk_gates": [],
+        "risk_missing": [],
+        "observations": [],
+        "liquidity_components": [
+          {
+            "cash_ratio_pct": 27.121882107002737,
+            "quick_ratio_pct": 51.71366899597166,
+            "year": 2021,
+            "factor": 0.01713668995971659
+          },
+          {
+            "cash_ratio_pct": 24.80210548400692,
+            "quick_ratio_pct": 50.18531986700344,
+            "year": 2022,
+            "factor": 0.0018531986700344304
+          },
+          {
+            "cash_ratio_pct": 35.861345635610554,
+            "quick_ratio_pct": 55.635665474311665,
+            "year": 2023,
+            "factor": 0.05635665474311665
+          },
+          {
+            "cash_ratio_pct": 37.168989187697456,
+            "quick_ratio_pct": 60.29659195967593,
+            "year": 2024,
+            "factor": 0.1029659195967593
+          },
+          {
+            "cash_ratio_pct": 17.813266890642204,
+            "quick_ratio_pct": 46.87750427707342,
+            "year": 2025,
+            "factor": 0
+          }
+        ],
+        "strict_safety_status": "unverified",
+        "safety_pending": [
+          "受限现金与现金等价物",
+          "全部有息债务及到期结构",
+          "审计与持续经营",
+          "资金占用、担保及或有事项"
+        ]
+      },
+      "scenarios": {
+        "基准": 59.82,
+        "偏现金": 62.74,
+        "偏盈利": 58.61,
+        "偏家底": 59.86
+      },
+      "ranks": {
+        "基准": 11,
+        "偏现金": 11,
+        "偏盈利": 12,
+        "偏家底": 11
+      }
+    },
+    {
+      "code": "600702",
+      "name": "舍得酒业",
+      "previous": 49,
+      "preview": {
+        "version": "V5.0-book-financial-quality",
+        "years": [
+          2021,
+          2022,
+          2023,
+          2024,
+          2025
+        ],
+        "dimensions": [
+          {
+            "name": "盈利质量",
+            "max": 25,
+            "items": [
+              {
+                "key": "operating_margin",
+                "max": 10,
+                "zero": 0,
+                "full": 35,
+                "value": 32.474932423172156,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 9.278552
+              },
+              {
+                "key": "roa",
+                "max": 8,
+                "zero": 0,
+                "full": 15,
+                "value": 16.925828387439505,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 8
+              },
+              {
+                "key": "nonrecurring",
+                "max": 7,
+                "zero": 30,
+                "full": 0,
+                "value": 10.764546004349215,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 4.488273
+              }
+            ],
+            "score": 21.766824999999997
+          },
+          {
+            "name": "现金创造",
+            "max": 30,
+            "items": [
+              {
+                "key": "cfo_conversion",
+                "max": 12,
+                "zero": 0.5,
+                "full": 1,
+                "value": 0.5202913935775815,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 0.486993
+              },
+              {
+                "key": "fcf_conversion",
+                "max": 10,
+                "zero": 0,
+                "full": 0.9,
+                "value": -0.11404135906328408,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 0
+              },
+              {
+                "key": "cfo_positive",
+                "max": 8,
+                "zero": 60,
+                "full": 100,
+                "value": 60.0,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 0
+              }
+            ],
+            "score": 0.486993
+          },
+          {
+            "name": "家底质量",
+            "max": 25,
+            "items": [
+              {
+                "key": "liquidity",
+                "max": 10,
+                "zero": 0,
+                "full": 1,
+                "value": 0,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 0
+              },
+              {
+                "key": "other_receivables",
+                "max": 8,
+                "zero": 5,
+                "full": 0.5,
+                "value": 0.46337973268702193,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 8
+              },
+              {
+                "key": "receivables",
+                "max": 7,
+                "zero": 15,
+                "full": 1,
+                "value": 6.461907291110755,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 4.269046
+              }
+            ],
+            "score": 12.269046
+          },
+          {
+            "name": "经营韧性",
+            "max": 10,
+            "items": [
+              {
+                "key": "revenue_cagr",
+                "max": 5,
+                "zero": 0,
+                "full": 10,
+                "value": 10.326124966397664,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 5
+              },
+              {
+                "key": "worst_revenue_yoy",
+                "max": 5,
+                "zero": -30,
+                "full": 0,
+                "value": -24.414683093631496,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 0.930886
+              }
+            ],
+            "score": 5.930886
+          },
+          {
+            "name": "股东回报",
+            "max": 10,
+            "items": [
+              {
+                "key": "payout",
+                "max": 6,
+                "zero": 0,
+                "full": 60,
+                "value": 32.79652081308954,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 3.279652
+              },
+              {
+                "key": "dividend_consistency",
+                "max": 4,
+                "zero": 0,
+                "full": 100,
+                "value": 100.0,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 4
+              }
+            ],
+            "score": 7.2796520000000005
+          }
+        ],
+        "raw_total": 47.73,
+        "total": 47.73,
+        "rankable": true,
+        "known_points": 47.73,
+        "coverage": 1.0,
+        "score_range": [
+          47.73,
+          47.73
+        ],
+        "missing": [],
+        "risk_cap": 49,
+        "risk_gates": [
+          {
+            "key": "two_negative_cfo",
+            "label": "连续两年经营现金流为负",
+            "cap": 49
+          }
+        ],
+        "risk_missing": [],
+        "observations": [
+          "最近三年简化 FCF 合计非正；需区分扩产与经营问题，未自动压分"
+        ],
+        "liquidity_components": [
+          {
+            "cash_ratio_pct": 65.57468713741977,
+            "quick_ratio_pct": 126.19424959688403,
+            "year": 2021,
+            "factor": 0.5696835892177472
+          },
+          {
+            "cash_ratio_pct": 78.14639447254773,
+            "quick_ratio_pct": 133.58136551791947,
+            "year": 2022,
+            "factor": 0.7268299309068466
+          },
+          {
+            "cash_ratio_pct": 71.15705934765897,
+            "quick_ratio_pct": 107.97769207317556,
+            "year": 2023,
+            "factor": 0.5797769207317556
+          },
+          {
+            "cash_ratio_pct": 37.96248598622036,
+            "quick_ratio_pct": 54.55296542497759,
+            "year": 2024,
+            "factor": 0.04552965424977593
+          },
+          {
+            "cash_ratio_pct": 27.897567730673238,
+            "quick_ratio_pct": 43.88694365316981,
+            "year": 2025,
+            "factor": 0
+          }
+        ],
+        "strict_safety_status": "unverified",
+        "safety_pending": [
+          "受限现金与现金等价物",
+          "全部有息债务及到期结构",
+          "审计与持续经营",
+          "资金占用、担保及或有事项"
+        ]
+      },
+      "scenarios": {
+        "基准": 47.73,
+        "偏现金": 40.58,
+        "偏盈利": 49,
+        "偏家底": 48.21
+      },
+      "ranks": {
+        "基准": 13,
+        "偏现金": 14,
+        "偏盈利": 13,
+        "偏家底": 14
+      }
+    },
+    {
+      "code": "600779",
+      "name": "水井坊",
+      "previous": 68.93,
+      "preview": {
+        "version": "V5.0-book-financial-quality",
+        "years": [
+          2021,
+          2022,
+          2023,
+          2024,
+          2025
+        ],
+        "dimensions": [
+          {
+            "name": "盈利质量",
+            "max": 25,
+            "items": [
+              {
+                "key": "operating_margin",
+                "max": 10,
+                "zero": 0,
+                "full": 35,
+                "value": 34.92287740540823,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 9.977965
+              },
+              {
+                "key": "roa",
+                "max": 8,
+                "zero": 0,
+                "full": 15,
+                "value": 16.40080771250559,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 8
+              },
+              {
+                "key": "nonrecurring",
+                "max": 7,
+                "zero": 30,
+                "full": 0,
+                "value": 2.740124223972011,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 6.360638
+              }
+            ],
+            "score": 24.338603
+          },
+          {
+            "name": "现金创造",
+            "max": 30,
+            "items": [
+              {
+                "key": "cfo_conversion",
+                "max": 12,
+                "zero": 0.5,
+                "full": 1,
+                "value": 0.8830255613533626,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 9.192613
+              },
+              {
+                "key": "fcf_conversion",
+                "max": 10,
+                "zero": 0,
+                "full": 0.9,
+                "value": 0.28679621079454626,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 3.186625
+              },
+              {
+                "key": "cfo_positive",
+                "max": 8,
+                "zero": 60,
+                "full": 100,
+                "value": 80.0,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 4.0
+              }
+            ],
+            "score": 16.379238
+          },
+          {
+            "name": "家底质量",
+            "max": 25,
+            "items": [
+              {
+                "key": "liquidity",
+                "max": 10,
+                "zero": 0,
+                "full": 1,
+                "value": 0,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 0
+              },
+              {
+                "key": "other_receivables",
+                "max": 8,
+                "zero": 5,
+                "full": 0.5,
+                "value": 0.2707409200399624,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 8
+              },
+              {
+                "key": "receivables",
+                "max": 7,
+                "zero": 15,
+                "full": 1,
+                "value": 1.0850723349306504,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 6.957464
+              }
+            ],
+            "score": 14.957464
+          },
+          {
+            "name": "经营韧性",
+            "max": 10,
+            "items": [
+              {
+                "key": "revenue_cagr",
+                "max": 5,
+                "zero": 0,
+                "full": 10,
+                "value": 0.21235002758801524,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 0.106175
+              },
+              {
+                "key": "worst_revenue_yoy",
+                "max": 5,
+                "zero": -30,
+                "full": 0,
+                "value": -41.76923111494584,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 0
+              }
+            ],
+            "score": 0.106175
+          },
+          {
+            "name": "股东回报",
+            "max": 10,
+            "items": [
+              {
+                "key": "payout",
+                "max": 6,
+                "zero": 0,
+                "full": 60,
+                "value": 32.714192194209815,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 3.271419
+              },
+              {
+                "key": "dividend_consistency",
+                "max": 4,
+                "zero": 0,
+                "full": 100,
+                "value": 100.0,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 4
+              }
+            ],
+            "score": 7.271419
+          }
+        ],
+        "raw_total": 63.05,
+        "total": 63.05,
+        "rankable": true,
+        "known_points": 63.05,
+        "coverage": 1.0,
+        "score_range": [
+          63.05,
+          63.05
+        ],
+        "missing": [],
+        "risk_cap": 100,
+        "risk_gates": [],
+        "risk_missing": [],
+        "observations": [],
+        "liquidity_components": [
+          {
+            "cash_ratio_pct": 58.45585478545632,
+            "quick_ratio_pct": 61.54471706173813,
+            "year": 2021,
+            "factor": 0.11544717061738133
+          },
+          {
+            "cash_ratio_pct": 53.69023353154064,
+            "quick_ratio_pct": 55.24943691555095,
+            "year": 2022,
+            "factor": 0.052494369155509514
+          },
+          {
+            "cash_ratio_pct": 58.739653542379,
+            "quick_ratio_pct": 61.28757302301351,
+            "year": 2023,
+            "factor": 0.11287573023013507
+          },
+          {
+            "cash_ratio_pct": 53.703921117254836,
+            "quick_ratio_pct": 59.364778988066206,
+            "year": 2024,
+            "factor": 0.09364778988066207
+          },
+          {
+            "cash_ratio_pct": 20.60815629795355,
+            "quick_ratio_pct": 28.047295121230064,
+            "year": 2025,
+            "factor": 0
+          }
+        ],
+        "strict_safety_status": "unverified",
+        "safety_pending": [
+          "受限现金与现金等价物",
+          "全部有息债务及到期结构",
+          "审计与持续经营",
+          "资金占用、担保及或有事项"
+        ]
+      },
+      "scenarios": {
+        "基准": 63.05,
+        "偏现金": 63.59,
+        "偏盈利": 67.07,
+        "偏家底": 61.44
+      },
+      "ranks": {
+        "基准": 10,
+        "偏现金": 10,
+        "偏盈利": 10,
+        "偏家底": 10
+      }
+    },
+    {
+      "code": "603198",
+      "name": "迎驾贡酒",
+      "previous": 81.24,
+      "preview": {
+        "version": "V5.0-book-financial-quality",
+        "years": [
+          2021,
+          2022,
+          2023,
+          2024,
+          2025
+        ],
+        "dimensions": [
+          {
+            "name": "盈利质量",
+            "max": 25,
+            "items": [
+              {
+                "key": "operating_margin",
+                "max": 10,
+                "zero": 0,
+                "full": 35,
+                "value": 43.71698367139594,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 10
+              },
+              {
+                "key": "roa",
+                "max": 8,
+                "zero": 0,
+                "full": 15,
+                "value": 18.178044239653275,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 8
+              },
+              {
+                "key": "nonrecurring",
+                "max": 7,
+                "zero": 30,
+                "full": 0,
+                "value": 3.72048400055026,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 6.131887
+              }
+            ],
+            "score": 24.131887
+          },
+          {
+            "name": "现金创造",
+            "max": 30,
+            "items": [
+              {
+                "key": "cfo_conversion",
+                "max": 12,
+                "zero": 0.5,
+                "full": 1,
+                "value": 0.8718647798960382,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 8.924755
+              },
+              {
+                "key": "fcf_conversion",
+                "max": 10,
+                "zero": 0,
+                "full": 0.9,
+                "value": 0.5796543932272491,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 6.440604
+              },
+              {
+                "key": "cfo_positive",
+                "max": 8,
+                "zero": 60,
+                "full": 100,
+                "value": 100.0,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 8
+              }
+            ],
+            "score": 23.365358999999998
+          },
+          {
+            "name": "家底质量",
+            "max": 25,
+            "items": [
+              {
+                "key": "liquidity",
+                "max": 10,
+                "zero": 0,
+                "full": 1,
+                "value": 0,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 0
+              },
+              {
+                "key": "other_receivables",
+                "max": 8,
+                "zero": 5,
+                "full": 0.5,
+                "value": 0.10661998443873608,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 8
+              },
+              {
+                "key": "receivables",
+                "max": 7,
+                "zero": 15,
+                "full": 1,
+                "value": 2.4852736429738136,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 6.257363
+              }
+            ],
+            "score": 14.257363
+          },
+          {
+            "name": "经营韧性",
+            "max": 10,
+            "items": [
+              {
+                "key": "revenue_cagr",
+                "max": 5,
+                "zero": 0,
+                "full": 10,
+                "value": 11.759794611206198,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 5
+              },
+              {
+                "key": "worst_revenue_yoy",
+                "max": 5,
+                "zero": -30,
+                "full": 0,
+                "value": -18.043080261865796,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 1.99282
+              }
+            ],
+            "score": 6.99282
+          },
+          {
+            "name": "股东回报",
+            "max": 10,
+            "items": [
+              {
+                "key": "payout",
+                "max": 6,
+                "zero": 0,
+                "full": 60,
+                "value": 50.65806959428779,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 5.065807
+              },
+              {
+                "key": "dividend_consistency",
+                "max": 4,
+                "zero": 0,
+                "full": 100,
+                "value": 100.0,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 4
+              }
+            ],
+            "score": 9.065807
+          }
+        ],
+        "raw_total": 77.81,
+        "total": 77.81,
+        "rankable": true,
+        "known_points": 77.81,
+        "coverage": 1.0,
+        "score_range": [
+          77.81,
+          77.81
+        ],
+        "missing": [],
+        "risk_cap": 100,
+        "risk_gates": [],
+        "risk_missing": [],
+        "observations": [],
+        "liquidity_components": [
+          {
+            "cash_ratio_pct": 30.079505457576506,
+            "quick_ratio_pct": 120.91903849079517,
+            "year": 2021,
+            "factor": 0.12599381821970632
+          },
+          {
+            "cash_ratio_pct": 38.34792930386564,
+            "quick_ratio_pct": 126.84941864328437,
+            "year": 2022,
+            "factor": 0.2293491162983205
+          },
+          {
+            "cash_ratio_pct": 70.68100772381463,
+            "quick_ratio_pct": 147.98944946926596,
+            "year": 2023,
+            "factor": 0.6335125965476829
+          },
+          {
+            "cash_ratio_pct": 41.08986882252908,
+            "quick_ratio_pct": 150.4844712778515,
+            "year": 2024,
+            "factor": 0.2636233602816135
+          },
+          {
+            "cash_ratio_pct": 6.5142238819042495,
+            "quick_ratio_pct": 176.3003931717391,
+            "year": 2025,
+            "factor": 0
+          }
+        ],
+        "strict_safety_status": "unverified",
+        "safety_pending": [
+          "受限现金与现金等价物",
+          "全部有息债务及到期结构",
+          "审计与持续经营",
+          "资金占用、担保及或有事项"
+        ]
+      },
+      "scenarios": {
+        "基准": 77.81,
+        "偏现金": 77.28,
+        "偏盈利": 80.72,
+        "偏家底": 74.8
+      },
+      "ranks": {
+        "基准": 8,
+        "偏现金": 9,
+        "偏盈利": 7,
+        "偏家底": 9
+      }
+    },
+    {
+      "code": "603369",
+      "name": "今世缘",
+      "previous": 80.42,
+      "preview": {
+        "version": "V5.0-book-financial-quality",
+        "years": [
+          2021,
+          2022,
+          2023,
+          2024,
+          2025
+        ],
+        "dimensions": [
+          {
+            "name": "盈利质量",
+            "max": 25,
+            "items": [
+              {
+                "key": "operating_margin",
+                "max": 10,
+                "zero": 0,
+                "full": 35,
+                "value": 41.382489975687804,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 10
+              },
+              {
+                "key": "roa",
+                "max": 8,
+                "zero": 0,
+                "full": 15,
+                "value": 15.346340689029578,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 8
+              },
+              {
+                "key": "nonrecurring",
+                "max": 7,
+                "zero": 30,
+                "full": 0,
+                "value": 0.3267263566203613,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 6.923764
+              }
+            ],
+            "score": 24.923764
+          },
+          {
+            "name": "现金创造",
+            "max": 30,
+            "items": [
+              {
+                "key": "cfo_conversion",
+                "max": 12,
+                "zero": 0.5,
+                "full": 1,
+                "value": 0.9485125146994524,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 10.7643
+              },
+              {
+                "key": "fcf_conversion",
+                "max": 10,
+                "zero": 0,
+                "full": 0.9,
+                "value": 0.3955641549053844,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 4.395157
+              },
+              {
+                "key": "cfo_positive",
+                "max": 8,
+                "zero": 60,
+                "full": 100,
+                "value": 100.0,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 8
+              }
+            ],
+            "score": 23.159457
+          },
+          {
+            "name": "家底质量",
+            "max": 25,
+            "items": [
+              {
+                "key": "liquidity",
+                "max": 10,
+                "zero": 0,
+                "full": 1,
+                "value": 0.30709178385419394,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 3.070918
+              },
+              {
+                "key": "other_receivables",
+                "max": 8,
+                "zero": 5,
+                "full": 0.5,
+                "value": 0.12359825800312545,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 8
+              },
+              {
+                "key": "receivables",
+                "max": 7,
+                "zero": 15,
+                "full": 1,
+                "value": 0.6365009952138218,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 7
+              }
+            ],
+            "score": 18.070918
+          },
+          {
+            "name": "经营韧性",
+            "max": 10,
+            "items": [
+              {
+                "key": "revenue_cagr",
+                "max": 5,
+                "zero": 0,
+                "full": 10,
+                "value": 14.739333219274965,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 5
+              },
+              {
+                "key": "worst_revenue_yoy",
+                "max": 5,
+                "zero": -30,
+                "full": 0,
+                "value": -11.812587352630132,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 3.031235
+              }
+            ],
+            "score": 8.031235
+          },
+          {
+            "name": "股东回报",
+            "max": 10,
+            "items": [
+              {
+                "key": "payout",
+                "max": 6,
+                "zero": 0,
+                "full": 60,
+                "value": 43.13755426163801,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 4.313755
+              },
+              {
+                "key": "dividend_consistency",
+                "max": 4,
+                "zero": 0,
+                "full": 100,
+                "value": 100.0,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 4
+              }
+            ],
+            "score": 8.313755
+          }
+        ],
+        "raw_total": 82.5,
+        "total": 82.5,
+        "rankable": true,
+        "known_points": 82.5,
+        "coverage": 1.0,
+        "score_range": [
+          82.5,
+          82.5
+        ],
+        "missing": [],
+        "risk_cap": 100,
+        "risk_gates": [],
+        "risk_missing": [],
+        "observations": [],
+        "liquidity_components": [
+          {
+            "cash_ratio_pct": 79.47809833202035,
+            "quick_ratio_pct": 135.33267179978347,
+            "year": 2021,
+            "factor": 0.7434762291502544
+          },
+          {
+            "cash_ratio_pct": 77.53219025505948,
+            "quick_ratio_pct": 111.69998041451453,
+            "year": 2022,
+            "factor": 0.6169998041451453
+          },
+          {
+            "cash_ratio_pct": 79.30326415515881,
+            "quick_ratio_pct": 97.24146017919102,
+            "year": 2023,
+            "factor": 0.47241460179191025
+          },
+          {
+            "cash_ratio_pct": 73.53822151763279,
+            "quick_ratio_pct": 99.83068847444481,
+            "year": 2024,
+            "factor": 0.4983068847444481
+          },
+          {
+            "cash_ratio_pct": 63.69931888136321,
+            "quick_ratio_pct": 80.70917838541939,
+            "year": 2025,
+            "factor": 0.30709178385419394
+          }
+        ],
+        "strict_safety_status": "unverified",
+        "safety_pending": [
+          "受限现金与现金等价物",
+          "全部有息债务及到期结构",
+          "审计与持续经营",
+          "资金占用、担保及或有事项"
+        ]
+      },
+      "scenarios": {
+        "基准": 82.5,
+        "偏现金": 81.22,
+        "偏盈利": 84.99,
+        "偏家底": 80.88
+      },
+      "ranks": {
+        "基准": 6,
+        "偏现金": 6,
+        "偏盈利": 6,
+        "偏家底": 6
+      }
+    },
+    {
+      "code": "603589",
+      "name": "口子窖",
+      "previous": 61.59,
+      "preview": {
+        "version": "V5.0-book-financial-quality",
+        "years": [
+          2021,
+          2022,
+          2023,
+          2024,
+          2025
+        ],
+        "dimensions": [
+          {
+            "name": "盈利质量",
+            "max": 25,
+            "items": [
+              {
+                "key": "operating_margin",
+                "max": 10,
+                "zero": 0,
+                "full": 35,
+                "value": 39.01274650950033,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 10
+              },
+              {
+                "key": "roa",
+                "max": 8,
+                "zero": 0,
+                "full": 15,
+                "value": 13.755324499159869,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 7.336173
+              },
+              {
+                "key": "nonrecurring",
+                "max": 7,
+                "zero": 30,
+                "full": 0,
+                "value": 2.593574368033999,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 6.394833
+              }
+            ],
+            "score": 23.731006
+          },
+          {
+            "name": "现金创造",
+            "max": 30,
+            "items": [
+              {
+                "key": "cfo_conversion",
+                "max": 12,
+                "zero": 0.5,
+                "full": 1,
+                "value": 0.5143146987284506,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 0.343553
+              },
+              {
+                "key": "fcf_conversion",
+                "max": 10,
+                "zero": 0,
+                "full": 0.9,
+                "value": 0.25694822183045996,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 2.85498
+              },
+              {
+                "key": "cfo_positive",
+                "max": 8,
+                "zero": 60,
+                "full": 100,
+                "value": 80.0,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 4.0
+              }
+            ],
+            "score": 7.198532999999999
+          },
+          {
+            "name": "家底质量",
+            "max": 25,
+            "items": [
+              {
+                "key": "liquidity",
+                "max": 10,
+                "zero": 0,
+                "full": 1,
+                "value": 0.005931829584067998,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 0.059318
+              },
+              {
+                "key": "other_receivables",
+                "max": 8,
+                "zero": 5,
+                "full": 0.5,
+                "value": 0.09290183135784935,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 8
+              },
+              {
+                "key": "receivables",
+                "max": 7,
+                "zero": 15,
+                "full": 1,
+                "value": 0.4277655459026783,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 7
+              }
+            ],
+            "score": 15.059318
+          },
+          {
+            "name": "经营韧性",
+            "max": 10,
+            "items": [
+              {
+                "key": "revenue_cagr",
+                "max": 5,
+                "zero": 0,
+                "full": 10,
+                "value": -0.10266756506956964,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 0
+              },
+              {
+                "key": "worst_revenue_yoy",
+                "max": 5,
+                "zero": -30,
+                "full": 0,
+                "value": -33.65267820729979,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 0
+              }
+            ],
+            "score": 0
+          },
+          {
+            "name": "股东回报",
+            "max": 10,
+            "items": [
+              {
+                "key": "payout",
+                "max": 6,
+                "zero": 0,
+                "full": 60,
+                "value": 51.57643330480989,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 5.157643
+              },
+              {
+                "key": "dividend_consistency",
+                "max": 4,
+                "zero": 0,
+                "full": 100,
+                "value": 100.0,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 4
+              }
+            ],
+            "score": 9.157643
+          }
+        ],
+        "raw_total": 55.15,
+        "total": 55.15,
+        "rankable": true,
+        "known_points": 55.15,
+        "coverage": 1.0,
+        "score_range": [
+          55.15,
+          55.15
+        ],
+        "missing": [],
+        "risk_cap": 100,
+        "risk_gates": [],
+        "risk_missing": [],
+        "observations": [],
+        "liquidity_components": [
+          {
+            "cash_ratio_pct": 71.79548832022064,
+            "quick_ratio_pct": 125.49129734882503,
+            "year": 2021,
+            "factor": 0.647443604002758
+          },
+          {
+            "cash_ratio_pct": 68.49575767950422,
+            "quick_ratio_pct": 103.24573208274566,
+            "year": 2022,
+            "factor": 0.5324573208274566
+          },
+          {
+            "cash_ratio_pct": 58.51419398220524,
+            "quick_ratio_pct": 97.02214319226114,
+            "year": 2023,
+            "factor": 0.4702214319226114
+          },
+          {
+            "cash_ratio_pct": 65.38170743928742,
+            "quick_ratio_pct": 88.71847139162386,
+            "year": 2024,
+            "factor": 0.38718471391623865
+          },
+          {
+            "cash_ratio_pct": 43.24683430563649,
+            "quick_ratio_pct": 50.5931829584068,
+            "year": 2025,
+            "factor": 0.005931829584067998
+          }
+        ],
+        "strict_safety_status": "unverified",
+        "safety_pending": [
+          "受限现金与现金等价物",
+          "全部有息债务及到期结构",
+          "审计与持续经营",
+          "资金占用、担保及或有事项"
+        ]
+      },
+      "scenarios": {
+        "基准": 55.15,
+        "偏现金": 52.8,
+        "偏盈利": 60.43,
+        "偏家底": 55.22
+      },
+      "ranks": {
+        "基准": 12,
+        "偏现金": 12,
+        "偏盈利": 11,
+        "偏家底": 12
+      }
+    },
+    {
+      "code": "603919",
+      "name": "金徽酒",
+      "previous": 82.26,
+      "preview": {
+        "version": "V5.0-book-financial-quality",
+        "years": [
+          2021,
+          2022,
+          2023,
+          2024,
+          2025
+        ],
+        "dimensions": [
+          {
+            "name": "盈利质量",
+            "max": 25,
+            "items": [
+              {
+                "key": "operating_margin",
+                "max": 10,
+                "zero": 0,
+                "full": 35,
+                "value": 16.050158868625893,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 4.58576
+              },
+              {
+                "key": "roa",
+                "max": 8,
+                "zero": 0,
+                "full": 15,
+                "value": 7.592242791551437,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 4.049196
+              },
+              {
+                "key": "nonrecurring",
+                "max": 7,
+                "zero": 30,
+                "full": 0,
+                "value": 1.7893909701227946,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 6.582475
+              }
+            ],
+            "score": 15.217430999999998
+          },
+          {
+            "name": "现金创造",
+            "max": 30,
+            "items": [
+              {
+                "key": "cfo_conversion",
+                "max": 12,
+                "zero": 0.5,
+                "full": 1,
+                "value": 1.2692607513480785,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 12
+              },
+              {
+                "key": "fcf_conversion",
+                "max": 10,
+                "zero": 0,
+                "full": 0.9,
+                "value": 0.7169826377710715,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 7.966474
+              },
+              {
+                "key": "cfo_positive",
+                "max": 8,
+                "zero": 60,
+                "full": 100,
+                "value": 100.0,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 8
+              }
+            ],
+            "score": 27.966473999999998
+          },
+          {
+            "name": "家底质量",
+            "max": 25,
+            "items": [
+              {
+                "key": "liquidity",
+                "max": 10,
+                "zero": 0,
+                "full": 1,
+                "value": 0.16262064458287184,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 1.626206
+              },
+              {
+                "key": "other_receivables",
+                "max": 8,
+                "zero": 5,
+                "full": 0.5,
+                "value": 1.0473888947355263,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 7.026864
+              },
+              {
+                "key": "receivables",
+                "max": 7,
+                "zero": 15,
+                "full": 1,
+                "value": 0.32233618409178505,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 7
+              }
+            ],
+            "score": 15.65307
+          },
+          {
+            "name": "经营韧性",
+            "max": 10,
+            "items": [
+              {
+                "key": "revenue_cagr",
+                "max": 5,
+                "zero": 0,
+                "full": 10,
+                "value": 11.01667186506674,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 5
+              },
+              {
+                "key": "worst_revenue_yoy",
+                "max": 5,
+                "zero": -30,
+                "full": 0,
+                "value": -3.402281769008342,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 4.432953
+              }
+            ],
+            "score": 9.432953000000001
+          },
+          {
+            "name": "股东回报",
+            "max": 10,
+            "items": [
+              {
+                "key": "payout",
+                "max": 6,
+                "zero": 0,
+                "full": 60,
+                "value": 57.76135566561036,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 5.776136
+              },
+              {
+                "key": "dividend_consistency",
+                "max": 4,
+                "zero": 0,
+                "full": 100,
+                "value": 100.0,
+                "status": "scored",
+                "valid_years": 5,
+                "score": 4
+              }
+            ],
+            "score": 9.776136000000001
+          }
+        ],
+        "raw_total": 78.05,
+        "total": 78.05,
+        "rankable": true,
+        "known_points": 78.05,
+        "coverage": 1.0,
+        "score_range": [
+          78.05,
+          78.05
+        ],
+        "missing": [],
+        "risk_cap": 100,
+        "risk_gates": [],
+        "risk_missing": [],
+        "observations": [],
+        "liquidity_components": [
+          {
+            "cash_ratio_pct": 88.72050102225589,
+            "quick_ratio_pct": 94.74023480585319,
+            "year": 2021,
+            "factor": 0.4474023480585319
+          },
+          {
+            "cash_ratio_pct": 89.50643982636582,
+            "quick_ratio_pct": 96.48128394907334,
+            "year": 2022,
+            "factor": 0.46481283949073343
+          },
+          {
+            "cash_ratio_pct": 101.30151259842029,
+            "quick_ratio_pct": 108.78075856418394,
+            "year": 2023,
+            "factor": 0.5878075856418394
+          },
+          {
+            "cash_ratio_pct": 72.31599398695106,
+            "quick_ratio_pct": 85.40175965674302,
+            "year": 2024,
+            "factor": 0.35401759656743026
+          },
+          {
+            "cash_ratio_pct": 60.71548145368569,
+            "quick_ratio_pct": 66.26206445828718,
+            "year": 2025,
+            "factor": 0.16262064458287184
+          }
+        ],
+        "strict_safety_status": "unverified",
+        "safety_pending": [
+          "受限现金与现金等价物",
+          "全部有息债务及到期结构",
+          "审计与持续经营",
+          "资金占用、担保及或有事项"
+        ]
+      },
+      "scenarios": {
+        "基准": 78.05,
+        "偏现金": 79.61,
+        "偏盈利": 76.34,
+        "偏家底": 76.6
+      },
+      "ranks": {
+        "基准": 7,
+        "偏现金": 7,
+        "偏盈利": 9,
+        "偏家底": 8
+      }
+    }
+  ]
+}

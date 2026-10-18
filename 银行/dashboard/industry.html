@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<title>银行行业总看板</title>
+<link rel="stylesheet" href="style.css?v=12" />
+<link rel="stylesheet" href="industry.css?v=2" />
+<link rel="stylesheet" href="nav-update.css?v=2" />
+<link rel="stylesheet" href="research-layout.css?v=1" />
+<script src="chart.umd.min.js"></script>
+</head>
+<body>
+<div id="app" class="industry-app">
+
+  <header class="app-header">
+    <div class="header-title">
+      <h1>银行行业总览</h1>
+      <p class="subtitle">商业银行监管指标 · 行业整体估值</p>
+    </div>
+  </header>
+  <details class="research-date-details">
+    <summary>数据时点 <span id="industry-date-summary">· 监管指标截至：加载中…</span></summary>
+    <div class="research-date-strip" aria-label="行业数据时点详情">
+      <span id="industry-reg-date" class="research-date-item">监管指标截至：加载中…</span>
+      <span id="industry-val-date" class="research-date-item">行业估值截至：加载中…</span>
+      <span id="generated-at" class="research-date-item research-date-generated">页面数据生成：加载中…</span>
+    </div>
+  </details>
+
+  <div id="load-error" class="load-error hidden">
+    <p><strong>数据加载失败。</strong>请在银行项目根目录运行：</p>
+    <pre>python3 scripts/dashboard_server.py --port 8765</pre>
+    <p>然后打开 <code>http://127.0.0.1:8765/industry.html</code>。</p>
+  </div>
+
+  <main id="main-content" class="hidden">
+
+    <section id="kpi-row" class="kpi-row" aria-label="行业关键指标"></section>
+
+    <nav class="group-nav" id="group-nav">
+      <a href="#group-valuation" class="group-nav-item active">① 行业估值</a>
+      <a href="#group-earn" class="group-nav-item">② 盈利与息差</a>
+      <a href="#group-risk" class="group-nav-item">③ 资产质量</a>
+      <a href="#group-capital" class="group-nav-item">④ 资本与流动性</a>
+    </nav>
+
+    <section id="group-valuation" class="metric-group">
+      <div class="group-heading-row">
+        <h2 class="group-heading">① 行业总 PB / 总 PE</h2>
+        <div class="band-toggle" id="band-toggle">
+          <button type="button" class="band-btn active" data-mode="static">最近10年固定带</button>
+          <button type="button" class="band-btn" data-mode="rolling">10年滚动带</button>
+        </div>
+      </div>
+      <p class="group-desc" id="valuation-desc"></p>
+      <div class="zone-banner" id="zone-banner"></div>
+      <div class="chart-row two">
+        <article class="chart-card wide">
+          <h3>总市净率 PB（整体法）</h3>
+          <div class="chart-canvas-box tall"><canvas id="chart-pb"></canvas></div>
+        </article>
+        <article class="chart-card wide">
+          <h3>总市盈率 PE TTM（整体法）</h3>
+          <div class="chart-canvas-box tall"><canvas id="chart-pe"></canvas></div>
+        </article>
+      </div>
+      <div class="table-scroll">
+        <table class="band-table" id="band-table"></table>
+      </div>
+    </section>
+
+    <section id="group-earn" class="metric-group">
+      <h2 class="group-heading">② 盈利与息差</h2>
+      <p class="group-desc">监管总局商业银行口径。NIM 图叠加大行 / 股份行 / 城商行 / 农商行（2017Q1 起）。</p>
+      <div id="charts-earn" class="chart-row"></div>
+    </section>
+
+    <section id="group-risk" class="metric-group">
+      <h2 class="group-heading">③ 资产质量</h2>
+      <p class="group-desc">不良率在 2008Q4 有口径与剥离跳跃，前后绝对值不可直接当同一序列解读。</p>
+      <div id="charts-risk" class="chart-row"></div>
+    </section>
+
+    <section id="group-capital" class="metric-group">
+      <h2 class="group-heading">④ 资本与流动性</h2>
+      <p class="group-desc">CET1 / 一级资本自 2013 年起；LCR 自 2017Q1 起。NSFR 本次未取到完整序列。</p>
+      <div id="charts-capital" class="chart-row"></div>
+    </section>
+
+    <p class="data-note" id="data-note"></p>
+  </main>
+
+  <div id="col-help-pop" class="col-help-pop hidden" role="tooltip">
+    <div class="col-help-title"></div>
+    <div class="col-help-body"></div>
+  </div>
+</div>
+<script src="nav-update.js?v=5"></script>
+<script src="industry.js?v=9"></script>
+</body>
+</html>

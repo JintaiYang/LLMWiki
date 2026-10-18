@@ -1,0 +1,13 @@
+{
+  "date": "2026-10-14",
+  "dataCutoff": "2026-10-13",
+  "companies": 50,
+  "companySourceNodes": 50,
+  "markdownPages": 119,
+  "wikilinks": 1453,
+  "unresolved": [],
+  "orphans": [],
+  "missingAttachments": [],
+  "selectedTickersMatchReport": true,
+  "allSelectedHaveFiveAnnualPeriods": true
+}

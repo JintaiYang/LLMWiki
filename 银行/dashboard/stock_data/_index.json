@@ -7,294 +7,1009 @@
       "name": "平安银行",
       "file": "000001.json",
       "record_count": 121,
-      "latest_report_date": "2026-03-31"
+      "latest_report_date": "2026-03-31",
+      "score_summary": {
+        "total": 47.56,
+        "grade": "C",
+        "period": "2025-12-31",
+        "g": 0,
+        "rankable": true,
+        "f1": 18.6466,
+        "f2": 5.2235,
+        "dims": {
+          "A": 13.01,
+          "B": 0.0,
+          "C": 8.8,
+          "D": 12.02,
+          "E": 8.04,
+          "F": 5.69
+        }
+      }
     },
     {
       "code": "001227",
       "name": "兰州银行",
       "file": "001227.json",
       "record_count": 53,
-      "latest_report_date": "2026-03-31"
+      "latest_report_date": "2026-03-31",
+      "score_summary": {
+        "total": 24.94,
+        "grade": "D",
+        "period": "2025-12-31",
+        "g": 0,
+        "rankable": true,
+        "f1": 12.3333,
+        "f2": 3.4483,
+        "dims": {
+          "A": 4.9,
+          "B": 0.0,
+          "C": 8.61,
+          "D": 2.71,
+          "E": 3.58,
+          "F": 5.14
+        }
+      }
     },
     {
       "code": "002142",
       "name": "宁波银行",
       "file": "002142.json",
       "record_count": 82,
-      "latest_report_date": "2026-03-31"
+      "latest_report_date": "2026-03-31",
+      "score_summary": {
+        "total": 67.06,
+        "grade": "B",
+        "period": "2025-12-31",
+        "g": 2.0,
+        "rankable": true,
+        "f1": 15.7253,
+        "f2": 4.272,
+        "dims": {
+          "A": 11.1,
+          "B": 8.97,
+          "C": 19.75,
+          "D": 10.7,
+          "E": 8.63,
+          "F": 7.91
+        }
+      }
     },
     {
       "code": "002807",
       "name": "江阴银行",
       "file": "002807.json",
       "record_count": 55,
-      "latest_report_date": "2026-03-31"
+      "latest_report_date": "2026-03-31",
+      "score_summary": {
+        "total": 59.32,
+        "grade": "C",
+        "period": "2025-12-31",
+        "g": 0,
+        "rankable": true,
+        "f1": 18.6579,
+        "f2": 4.814,
+        "dims": {
+          "A": 10.12,
+          "B": 5.46,
+          "C": 12.04,
+          "D": 11.0,
+          "E": 11.27,
+          "F": 9.43
+        }
+      }
     },
     {
       "code": "002839",
       "name": "张家港行",
       "file": "002839.json",
       "record_count": 53,
-      "latest_report_date": "2026-03-31"
+      "latest_report_date": "2026-03-31",
+      "score_summary": {
+        "total": 54.16,
+        "grade": "C",
+        "period": "2025-12-31",
+        "g": 0,
+        "rankable": true,
+        "f1": 17.1864,
+        "f2": 4.814,
+        "dims": {
+          "A": 8.2,
+          "B": 4.45,
+          "C": 14.24,
+          "D": 12.56,
+          "E": 7.6,
+          "F": 7.11
+        }
+      }
     },
     {
       "code": "002936",
       "name": "郑州银行",
       "file": "002936.json",
       "record_count": 56,
-      "latest_report_date": "2026-03-31"
+      "latest_report_date": "2026-03-31",
+      "score_summary": {
+        "total": 36.73,
+        "grade": "D",
+        "period": "2025-12-31",
+        "g": 0,
+        "rankable": true,
+        "f1": 8.1148,
+        "f2": null,
+        "dims": {
+          "A": 7.31,
+          "B": 2.03,
+          "C": 7.82,
+          "D": 8.87,
+          "E": 5.19,
+          "F": 5.51
+        }
+      }
     },
     {
       "code": "002948",
       "name": "青岛银行",
       "file": "002948.json",
       "record_count": 54,
-      "latest_report_date": "2026-03-31"
+      "latest_report_date": "2026-03-31",
+      "score_summary": {
+        "total": 66.69,
+        "grade": "B",
+        "period": "2025-12-31",
+        "g": 0,
+        "rankable": true,
+        "f1": 19.8265,
+        "f2": 4.0179,
+        "dims": {
+          "A": 9.61,
+          "B": 8.84,
+          "C": 20.97,
+          "D": 12.54,
+          "E": 7.62,
+          "F": 7.11
+        }
+      }
     },
     {
       "code": "002958",
       "name": "青农商行",
       "file": "002958.json",
       "record_count": 44,
-      "latest_report_date": "2026-03-31"
+      "latest_report_date": "2026-03-31",
+      "score_summary": {
+        "total": 44.88,
+        "grade": "D",
+        "period": "2025-12-31",
+        "g": 0,
+        "rankable": true,
+        "f1": 16.8825,
+        "f2": 3.871,
+        "dims": {
+          "A": 9.32,
+          "B": 5.49,
+          "C": 15.89,
+          "D": 2.05,
+          "E": 5.17,
+          "F": 6.96
+        }
+      }
     },
     {
       "code": "002966",
       "name": "苏州银行",
       "file": "002966.json",
       "record_count": 49,
-      "latest_report_date": "2026-03-31"
+      "latest_report_date": "2026-03-31",
+      "score_summary": {
+        "total": 57.33,
+        "grade": "C",
+        "period": "2025-12-31",
+        "g": 0,
+        "rankable": true,
+        "f1": 14.3894,
+        "f2": 4.3426,
+        "dims": {
+          "A": 6.38,
+          "B": 5.45,
+          "C": 16.0,
+          "D": 12.0,
+          "E": 8.97,
+          "F": 8.53
+        }
+      }
     },
     {
       "code": "600000",
       "name": "浦发银行",
       "file": "600000.json",
       "record_count": 107,
-      "latest_report_date": "2026-03-31"
+      "latest_report_date": "2026-03-31",
+      "score_summary": {
+        "total": 49.17,
+        "grade": "C",
+        "period": "2025-12-31",
+        "g": 0,
+        "rankable": true,
+        "f1": 12.0246,
+        "f2": 3.3762,
+        "dims": {
+          "A": 7.75,
+          "B": 4.28,
+          "C": 12.19,
+          "D": 11.25,
+          "E": 8.37,
+          "F": 5.33
+        }
+      }
     },
     {
       "code": "600015",
       "name": "华夏银行",
       "file": "600015.json",
       "record_count": 97,
-      "latest_report_date": "2026-03-31"
+      "latest_report_date": "2026-03-31",
+      "score_summary": {
+        "total": 41.85,
+        "grade": "D",
+        "period": "2025-12-31",
+        "g": 0,
+        "rankable": true,
+        "f1": 24.027,
+        "f2": 6.1135,
+        "dims": {
+          "A": 9.77,
+          "B": 3.41,
+          "C": 6.51,
+          "D": 7.39,
+          "E": 8.96,
+          "F": 5.81
+        }
+      }
     },
     {
       "code": "600016",
       "name": "民生银行",
       "file": "600016.json",
       "record_count": 106,
-      "latest_report_date": "2026-03-31"
+      "latest_report_date": "2026-03-31",
+      "score_summary": {
+        "total": 38.63,
+        "grade": "D",
+        "period": "2025-12-31",
+        "g": -2.5,
+        "rankable": true,
+        "f1": 16.6004,
+        "f2": 4.9347,
+        "dims": {
+          "A": 7.31,
+          "B": 3.08,
+          "C": 9.03,
+          "D": 8.07,
+          "E": 5.44,
+          "F": 5.7
+        }
+      }
     },
     {
       "code": "600036",
       "name": "招商银行",
       "file": "600036.json",
       "record_count": 101,
-      "latest_report_date": "2026-03-31"
+      "latest_report_date": "2026-03-31",
+      "score_summary": {
+        "total": 78.64,
+        "grade": "A",
+        "period": "2025-12-31",
+        "g": 3.0,
+        "rankable": true,
+        "f1": 13.8661,
+        "f2": 4.7886,
+        "dims": {
+          "A": 14.6,
+          "B": 3.97,
+          "C": 22.83,
+          "D": 10.67,
+          "E": 12.11,
+          "F": 14.46
+        }
+      }
     },
     {
       "code": "600908",
       "name": "无锡银行",
       "file": "600908.json",
       "record_count": 51,
-      "latest_report_date": "2026-03-31"
+      "latest_report_date": "2026-03-31",
+      "score_summary": {
+        "total": 58.54,
+        "grade": "C",
+        "period": "2025-12-31",
+        "g": 0,
+        "rankable": true,
+        "f1": 17.3309,
+        "f2": 4.0472,
+        "dims": {
+          "A": 6.35,
+          "B": 5.63,
+          "C": 14.77,
+          "D": 11.6,
+          "E": 11.89,
+          "F": 8.3
+        }
+      }
     },
     {
       "code": "600919",
       "name": "江苏银行",
       "file": "600919.json",
       "record_count": 57,
-      "latest_report_date": "2026-03-31"
+      "latest_report_date": "2026-03-31",
+      "score_summary": {
+        "total": 63.64,
+        "grade": "B",
+        "period": "2025-12-31",
+        "g": 1.0,
+        "rankable": true,
+        "f1": 17.7618,
+        "f2": 5.424,
+        "dims": {
+          "A": 10.37,
+          "B": 9.04,
+          "C": 13.81,
+          "D": 11.73,
+          "E": 9.71,
+          "F": 8.98
+        }
+      }
     },
     {
       "code": "600926",
       "name": "杭州银行",
       "file": "600926.json",
       "record_count": 61,
-      "latest_report_date": "2026-03-31"
+      "latest_report_date": "2026-03-31",
+      "score_summary": {
+        "total": 67.89,
+        "grade": "B",
+        "period": "2025-12-31",
+        "g": 2.0,
+        "rankable": true,
+        "f1": 17.6159,
+        "f2": 4.3194,
+        "dims": {
+          "A": 6.58,
+          "B": 7.9,
+          "C": 21.41,
+          "D": 12.24,
+          "E": 10.69,
+          "F": 9.07
+        }
+      }
     },
     {
       "code": "600928",
       "name": "西安银行",
       "file": "600928.json",
       "record_count": 54,
-      "latest_report_date": "2026-03-31"
+      "latest_report_date": "2026-03-31",
+      "score_summary": {
+        "total": 60.72,
+        "grade": "B",
+        "period": "2025-12-31",
+        "g": 0,
+        "rankable": true,
+        "f1": 16.5242,
+        "f2": 2.7027,
+        "dims": {
+          "A": 9.63,
+          "B": 8.71,
+          "C": 21.83,
+          "D": 9.05,
+          "E": 5.42,
+          "F": 6.08
+        }
+      }
     },
     {
       "code": "601009",
       "name": "南京银行",
       "file": "601009.json",
       "record_count": 83,
-      "latest_report_date": "2026-03-31"
+      "latest_report_date": "2026-03-31",
+      "score_summary": {
+        "total": 67.08,
+        "grade": "B",
+        "period": "2025-12-31",
+        "g": 0,
+        "rankable": true,
+        "f1": 15.4618,
+        "f2": 4.6295,
+        "dims": {
+          "A": 13.93,
+          "B": 8.98,
+          "C": 15.44,
+          "D": 11.75,
+          "E": 8.11,
+          "F": 8.87
+        }
+      }
     },
     {
       "code": "601077",
       "name": "渝农商行",
       "file": "601077.json",
       "record_count": 53,
-      "latest_report_date": "2026-03-31"
+      "latest_report_date": "2026-03-31",
+      "score_summary": {
+        "total": 63.41,
+        "grade": "B",
+        "period": "2025-12-31",
+        "g": 0,
+        "rankable": true,
+        "f1": 16.4076,
+        "f2": 4.9676,
+        "dims": {
+          "A": 7.06,
+          "B": 4.52,
+          "C": 16.79,
+          "D": 11.62,
+          "E": 10.53,
+          "F": 12.89
+        }
+      }
     },
     {
       "code": "601128",
       "name": "常熟银行",
       "file": "601128.json",
       "record_count": 58,
-      "latest_report_date": "2026-03-31"
+      "latest_report_date": "2026-03-31",
+      "score_summary": {
+        "total": 66.69,
+        "grade": "B",
+        "period": "2025-12-31",
+        "g": 1.0,
+        "rankable": true,
+        "f1": 18.4499,
+        "f2": 3.8352,
+        "dims": {
+          "A": 11.87,
+          "B": 9.4,
+          "C": 20.52,
+          "D": 10.6,
+          "E": 5.38,
+          "F": 8.92
+        }
+      }
     },
     {
       "code": "601166",
       "name": "兴业银行",
       "file": "601166.json",
       "record_count": 82,
-      "latest_report_date": "2026-03-31"
+      "latest_report_date": "2026-03-31",
+      "score_summary": {
+        "total": 55.22,
+        "grade": "C",
+        "period": "2025-12-31",
+        "g": 0,
+        "rankable": true,
+        "f1": 16.8162,
+        "f2": 5.0617,
+        "dims": {
+          "A": 11.49,
+          "B": 3.47,
+          "C": 13.52,
+          "D": 10.78,
+          "E": 9.31,
+          "F": 6.65
+        }
+      }
     },
     {
       "code": "601169",
       "name": "北京银行",
       "file": "601169.json",
       "record_count": 81,
-      "latest_report_date": "2026-03-31"
+      "latest_report_date": "2026-03-31",
+      "score_summary": {
+        "total": 44.38,
+        "grade": "D",
+        "period": "2025-12-31",
+        "g": 0,
+        "rankable": true,
+        "f1": 14.4651,
+        "f2": 5.073,
+        "dims": {
+          "A": 4.06,
+          "B": 3.43,
+          "C": 9.73,
+          "D": 11.23,
+          "E": 8.77,
+          "F": 7.16
+        }
+      }
     },
     {
       "code": "601187",
       "name": "厦门银行",
       "file": "601187.json",
       "record_count": 61,
-      "latest_report_date": "2026-03-31"
+      "latest_report_date": "2026-03-31",
+      "score_summary": {
+        "total": 39.39,
+        "grade": "D",
+        "period": "2025-12-31",
+        "g": 0,
+        "rankable": true,
+        "f1": 12.4073,
+        "f2": 3.406,
+        "dims": {
+          "A": 3.68,
+          "B": 4.27,
+          "C": 7.21,
+          "D": 10.95,
+          "E": 6.89,
+          "F": 6.39
+        }
+      }
     },
     {
       "code": "601229",
       "name": "上海银行",
       "file": "601229.json",
       "record_count": 74,
-      "latest_report_date": "2026-03-31"
+      "latest_report_date": "2026-03-31",
+      "score_summary": {
+        "total": 54.67,
+        "grade": "C",
+        "period": "2025-12-31",
+        "g": 0,
+        "rankable": true,
+        "f1": 16.599,
+        "f2": 5.1485,
+        "dims": {
+          "A": 5.13,
+          "B": 5.03,
+          "C": 13.62,
+          "D": 9.53,
+          "E": 11.84,
+          "F": 9.52
+        }
+      }
     },
     {
       "code": "601288",
       "name": "农业银行",
       "file": "601288.json",
       "record_count": 75,
-      "latest_report_date": "2026-03-31"
+      "latest_report_date": "2026-03-31",
+      "score_summary": {
+        "total": 62.13,
+        "grade": "B",
+        "period": "2025-12-31",
+        "g": 0,
+        "rankable": true,
+        "f1": 10.4598,
+        "f2": 3.2487,
+        "dims": {
+          "A": 4.02,
+          "B": 5.32,
+          "C": 19.1,
+          "D": 10.6,
+          "E": 10.62,
+          "F": 12.47
+        }
+      }
     },
     {
       "code": "601328",
       "name": "交通银行",
       "file": "601328.json",
       "record_count": 86,
-      "latest_report_date": "2026-03-31"
+      "latest_report_date": "2026-03-31",
+      "score_summary": {
+        "total": 55.45,
+        "grade": "C",
+        "period": "2025-12-31",
+        "g": 0,
+        "rankable": true,
+        "f1": 14.9484,
+        "f2": 4.4786,
+        "dims": {
+          "A": 5.61,
+          "B": 4.95,
+          "C": 15.35,
+          "D": 9.92,
+          "E": 10.1,
+          "F": 9.52
+        }
+      }
     },
     {
       "code": "601398",
       "name": "工商银行",
       "file": "601398.json",
       "record_count": 84,
-      "latest_report_date": "2026-03-31"
+      "latest_report_date": "2026-03-31",
+      "score_summary": {
+        "total": 60.89,
+        "grade": "B",
+        "period": "2025-12-31",
+        "g": 0,
+        "rankable": true,
+        "f1": 12.9049,
+        "f2": 3.913,
+        "dims": {
+          "A": 4.58,
+          "B": 3.56,
+          "C": 15.67,
+          "D": 10.08,
+          "E": 12.69,
+          "F": 14.31
+        }
+      }
     },
     {
       "code": "601528",
       "name": "瑞丰银行",
       "file": "601528.json",
       "record_count": 49,
-      "latest_report_date": "2026-03-31"
+      "latest_report_date": "2026-03-31",
+      "score_summary": {
+        "total": 63.4,
+        "grade": "B",
+        "period": "2025-12-31",
+        "g": 0,
+        "rankable": true,
+        "f1": 17.9571,
+        "f2": 3.6842,
+        "dims": {
+          "A": 7.91,
+          "B": 7.89,
+          "C": 22.47,
+          "D": 6.97,
+          "E": 9.9,
+          "F": 8.26
+        }
+      }
     },
     {
       "code": "601577",
       "name": "长沙银行",
       "file": "601577.json",
       "record_count": 56,
-      "latest_report_date": "2026-03-31"
+      "latest_report_date": "2026-03-31",
+      "score_summary": {
+        "total": 56.49,
+        "grade": "C",
+        "period": "2025-12-31",
+        "g": 0,
+        "rankable": true,
+        "f1": 20.4626,
+        "f2": 4.433,
+        "dims": {
+          "A": 12.17,
+          "B": 6.01,
+          "C": 15.37,
+          "D": 5.95,
+          "E": 7.44,
+          "F": 9.55
+        }
+      }
     },
     {
       "code": "601658",
       "name": "邮储银行",
       "file": "601658.json",
       "record_count": 44,
-      "latest_report_date": "2026-03-31"
+      "latest_report_date": "2026-03-31",
+      "score_summary": {
+        "total": 46.67,
+        "grade": "C",
+        "period": "2025-12-31",
+        "g": 0,
+        "rankable": true,
+        "f1": 13.3808,
+        "f2": 4.0055,
+        "dims": {
+          "A": 8.97,
+          "B": 5.14,
+          "C": 5.14,
+          "D": 7.46,
+          "E": 10.0,
+          "F": 9.96
+        }
+      }
     },
     {
       "code": "601665",
       "name": "齐鲁银行",
       "file": "601665.json",
       "record_count": 59,
-      "latest_report_date": "2026-03-31"
+      "latest_report_date": "2026-03-31",
+      "score_summary": {
+        "total": 71.83,
+        "grade": "B",
+        "period": "2025-12-31",
+        "g": 0,
+        "rankable": true,
+        "f1": 16.8868,
+        "f2": 4.3415,
+        "dims": {
+          "A": 7.05,
+          "B": 8.02,
+          "C": 23.04,
+          "D": 13.32,
+          "E": 9.34,
+          "F": 11.06
+        }
+      }
     },
     {
       "code": "601818",
       "name": "光大银行",
       "file": "601818.json",
       "record_count": 71,
-      "latest_report_date": "2026-03-31"
+      "latest_report_date": "2026-03-31",
+      "score_summary": {
+        "total": 42.05,
+        "grade": "D",
+        "period": "2025-12-31",
+        "g": 0,
+        "rankable": true,
+        "f1": 16.9695,
+        "f2": 5.0143,
+        "dims": {
+          "A": 6.75,
+          "B": 0.0,
+          "C": 9.94,
+          "D": 10.08,
+          "E": 8.47,
+          "F": 6.81
+        }
+      }
     },
     {
       "code": "601825",
       "name": "沪农商行",
       "file": "601825.json",
       "record_count": 63,
-      "latest_report_date": "2026-03-31"
+      "latest_report_date": "2026-03-31",
+      "score_summary": {
+        "total": 57.0,
+        "grade": "C",
+        "period": "2025-12-31",
+        "g": 0,
+        "rankable": true,
+        "f1": 13.9045,
+        "f2": 4.6825,
+        "dims": {
+          "A": 6.0,
+          "B": 4.01,
+          "C": 15.61,
+          "D": 8.02,
+          "E": 10.58,
+          "F": 12.78
+        }
+      }
     },
     {
       "code": "601838",
       "name": "成都银行",
       "file": "601838.json",
       "record_count": 53,
-      "latest_report_date": "2026-03-31"
+      "latest_report_date": "2026-03-31",
+      "score_summary": {
+        "total": 63.0,
+        "grade": "B",
+        "period": "2025-12-31",
+        "g": 1.0,
+        "rankable": true,
+        "f1": 19.8994,
+        "f2": 5.7134,
+        "dims": {
+          "A": 6.92,
+          "B": 7.0,
+          "C": 18.61,
+          "D": 12.4,
+          "E": 11.32,
+          "F": 6.75
+        }
+      }
     },
     {
       "code": "601860",
       "name": "紫金银行",
       "file": "601860.json",
       "record_count": 48,
-      "latest_report_date": "2026-03-31"
+      "latest_report_date": "2026-03-31",
+      "score_summary": {
+        "total": 39.48,
+        "grade": "D",
+        "period": "2025-12-31",
+        "g": 0,
+        "rankable": true,
+        "f1": 12.1949,
+        "f2": 3.6232,
+        "dims": {
+          "A": 2.9,
+          "B": 1.75,
+          "C": 10.03,
+          "D": 7.43,
+          "E": 7.01,
+          "F": 10.36
+        }
+      }
     },
     {
       "code": "601916",
       "name": "浙商银行",
       "file": "601916.json",
       "record_count": 66,
-      "latest_report_date": "2026-03-31"
+      "latest_report_date": "2026-03-31",
+      "score_summary": {
+        "total": 40.23,
+        "grade": "D",
+        "period": "2025-12-31",
+        "g": 0,
+        "rankable": true,
+        "f1": 14.4868,
+        "f2": 4.3092,
+        "dims": {
+          "A": 9.78,
+          "B": 3.38,
+          "C": 4.06,
+          "D": 9.31,
+          "E": 5.86,
+          "F": 7.84
+        }
+      }
     },
     {
       "code": "601939",
       "name": "建设银行",
       "file": "601939.json",
       "record_count": 84,
-      "latest_report_date": "2026-03-31"
+      "latest_report_date": "2026-03-31",
+      "score_summary": {
+        "total": 65.2,
+        "grade": "B",
+        "period": "2025-12-31",
+        "g": 0,
+        "rankable": true,
+        "f1": 14.3237,
+        "f2": 4.1886,
+        "dims": {
+          "A": 5.48,
+          "B": 3.82,
+          "C": 18.14,
+          "D": 10.69,
+          "E": 12.76,
+          "F": 14.31
+        }
+      }
     },
     {
       "code": "601963",
       "name": "重庆银行",
       "file": "601963.json",
       "record_count": 59,
-      "latest_report_date": "2026-03-31"
+      "latest_report_date": "2026-03-31",
+      "score_summary": {
+        "total": 50.88,
+        "grade": "C",
+        "period": "2025-12-31",
+        "g": 0,
+        "rankable": true,
+        "f1": 13.8602,
+        "f2": 4.1376,
+        "dims": {
+          "A": 4.71,
+          "B": 7.76,
+          "C": 12.82,
+          "D": 10.78,
+          "E": 7.55,
+          "F": 7.26
+        }
+      }
     },
     {
       "code": "601988",
       "name": "中国银行",
       "file": "601988.json",
       "record_count": 84,
-      "latest_report_date": "2026-03-31"
+      "latest_report_date": "2026-03-31",
+      "score_summary": {
+        "total": 59.98,
+        "grade": "C",
+        "period": "2025-12-31",
+        "g": 0,
+        "rankable": true,
+        "f1": 13.0453,
+        "f2": 3.9494,
+        "dims": {
+          "A": 6.08,
+          "B": 6.23,
+          "C": 13.63,
+          "D": 10.6,
+          "E": 11.13,
+          "F": 12.31
+        }
+      }
     },
     {
       "code": "601997",
       "name": "贵阳银行",
       "file": "601997.json",
       "record_count": 56,
-      "latest_report_date": "2026-03-31"
+      "latest_report_date": "2026-03-31",
+      "score_summary": {
+        "total": 46.45,
+        "grade": "C",
+        "period": "2025-12-31",
+        "g": 0,
+        "rankable": true,
+        "f1": 23.8844,
+        "f2": 5.1107,
+        "dims": {
+          "A": 8.04,
+          "B": 0.0,
+          "C": 15.96,
+          "D": 7.61,
+          "E": 6.97,
+          "F": 7.87
+        }
+      }
     },
     {
       "code": "601998",
       "name": "中信银行",
       "file": "601998.json",
       "record_count": 82,
-      "latest_report_date": "2026-03-31"
+      "latest_report_date": "2026-03-31",
+      "score_summary": {
+        "total": 54.42,
+        "grade": "C",
+        "period": "2025-12-31",
+        "g": 0,
+        "rankable": true,
+        "f1": 15.8637,
+        "f2": 4.9481,
+        "dims": {
+          "A": 10.8,
+          "B": 4.4,
+          "C": 12.73,
+          "D": 11.02,
+          "E": 8.94,
+          "F": 6.53
+        }
+      }
     },
     {
       "code": "603323",
       "name": "苏农银行",
       "file": "603323.json",
       "record_count": 57,
-      "latest_report_date": "2026-03-31"
+      "latest_report_date": "2026-03-31",
+      "score_summary": {
+        "total": 57.65,
+        "grade": "C",
+        "period": "2025-12-31",
+        "g": 0,
+        "rankable": true,
+        "f1": 20.0744,
+        "f2": 4.1584,
+        "dims": {
+          "A": 8.47,
+          "B": 5.28,
+          "C": 15.46,
+          "D": 10.92,
+          "E": 10.17,
+          "F": 7.35
+        }
+      }
     }
-  ]
+  ],
+  "score_note": "综合打分=公式V2.0六维（收入效率/收入增长/盈利质量/资产质量/成本控制/资本内生；估值与定性不进总分；缺项重标；否决；rankable=false 不参与排序）"
 }

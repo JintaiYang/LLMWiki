@@ -1,0 +1,36 @@
+{
+  "code": "600519",
+  "name": "贵州茅台",
+  "report_date": "2021-12-31",
+  "scope": "consolidated",
+  "unit": "CNY",
+  "source_provider": "iFind",
+  "source_tool": "ifind_search_notice",
+  "source_title": "贵州茅台：贵州茅台2021年年度报告",
+  "source_date": "2022-03-31",
+  "retrieved_on": "2026-10-17",
+  "section": "七、合并财务报表项目注释；4、应收账款",
+  "gross_balance": 3097678.25,
+  "loss_allowance": 3097678.25,
+  "net_carrying_value": 0,
+  "verification": "Net carrying value = disclosed gross balance minus disclosed allowance. The blank balance-sheet cell alone was not converted to zero.",
+  "exclude": "母公司应收账款1,480,080,983.77元不属于本次合并报表补缺口径",
+  "raw_api_checks": {
+    "local_em": "ACCOUNTS_RECE empty; no conflicting numeric value",
+    "akshare_balance_annual_em": "ACCOUNTS_RECE null",
+    "akshare_sina_balance": "应收账款 null",
+    "ifind_get_stock_financials": "empty cell, no valid fixed-report-date numerical result"
+  },
+  "notice_fragments": [
+    {
+      "title": "贵州茅台：贵州茅台2021年年度报告",
+      "date": "2022-03-31",
+      "excerpt": "| 按组合计提坏账准备 | 3,097,678.25 | 100.00 | 3,097,678.25 | 100.00 | | 3,243,804.43 | 100.00 | 3,243,804.43 | 100.00 | | 类别 | 期末余额 | 期初余额 | | | | | | | |。| | 账面余额 | 坏账准备 | 账面价值 | 账面余额 | 坏账准备 | 账面价值 | | | |。 | 按组合计提坏账准备 | 3,097,678.25 | 100.00 | 3,097,678.25 | 100.00 | | 3,243,804.43 | 100.00 | 3,243, 804.43 | 100.00 |。| 合计 | 3,097,678.25 | / | 3,097,678.25 | / | | 3,243,804.43 | / | 3,243,804.43 | / |。 | 合计 | 3,097,678.25 | 3,097,678.25 | 100.00 |。按组合计提坏账的确认标准及说明：。如按预期信用损失一般模型计提坏账准备，请参照其他应收款披露：。(3). 坏账..."
+    },
+    {
+      "title": "贵州茅台：贵州茅台2021年年度报告（英文版）",
+      "date": "2022-03-31",
+      "excerpt": "| Bad debt provision assessed by groups | 3,097,678.25 | 100.00 | 3,097,678.25 | 100.00 | | 3,243, | Including : bad debt provision assessed by groups | 3,097,678.25 | 100.00 | 3,097,678.25 | 100.00 | | 3,243, 804.43 | 100.00 | 3,243,804.43 | 100.00| | | | Unit: CNY | | | | | | | |。| Category | Closing balance | Opening balance | | | | | | | |。 | Total | 3,097,678.25 | / | 3,097,678.25 | / | | 3,243,804.43 | / | 3,243,804.43 | / |。 | 4-5 years | | | |。| More than 5 years | 3,097,678.25 | 3,097,6..."
+    }
+  ]
+}

@@ -1,0 +1,155 @@
+[
+  {
+    "ticker": "TSM",
+    "cik": 1046179,
+    "accession": "0001628280-26-025362",
+    "url": "https://www.sec.gov/Archives/edgar/data/1046179/000162828026025362/tsm-20251231.htm",
+    "form": "20-F",
+    "filed": "2026-04-16",
+    "reportDate": "2025-12-31"
+  },
+  {
+    "ticker": "MA",
+    "cik": 1141391,
+    "accession": "0001141391-26-000013",
+    "url": "https://www.sec.gov/Archives/edgar/data/1141391/000114139126000013/ma-20251231.htm",
+    "form": "10-K",
+    "filed": "2026-02-11",
+    "reportDate": "2025-12-31"
+  },
+  {
+    "ticker": "ADP",
+    "cik": 8670,
+    "accession": "0000008670-26-000030",
+    "url": "https://www.sec.gov/Archives/edgar/data/8670/000000867026000030/adp-20260630.htm",
+    "form": "10-K",
+    "filed": "2026-08-05",
+    "reportDate": "2026-06-30"
+  },
+  {
+    "ticker": "LLY",
+    "cik": 59478,
+    "accession": "0000059478-26-000013",
+    "url": "https://www.sec.gov/Archives/edgar/data/59478/000005947826000013/lly-20251231.htm",
+    "form": "10-K",
+    "filed": "2026-02-12",
+    "reportDate": "2025-12-31"
+  },
+  {
+    "ticker": "ROP",
+    "cik": 882835,
+    "accession": "0000882835-26-000009",
+    "url": "https://www.sec.gov/Archives/edgar/data/882835/000088283526000009/rop-20251231.htm",
+    "form": "10-K",
+    "filed": "2026-02-24",
+    "reportDate": "2025-12-31"
+  },
+  {
+    "ticker": "ZTS",
+    "cik": 1555280,
+    "accession": "0001555280-26-000011",
+    "url": "https://www.sec.gov/Archives/edgar/data/1555280/000155528026000011/zts-20251231.htm",
+    "form": "10-K",
+    "filed": "2026-02-12",
+    "reportDate": "2025-12-31"
+  },
+  {
+    "ticker": "KLAC",
+    "cik": 319201,
+    "accession": "0000319201-26-000027",
+    "url": "https://www.sec.gov/Archives/edgar/data/319201/000031920126000027/klac-20260630.htm",
+    "form": "10-K",
+    "filed": "2026-08-06",
+    "reportDate": "2026-06-30"
+  },
+  {
+    "ticker": "TJX",
+    "cik": 109198,
+    "accession": "0000109198-26-000008",
+    "url": "https://www.sec.gov/Archives/edgar/data/109198/000010919826000008/tjx-20260131.htm",
+    "form": "10-K",
+    "filed": "2026-03-31",
+    "reportDate": "2026-01-31"
+  },
+  {
+    "ticker": "ETN",
+    "cik": 1551182,
+    "accession": "0001551182-26-000007",
+    "url": "https://www.sec.gov/Archives/edgar/data/1551182/000155118226000007/etn-20251231.htm",
+    "form": "10-K",
+    "filed": "2026-02-26",
+    "reportDate": "2025-12-31"
+  },
+  {
+    "ticker": "BKNG",
+    "cik": 1075531,
+    "accession": "0001075531-26-000009",
+    "url": "https://www.sec.gov/Archives/edgar/data/1075531/000107553126000009/bkng-20251231.htm",
+    "form": "10-K",
+    "filed": "2026-02-18",
+    "reportDate": "2025-12-31"
+  },
+  {
+    "ticker": "AJG",
+    "cik": 354190,
+    "accession": "0001628280-26-008662",
+    "url": "https://www.sec.gov/Archives/edgar/data/354190/000162828026008662/ajg-20251231.htm",
+    "form": "10-K",
+    "filed": "2026-02-17",
+    "reportDate": "2025-12-31"
+  },
+  {
+    "ticker": "BRO",
+    "cik": 79282,
+    "accession": "0001193125-26-046984",
+    "url": "https://www.sec.gov/Archives/edgar/data/79282/000119312526046984/bro-20251231.htm",
+    "form": "10-K",
+    "filed": "2026-02-12",
+    "reportDate": "2025-12-31"
+  },
+  {
+    "ticker": "CB",
+    "cik": 896159,
+    "accession": "0000896159-26-000005",
+    "url": "https://www.sec.gov/Archives/edgar/data/896159/000089615926000005/cb-20251231.htm",
+    "form": "10-K",
+    "filed": "2026-02-27",
+    "reportDate": "2025-12-31"
+  },
+  {
+    "ticker": "PGR",
+    "cik": 80661,
+    "accession": "0000080661-26-000086",
+    "url": "https://www.sec.gov/Archives/edgar/data/80661/000008066126000086/pgr-20251231.htm",
+    "form": "10-K",
+    "filed": "2026-03-02",
+    "reportDate": "2025-12-31"
+  },
+  {
+    "ticker": "JPM",
+    "cik": 19617,
+    "accession": "0001628280-26-008131",
+    "url": "https://www.sec.gov/Archives/edgar/data/19617/000162828026008131/jpm-20251231.htm",
+    "form": "10-K",
+    "filed": "2026-02-13",
+    "reportDate": "2025-12-31"
+  },
+  {
+    "ticker": "BRK-B",
+    "cik": 1067983,
+    "accession": "0001193125-26-083899",
+    "url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899/brka-20251231.htm",
+    "form": "10-K",
+    "filed": "2026-03-02",
+    "reportDate": "2025-12-31"
+  },
+  {
+    "ticker": "NVO",
+    "cik": 353278,
+    "accession": "0000353278-26-000012",
+    "url": "https://www.sec.gov/Archives/edgar/data/353278/000035327826000012/nvo-20251231.htm",
+    "form": "20-F",
+    "filed": "2026-02-04",
+    "reportDate": "2025-12-31"
+  }
+]

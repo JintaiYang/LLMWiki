@@ -12,6 +12,12 @@ const INDICATORS = Object.freeze({
   contract_liabilities: "合同负债", inventory: "存货", receivables: "应收账款",
   payables: "应付账款", parent_equity: "归属于母公司所有者权益合计",
   cash: "货币资金", short_debt: "短期借款", long_debt: "长期借款", bonds: "应付债券",
+  consolidated_net_profit: "净利润", deduct_profit: "扣除非经常性损益后的归母净利润",
+  finance_expense: "财务费用", other_receivables: "其他应收款合计",
+  total_assets: "资产总计", total_liabilities: "负债合计", current_assets: "流动资产合计", current_liabilities: "流动负债合计",
+  management_expense: "管理费用", research_expense: "研发费用", cfi: "投资活动产生的现金流量净额",
+  cff: "筹资活动产生的现金流量净额", cash_net_increase: "现金及现金等价物净增加额",
+  cash_equivalents: "期末现金及现金等价物余额", fixed_assets: "固定资产", construction_in_progress: "在建工程", total_equity: "所有者权益合计",
 });
 const CODES = Object.freeze({"600519": "贵州茅台", "000858": "五粮液", "000568": "泸州老窖", "600809": "山西汾酒", "002304": "洋河股份", "000596": "古井贡酒", "000799": "酒鬼酒", "000860": "顺鑫农业", "000995": "皇台酒业", "002646": "天佑德酒", "600197": "伊力特", "600199": "金种子酒", "600559": "老白干酒", "600702": "舍得酒业", "600779": "水井坊", "603198": "迎驾贡酒", "603369": "今世缘", "603589": "口子窖", "603919": "金徽酒"});
 const COLUMNS = ["证券代码", "证券简称", "报告期", "公告日期", "指标", "单位", "数值"];

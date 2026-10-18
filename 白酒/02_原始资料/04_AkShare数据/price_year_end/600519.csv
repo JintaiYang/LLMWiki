@@ -1,11 +1,21 @@
-日期,收盘
-2015-12-31,218.190
-2016-12-30,334.150
-2018-12-28,590.010
-2019-12-31,1183.000
-2020-12-31,1998.000
-2021-12-31,2050.000
-2022-12-30,1727.000
-2023-12-29,1726.000
-2024-12-31,1524.000
-2025-12-31,1377.180
+﻿日期,收盘,source,source_url,retrieved_at
+2015-12-31,218.190,,,
+2016-12-30,334.150,,,
+2018-12-28,590.010,,,
+2019-12-31,1183.000,,,
+2020-12-31,1998.000,,,
+2021-12-31,2050.000,,,
+2022-12-30,1727.000,,,
+2023-12-29,1726.000,,,
+2024-12-31,1524.000,,,
+2025-12-31,1377.180,,,
+2006-12-29,87.83,Tencent newfqkline day unadjusted,https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get,2026-10-17T10:31:55.669165+00:00
+2007-12-28,230.0,Tencent newfqkline day unadjusted,https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get,2026-10-17T10:31:55.775799+00:00
+2008-12-31,108.7,Tencent newfqkline day unadjusted,https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get,2026-10-17T10:31:55.877232+00:00
+2009-12-31,169.82,Tencent newfqkline day unadjusted,https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get,2026-10-17T10:31:55.996301+00:00
+2010-12-31,183.92,Tencent newfqkline day unadjusted,https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get,2026-10-17T10:31:56.103392+00:00
+2011-12-30,193.3,Tencent newfqkline day unadjusted,https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get,2026-10-17T10:31:56.203461+00:00
+2012-12-31,209.02,Tencent newfqkline day unadjusted,https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get,2026-10-17T10:31:56.321184+00:00
+2013-12-31,128.38,Tencent newfqkline day unadjusted,https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get,2026-10-17T10:31:56.426593+00:00
+2014-12-31,189.62,Tencent newfqkline day unadjusted,https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get,2026-10-17T10:31:56.552730+00:00
+2017-12-29,697.49,Tencent newfqkline day unadjusted,https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get,2026-10-17T10:31:56.661853+00:00

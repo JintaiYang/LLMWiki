@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<title>银行公司打分公式 V2.0</title>
+<link rel="stylesheet" href="style.css?v=9" />
+<link rel="stylesheet" href="score-formula.css?v=1" />
+<link rel="stylesheet" href="nav-update.css?v=2" />
+<link rel="stylesheet" href="research-layout.css?v=1" />
+<script src="chart.umd.min.js"></script>
+</head>
+<body>
+<div id="app" class="formula-app">
+
+  <header class="app-header">
+    <div class="header-title">
+      <h1>银行公司打分公式 <span class="ver-pill">V2.0-2026-09-15</span></h1>
+      <p class="subtitle">六维公司打分引擎设计文档：只对公司打分，估值另评，定性只观测</p>
+    </div>
+    <div class="header-meta">
+      <a class="header-link" href="stock.html?code=600036">看招行打分卡</a>
+    </div>
+  </header>
+
+  <p class="lead">
+    业内没有统一公式。监管用 CAMELS+ 回答「会不会出事」，评级机构用锚定+调整回答「会不会违约」。
+    本引擎回答「这家银行好不好」：百分制六维公司分——收入效率、收入增长、盈利质量、资产质量、成本控制、<strong>资本内生</strong>。
+    雷达是正常六芒星。估值评价与定性观测单独展示，<strong>不进总分、不改等级</strong>。
+  </p>
+
+  <nav class="group-nav" id="group-nav">
+    <a href="#group-struct" class="group-nav-item active">① 结构</a>
+    <a href="#group-method" class="group-nav-item">② 方法</a>
+    <a href="#group-dims" class="group-nav-item">③ 六维</a>
+    <a href="#group-fg" class="group-nav-item">④ 估值与定性</a>
+    <a href="#group-veto" class="group-nav-item">⑤ 否决与等级</a>
+    <a href="#group-example" class="group-nav-item">⑥ 演算</a>
+  </nav>
+
+  <main>
+
+    <section id="group-struct" class="metric-group">
+      <h2 class="group-heading">① 总体结构</h2>
+      <div class="kpi-row">
+        <div class="kpi-card"><div class="label">公司总分</div><div class="value">100</div><div class="meta">六维合计，进入排序与等级</div></div>
+        <div class="kpi-card"><div class="label">资本维名称</div><div class="value" style="font-size:18px;">资本内生</div><div class="meta">F 维 15 分，不是「资本充足」</div></div>
+        <div class="kpi-card"><div class="label">估值 G</div><div class="value">0</div><div class="meta">满分 10，独立评价，不进总分</div></div>
+        <div class="kpi-card"><div class="label">定性 H</div><div class="value">0</div><div class="meta">观测 −5~+5，不改分数与等级</div></div>
+      </div>
+      <pre class="formula-block">公司总分 = A 收入效率(15) + B 收入增长(10) + C 盈利质量(30)
+         + D 资产质量(15) + E 成本控制(15) + F 资本内生(15)
+         × 否决/降档（触发则调整）
+
+G 估值评价（G1+G2，满分 10）——单独输出，不计入总分
+H 定性观测（-5 ~ +5）——证据卡展示，不计入总分</pre>
+
+      <div class="dim-grid" style="margin-top:14px;">
+        <div class="dim-tile"><div class="code" style="color:#2f6fed;">A</div><div class="name">收入效率</div><div class="q">定价权与收入结构</div><div class="full">15 <span>分 · 2 项</span></div></div>
+        <div class="dim-tile"><div class="code" style="color:#0ea5e9;">B</div><div class="name">收入增长</div><div class="q">相对同业是否在长</div><div class="full">10 <span>分 · 2 项</span></div></div>
+        <div class="dim-tile"><div class="code" style="color:#8b5cf6;">C</div><div class="name">盈利质量</div><div class="q">回报真不真、拨备有没有水分</div><div class="full">30 <span>分 · 5 项</span></div></div>
+        <div class="dim-tile"><div class="code" style="color:#f59e0b;">D</div><div class="name">资产质量</div><div class="q">存量干净吗、未来还会烂吗</div><div class="full">15 <span>分 · 存量 6 + 前瞻 9</span></div></div>
+        <div class="dim-tile"><div class="code" style="color:#10b981;">E</div><div class="name">成本控制</div><div class="q">运营、负债与风险定价</div><div class="full">15 <span>分 · 3 项</span></div></div>
+        <div class="dim-tile"><div class="code" style="color:#d1453b;">F</div><div class="name">资本内生</div><div class="q">增长的天花板在哪</div><div class="full">15 <span>分 · 4 项</span></div></div>
+      </div>
+
+      <div class="charts-two">
+        <div class="chart-card">
+          <h3>六维权重（六芒星）</h3>
+          <div class="caption">半径 = 维度满分。C 盈利质量 30 最重；资本内生与效率、资产、成本同为 15。</div>
+          <div class="chart-box"><canvas id="chart-weights"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <h3>相对 V1.2</h3>
+          <div class="table-scroll">
+            <table class="doc-table">
+              <thead><tr><th>项</th><th>V1.2</th><th>V2.0</th></tr></thead>
+              <tbody>
+                <tr><td>对象</td><td>公司 + 估值 + 定性</td><td>只对公司</td></tr>
+                <tr><td>六维</td><td>A盈利/B资产/C资本/D负债/E成长/F估值</td><td>A效率/B增长/C质量/D资产/E成本/F资本内生</td></tr>
+                <tr><td>估值</td><td>F 进总分，随成长打折</td><td>G 不进总分</td></tr>
+                <tr><td>定性</td><td>G 进总分</td><td>H 只观测</td></tr>
+                <tr><td>资产</td><td>存量 + 拨备为主</td><td>存量 6 + 前瞻 9</td></tr>
+                <tr><td>活期/零售/同业</td><td>D2/D3/D4 打分</td><td>退出，页面保留诊断</td></tr>
+                <tr><td>两年营收负增</td><td>E = 0</td><td>B = 0</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="group-method" class="metric-group">
+      <h2 class="group-heading">② 打分方法</h2>
+      <p class="group-desc">每个指标设满分线 x₁ 与零分线 x₀，线性插值后乘该项满分。缺项不填 50%：该项退出，所在维度按可得满分重标到维度满分。</p>
+      <div class="card">
+        <h3>线性插值</h3>
+        <pre class="formula-block">正向（越大越好）：得分 = clip((x − x₀) / (x₁ − x₀), 0, 1) × 满分
+负向（越小越好）：得分 = clip((x₀ − x) / (x₀ − x₁), 0, 1) × 满分
+
+维度分 = Σ可得项得分 / Σ可得项满分 × 维度满分
+NIM / 不良 / 存款成本：满分线、零分线按当年行业中位数相对 2025 平移
+B1 营收增速：满分 = 当年中位数 +8pct，零分 = 中位数 −8pct</pre>
+      </div>
+      <div class="callout info">关键项 A1 NIM、D1 不良、F1 CET1 任一缺失，则 <code>rankable = false</code>，不参与横向排序。引擎：<code>scripts/generate_stock_score_data.py</code>。</div>
+    </section>
+
+    <section id="group-dims" class="metric-group">
+      <h2 class="group-heading">③ 六维分项与端点</h2>
+      <p class="group-desc">端点沿用 V1.2 的 2025A 分位数校准。下表是进入公司总分的 21 项。</p>
+
+      <div class="dim-section">
+        <h3>A 收入效率（15）——定价权与收入结构</h3>
+        <p class="muted">A1 是定价权，权重最高。净利差与 NIM 重叠，不重复计分。</p>
+        <div class="table-scroll">
+          <table class="doc-table">
+            <thead><tr><th>编号</th><th>指标</th><th class="num">满分</th><th>满分线</th><th>零分线</th><th>方向</th></tr></thead>
+            <tbody>
+              <tr><td>A1</td><td>NIM 净息差</td><td class="num">10</td><td>1.90%（周期平移）</td><td>1.15%</td><td>↑</td></tr>
+              <tr><td>A2</td><td>非息收入占比</td><td class="num">5</td><td>35%</td><td>10%</td><td>↑</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="dim-section">
+        <h3>B 收入增长（10）——相对同业是否在长</h3>
+        <p class="muted">银行顺周期，绝对增速会让全行业一起满分或一起零分。B1 绕当年中位数计分：中位约一半分，领先/落后 8 个百分点走到满/零。</p>
+        <div class="table-scroll">
+          <table class="doc-table">
+            <thead><tr><th>编号</th><th>指标</th><th class="num">满分</th><th>满分线</th><th>零分线</th><th>方向</th></tr></thead>
+            <tbody>
+              <tr><td>B1</td><td>营收增速（3 年 CAGR 优先）</td><td class="num">7</td><td>当年中位数 +8pct</td><td>中位数 −8pct</td><td>↑ 相对</td></tr>
+              <tr><td>B2</td><td>归母净利润增速</td><td class="num">3</td><td>+10%</td><td>−5%</td><td>↑；净利（正）快于营收或 PPOP 超 3pct 则 ×0.8</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="dim-section">
+        <h3>C 盈利质量（30）——回报真不真、拨备有没有水分</h3>
+        <p class="muted">拨备放在盈利质量而不是资产质量：它验的是利润真伪。C 是六维里最重的一块。</p>
+        <div class="table-scroll">
+          <table class="doc-table">
+            <thead><tr><th>编号</th><th>指标</th><th class="num">满分</th><th>满分线</th><th>零分线</th><th>方向</th></tr></thead>
+            <tbody>
+              <tr><td>C1</td><td>加权 ROE</td><td class="num">7</td><td>15%</td><td>6%</td><td>↑</td></tr>
+              <tr><td>C2</td><td>ROA</td><td class="num">3</td><td>1.15%</td><td>0.40%</td><td>↑</td></tr>
+              <tr><td>C3</td><td>净利 / PPOP</td><td class="num">2</td><td>0.55x</td><td>1.05x</td><td>↓ 越高越像拨备反哺</td></tr>
+              <tr><td>C4</td><td>拨备充足</td><td class="num">10</td><td>拨贷比 3.50% 或覆盖率 400%</td><td>2.00% 或 150%</td><td>↑；见 1.67% 规则</td></tr>
+              <tr><td>C5</td><td>Δ拨贷比</td><td class="num">8</td><td>+15bp</td><td>−40bp</td><td>↑</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout info">
+          <strong>C4 唐朝 1.67% 规则：</strong>不良率 &lt;1.67% 时盯拨贷比（3.50% / 2.00%）；否则盯拨备覆盖率（400% / 150%）。低不良时覆盖率容易虚高，拨贷比更能比厚度。<br />
+          <strong>C5 保底：</strong>覆盖率 &gt;350% 且 Δ拨贷比 ≥ −20bp 时，得分保底 5/8。下降超过 −20bp 不触发保底。
+        </div>
+      </div>
+
+      <div class="dim-section">
+        <h3>D 资产质量（15）——存量干净吗、未来还会烂吗</h3>
+        <p class="muted">D 只回答贷款质量。拨备在 C，信用成本在 E。存量 6 + 前瞻 9，前瞻更重。</p>
+        <div class="split-bar"><div class="stock" style="width:40%"></div><div class="fwd" style="width:60%"></div></div>
+        <p class="muted">橙 = 存量 6（不良 4 + 关注 2）· 青 = 前瞻 9（迁徙 4 + 偏离 3 + 生成 2）</p>
+        <div class="table-scroll">
+          <table class="doc-table">
+            <thead><tr><th>编号</th><th>块</th><th>指标</th><th class="num">满分</th><th>满分线</th><th>零分线</th><th>方向</th></tr></thead>
+            <tbody>
+              <tr><td>D1</td><td>存量</td><td>不良贷款率</td><td class="num">4</td><td>0.70%（周期平移）</td><td>1.80%</td><td>↓</td></tr>
+              <tr><td>D2</td><td>存量</td><td>关注类贷款比例</td><td class="num">2</td><td>1.00%</td><td>3.50%</td><td>↓</td></tr>
+              <tr><td>D3</td><td>前瞻</td><td>关注类迁徙</td><td class="num">4</td><td>−20bp</td><td>+50bp</td><td>↓</td></tr>
+              <tr><td>D4</td><td>前瞻</td><td>不良偏离</td><td class="num">3</td><td>1.20x（真值目标 60%）</td><td>3.50x（真值 120%）</td><td>↓</td></tr>
+              <tr><td>D5</td><td>前瞻</td><td>不良生成</td><td class="num">2</td><td>−5%</td><td>+20%</td><td>↓</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout warn">D3–D5 无全市场真值时用代理并标 proxy：关注同比（bp）、关注/不良、不良余额同比。采集逾期 90+、迁徙矩阵、核销后再替换。</div>
+      </div>
+
+      <div class="dim-section">
+        <h3>E 成本控制（15）——运营、负债与风险定价</h3>
+        <p class="muted">活期占比、零售存款、同业负债不再打分（已内含于存款成本），个股页保留诊断序列。</p>
+        <div class="table-scroll">
+          <table class="doc-table">
+            <thead><tr><th>编号</th><th>指标</th><th class="num">满分</th><th>满分线</th><th>零分线</th><th>方向</th></tr></thead>
+            <tbody>
+              <tr><td>E1</td><td>成本收入比 CIR</td><td class="num">5</td><td>24%</td><td>40%</td><td>↓</td></tr>
+              <tr><td>E2</td><td>存款成本率 <button type="button" class="col-help-btn" aria-expanded="false" aria-label="存款成本率的含义" data-help-title="存款成本率" data-help-body="客户存款一年要付多少利息，不是整张负债表的计息成本。引擎用计息负债成本扣掉同业、存单、债券这些更贵的批发负债（按批发占比×0.80个百分点还原），更接近真正的存款成本。越低越好：1.20%满分，1.95%零分。阈值随当年行业中位数相对2025平移。">?</button></td><td class="num">5</td><td>1.20%（周期平移）</td><td>1.95%</td><td>↓</td></tr>
+              <tr><td>E3</td><td>信用成本率 <button type="button" class="col-help-btn" aria-expanded="false" aria-label="信用成本率的含义" data-help-title="信用成本率" data-help-body="当年为贷款计提的信用减值损失÷平均贷款。每放100元贷款，利润表里要拿出多少去覆盖可能的坏账。越低越好：0.50%满分，1.50%零分。覆盖率是已经提好的存量缓冲；信用成本是这一年新提了多少。信用成本下降但不良还在生成，可能是少提拨备在虚增利润。">?</button></td><td class="num">5</td><td>0.50%</td><td>1.50%</td><td>↓</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="dim-section">
+        <h3>F 资本内生（15）——增长的天花板</h3>
+        <p class="muted">名称沿用词典：资本内生，不是「资本充足」。判别式 <code>内生增长率 = ROE × (1 − 分红率) ≥ RWA 增速</code>。</p>
+        <div class="table-scroll">
+          <table class="doc-table">
+            <thead><tr><th>编号</th><th>指标</th><th class="num">满分</th><th>满分线</th><th>零分线</th><th>方向</th></tr></thead>
+            <tbody>
+              <tr><td>F1</td><td>CET1</td><td class="num">6</td><td>12%</td><td>7.5% + G-SIB/D-SIB 附加</td><td>↑</td></tr>
+              <tr><td>F2</td><td>RWA / 总资产（风险密度）</td><td class="num">4</td><td>55%</td><td>75%</td><td>↓</td></tr>
+              <tr><td>F3</td><td>现金分红率</td><td class="num">3</td><td>33%</td><td>20%</td><td>↑</td></tr>
+              <tr><td>F4</td><td>近 5 年摊薄性再融资</td><td class="num">2</td><td>无</td><td>有</td><td>↓；CET1 &lt;10.5% 时 F1 已扣、F4 不二次扣</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="group-fg" class="metric-group">
+      <h2 class="group-heading">④ 估值评价与定性观测（不进总分）</h2>
+
+      <div class="card">
+        <h3>G 估值评价（满分 10）——好银行 ≠ 好股票</h3>
+        <p>增长已在 B 维计分，G 不再进总分、不再打折。对比表用公司等级 × G1/G2 贵贱做风格标签，不改分数。</p>
+        <div class="table-scroll">
+          <table class="doc-table">
+            <thead><tr><th>编号</th><th>指标</th><th class="num">满分</th><th>满分线</th><th>零分线</th><th>方向</th></tr></thead>
+            <tbody>
+              <tr><td>G1</td><td>隐含回报 ROE/PB</td><td class="num">5</td><td>20%</td><td>10%</td><td>↑</td></tr>
+              <tr><td>G2</td><td>股息率</td><td class="num">5</td><td>5.5%</td><td>2.8%</td><td>↑</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>H 定性观测（−5 ~ +5）</h3>
+        <p>对标监管评级中权重最高的公司治理。外部投资者只有公开信息，所以只观测、不进总分。每 ±1 分须挂书面证据；子项加总后截断到 [−5, +5]。</p>
+        <div class="table-scroll">
+          <table class="doc-table">
+            <thead><tr><th>子项</th><th>区间</th><th>观察点</th></tr></thead>
+            <tbody>
+              <tr><td>H1 战略定力</td><td>0 ~ +3</td><td>主线年限、资源是否跟随、模式可复制</td></tr>
+              <tr><td>H2 管理层</td><td>−3 ~ +2</td><td>落马、换帅、董事会动荡 / 平稳交接、增持</td></tr>
+              <tr><td>H3 信息披露</td><td>0 ~ +2</td><td>超监管披露、业绩指引兑现</td></tr>
+              <tr><td>H4 股东与关联</td><td>−3 ~ 0</td><td>质押、占款、异常关联交易</td></tr>
+              <tr><td>H5 合规事件</td><td>−3 ~ 0</td><td>千万级罚单、重大案件、接管重组</td></tr>
+              <tr><td>H6 区域与支持</td><td>−1 ~ +3</td><td>主战场动能、汇金/财政部控股（仅风险折价）</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="muted" style="margin-top:8px;">锚：招行 +3；杭州/宁波 +2；中游默认 0；民生治理示例 −2~−3；包商/锦州类 ≤−5。</p>
+      </div>
+    </section>
+
+    <section id="group-veto" class="metric-group">
+      <h2 class="group-heading">⑤ 否决与等级</h2>
+      <div class="charts-two">
+        <div class="card" style="margin:0;">
+          <h3>否决 / 降档</h3>
+          <div class="table-scroll">
+            <table class="doc-table">
+              <thead><tr><th>触发</th><th>处理</th></tr></thead>
+              <tbody>
+                <tr><td>拨备覆盖率 &lt;150%，或 CET1 贴红线（零分线 +0.5pct 以内）</td><td>总分封顶 60</td></tr>
+                <tr><td>连续两年营收负增长</td><td>B 维记 0</td></tr>
+                <tr><td>净利（正）增速快于营收或 PPOP 超 3pct</td><td>B2 ×0.8</td></tr>
+                <tr><td>NIM / 不良 / CET1 缺失</td><td>不参与排序</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card" style="margin:0;">
+          <h3>等级（只看公司总分）</h3>
+          <div class="table-scroll">
+            <table class="doc-table">
+              <thead><tr><th class="num">总分</th><th>等级</th><th>含义</th></tr></thead>
+              <tbody>
+                <tr><td class="num">≥85</td><td>A+</td><td>优秀，核心持仓候选</td></tr>
+                <tr><td class="num">75–85</td><td>A</td><td>良好，重点研究</td></tr>
+                <tr><td class="num">60–75</td><td>B</td><td>中等，观察</td></tr>
+                <tr><td class="num">45–60</td><td>C</td><td>较弱，回避</td></tr>
+                <tr><td class="num">&lt;45</td><td>D</td><td>高风险</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="group-example" class="metric-group">
+      <h2 class="group-heading">⑥ 演算：招商银行 2025A</h2>
+      <p class="group-desc">全样本下 B1 满分线 = 1.0%+8pct。H=+3、G=5.61 均不进总分。对照成都：高 ROE、便宜估值，短板在资本内生 6.75。</p>
+      <div class="charts-two">
+        <div class="chart-card">
+          <h3>得分率六芒星</h3>
+          <div class="caption">半径 = 该维得分 / 满分。招行增长最弱；成都资本内生最弱。</div>
+          <div class="chart-box"><canvas id="chart-example"></canvas></div>
+        </div>
+        <div class="card" style="margin:0;">
+          <h3>2025A 公司分 Top5</h3>
+          <div class="table-scroll">
+            <table class="doc-table">
+              <thead><tr><th>银行</th><th class="num">总分</th><th>等级</th></tr></thead>
+              <tbody>
+                <tr><td>招商银行</td><td class="num">78.64</td><td>A</td></tr>
+                <tr><td>齐鲁银行</td><td class="num">71.83</td><td>B</td></tr>
+                <tr><td>杭州银行</td><td class="num">67.89</td><td>B</td></tr>
+                <tr><td>南京银行</td><td class="num">67.08</td><td>B</td></tr>
+                <tr><td>宁波银行</td><td class="num">67.06</td><td>B</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="muted" style="margin-top:10px;">42 家仅招行进入 A，无 A+。成都 63.00 B。</p>
+        </div>
+      </div>
+
+      <div class="table-scroll">
+        <table class="doc-table">
+          <thead><tr><th>项</th><th>计算</th><th class="num">得分</th></tr></thead>
+          <tbody>
+            <tr><td>A1 NIM 1.87%</td><td>(1.87−1.15)/0.75×10</td><td class="num">9.60</td></tr>
+            <tr><td>A2 非息 36.13%</td><td>≥35%，满分</td><td class="num">5.00</td></tr>
+            <tr class="subtotal"><td>A 收入效率</td><td></td><td class="num">14.60</td></tr>
+            <tr><td>B1 CAGR −0.71%</td><td>相对中位 +1.0%</td><td class="num">2.73</td></tr>
+            <tr><td>B2 净利 +1.21%</td><td>(1.21+5)/15×3</td><td class="num">1.24</td></tr>
+            <tr class="subtotal"><td>B 收入增长</td><td></td><td class="num">3.97</td></tr>
+            <tr><td>C1 ROE 13.44%</td><td>(13.44−6)/9×7</td><td class="num">5.79</td></tr>
+            <tr><td>C2 ROA 1.19%</td><td>满分</td><td class="num">3.00</td></tr>
+            <tr><td>C3 净利/PPOP 0.65x</td><td>(1.05−0.65)/0.50×2</td><td class="num">1.58</td></tr>
+            <tr><td>C4 拨贷比 3.68%</td><td>不良 0.94%&lt;1.67%，满分</td><td class="num">10.00</td></tr>
+            <tr><td>C5 Δ拨贷比 −23.1bp</td><td>未触发保底</td><td class="num">2.46</td></tr>
+            <tr class="subtotal"><td>C 盈利质量</td><td></td><td class="num">22.83</td></tr>
+            <tr><td>D1 不良 0.94%</td><td>(1.80−0.94)/1.10×4</td><td class="num">3.13</td></tr>
+            <tr><td>D2 关注 1.43%</td><td>(3.50−1.43)/2.50×2</td><td class="num">1.66</td></tr>
+            <tr><td>D3 关注同比 +14bp</td><td>代理</td><td class="num">2.06</td></tr>
+            <tr><td>D4 关注/不良 1.52x</td><td>代理</td><td class="num">2.58</td></tr>
+            <tr><td>D5 不良余额同比 +4.49%</td><td>代理</td><td class="num">1.24</td></tr>
+            <tr class="subtotal"><td>D 资产质量</td><td></td><td class="num">10.67</td></tr>
+            <tr><td>E1 CIR 31.98%</td><td>(40−31.98)/16×5</td><td class="num">2.51</td></tr>
+            <tr><td>E2 存款成本 1.16%</td><td>满分</td><td class="num">5.00</td></tr>
+            <tr><td>E3 信用成本 0.58%</td><td>(1.50−0.58)×5</td><td class="num">4.60</td></tr>
+            <tr class="subtotal"><td>E 成本控制</td><td></td><td class="num">12.11</td></tr>
+            <tr><td>F1 CET1 14.16%</td><td>满分（零分线 8.25%）</td><td class="num">6.00</td></tr>
+            <tr><td>F2 风险密度 57.7%</td><td>(75−57.7)/20×4</td><td class="num">3.46</td></tr>
+            <tr><td>F3 分红 33.85%</td><td>满分</td><td class="num">3.00</td></tr>
+            <tr><td>F4 无普通股摊薄</td><td>满分</td><td class="num">2.00</td></tr>
+            <tr class="subtotal"><td>F 资本内生</td><td></td><td class="num">14.46</td></tr>
+            <tr class="out"><td>G 估值评价</td><td>不进总分</td><td class="num">5.61</td></tr>
+            <tr class="out"><td>H 定性观测</td><td>不进总分</td><td class="num">+3.0</td></tr>
+            <tr class="subtotal"><td>公司总分</td><td>14.60+3.97+22.83+10.67+12.11+14.46</td><td class="num">78.64 A</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="muted">招行定价权、拨备厚度、负债成本和资本内生领先；失分主因是收入增长和拨备回吐。估值中等偏贵，作为独立评价指标，不拉低公司分。</p>
+    </section>
+
+    <p class="footer-note">口径对应《银行核心指标词典》。已知缺口：D3–D5 仍是代理；未含区域集中度、房地产/城投敞口。完整条文见知识库「银行综合价值打分公式」。</p>
+  </main>
+</div>
+
+<div id="col-help-pop" class="col-help-pop hidden" role="tooltip">
+  <div class="col-help-title"></div>
+  <div class="col-help-body"></div>
+</div>
+<script src="nav-update.js?v=5"></script>
+<script src="score-formula.js?v=3"></script>
+</body>
+</html>

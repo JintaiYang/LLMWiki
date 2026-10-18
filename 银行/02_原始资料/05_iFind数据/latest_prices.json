@@ -1,0 +1,305 @@
+{
+  "generated_at": "2026-09-28T14:20:35",
+  "price_date": "2026-09-24",
+  "latest_price_date": "2026-09-24",
+  "source": "AkShare stock_zh_a_hist_tx 未复权日线",
+  "banks": [
+    {
+      "code": "000001",
+      "name": "平安银行",
+      "close": 11.3,
+      "price_date": "2026-09-24",
+      "source": "AkShare stock_zh_a_hist_tx 未复权日线"
+    },
+    {
+      "code": "001227",
+      "name": "兰州银行",
+      "close": 2.07,
+      "price_date": "2026-09-24",
+      "source": "AkShare stock_zh_a_hist_tx 未复权日线"
+    },
+    {
+      "code": "002142",
+      "name": "宁波银行",
+      "close": 34.91,
+      "price_date": "2026-09-24",
+      "source": "AkShare stock_zh_a_hist_tx 未复权日线"
+    },
+    {
+      "code": "002807",
+      "name": "江阴银行",
+      "close": 4.16,
+      "price_date": "2026-09-24",
+      "source": "AkShare stock_zh_a_hist_tx 未复权日线"
+    },
+    {
+      "code": "002839",
+      "name": "张家港行",
+      "close": 4.25,
+      "price_date": "2026-09-24",
+      "source": "AkShare stock_zh_a_hist_tx 未复权日线"
+    },
+    {
+      "code": "002936",
+      "name": "郑州银行",
+      "close": 1.71,
+      "price_date": "2026-09-24",
+      "source": "AkShare stock_zh_a_hist_tx 未复权日线"
+    },
+    {
+      "code": "002948",
+      "name": "青岛银行",
+      "close": 6.04,
+      "price_date": "2026-09-24",
+      "source": "AkShare stock_zh_a_hist_tx 未复权日线"
+    },
+    {
+      "code": "002958",
+      "name": "青农商行",
+      "close": 2.89,
+      "price_date": "2026-09-24",
+      "source": "AkShare stock_zh_a_hist_tx 未复权日线"
+    },
+    {
+      "code": "002966",
+      "name": "苏州银行",
+      "close": 9.2,
+      "price_date": "2026-09-24",
+      "source": "AkShare stock_zh_a_hist_tx 未复权日线"
+    },
+    {
+      "code": "600000",
+      "name": "浦发银行",
+      "close": 9.0,
+      "price_date": "2026-09-24",
+      "source": "AkShare stock_zh_a_hist_tx 未复权日线"
+    },
+    {
+      "code": "600015",
+      "name": "华夏银行",
+      "close": 6.23,
+      "price_date": "2026-09-24",
+      "source": "AkShare stock_zh_a_hist_tx 未复权日线"
+    },
+    {
+      "code": "600016",
+      "name": "民生银行",
+      "close": 3.46,
+      "price_date": "2026-09-24",
+      "source": "AkShare stock_zh_a_hist_tx 未复权日线"
+    },
+    {
+      "code": "600036",
+      "name": "招商银行",
+      "close": 40.69,
+      "price_date": "2026-09-24",
+      "source": "AkShare stock_zh_a_hist_tx 未复权日线"
+    },
+    {
+      "code": "600908",
+      "name": "无锡银行",
+      "close": 5.83,
+      "price_date": "2026-09-24",
+      "source": "AkShare stock_zh_a_hist_tx 未复权日线"
+    },
+    {
+      "code": "600919",
+      "name": "江苏银行",
+      "close": 12.26,
+      "price_date": "2026-09-24",
+      "source": "AkShare stock_zh_a_hist_tx 未复权日线"
+    },
+    {
+      "code": "600926",
+      "name": "杭州银行",
+      "close": 17.23,
+      "price_date": "2026-09-24",
+      "source": "AkShare stock_zh_a_hist_tx 未复权日线"
+    },
+    {
+      "code": "600928",
+      "name": "西安银行",
+      "close": 3.48,
+      "price_date": "2026-09-24",
+      "source": "AkShare stock_zh_a_hist_tx 未复权日线"
+    },
+    {
+      "code": "601009",
+      "name": "南京银行",
+      "close": 11.95,
+      "price_date": "2026-09-24",
+      "source": "AkShare stock_zh_a_hist_tx 未复权日线"
+    },
+    {
+      "code": "601077",
+      "name": "渝农商行",
+      "close": 6.64,
+      "price_date": "2026-09-24",
+      "source": "AkShare stock_zh_a_hist_tx 未复权日线"
+    },
+    {
+      "code": "601128",
+      "name": "常熟银行",
+      "close": 6.17,
+      "price_date": "2026-09-24",
+      "source": "AkShare stock_zh_a_hist_tx 未复权日线"
+    },
+    {
+      "code": "601166",
+      "name": "兴业银行",
+      "close": 17.88,
+      "price_date": "2026-09-24",
+      "source": "AkShare stock_zh_a_hist_tx 未复权日线"
+    },
+    {
+      "code": "601169",
+      "name": "北京银行",
+      "close": 5.49,
+      "price_date": "2026-09-24",
+      "source": "AkShare stock_zh_a_hist_tx 未复权日线"
+    },
+    {
+      "code": "601187",
+      "name": "厦门银行",
+      "close": 6.92,
+      "price_date": "2026-09-24",
+      "source": "AkShare stock_zh_a_hist_tx 未复权日线"
+    },
+    {
+      "code": "601229",
+      "name": "上海银行",
+      "close": 9.51,
+      "price_date": "2026-09-24",
+      "source": "AkShare stock_zh_a_hist_tx 未复权日线"
+    },
+    {
+      "code": "601288",
+      "name": "农业银行",
+      "close": 6.87,
+      "price_date": "2026-09-24",
+      "source": "AkShare stock_zh_a_hist_tx 未复权日线"
+    },
+    {
+      "code": "601328",
+      "name": "交通银行",
+      "close": 7.56,
+      "price_date": "2026-09-24",
+      "source": "AkShare stock_zh_a_hist_tx 未复权日线"
+    },
+    {
+      "code": "601398",
+      "name": "工商银行",
+      "close": 8.13,
+      "price_date": "2026-09-24",
+      "source": "AkShare stock_zh_a_hist_tx 未复权日线"
+    },
+    {
+      "code": "601528",
+      "name": "瑞丰银行",
+      "close": 4.97,
+      "price_date": "2026-09-24",
+      "source": "AkShare stock_zh_a_hist_tx 未复权日线"
+    },
+    {
+      "code": "601577",
+      "name": "长沙银行",
+      "close": 9.67,
+      "price_date": "2026-09-24",
+      "source": "AkShare stock_zh_a_hist_tx 未复权日线"
+    },
+    {
+      "code": "601658",
+      "name": "邮储银行",
+      "close": 5.33,
+      "price_date": "2026-09-24",
+      "source": "AkShare stock_zh_a_hist_tx 未复权日线"
+    },
+    {
+      "code": "601665",
+      "name": "齐鲁银行",
+      "close": 6.97,
+      "price_date": "2026-09-24",
+      "source": "AkShare stock_zh_a_hist_tx 未复权日线"
+    },
+    {
+      "code": "601818",
+      "name": "光大银行",
+      "close": 3.0,
+      "price_date": "2026-09-24",
+      "source": "AkShare stock_zh_a_hist_tx 未复权日线"
+    },
+    {
+      "code": "601825",
+      "name": "沪农商行",
+      "close": 8.7,
+      "price_date": "2026-09-24",
+      "source": "AkShare stock_zh_a_hist_tx 未复权日线"
+    },
+    {
+      "code": "601838",
+      "name": "成都银行",
+      "close": 19.04,
+      "price_date": "2026-09-24",
+      "source": "AkShare stock_zh_a_hist_tx 未复权日线"
+    },
+    {
+      "code": "601860",
+      "name": "紫金银行",
+      "close": 2.53,
+      "price_date": "2026-09-24",
+      "source": "AkShare stock_zh_a_hist_tx 未复权日线"
+    },
+    {
+      "code": "601916",
+      "name": "浙商银行",
+      "close": 2.84,
+      "price_date": "2026-09-24",
+      "source": "AkShare stock_zh_a_hist_tx 未复权日线"
+    },
+    {
+      "code": "601939",
+      "name": "建设银行",
+      "close": 10.98,
+      "price_date": "2026-09-24",
+      "source": "AkShare stock_zh_a_hist_tx 未复权日线"
+    },
+    {
+      "code": "601963",
+      "name": "重庆银行",
+      "close": 11.03,
+      "price_date": "2026-09-24",
+      "source": "AkShare stock_zh_a_hist_tx 未复权日线"
+    },
+    {
+      "code": "601988",
+      "name": "中国银行",
+      "close": 6.62,
+      "price_date": "2026-09-24",
+      "source": "AkShare stock_zh_a_hist_tx 未复权日线"
+    },
+    {
+      "code": "601997",
+      "name": "贵阳银行",
+      "close": 5.5,
+      "price_date": "2026-09-24",
+      "source": "AkShare stock_zh_a_hist_tx 未复权日线"
+    },
+    {
+      "code": "601998",
+      "name": "中信银行",
+      "close": 9.01,
+      "price_date": "2026-09-24",
+      "source": "AkShare stock_zh_a_hist_tx 未复权日线"
+    },
+    {
+      "code": "603323",
+      "name": "苏农银行",
+      "close": 4.41,
+      "price_date": "2026-09-24",
+      "source": "AkShare stock_zh_a_hist_tx 未复权日线"
+    }
+  ],
+  "missing": [],
+  "fallback_reasons": {},
+  "price_date_note": ""
+}

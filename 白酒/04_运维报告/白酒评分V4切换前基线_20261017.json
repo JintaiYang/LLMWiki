@@ -1,0 +1,160 @@
+{
+  "captured_at": "2026-10-17",
+  "as_of": "2026-10-10",
+  "model": "V4.0-mature-financial-quality",
+  "source_sha256": "0cc8f98bede0bfce7d8617578abf97f5c8bface7c0a5b17e92bde31d44ea4f87",
+  "companies": [
+    {
+      "code": "600519",
+      "name": "贵州茅台",
+      "v4_total": 93.16,
+      "approved_v5_total": 95.45,
+      "approved_v5_coverage": 1.0,
+      "approved_v5_risk_cap": 100
+    },
+    {
+      "code": "000858",
+      "name": "五粮液",
+      "v4_total": 91.59,
+      "approved_v5_total": 89.64,
+      "approved_v5_coverage": 1.0,
+      "approved_v5_risk_cap": 100
+    },
+    {
+      "code": "000568",
+      "name": "泸州老窖",
+      "v4_total": 93.8,
+      "approved_v5_total": 94.14,
+      "approved_v5_coverage": 1.0,
+      "approved_v5_risk_cap": 100
+    },
+    {
+      "code": "600809",
+      "name": "山西汾酒",
+      "v4_total": 91.63,
+      "approved_v5_total": 91.24,
+      "approved_v5_coverage": 1.0,
+      "approved_v5_risk_cap": 100
+    },
+    {
+      "code": "002304",
+      "name": "洋河股份",
+      "v4_total": 77.91,
+      "approved_v5_total": 76.95,
+      "approved_v5_coverage": 1.0,
+      "approved_v5_risk_cap": 100
+    },
+    {
+      "code": "000596",
+      "name": "古井贡酒",
+      "v4_total": 83.88,
+      "approved_v5_total": 86.51,
+      "approved_v5_coverage": 1.0,
+      "approved_v5_risk_cap": 100
+    },
+    {
+      "code": "000799",
+      "name": "酒鬼酒",
+      "v4_total": 48.66,
+      "approved_v5_total": 41.92,
+      "approved_v5_coverage": 1.0,
+      "approved_v5_risk_cap": 49
+    },
+    {
+      "code": "000860",
+      "name": "顺鑫农业",
+      "v4_total": null,
+      "approved_v5_total": null,
+      "approved_v5_coverage": 0.9,
+      "approved_v5_risk_cap": 49
+    },
+    {
+      "code": "000995",
+      "name": "皇台酒业",
+      "v4_total": null,
+      "approved_v5_total": null,
+      "approved_v5_coverage": 0.9,
+      "approved_v5_risk_cap": 100
+    },
+    {
+      "code": "002646",
+      "name": "天佑德酒",
+      "v4_total": 47.35,
+      "approved_v5_total": 46.51,
+      "approved_v5_coverage": 1.0,
+      "approved_v5_risk_cap": 100
+    },
+    {
+      "code": "600197",
+      "name": "伊力特",
+      "v4_total": 46.9,
+      "approved_v5_total": 40.69,
+      "approved_v5_coverage": 1.0,
+      "approved_v5_risk_cap": 100
+    },
+    {
+      "code": "600199",
+      "name": "金种子酒",
+      "v4_total": null,
+      "approved_v5_total": null,
+      "approved_v5_coverage": 0.9,
+      "approved_v5_risk_cap": 49
+    },
+    {
+      "code": "600559",
+      "name": "老白干酒",
+      "v4_total": 66.84,
+      "approved_v5_total": 59.82,
+      "approved_v5_coverage": 1.0,
+      "approved_v5_risk_cap": 100
+    },
+    {
+      "code": "600702",
+      "name": "舍得酒业",
+      "v4_total": 49,
+      "approved_v5_total": 47.73,
+      "approved_v5_coverage": 1.0,
+      "approved_v5_risk_cap": 49
+    },
+    {
+      "code": "600779",
+      "name": "水井坊",
+      "v4_total": 68.93,
+      "approved_v5_total": 63.05,
+      "approved_v5_coverage": 1.0,
+      "approved_v5_risk_cap": 100
+    },
+    {
+      "code": "603198",
+      "name": "迎驾贡酒",
+      "v4_total": 81.24,
+      "approved_v5_total": 77.81,
+      "approved_v5_coverage": 1.0,
+      "approved_v5_risk_cap": 100
+    },
+    {
+      "code": "603369",
+      "name": "今世缘",
+      "v4_total": 80.42,
+      "approved_v5_total": 82.5,
+      "approved_v5_coverage": 1.0,
+      "approved_v5_risk_cap": 100
+    },
+    {
+      "code": "603589",
+      "name": "口子窖",
+      "v4_total": 61.59,
+      "approved_v5_total": 55.15,
+      "approved_v5_coverage": 1.0,
+      "approved_v5_risk_cap": 100
+    },
+    {
+      "code": "603919",
+      "name": "金徽酒",
+      "v4_total": 82.26,
+      "approved_v5_total": 78.05,
+      "approved_v5_coverage": 1.0,
+      "approved_v5_risk_cap": 100
+    }
+  ]
+}

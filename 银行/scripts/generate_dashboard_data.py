@@ -382,22 +382,44 @@ def main() -> int:
         print(f"错误：找不到银行库目录 {BANK_LIB}", file=sys.stderr)
         return 1
 
-    deep_research_files = sorted(BANK_LIB.glob("* 深度研究.md"))
-    if not deep_research_files:
-        print("错误：未找到任何 '* 深度研究.md' 文件，仪表盘数据为空", file=sys.stderr)
-        return 1
+    # 银行全集 = 42家A股上市银行（AkShare universe），深度研究页优先、无则用基础档案页
+    universe_csv = (
+        VAULT_ROOT / "02_原始资料" / "04_AkShare数据" / "数据字典与运行记录" / "a_share_banks_universe.csv"
+    )
+    import csv as _csv
+
+    universe_names: List[str] = []
+    with universe_csv.open(encoding="utf-8-sig") as fh:
+        for row in _csv.DictReader(fh):
+            name = (row.get("name") or "").strip()
+            if name:
+                universe_names.append(name)
 
     banks: List[Dict[str, object]] = []
-    for path in deep_research_files:
-        try:
-            record = build_bank_record(path)
-        except Exception as exc:  # noqa: BLE001
-            warnings.warn(f"解析 {path.name} 时出错：{exc}")
+    skipped: List[str] = []
+    for bank_name in universe_names:
+        deep_path = BANK_LIB / f"{bank_name} 深度研究.md"
+        profile_path = BANK_LIB / f"{bank_name}.md"
+        # 优先用深度研究页；没有深度研究的银行用基础档案页
+        source_path = deep_path if deep_path.exists() else profile_path
+        if not source_path.exists():
+            skipped.append(bank_name)
             continue
-        if record is not None:
-            banks.append(record)
+        try:
+            record = build_bank_record(source_path)
+        except Exception as exc:  # noqa: BLE001
+            warnings.warn(f"解析 {source_path.name} 时出错：{exc}")
+            continue
+        if record is None:
+            skipped.append(bank_name)
+            continue
+        if not deep_path.exists():
+            record["focus"] = False  # 非重点覆盖银行标记
+        banks.append(record)
 
     banks.sort(key=lambda item: item["name"])
+    if skipped:
+        print(f"[warn] {len(skipped)} 家银行无档案页，跳过: {', '.join(skipped)}")
 
     output = {
         "generated_at": datetime.now().isoformat(timespec="seconds"),

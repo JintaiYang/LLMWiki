@@ -17,9 +17,7 @@
     return Number.isFinite(n) ? n : 0;
   }
   function fmtYi(n) {
-    const abs = Math.abs(n);
-    const digits = abs >= 100 ? 0 : abs >= 1 ? 1 : 2;
-    return Number(n).toLocaleString("zh-CN", { minimumFractionDigits: digits, maximumFractionDigits: digits }) + "亿";
+    return Number(n).toLocaleString("zh-CN", { maximumFractionDigits: 2 }) + "亿";
   }
   function pct(n, d) {
     if (!d) return "—";
@@ -218,24 +216,24 @@
     const curMaps = mapsOf(flow);
     const prevMaps = prev ? mapsOf(prev) : { nodeValue: {}, linkValue: {} };
     const laid = layout(flow.nodes, flow.links);
-    const pills = (opts.yearList || [opts.year]).map((y) =>
-      '<button type="button" class="pnl-year-btn' + (y === opts.year ? " active" : "") + '" data-year="' + y + '">' + y + "年报</button>"
-    ).join("");
-    const per100 = flow.gross ? Math.round((flow.parent / flow.gross) * 100) : 0;
-    const reported = (value) => value == null ? "未披露" : fmtYi(value);
+    const years = [...new Set([...(opts.yearList || []), opts.year])].map(String).sort();
+    const currentIndex = years.indexOf(String(opts.year));
+    const yearOptions = years.slice().reverse().map((y) => '<option value="' + y + '"' + (y === String(opts.year) ? ' selected' : '') + '>' + y + '年报</option>').join('');
+    const revenueParts = ['<span>营业收入 <b>' + fmtYi(d.revenue) + '</b></span>'];
+    const interest = d.interest == null ? 0 : Number(d.interest);
+    const otherIncome = Math.round((d.total - d.revenue - interest) * 100) / 100;
+    for (const [label, value] of [["利息收入", interest], ["其他经营收入", otherIncome]]) {
+      if (Math.abs(value) >= 0.01) revenueParts.push('<span>' + (value < 0 ? ' − ' : ' + ') + label + ' <b>' + fmtYi(Math.abs(value)) + '</b></span>');
+    }
+    const reconciliation = revenueParts.length === 1
+      ? '<span>营业收入与营业总收入均为 <b>' + fmtYi(d.revenue) + '</b></span>'
+      : revenueParts.join('') + '<span> = 营业总收入 <b>' + fmtYi(d.total) + '</b></span>';
     container.innerHTML = ''
-      + '<div class="pnl-toolbar"><div class="pnl-year-pills">' + pills + "</div></div>"
-      + '<div class="pnl-hero">'
-      + '<div class="pnl-stat"><div class="pnl-stat-value">' + fmtYi(flow.gross) + '</div><div class="pnl-stat-label">' + opts.year + "营业总收入</div></div>"
-      + '<div class="pnl-stat"><div class="pnl-stat-value">' + fmtYi(flow.op) + '</div><div class="pnl-stat-label">营业利润</div></div>'
-      + '<div class="pnl-stat pnl-stat-parent' + (flow.parent < 0 ? ' pnl-stat-loss' : '') + '"><div class="pnl-stat-value">' + fmtYi(flow.parent) + '</div><div class="pnl-stat-label">归母净利润</div></div>'
-      + '<div class="pnl-stat pnl-stat-share"><div class="pnl-stat-value">' + pct(flow.parent, flow.gross) + '</div><div class="pnl-stat-label">营业总收入→归母</div></div>'
-      + "</div>"
-      + '<div class="pnl-callout"><div class="pnl-callout-title">' + opts.year + "年每100元营业总收入，对应约" + Math.abs(per100) + (per100 < 0 ? "元归母亏损" : "元归母净利润") + "</div>"
-      + '<div class="pnl-callout-body">营业成本 ' + reported(d.cogs) + "，税金及附加 " + reported(d.tax_add) + "，销售费用 " + reported(d.sale) + "，管理费用 " + reported(d.manage) + "，所得税 " + reported(d.tax) + "。小额及未单列项目归入其他净额。</div></div>"
+      + '<div class="pnl-toolbar"><label class="pnl-year-control">财报年度<select class="pnl-year-select" aria-label="桑基图财报年度">' + yearOptions + '</select></label><div class="pnl-year-navigation"><button type="button" class="icon-button" data-year-step="-1" title="上一年" aria-label="上一年"' + (currentIndex <= 0 ? ' disabled' : '') + '><i data-lucide="chevron-left"></i></button><button type="button" class="icon-button" data-year-step="1" title="下一年" aria-label="下一年"' + (currentIndex >= years.length - 1 ? ' disabled' : '') + '><i data-lucide="chevron-right"></i></button></div></div>'
+      + '<div class="pnl-reconciliation"><span class="pnl-reconciliation-year">' + opts.year + '年报口径</span>' + reconciliation + '</div>'
       + '<div class="pnl-chart-head"><span>' + opts.year + '年报利润流向</span><span class="pnl-chart-head-note">悬停色带：金额、占上一节点、同比</span></div>'
       + '<div class="pnl-chart-wrap"><svg viewBox="0 0 ' + laid.W + " " + laid.H + '" width="100%" role="img" aria-label="' + (opts.name || "") + '利润流向桑基图" class="pnl-svg"></svg><div class="pnl-tip hidden"></div></div>'
-      + '<p class="pnl-caption">来自利润表年报，单位亿元。负的财务费用列为财务收益。</p>'
+      + '<p class="pnl-caption">来自利润表年报，单位亿元。负的财务费用列为财务收益；小额及未单列项目归入其他净额。</p>'
       + (flow.parent < 0 || flow.op < 0 ? '<p class="pnl-loss-note">亏损节点以红色及报表负值标注；色带仅展示正向收入和支出，不将亏损绘制为正向利润流入。</p>' : "");
 
     const svg = container.querySelector(".pnl-svg");
@@ -325,9 +323,18 @@
       g.appendChild(text);
       svg.appendChild(g);
     });
-    container.querySelectorAll(".pnl-year-btn").forEach((btn) => {
-      btn.addEventListener("click", () => { if (opts.onYearChange) opts.onYearChange(btn.dataset.year); });
+    const chooseYear = (year, selector) => {
+      if (!year || !opts.onYearChange) return;
+      opts.onYearChange(year);
+      const updated = container.id ? document.getElementById(container.id) : container;
+      const control = updated?.querySelector(selector);
+      (control && !control.disabled ? control : updated?.querySelector(".pnl-year-select"))?.focus({ preventScroll: true });
+    };
+    container.querySelector(".pnl-year-select").onchange = (event) => chooseYear(event.target.value, ".pnl-year-select");
+    container.querySelectorAll("[data-year-step]").forEach((button) => {
+      button.onclick = () => chooseYear(years[currentIndex + Number(button.dataset.yearStep)], '[data-year-step="' + button.dataset.yearStep + '"]');
     });
+    global.lucide?.createIcons();
   }
 
   global.LiquorSankey = { render };

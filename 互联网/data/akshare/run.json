@@ -1,0 +1,270 @@
+{
+  "as_of": "2026-10-18",
+  "priority": [
+    "AKShare",
+    "official PDF",
+    "iFinD"
+  ],
+  "attempts": [
+    {
+      "code": "09999",
+      "kind": "indicators",
+      "status": "ok",
+      "rows": 9,
+      "file": "data/akshare/09999-indicators.json"
+    },
+    {
+      "code": "09999",
+      "kind": "balance",
+      "status": "ok",
+      "rows": 1055,
+      "file": "data/akshare/09999-balance.json"
+    },
+    {
+      "code": "09999",
+      "kind": "income",
+      "status": "ok",
+      "rows": 539,
+      "file": "data/akshare/09999-income.json"
+    },
+    {
+      "code": "09999",
+      "kind": "cashflow",
+      "status": "ok",
+      "rows": 981,
+      "file": "data/akshare/09999-cashflow.json"
+    },
+    {
+      "code": "01024",
+      "kind": "income",
+      "status": "ok",
+      "rows": 657,
+      "file": "data/akshare/01024-income.json"
+    },
+    {
+      "code": "01024",
+      "kind": "indicators",
+      "status": "ok",
+      "rows": 9,
+      "file": "data/akshare/01024-indicators.json"
+    },
+    {
+      "code": "01024",
+      "kind": "balance",
+      "status": "ok",
+      "rows": 1074,
+      "file": "data/akshare/01024-balance.json"
+    },
+    {
+      "code": "09626",
+      "kind": "indicators",
+      "status": "ok",
+      "rows": 9,
+      "file": "data/akshare/09626-indicators.json"
+    },
+    {
+      "code": "01024",
+      "kind": "cashflow",
+      "status": "ok",
+      "rows": 469,
+      "file": "data/akshare/01024-cashflow.json"
+    },
+    {
+      "code": "09626",
+      "kind": "balance",
+      "status": "ok",
+      "rows": 431,
+      "file": "data/akshare/09626-balance.json"
+    },
+    {
+      "code": "09626",
+      "kind": "income",
+      "status": "ok",
+      "rows": 275,
+      "file": "data/akshare/09626-income.json"
+    },
+    {
+      "code": "01698",
+      "kind": "indicators",
+      "status": "ok",
+      "rows": 9,
+      "file": "data/akshare/01698-indicators.json"
+    },
+    {
+      "code": "09626",
+      "kind": "cashflow",
+      "status": "ok",
+      "rows": 436,
+      "file": "data/akshare/09626-cashflow.json"
+    },
+    {
+      "code": "01698",
+      "kind": "income",
+      "status": "ok",
+      "rows": 500,
+      "file": "data/akshare/01698-income.json"
+    },
+    {
+      "code": "01698",
+      "kind": "balance",
+      "status": "ok",
+      "rows": 921,
+      "file": "data/akshare/01698-balance.json"
+    },
+    {
+      "code": "01698",
+      "kind": "cashflow",
+      "status": "ok",
+      "rows": 398,
+      "file": "data/akshare/01698-cashflow.json"
+    },
+    {
+      "code": "PDD",
+      "kind": "indicators",
+      "status": "ok",
+      "rows": 6,
+      "file": "data/akshare/PDD-indicators.json"
+    },
+    {
+      "code": "PDD",
+      "kind": "balance",
+      "status": "ok",
+      "rows": 201,
+      "file": "data/akshare/PDD-balance.json"
+    },
+    {
+      "code": "PDD",
+      "kind": "income",
+      "status": "ok",
+      "rows": 175,
+      "file": "data/akshare/PDD-income.json"
+    },
+    {
+      "code": "PDD",
+      "kind": "cashflow",
+      "status": "ok",
+      "rows": 196,
+      "file": "data/akshare/PDD-cashflow.json"
+    },
+    {
+      "code": "03690",
+      "kind": "prices",
+      "status": "ok",
+      "rows": 33,
+      "file": "data/akshare/03690-prices.json",
+      "attempted_at": "2026-10-18T14:48:24.133198"
+    },
+    {
+      "code": "09988",
+      "kind": "prices",
+      "status": "ok",
+      "rows": 33,
+      "file": "data/akshare/09988-prices.json",
+      "attempted_at": "2026-10-18T14:48:24.133203"
+    },
+    {
+      "code": "00700",
+      "kind": "prices",
+      "status": "ok",
+      "rows": 33,
+      "file": "data/akshare/00700-prices.json",
+      "attempted_at": "2026-10-18T14:48:24.133205"
+    },
+    {
+      "code": "09999",
+      "kind": "prices",
+      "status": "ok",
+      "rows": 33,
+      "file": "data/akshare/09999-prices.json",
+      "attempted_at": "2026-10-18T14:48:24.133206"
+    },
+    {
+      "code": "09961",
+      "kind": "prices",
+      "status": "ok",
+      "rows": 33,
+      "file": "data/akshare/09961-prices.json",
+      "attempted_at": "2026-10-18T14:48:24.133208"
+    },
+    {
+      "code": "09618",
+      "kind": "prices",
+      "status": "ok",
+      "rows": 33,
+      "file": "data/akshare/09618-prices.json",
+      "attempted_at": "2026-10-18T14:48:24.133209"
+    },
+    {
+      "code": "09888",
+      "kind": "prices",
+      "status": "ok",
+      "rows": 33,
+      "file": "data/akshare/09888-prices.json",
+      "attempted_at": "2026-10-18T14:48:24.133210"
+    },
+    {
+      "code": "09626",
+      "kind": "prices",
+      "status": "ok",
+      "rows": 33,
+      "file": "data/akshare/09626-prices.json",
+      "attempted_at": "2026-10-18T14:48:24.133211"
+    },
+    {
+      "code": "01024",
+      "kind": "prices",
+      "status": "ok",
+      "rows": 33,
+      "file": "data/akshare/01024-prices.json",
+      "attempted_at": "2026-10-18T14:48:24.133212"
+    },
+    {
+      "code": "01698",
+      "kind": "prices",
+      "status": "ok",
+      "rows": 33,
+      "file": "data/akshare/01698-prices.json",
+      "attempted_at": "2026-10-18T14:48:24.133213"
+    },
+    {
+      "code": "PDD",
+      "kind": "prices",
+      "status": "ok",
+      "rows": 33,
+      "file": "data/akshare/PDD-prices.json",
+      "attempted_at": "2026-10-18T14:48:24.133214"
+    },
+    {
+      "code": "PDD",
+      "kind": "indicators",
+      "status": "ok",
+      "rows": 19,
+      "file": "data/akshare/PDD-indicators.json",
+      "attempted_at": "2026-10-18T14:50:46.367885"
+    },
+    {
+      "code": "PDD",
+      "kind": "balance",
+      "status": "ok",
+      "rows": 629,
+      "file": "data/akshare/PDD-balance.json",
+      "attempted_at": "2026-10-18T14:50:46.367891"
+    },
+    {
+      "code": "PDD",
+      "kind": "income",
+      "status": "ok",
+      "rows": 554,
+      "file": "data/akshare/PDD-income.json",
+      "attempted_at": "2026-10-18T14:50:46.367894"
+    },
+    {
+      "code": "PDD",
+      "kind": "cashflow",
+      "status": "ok",
+      "rows": 285,
+      "file": "data/akshare/PDD-cashflow.json",
+      "attempted_at": "2026-10-18T14:50:46.367895"
+    }
+  ]
+}

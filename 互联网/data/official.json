@@ -1,0 +1,3 @@
+[
+  {"company":"tencent","title":"2026Q2：公司披露自由现金流为负138亿元","document":"腾讯2026年第二季度业绩公告","url":"https://www.tencent.com/wp-content/uploads/2026/08/Tencent-Announces-2026-Second-Quarter-Results.pdf","file":"../data/pdf/tencent-2026Q2.pdf","pages":[1,2,6],"period":"2026Q2","metrics":{"cfo":52700000000,"cashCapex":59300000000,"mediaPayments":5000000000,"leasePayments":2200000000,"reportedFcf":-13800000000,"recognizedCapex":52784000000,"netCash":58191000000},"summary":"经营现金流527亿元，扣除资本开支付款593亿元、媒体内容付款50亿元、租赁付款22亿元，公司披露FCF为负138亿元。","note":"该季度与完整FY评分分开展示。现金流金额按公告四舍五入；确认资本开支527.84亿元不等于现金支付593亿元。剔除采购预付款后的管理层调整值不替代实际FCF。"}
+]

@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:www.nfra.gov.cn)",
+      "mcp__ifind__ifind_search_news",
+      "mcp__ifind__ifind_get_stock_financials",
+      "Read(//Users/yangjintai/Documents/LLM wiki/投资学院/08_成长记录/读书笔记/**)",
+      "WebFetch(domain:book.douban.com)",
+      "WebFetch(domain:baike.baidu.com)",
+      "mcp__akshare__get_financials",
+      "Bash(sed -n 7,9p '/Users/yangjintai/Documents/LLM wiki/银行/05_知识库/10_来源/来源_手把手教你读财报2.md')"
+    ],
+    "additionalDirectories": [
+      "/tmp",
+      "/private/tmp"
+    ]
+  }
+}

@@ -3,32 +3,37 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>个股数据分析对比</title>
-<link rel="stylesheet" href="style.css" />
-<link rel="stylesheet" href="stock.css" />
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<title>个股深度分析</title>
+<link rel="stylesheet" href="style.css?v=12" />
+<link rel="stylesheet" href="stock.css?v=33" />
+<link rel="stylesheet" href="nav-update.css?v=2" />
+<link rel="stylesheet" href="research-layout.css?v=1" />
+<script src="chart.umd.min.js"></script>
 </head>
 <body>
 <div id="app" class="stock-app">
 
   <header class="app-header">
     <div class="header-title">
-      <div class="breadcrumb">
-        <a href="index.html">&larr; 返回对比仪表盘</a>
-      </div>
-      <h1 id="page-title">个股数据分析对比</h1>
-      <p class="subtitle">季度/年度财务时间序列，含同比、环比与估值走势，可选择第二只银行进行对比</p>
-    </div>
-    <div class="header-meta">
-      <span id="generated-at">数据生成时间：加载中…</span>
+      <h1 id="page-title">个股深度分析</h1>
+      <p class="subtitle">六维公司评价 · 年度财报与长期经营数据</p>
     </div>
   </header>
+  <details class="research-date-details">
+    <summary>数据时点 <span id="stock-date-summary">· 当前银行财报期：加载中…</span></summary>
+    <div class="research-date-strip" aria-label="个股数据时点详情">
+      <span id="stock-data-dates" class="research-date-item">财报报告期：加载中…</span>
+      <span id="stock-score-date" class="research-date-item">打分报告期：加载中…</span>
+      <span id="generated-at" class="research-date-item research-date-generated">个股索引生成：加载中…</span>
+    </div>
+  </details>
 
   <div id="load-error" class="load-error hidden">
     <p><strong>数据加载失败。</strong>浏览器直接双击打开 HTML 文件时，本地 <code>fetch</code> 可能被跨域策略拦截。</p>
-    <p>请在终端进入 <code>dashboard/</code> 目录后运行：</p>
-    <pre>python3 -m http.server 8000</pre>
-    <p>然后在浏览器访问 <code>http://localhost:8000/stock.html</code>。</p>
+    <p>请在终端进入银行项目根目录后运行：</p>
+    <pre>python3 scripts/dashboard_server.py --port 8765</pre>
+    <p>然后在浏览器访问 <code>http://127.0.0.1:8765/stock.html</code>。</p>
   </div>
 
   <main id="main-content" class="hidden">
@@ -39,7 +44,6 @@
         <select id="primary-select"></select>
         <span class="legend-dot legend-primary"></span>
       </div>
-
       <div class="control-group">
         <label for="compare-select">对比标的</label>
         <select id="compare-select">
@@ -47,17 +51,19 @@
         </select>
         <span class="legend-dot legend-compare"></span>
       </div>
-
       <div class="control-group">
-        <label for="granularity-select">报告期粒度</label>
+        <label for="score-period-select">打分报告期</label>
+        <select id="score-period-select"></select>
+      </div>
+      <div class="control-group">
+        <label for="granularity-select">指标粒度</label>
         <select id="granularity-select">
-          <option value="quarter">季度</option>
           <option value="year">年度（年报）</option>
+          <option value="quarter">季度（全部报告期）</option>
         </select>
       </div>
-
       <div class="control-group">
-        <label for="range-select">时间范围</label>
+        <label for="range-select">指标时间范围</label>
         <select id="range-select">
           <option value="20">近20期</option>
           <option value="40">近40期</option>
@@ -66,114 +72,70 @@
       </div>
     </section>
 
-    <nav class="group-nav" id="group-nav">
-      <a href="#group-profit" class="group-nav-item active" data-group="group-profit">盈利能力</a>
-      <a href="#group-balance" class="group-nav-item" data-group="group-balance">规模与资产负债</a>
-      <a href="#group-pershare" class="group-nav-item" data-group="group-pershare">每股指标</a>
-      <a href="#group-valuation" class="group-nav-item" data-group="group-valuation">估值与市场表现</a>
-      <a href="#group-deep" class="group-nav-item" data-group="group-deep">2025A深度数据</a>
+    <section id="summary-content" class="stock-summary" aria-label="公司综合摘要"></section>
+
+    <nav class="group-nav" id="group-nav" aria-label="个股研究主题">
+      <a href="#group-overview" class="group-nav-item active" data-group="group-overview">综合评价</a>
+      <a href="#group-pnl" class="group-nav-item" data-group="group-pnl">利润流向</a>
+      <a href="#group-scale" class="group-nav-item" data-group="group-scale">公司规模</a>
+      <a href="#group-metrics" class="group-nav-item" data-group="group-metrics">关键指标</a>
+      <a href="#group-dimG" class="group-nav-item" data-group="group-dimG">估值评价</a>
+      <a href="#group-qual" class="group-nav-item" data-group="group-qual">定性观测</a>
     </nav>
 
-    <!-- 盈利能力 -->
-    <section id="group-profit" class="metric-group">
-      <h2 class="group-heading">盈利能力</h2>
-      <div class="chart-row">
-        <div class="chart-card">
-          <h3>营业总收入（单季度，亿元）与同比</h3>
-          <canvas id="chart-revenue"></canvas>
-        </div>
-        <div class="chart-card">
-          <h3>归母净利润（单季度，亿元）与同比</h3>
-          <canvas id="chart-net-profit"></canvas>
-        </div>
-        <div class="chart-card">
-          <h3>ROE（加权，%）</h3>
-          <canvas id="chart-roe"></canvas>
-        </div>
-      </div>
-      <div class="table-scroll">
-        <table class="metric-table" id="table-profit"></table>
-      </div>
+    <!-- ① 综合评价 -->
+    <section id="group-overview" class="metric-group">
+      <h2 class="group-heading">综合评价 <span class="heading-note"><a href="score-formula.html">打分公式 V2.0</a> · 估值与定性不计入总分</span></h2>
+      <div id="overview-content"></div>
     </section>
 
-    <!-- 规模与资产负债 -->
-    <section id="group-balance" class="metric-group">
-      <h2 class="group-heading">规模与资产负债</h2>
-      <div class="chart-row">
-        <div class="chart-card">
-          <h3>总资产（亿元）与同比</h3>
-          <canvas id="chart-total-assets"></canvas>
-        </div>
-        <div class="chart-card">
-          <h3>贷款 / 存款（亿元）</h3>
-          <canvas id="chart-loans-deposits"></canvas>
-        </div>
-        <div class="chart-card">
-          <h3>归母净资产（亿元）与同比</h3>
-          <canvas id="chart-net-assets"></canvas>
-        </div>
-      </div>
-      <div class="table-scroll">
-        <table class="metric-table" id="table-balance"></table>
-      </div>
+    <!-- ② 利润流向 -->
+    <section id="group-pnl" class="metric-group">
+      <h2 class="group-heading">利润流向 <span class="heading-note">毛收入 → 归母净利润 · 年报</span></h2>
+      <div id="pnl-content"></div>
     </section>
 
-    <!-- 每股指标 -->
-    <section id="group-pershare" class="metric-group">
-      <h2 class="group-heading">每股指标</h2>
-      <div class="chart-row">
-        <div class="chart-card">
-          <h3>基本每股收益 EPS（元）</h3>
-          <canvas id="chart-eps"></canvas>
-        </div>
-        <div class="chart-card">
-          <h3>每股净资产 BVPS（元）</h3>
-          <canvas id="chart-bvps"></canvas>
-        </div>
-        <div class="chart-card">
-          <h3>每股经营现金流（元）</h3>
-          <canvas id="chart-ocfps"></canvas>
-        </div>
-      </div>
-      <div class="table-scroll">
-        <table class="metric-table" id="table-pershare"></table>
-      </div>
+    <!-- ③ 公司规模 -->
+    <section id="group-scale" class="metric-group">
+      <h2 class="group-heading">公司规模 <span class="heading-note">20年趋势 · 年报构成</span></h2>
+      <div id="scale-content"></div>
     </section>
 
-    <!-- 估值与市场表现 -->
-    <section id="group-valuation" class="metric-group">
-      <h2 class="group-heading">估值与市场表现</h2>
-      <div class="chart-row">
-        <div class="chart-card">
-          <h3>收盘价（元，报告期末快照）</h3>
-          <canvas id="chart-close"></canvas>
-        </div>
-        <div class="chart-card">
-          <h3>PE(TTM) / PB</h3>
-          <canvas id="chart-pe-pb"></canvas>
-        </div>
-        <div class="chart-card">
-          <h3>总市值（亿元）</h3>
-          <canvas id="chart-market-cap"></canvas>
-        </div>
-      </div>
-      <div class="table-scroll">
-        <table class="metric-table" id="table-valuation"></table>
-      </div>
+    <section id="group-metrics" class="metric-group">
+      <nav class="metric-tabs" aria-label="关键指标维度">
+        <button type="button" data-dimension="A" class="active" aria-pressed="true">A 收入效率</button>
+        <button type="button" data-dimension="B" aria-pressed="false">B 收入增长</button>
+        <button type="button" data-dimension="C" aria-pressed="false">C 盈利质量</button>
+        <button type="button" data-dimension="D" aria-pressed="false">D 资产质量</button>
+        <button type="button" data-dimension="E" aria-pressed="false">E 成本控制</button>
+        <button type="button" data-dimension="F" aria-pressed="false">F 资本内生</button>
+      </nav>
+    <!-- 六维 + 估值评价（JS动态生成） -->
+    <section id="group-dimA" class="metric-group"><h2 class="group-heading">收入效率 <span class="heading-note" id="dim-note-A"></span></h2><div id="dim-content-A" class="dim-content"></div></section>
+    <section id="group-dimB" class="metric-group"><h2 class="group-heading">收入增长 <span class="heading-note" id="dim-note-B"></span></h2><div id="dim-content-B" class="dim-content"></div></section>
+    <section id="group-dimC" class="metric-group"><h2 class="group-heading">盈利质量 <span class="heading-note" id="dim-note-C"></span></h2><div id="dim-content-C" class="dim-content"></div></section>
+    <section id="group-dimD" class="metric-group"><h2 class="group-heading">资产质量 <span class="heading-note" id="dim-note-D"></span></h2><div id="dim-content-D" class="dim-content"></div></section>
+    <section id="group-dimE" class="metric-group"><h2 class="group-heading">成本控制 <span class="heading-note" id="dim-note-E"></span></h2><div id="dim-content-E" class="dim-content"></div></section>
+    <section id="group-dimF" class="metric-group"><h2 class="group-heading">资本内生 <span class="heading-note" id="dim-note-F"></span></h2><div id="dim-content-F" class="dim-content"></div></section>
     </section>
+    <section id="group-dimG" class="metric-group"><h2 class="group-heading">估值评价 <span class="heading-note" id="dim-note-G">不计入总分</span></h2><div id="dim-content-G" class="dim-content"></div></section>
 
-    <!-- 2025A 深度数据与四维评价 -->
-    <section id="group-deep" class="metric-group">
-      <h2 class="group-heading">2025A 深度数据与四维评价 <span id="deep-report-period" class="deep-report-period"></span></h2>
-      <div id="deep-content">
-        <p class="deep-placeholder" style="color: var(--color-text-muted, #6b7280); font-size: 13px;">请选择主标的后加载深度数据…</p>
-      </div>
+    <!-- ⑪ 定性观测 -->
+    <section id="group-qual" class="metric-group">
+      <h2 class="group-heading">定性观测 <span class="heading-note">H 证据卡，不计入总分</span></h2>
+      <div id="qual-content"></div>
     </section>
 
   </main>
 
+  <div id="col-help-pop" class="col-help-pop hidden" role="tooltip">
+    <div class="col-help-title"></div>
+    <div class="col-help-body"></div>
+  </div>
 </div>
 
-<script src="stock.js"></script>
+<script src="nav-update.js?v=5"></script>
+<script src="pnl-sankey.js?v=7"></script>
+<script src="stock.js?v=43"></script>
 </body>
 </html>

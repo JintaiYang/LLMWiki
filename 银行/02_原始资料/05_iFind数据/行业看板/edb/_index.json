@@ -1,0 +1,135 @@
+[
+  {
+    "i": 0,
+    "q": "商业银行不良贷款率 2006年至2026年季度值",
+    "ok": true,
+    "bytes": 5355,
+    "file": "/tmp/ifind_edb_raw/q01.json"
+  },
+  {
+    "i": 1,
+    "q": "商业银行拨备覆盖率 2006年至2026年季度值",
+    "ok": true,
+    "bytes": 5123,
+    "file": "/tmp/ifind_edb_raw/q02.json"
+  },
+  {
+    "i": 2,
+    "q": "商业银行贷款拨备率 2006年至2026年季度值",
+    "ok": true,
+    "bytes": 3531,
+    "file": "/tmp/ifind_edb_raw/q03.json"
+  },
+  {
+    "i": 3,
+    "q": "商业银行资本充足率 2006年至2026年季度值",
+    "ok": true,
+    "bytes": 3910,
+    "file": "/tmp/ifind_edb_raw/q04.json"
+  },
+  {
+    "i": 4,
+    "q": "商业银行核心一级资本充足率 2013年至2026年季度值",
+    "ok": true,
+    "bytes": 3926,
+    "file": "/tmp/ifind_edb_raw/q05.json"
+  },
+  {
+    "i": 5,
+    "q": "商业银行一级资本充足率 2013年至2026年季度值",
+    "ok": true,
+    "bytes": 3906,
+    "file": "/tmp/ifind_edb_raw/q06.json"
+  },
+  {
+    "i": 6,
+    "q": "商业银行资产利润率 2006年至2026年季度值",
+    "ok": true,
+    "bytes": 4254,
+    "file": "/tmp/ifind_edb_raw/q07.json"
+  },
+  {
+    "i": 7,
+    "q": "商业银行资本利润率 2006年至2026年季度值",
+    "ok": true,
+    "bytes": 4393,
+    "file": "/tmp/ifind_edb_raw/q08.json"
+  },
+  {
+    "i": 8,
+    "q": "商业银行流动性比例 2006年至2026年季度值",
+    "ok": true,
+    "bytes": 4916,
+    "file": "/tmp/ifind_edb_raw/q09.json"
+  },
+  {
+    "i": 9,
+    "q": "商业银行存贷比 2006年至2026年季度值",
+    "ok": true,
+    "bytes": 4439,
+    "file": "/tmp/ifind_edb_raw/q10.json"
+  },
+  {
+    "i": 10,
+    "q": "商业银行流动性覆盖率 2015年至2026年季度值",
+    "ok": true,
+    "bytes": 3063,
+    "file": "/tmp/ifind_edb_raw/q11.json"
+  },
+  {
+    "i": 11,
+    "q": "商业银行净稳定资金比例 2015年至2026年季度值",
+    "ok": true,
+    "bytes": 87,
+    "file": "/tmp/ifind_edb_raw/q12.json"
+  },
+  {
+    "i": 12,
+    "q": "商业银行成本收入比 2006年至2026年季度值",
+    "ok": true,
+    "bytes": 4438,
+    "file": "/tmp/ifind_edb_raw/q13.json"
+  },
+  {
+    "i": 13,
+    "q": "商业银行关注类贷款占比 2006年至2026年季度值",
+    "ok": true,
+    "bytes": 3689,
+    "file": "/tmp/ifind_edb_raw/q14.json"
+  },
+  {
+    "i": 14,
+    "q": "商业银行杠杆率 2013年至2026年季度值",
+    "ok": true,
+    "bytes": 3047,
+    "file": "/tmp/ifind_edb_raw/q15.json"
+  },
+  {
+    "i": 15,
+    "q": "大型商业银行净息差 2010年至2026年季度值",
+    "ok": true,
+    "bytes": 2834,
+    "file": "/tmp/ifind_edb_raw/q16.json"
+  },
+  {
+    "i": 16,
+    "q": "股份制商业银行净息差 2010年至2026年季度值",
+    "ok": true,
+    "bytes": 2841,
+    "file": "/tmp/ifind_edb_raw/q17.json"
+  },
+  {
+    "i": 17,
+    "q": "城市商业银行净息差 2010年至2026年季度值",
+    "ok": true,
+    "bytes": 2826,
+    "file": "/tmp/ifind_edb_raw/q18.json"
+  },
+  {
+    "i": 18,
+    "q": "农村商业银行净息差 2010年至2026年季度值",
+    "ok": true,
+    "bytes": 2827,
+    "file": "/tmp/ifind_edb_raw/q19.json"
+  }
+]

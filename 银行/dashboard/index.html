@@ -3,8 +3,10 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
 <title>银行研究标的对比仪表盘</title>
-<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="style.css?v=12" />
+<link rel="stylesheet" href="nav-update.css?v=2" />
 </head>
 <body>
 <div id="app">
@@ -12,42 +14,56 @@
   <header class="app-header">
     <div class="header-title">
       <h1>银行研究标的对比仪表盘</h1>
-      <p class="subtitle">对比18家重点覆盖银行的核心指标与AkShare深度数据（2024年报），快速跳转到知识库对应页面</p>
+      <p class="subtitle">42 家上市银行横向筛选 · 点击银行名看速览，按住 Control 点击直达深度数据分析。打分与估值分开展示，不构成投资建议。</p>
     </div>
-    <div class="header-meta">
-      <span id="generated-at">数据生成时间：加载中…</span>
-      <span id="bank-count"></span>
-      <a href="nim_etf_chart.html" style="color:#3949ab;text-decoration:none;font-size:0.85rem;margin-left:15px;border:1px solid #3949ab;padding:4px 12px;border-radius:6px;">📊 30年NIM与银行指数对照图</a>
-    </div>
+    <div class="header-meta"><span id="bank-count"></span></div>
   </header>
+
+  <details class="research-date-details">
+    <summary>数据时点 <span id="research-date-summary">· 行情截至：加载中…</span></summary>
+    <div class="research-date-strip" aria-label="数据时点详情">
+      <span id="research-price-date" class="research-date-item">行情截至：加载中…</span>
+      <span id="research-report-date" class="research-date-item">深度指标年报期：加载中…</span>
+      <span id="research-stock-date" class="research-date-item">个股序列最晚报告期：加载中…</span>
+      <span id="research-score-date" class="research-date-item">打分最晚报告期：加载中…</span>
+      <span id="generated-at" class="research-date-item research-date-generated">页面数据生成：加载中…</span>
+    </div>
+  </details>
 
   <div id="load-error" class="load-error hidden">
     <p><strong>数据加载失败。</strong>浏览器直接双击打开 HTML 文件时，本地 <code>fetch</code> 可能被跨域策略拦截。</p>
-    <p>请在终端进入 <code>dashboard/</code> 目录后运行：</p>
-    <pre>python3 -m http.server 8000</pre>
-    <p>然后在浏览器访问 <code>http://localhost:8000</code>。</p>
+    <p>请在终端进入银行项目根目录后运行：</p>
+    <pre>python3 scripts/dashboard_server.py --port 8765</pre>
+    <p>然后在浏览器访问 <code>http://127.0.0.1:8765/index.html</code>。</p>
   </div>
 
   <main id="main-content" class="hidden">
 
     <section class="toolbar">
-      <div class="toolbar-group view-switch">
-        <button class="view-btn active" data-view="table">表格视图</button>
-        <button class="view-btn" data-view="card">卡片视图</button>
-      </div>
-
       <div class="toolbar-group filter-group">
         <span class="filter-label">银行类型：</span>
         <div id="type-filters" class="filter-chips"></div>
       </div>
 
       <div class="toolbar-group filter-group">
-        <span class="filter-label">命题状态：</span>
-        <div id="status-filters" class="filter-chips"></div>
+        <span class="filter-label">估值×打分：</span>
+        <div id="style-filters" class="filter-chips"></div>
       </div>
 
       <div class="toolbar-group">
         <button id="reset-filters" class="reset-btn">重置筛选</button>
+      </div>
+
+      <div class="toolbar-group compare-group">
+        <span class="filter-label">对比银行：</span>
+        <div class="compare-picker">
+          <div id="compare-chips" class="compare-chips"></div>
+          <div class="compare-search-wrap">
+            <input id="compare-search" type="search" placeholder="搜索并勾选，留下这几家对比" autocomplete="off" />
+            <div id="compare-suggest" class="compare-suggest hidden" role="listbox"></div>
+          </div>
+        </div>
+        <button type="button" id="clear-compare" class="reset-btn hidden">清空对比</button>
       </div>
     </section>
 
@@ -57,11 +73,13 @@
         <div class="table-toolbar-left">
           <span class="table-toolbar-label">指标列分组：</span>
           <button class="col-toggle-btn active" data-group="basic">基本信息</button>
+          <button class="col-toggle-btn active" data-group="score">六维打分</button>
           <button class="col-toggle-btn active" data-group="profit">盈利能力</button>
           <button class="col-toggle-btn active" data-group="growth">增长速度</button>
           <button class="col-toggle-btn active" data-group="balance">规模与资产负债</button>
           <button class="col-toggle-btn active" data-group="structure">结构与效率</button>
           <button class="col-toggle-btn active" data-group="pershare">每股与估值</button>
+          <button class="col-toggle-btn active" data-group="ddm">DDM估值</button>
           <button class="col-toggle-btn active" data-group="evaluation">四维评价</button>
         </div>
         <div class="table-toolbar-right">
@@ -77,29 +95,31 @@
       </div>
     </section>
 
-    <!-- 卡片视图 -->
-    <section id="card-view" class="view-panel hidden">
-      <div id="card-grid" class="card-grid"></div>
-    </section>
-
   </main>
 
   <aside id="detail-panel" class="detail-panel hidden">
     <div class="detail-panel-inner">
-      <button id="detail-close" class="detail-close" aria-label="关闭">&times;</button>
-      <h2 id="detail-title">银行名称</h2>
-      <div id="detail-meta" class="detail-meta"></div>
-      <div id="detail-body" class="detail-body"></div>
-      <div class="detail-actions">
-        <a id="detail-obsidian-link" class="obsidian-btn" href="#" target="_blank">在 Obsidian 中打开</a>
-        <a id="detail-stock-link" class="obsidian-btn stock-btn" href="#">查看历史数据分析 &rarr;</a>
+      <div class="detail-panel-header">
+        <button id="detail-close" class="detail-close" aria-label="关闭">&times;</button>
+        <h2 id="detail-title">银行名称</h2>
+        <div id="detail-meta" class="detail-meta"></div>
+        <div class="detail-actions">
+          <a id="detail-stock-link" class="obsidian-btn stock-btn" href="#">查看深度数据分析 &rarr;</a>
+          <a id="detail-obsidian-link" class="obsidian-btn" href="#" target="_blank" rel="noopener noreferrer">在 Obsidian 中打开</a>
+        </div>
       </div>
+      <div id="detail-body" class="detail-body"></div>
     </div>
   </aside>
   <div id="detail-overlay" class="detail-overlay hidden"></div>
+  <div id="col-help-pop" class="col-help-pop hidden" role="tooltip">
+    <div class="col-help-title"></div>
+    <div class="col-help-body"></div>
+  </div>
 
 </div>
 
-<script src="app.js"></script>
+<script src="nav-update.js?v=6"></script>
+<script src="app.js?v=33"></script>
 </body>
 </html>

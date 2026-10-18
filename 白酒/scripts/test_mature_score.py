@@ -1,5 +1,7 @@
 import copy
+import json
 import unittest
+from pathlib import Path
 from unittest.mock import patch
 
 import liquor_pipeline as p
@@ -11,7 +13,9 @@ def healthy_rows():
              "consolidated_net_profit": 22, "roa": 20, "operating_margin": 35,
              "cfo": 25, "capex": 5, "owner_fcf": 20, "cash_to_current_liab": 150,
              "other_receivables_to_asset": .1, "dividend_cash_CNY": 12,
-             "total_assets": 120, "total_liabilities": 20} for y in range(2020, 2026)]
+             "cash": 150, "current_assets": 250, "inventory": 50, "current_liabilities": 100,
+             "nonrecurring_ratio": 0, "receivables_to_revenue": 0,
+             "total_assets": 400, "total_liabilities": 100} for y in range(2020, 2026)]
 
 
 def items(result):
@@ -30,9 +34,9 @@ class MatureScoreTests(unittest.TestCase):
         out = score_mature(rows)
         self.assertIsNone(out["total"])
         self.assertFalse(out["rankable"])
-        self.assertEqual(out["coverage"], .8)
-        self.assertEqual(len(out["missing"]), 3)
-        self.assertAlmostEqual(out["score_range"][1] - out["score_range"][0], 20)
+        self.assertEqual(out["coverage"], .9)
+        self.assertEqual(len(out["missing"]), 2)
+        self.assertAlmostEqual(out["score_range"][1] - out["score_range"][0], 10)
         self.assertLess(out["known_points"], full["raw_total"])
 
     def test_confirmed_zero_dividends_receive_zero_points(self):
@@ -41,8 +45,8 @@ class MatureScoreTests(unittest.TestCase):
             row["dividend_cash_CNY"] = 0
         result = score_mature(rows)
         self.assertTrue(result["rankable"])
-        self.assertEqual(result["dimensions"][3]["score"], 0)
-        self.assertEqual(items(result)["dividend_fcf_coverage"]["status"], "observed_zero")
+        self.assertEqual(result["dimensions"][4]["score"], 0)
+        self.assertEqual(items(result)["payout_cumulative"]["status"], "observed_zero")
 
     def test_loss_is_an_observed_risk_instead_of_a_missing_cagr(self):
         rows = healthy_rows()
@@ -74,10 +78,10 @@ class MatureScoreTests(unittest.TestCase):
         for row in rows[-2:]:
             row["cfo"] = -10
             row["owner_fcf"] = -15
-        rows[-1]["total_liabilities"] = 125
+        rows[-1]["total_liabilities"] = 425
         out = score_mature(rows)
         self.assertEqual(out["risk_cap"], 39)
-        self.assertEqual(len(out["risk_gates"]), 3)
+        self.assertEqual(len(out["risk_gates"]), 2)
         self.assertLessEqual(out["total"], 39)
 
     def test_missing_year_cannot_be_replaced_with_an_older_observation(self):
@@ -91,6 +95,23 @@ class MatureScoreTests(unittest.TestCase):
     def test_first_window_yoy_requires_the_actual_previous_year(self):
         out = score_mature(healthy_rows()[1:])
         self.assertIn("revenue_worst_yoy", out["missing"])
+
+    def test_production_scores_match_all_approved_v5_previews(self):
+        root = Path(__file__).resolve().parents[1]
+        data = json.loads((root / 'dashboard/data.json').read_text())
+        baseline = json.loads((root / '04_运维报告/白酒评分V4切换前基线_20261017.json').read_text())
+        expected = {c['code']: c for c in baseline['companies']}
+        for company in data['companies']:
+            with self.subTest(code=company['code']):
+                result = score_mature(company['annual'])
+                reference = expected[company['code']]
+                self.assertEqual(result['version'], 'V5.0-book-financial-quality')
+                self.assertEqual(result['total'], reference['approved_v5_total'])
+                self.assertEqual(result['coverage'], reference['approved_v5_coverage'])
+                self.assertEqual(result['risk_cap'], reference['approved_v5_risk_cap'])
+                self.assertEqual(sum(d['weight'] for d in result['dimensions']), 100)
+                self.assertEqual(sum(len(d['items']) for d in result['dimensions']), 13)
+                self.assertFalse(set(result['missing']) - set(p.PARAMETERS['metric_definitions']))
 
     def test_roe_never_fills_roic_and_roa_has_its_own_denominator(self):
         current = {k: 10.0 for k in p.FIELDS}

@@ -25,7 +25,9 @@ class PipelineTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp, patch.object(p, "RAW", Path(tmp)), patch.object(p, "SUPPLEMENT", Path(tmp) / "absent.csv"), patch.object(p, "SHARES", Path(tmp) / "absent-shares.csv"), patch.object(p, "QUALITATIVE", Path(tmp) / "absent-evidence.csv"):
             data, industry = p.build("2026-09-28")
         self.assertEqual(len(data["companies"]), len(p.COMPANIES))
-        self.assertEqual(len(data["companies"][0]["annual"]), 10)
+        self.assertEqual(len(data["companies"][0]["annual"]), 20)
+        self.assertEqual([row["year"] for row in data["companies"][0]["annual"]], list(range(2006, 2026)))
+        self.assertEqual(data["history"]["baseline_year"], 2005)
         self.assertIsNone(data["companies"][0]["annual"][0]["revenue"])
         self.assertIsNone(data["companies"][0]["score"]["total"])
         self.assertFalse(data["companies"][0]["score"]["rankable"])
@@ -67,6 +69,21 @@ class PipelineTests(unittest.TestCase):
             self.assertEqual(p.resolve("600519", "2025-12-31", "revenue", statements, extra, {}, [], "2026-03-01"), 100)
         self.assertEqual(conflicts[0]["ifind_value"], 110)
         self.assertEqual(prov["2025-12-31.revenue"]["status"], "unresolved_conflict")
+
+    def test_verified_net_zero_fills_blank_without_general_null_to_zero(self):
+        statements = {kind: {} for kind in p.STATEMENTS}
+        statements['balance']['2021-12-31'] = {'ACCOUNTS_RECE': ''}
+        supplement = {('600519', '2021-12-31', 'receivables'): {
+            'value': '0', 'source': 'iFind:search_notice:2021年报合并应收余额减坏账准备',
+            'source_date': '2022-03-31', 'unit': 'CNY'}}
+        provenance, conflicts = {}, []
+        self.assertIsNone(p.resolve('600519', '2021-12-31', 'receivables', statements, {}, {}, [], '2026-10-10'))
+        self.assertIsNone(p.resolve('600519', '2021-12-31', 'receivables', statements, supplement, {}, [], '2022-03-30'))
+        value = p.resolve('600519', '2021-12-31', 'receivables', statements, supplement, provenance, conflicts, '2026-10-10')
+        self.assertEqual(value, 3097678.25 - 3097678.25)
+        self.assertEqual(provenance['2021-12-31.receivables']['source_date'], '2022-03-31')
+        self.assertIn('iFind', provenance['2021-12-31.receivables']['provider'])
+        self.assertEqual(conflicts, [])
 
     def test_dcf_scenarios_and_missing_inputs(self):
         annual = [{"year": year, "fcff": value, "cfo": value + 20, "capex": 20, "owner_fcf": value} for year, value in ((2023, 80), (2024, 100), (2025, 120))]
@@ -126,7 +143,7 @@ class PipelineTests(unittest.TestCase):
 
     def test_approved_dimensions_and_qualitative_evidence_not_scored(self):
         self.assertEqual([(name, weight) for name, weight, _ in p.PARAMETERS["dimensions"]], [
-            ("盈利持续性", 25), ("现金创造", 25), ("财务缓冲", 15), ("股东回报", 20), ("经营韧性", 15)])
+            ("盈利质量", 25), ("现金创造", 30), ("家底质量", 25), ("经营韧性", 10), ("股东回报", 10)])
         self.assertEqual(sum(weight for _, weight, _ in p.PARAMETERS["dimensions"]), 100)
         annual = [{"year": year, "revenue": 100 + year - 2021, "net_profit": 20 + year - 2021,
                    "gross_margin": 90, "net_margin": 40, "gross_sales_spread": 80,
@@ -138,7 +155,8 @@ class PipelineTests(unittest.TestCase):
                    "dps": 1, "dividend_cash_CNY": 10, "dividend_yield": 5, "payout_pct": 50,
                    "contract_liabilities": 20, "sales_expense": 10} for year in range(2021, 2026)]
         for row in annual:
-            row.update(roa=20, consolidated_net_profit=row["net_profit"], total_assets=300, total_liabilities=40, other_receivables_to_asset=0.1)
+            row.update(roa=20, consolidated_net_profit=row["net_profit"], total_assets=300, total_liabilities=40,
+                       other_receivables_to_asset=0.1, cash=80, nonrecurring_ratio=0, receivables_to_revenue=10)
         annual.insert(0, {**annual[0], "year": 2020, "revenue": 99})
         result = p.score(annual, {}, {"product_mix": [{"observation": "verified", "source": "report", "source_date": "2026-01-01"}]})
         stats = p.build_universe_stats([(str(i), annual) for i in range(6)])
@@ -151,14 +169,16 @@ class PipelineTests(unittest.TestCase):
         names = [item["name"] for dim in result["dimensions"] for item in dim["items"]]
         self.assertIn("roa_median", names)
         self.assertIn("cfo_conversion", names)
-        self.assertIn("dividend_fcf_coverage", names)
+        self.assertIn("nonrecurring_dependency", names)
+        self.assertIn("liquidity_constraint", names)
+        self.assertNotIn("dividend_fcf_coverage", names)
         self.assertNotIn("gross_margin_median", names)
         self.assertNotIn("return_on_capital_median", names)
         self.assertNotIn("dividend_yield", names)
         self.assertNotIn("contract_liab_to_revenue_median", names)
         self.assertNotIn("product_mix", names)
         roa = next(item for dim in result["dimensions"] for item in dim["items"] if item["name"] == "roa_median")
-        self.assertEqual(roa["score"], 10)
+        self.assertEqual(roa["score"], 8)
         self.assertEqual(peer_result["total"], result["total"])
         mix = next(item for item in result["references"] if item["name"] == "product_mix")
         self.assertEqual(mix["status"], "reference")

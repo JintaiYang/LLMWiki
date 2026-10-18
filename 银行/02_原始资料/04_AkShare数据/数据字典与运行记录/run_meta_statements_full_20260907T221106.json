@@ -1,0 +1,51 @@
+{
+  "script": "fetch_bank_statements_full.py",
+  "purpose": "A股全部银行三大报表（利润表/资产负债表/现金流量表）近20年全报告期采集",
+  "data_source": "AkShare 东方财富 按报告期接口（stock_*_sheet_by_report_em）",
+  "tutorial": "https://akshare.akfamily.xyz/tutorial.html",
+  "start_date_filter": "2006-01-01",
+  "akshare_version": "1.16.99",
+  "bank_count": 1,
+  "summary": {
+    "ok": 3,
+    "skip": 0,
+    "fail": 0,
+    "total": 3
+  },
+  "ran_at": "20260907T221106",
+  "results": [
+    {
+      "code": "600036",
+      "name": "招商银行",
+      "statement": "利润表",
+      "file": "02_原始资料/04_AkShare数据/三大报表/利润表/600036_招商银行_income.csv",
+      "status": "ok",
+      "rows": 82,
+      "cols": 172,
+      "date_min": "2006-03-31",
+      "date_max": "2026-06-30"
+    },
+    {
+      "code": "600036",
+      "name": "招商银行",
+      "statement": "资产负债表",
+      "file": "02_原始资料/04_AkShare数据/三大报表/资产负债表/600036_招商银行_balance.csv",
+      "status": "ok",
+      "rows": 82,
+      "cols": 223,
+      "date_min": "2006-03-31",
+      "date_max": "2026-06-30"
+    },
+    {
+      "code": "600036",
+      "name": "招商银行",
+      "statement": "现金流量表",
+      "file": "02_原始资料/04_AkShare数据/三大报表/现金流量表/600036_招商银行_cashflow.csv",
+      "status": "ok",
+      "rows": 80,
+      "cols": 318,
+      "date_min": "2006-06-30",
+      "date_max": "2026-06-30"
+    }
+  ]
+}

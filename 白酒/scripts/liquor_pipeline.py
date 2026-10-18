@@ -17,6 +17,8 @@ from bisect import bisect_left, bisect_right
 from datetime import date, datetime, timezone
 from pathlib import Path
 from mature_score import SCORING_PARAMETERS, score_mature
+from financial_metrics import CATALOG, EXTRA_FIELDS, DIAGNOSTIC_FIELDS, enrich, valuation_history
+from industry_research import build_research
 
 ROOT = Path(__file__).resolve().parents[1]
 RAW = ROOT / "02_原始资料" / "04_AkShare数据"
@@ -33,7 +35,9 @@ COMPANIES = {
     "603198": "迎驾贡酒", "603369": "今世缘", "603589": "口子窖", "603919": "金徽酒",
 }
 STATEMENTS = {"income": "stock_profit_sheet_by_report_em", "balance": "stock_balance_sheet_by_report_em", "cashflow": "stock_cash_flow_sheet_by_report_em"}
-YEARS = range(2016, 2026)
+YEARS = range(2006, 2026)
+BASELINE_YEAR = YEARS[0] - 1
+BASELINE_DATE = f"{BASELINE_YEAR}-01-01"
 # 元、无比例缩放；严格选择列名，不使用模糊匹配或同比替代。
 FIELDS = {
     "revenue": ("income", ("OPERATE_INCOME",)),
@@ -66,6 +70,7 @@ FIELDS = {
     "long_debt": ("balance", ("LONG_LOAN",)),
     "bonds": ("balance", ("BOND_PAYABLE",)),
 }
+FIELDS.update(EXTRA_FIELDS)
 # Scoring is versioned separately from the existing cash-flow valuation model.
 PARAMETERS = {
     **SCORING_PARAMETERS,
@@ -88,6 +93,7 @@ DISPLAY = ("revenue", "net_profit", "gross_margin", "operating_margin", "net_mar
 
 
 DISPLAY += ("consolidated_net_profit", "roa")
+DISPLAY = tuple(dict.fromkeys((*DISPLAY, *DIAGNOSTIC_FIELDS)))
 
 
 def number(value):
@@ -153,7 +159,7 @@ def fetch(force=False):
                 if frame is None or frame.empty or "REPORT_DATE" not in frame:
                     raise ValueError("空报表或无报告期")
                 frame["REPORT_DATE"] = frame["REPORT_DATE"].astype(str).str[:10]
-                frame = frame[(frame.REPORT_DATE >= "2015-01-01") & (frame.REPORT_DATE <= date.today().isoformat())]
+                frame = frame[(frame.REPORT_DATE >= BASELINE_DATE) & (frame.REPORT_DATE <= date.today().isoformat())]
                 if frame.empty:
                     raise ValueError("无目标报告期")
                 path.parent.mkdir(parents=True, exist_ok=True)
@@ -202,9 +208,11 @@ def ifind_missing(asof, existing=None):
     requests = []
     for code, name in COMPANIES.items():
         tables = {kind: report_rows(code, kind, asof) for kind in STATEMENTS}
-        days = sorted({d for table in tables.values() for d in table if (d.endswith("12-31") and 2015 <= int(d[:4]) <= 2025) or (d.startswith("2026-") and d[5:] in ("03-31", "06-30", "09-30"))})
+        days = sorted({d for table in tables.values() for d in table if (d.endswith("12-31") and BASELINE_YEAR <= int(d[:4]) <= YEARS[-1]) or (d.startswith("2026-") and d[5:] in ("03-31", "06-30", "09-30"))})
         for day in days:
             for field, (kind, columns) in FIELDS.items():
+                if field == "basic_eps":
+                    continue
                 if (code, day, field) in existing:
                     continue
                 row = tables[kind].get(day, {})
@@ -288,8 +296,9 @@ def supplement_rows():
         code, day, field = row["code"], clean_date(row["report_date"]), row["field"]
         if code not in COMPANIES or day != row["report_date"] or field not in FIELDS:
             raise ValueError("iFind 补缺代码/报告期/字段不合法")
-        if row["unit"] != "CNY" or number(row["value"]) is None or clean_date(row["source_date"]) != row["source_date"] or not day <= row["source_date"] <= date.today().isoformat():
-            raise ValueError("iFind 补缺必须为数值、CNY 和有效来源日期")
+        expected_unit = "CNY/share" if field == "basic_eps" else "CNY"
+        if row["unit"] != expected_unit or number(row["value"]) is None or clean_date(row["source_date"]) != row["source_date"] or not day <= row["source_date"] <= date.today().isoformat():
+            raise ValueError("iFind 补缺必须为数值、匹配字段的单位和有效来源日期")
         if not row["source"].startswith("iFind:") or len(row["source"]) > 200 or re.search(r"(?i)(token|password|secret|cookie|ssoid|authorization|bearer|key=|https?://[^/]*@)", row["source"]):
             raise ValueError("iFind 补缺来源须写 iFind: 指标及查询信息，不得含凭证")
         key = (code, day, field)
@@ -304,7 +313,7 @@ def report_rows(code, kind, asof):
     rows = {}
     for row in load_csv(path):
         day = clean_date(row.get("REPORT_DATE"))
-        if not day or not "2015-01-01" <= day <= asof:
+        if not day or not BASELINE_DATE <= day <= asof:
             continue
         if row.get("CURRENCY") and row["CURRENCY"] not in ("CNY", "RMB", "人民币", "1"):
             continue
@@ -333,6 +342,8 @@ def resolve(code, day, field, statements, supplement, provenance, conflicts, aso
         col, value = preferred
         path = RAW / kind / f"{code}.csv"
         source = {"provider": "AKShare/东方财富", "api": STATEMENTS[kind], "file": f"02_原始资料/04_AkShare数据/{kind}/{code}.csv", "column": col, "report_date": day, "notice_date": clean_date(row.get("NOTICE_DATE")), "update_date": clean_date(row.get("UPDATE_DATE")), "snapshot_at": datetime.fromtimestamp(path.stat().st_mtime, timezone.utc).isoformat(), "unit": "CNY"}
+        if row.get("HISTORY_SOURCE_URL"):
+            source.update({"api_endpoint": row["HISTORY_SOURCE_URL"], "retrieved_at": row.get("HISTORY_RETRIEVED_AT")})
         if secondary and not math.isclose(value, number(secondary["value"]), rel_tol=1e-6, abs_tol=0.01):
             conflicts.append({"report_date": day, "field": field, "akshare_value": value, "ifind_value": number(secondary["value"]), "akshare_source": source, "ifind_source": secondary["source"], "ifind_source_date": secondary["source_date"], "status": "unresolved_excluded"})
             provenance[f"{day}.{field}"] = {"status": "unresolved_conflict", "unit": "CNY", "report_date": day}
@@ -342,6 +353,8 @@ def resolve(code, day, field, statements, supplement, provenance, conflicts, aso
         source = {"provider": "iFind/manual verified import", "file": "02_原始资料/05_iFind数据/supplement.csv", "indicator": secondary["source"], "report_date": day, "source_date": secondary["source_date"], "unit": "CNY"}
     else:
         return None
+    if field == "basic_eps":
+        source["unit"] = "CNY/share"
     provenance[f"{day}.{field}"] = source
     return value
 
@@ -467,7 +480,7 @@ def metrics_for(code, supplement, asof):
     statements = {kind: report_rows(code, kind, asof) for kind in STATEMENTS}
     provenance, conflicts = {}, []
     quarter_ends = ("03-31", "06-30", "09-30", "12-31")
-    days = sorted({f"{y}-12-31" for y in range(2015, 2026)} | {d for table in statements.values() for d in table if d[:4] in ("2025", "2026") and d[5:] in quarter_ends} | {d for c, d, _ in supplement if c == code and d[:4] in ("2025", "2026") and d[5:] in quarter_ends})
+    days = sorted({f"{y}-12-31" for y in range(BASELINE_YEAR, YEARS[-1] + 1)} | {d for table in statements.values() for d in table if d[:4] in ("2025", "2026") and d[5:] in quarter_ends} | {d for c, d, _ in supplement if c == code and d[:4] in ("2025", "2026") and d[5:] in quarter_ends})
     records = {}
     for day in days:
         if day > asof:
@@ -487,6 +500,7 @@ def metrics_for(code, supplement, asof):
             provenance[f"{day}.amortization"] = {"provider": "AKShare/东方财富", "api": STATEMENTS["cashflow"], "file": f"02_原始资料/04_AkShare数据/cashflow/{code}.csv", "columns": ["IA_AMORTIZE", "LPE_AMORTIZE"], "formula": "sum of two disclosed components", "report_date": day, "unit": "CNY"}
         prev = records.get(f"{int(day[:4])-1}{day[4:]}")
         derive(row, prev, provenance, day)
+        enrich(row, prev, records, provenance, day)
         records[day] = row
     annual = [{k: r.get(k) for k in ("year", "report_date", "period", *DISPLAY, "fcff_adjustment")} for d, r in records.items() if d.endswith("12-31") and int(d[:4]) in YEARS]
     quarters = [{k: r.get(k) for k in ("year", "report_date", "period", *DISPLAY, "fcff_adjustment")} for d, r in records.items() if d[:4] in ("2025", "2026") and not d.endswith("12-31") and any(r.get(k) is not None for k in DISPLAY)]
@@ -812,6 +826,7 @@ def dividend_package(code, asof, price, annual, share_row=None):
     latest_year = max((r["year"] for r in annual if r.get("revenue") is not None), default=None)
     events = read_dividend_events(code, asof)
     closes = price_closes(code, asof)
+    year_end_sources = {row.get("日期"): {"provider": row.get("source") or "历史未复权年末价快照", "file": f"02_原始资料/04_AkShare数据/price_year_end/{code}.csv", "api_endpoint": row.get("source_url"), "retrieved_at": row.get("retrieved_at")} for row in load_csv(RAW / "price_year_end" / f"{code}.csv")}
     profits = {r["year"]: r.get("net_profit") for r in annual}
     method = "年度股息率 = 该会计年度已实施现金分红（元/10股）合计 / 10 / 未复权收盘价。当前股息率用最新快照收盘价；历年曲线用年末收盘价。中期和末期按归属年度相加。预披露、未除权方案不计入。无该年记录保留缺失；已实施记录明确为零才记零。股数不足不推算派现总额。"
     if events is None or latest_year is None:
@@ -822,6 +837,8 @@ def dividend_package(code, asof, price, annual, share_row=None):
         cash = sum(ev["cash_per_10_shares"] for ev in selected) if selected else None
         dps = cash / 10 if cash is not None else None
         ye = close_on_or_before(closes, f"{year}-12-31")
+        if ye and not ye[0].startswith(f"{year}-"):
+            ye = None
         yld = dps / ye[1] * 100 if ye and dps is not None else None
         payout = None
         profit = profits.get(year)
@@ -839,6 +856,7 @@ def dividend_package(code, asof, price, annual, share_row=None):
             "yield_pct": round(yld, 4) if yld is not None else None,
             "year_end_price": ye[1] if ye else None,
             "year_end_price_date": ye[0] if ye else None,
+            "year_end_price_source": year_end_sources.get(ye[0]) if ye else None,
             "payout_pct": round(payout, 2) if payout is not None else None,
             "cash_total_CNY": total_paid,
             "cash_status": "implemented" if selected and total_paid is not None else "observed_zero" if total_paid == 0 else "missing_evidence",
@@ -1085,6 +1103,28 @@ def _sample_monitoring(companies):
     }
 
 
+def sample_financial_trends(asof, supplements):
+    """Compact same-period aggregates; keep old interim rows out of scoring inputs."""
+    fields = ("revenue", "net_profit", "cfo", "inventory", "contract_liabilities")
+    values = {}
+    for code in COMPANIES:
+        statements = {kind: report_rows(code, kind, asof) for kind in STATEMENTS}
+        days = {day for table in statements.values() for day in table}
+        days |= {day for company, day, _ in supplements if company == code}
+        for day in days:
+            if not BASELINE_DATE <= day <= asof:
+                continue
+            for field in fields:
+                value = resolve(code, day, field, statements, supplements, {}, [], asof)
+                values.setdefault(day, {}).setdefault(field, {})[code] = value
+    result = []
+    for day, field_values in sorted(values.items()):
+        counts = {field: sum(value is not None for value in field_values.get(field, {}).values()) for field in fields}
+        result.append({"report_date": day, "coverage": counts, "sample_count": len(COMPANIES),
+                       **{field: sum(field_values[field].values()) if counts[field] == len(COMPANIES) else None for field in fields}})
+    return result
+
+
 def build(asof=None):
     asof = asof or date.today().isoformat()
     supplements = supplement_rows()
@@ -1100,7 +1140,9 @@ def build(asof=None):
         shares = share_data.get(code)
         dividend = dividend_package(code, asof, price, annual, shares)
         stamp_dividend(annual, dividend)
+        valuation_history(annual, dividend, sources)
         company = {"code": code, "name": name, "annual": annual, "quarterly": quarters,
+                   "annual_baseline": {key: records.get(f"{BASELINE_YEAR}-12-31", {}).get(key) for key in ("year", "report_date", *DISPLAY)},
                    "latest": quarters[-1] if quarters else annual[-1],
                    "dcf": dcf(records, annual, price, shares["shares"] if shares else None), "price": price, "shares": shares,
                    "dividend": dividend, "dividends": dividend_observations(code, asof),
@@ -1115,7 +1157,7 @@ def build(asof=None):
     for company in companies:
         company["score"].setdefault("rank", None)
     stamp = datetime.now(timezone.utc).isoformat()
-    payload = {"generated_at": stamp, "as_of": asof, "companies": companies, "prices": prices, "model": PARAMETERS}
+    payload = {"generated_at": stamp, "as_of": asof, "history": {"start_year": YEARS[0], "end_year": YEARS[-1], "baseline_year": BASELINE_YEAR, "years": len(YEARS), "scope": "current_constituents_historical_disclosures_not_historical_industry_membership"}, "companies": companies, "prices": prices, "model": PARAMETERS, "financial_metrics": CATALOG}
     n = len(companies)
     labels = {"revenue": "营业收入合计", "net_profit": "归母净利润合计", "cfo": "经营现金流合计"}
     sample_series = []
@@ -1128,6 +1170,9 @@ def build(asof=None):
         sample_series.append({"key": field, "name": f"申万白酒Ⅲ{n}家{label}", "unit": "CNY", "scope": "listed_sample_not_industry",
                               "source": "申万白酒Ⅲ上市公司同一完整年度的 AKShare 财报字段求和；逐项来源见 data.json", "points": points})
     industry = {"generated_at": stamp, "series": [], "sample_series": sample_series, "monitoring": _sample_monitoring(companies), "sample": {"codes": list(COMPANIES), "count": n, "representative": False, "classification": "申万三级白酒Ⅲ 851251.SI", "as_of_constituents": "2026-10-09", "status": "no_verified_industry_aggregate", "note": f"这是申万白酒Ⅲ {n} 家上市公司样本，不是白酒行业总体。未上市的郎酒、剑南春不在其中；顺鑫农业虽在该成分内，但业务含农业。未取得可靠同口径全行业序列。"}, "observations": []}
+    industry["financial_trends"] = sample_financial_trends(asof, supplements)
+    industry["as_of"] = asof
+    industry["research"] = build_research(companies, industry["financial_trends"], asof)
     return payload, industry
 
 
@@ -1141,20 +1186,21 @@ PNL_FIELDS = {
 }
 
 
-def write_pnl():
+def write_pnl(asof=None):
     """年报利润流向。金额为亿元，只取利润表年报，不把中报累计年化。"""
     result = {}
     for code in COMPANIES:
         years = {}
-        for row in load_csv(RAW / "income" / f"{code}.csv"):
+        for row in report_rows(code, "income", asof or date.today().isoformat()).values():
             if row.get("REPORT_TYPE") != "年报":
                 continue
             day = clean_date(row.get("REPORT_DATE"))
-            if not day or not day.endswith("12-31"):
+            if not day or not day.endswith("12-31") or int(day[:4]) not in YEARS:
                 continue
             item = {}
             for key, col in PNL_FIELDS.items():
-                value = number(row.get(col))
+                columns = EXTRA_FIELDS["research_expense"][1] if key == "research" else (col,)
+                value = next((number(row.get(column)) for column in columns if number(row.get(column)) is not None), None)
                 item[key] = round(value / 1e8, 2) if value is not None else None
             years[day[:4]] = item
         result[code] = {"year_list": sorted(years), "years": years}
@@ -1181,7 +1227,7 @@ def main(argv=None):
     for company in payload["companies"]:
         dump(OUT / "stock_data" / (company["code"] + ".json"), company)
     dump(OUT / "industry.json", industry)
-    write_pnl()
+    write_pnl(args.as_of)
     print(f"输出 {len(payload['companies'])} 家；可排名 {sum(c['score']['rankable'] for c in payload['companies'])} 家；可与现价比较的 DCF {sum(c['dcf'].get('price_comparable') is True for c in payload['companies'])} 家")
     return result
 

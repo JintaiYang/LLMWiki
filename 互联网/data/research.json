@@ -1,0 +1,7 @@
+[
+  {"type":"基金发行人研究","title":"KraneShares · Summer 2026 China Internet Quarterly Earnings Report","url":"https://kraneshares.com/reports/summer-2026-china-internet-quarterly-earnings-report/","date":"2026-09-09","finding":"公开摘要按子行业和公司业绩展开，重点观察中国AI模型商业化及互联网企业业务边界变化。已阅读公开摘要，注册下载的报告正文未获取。","application":"子行业分类、收入增长、AI收入与现金投入跟踪；不将11家公司样本等同完整指数。"},
+  {"type":"基金发行人研究","title":"KraneShares · Can AI Chip Design Help Baidu & Alibaba Unlock Shareholder Value?","url":"https://kraneshares.com/can-ai-chip-design-help-baidu-alibaba-unlock-shareholder-value/","date":"2026-04-17","finding":"研究采用SOTP拆解综合平台中的云、AI芯片及其他业务。分部估值依赖收入、持股和可比估值假设，具有较大不确定性。","application":"估值独立于质量评分；采用核心业务、AI与投资组合的分部框架，避免按集团PE掩盖业务差异。"},
+  {"type":"基金发行人资料","title":"KraneShares · KWEB 产品与指数说明","url":"https://kraneshares.com/kweb/","date":"2026-10-16","finding":"产品覆盖境外上市中国互联网及相关科技公司，上市地点含港交所、NASDAQ及NYSE。","application":"港美上市经济实体去重；财务币种与行情币种单独保存；当前样本并非指数复制。"},
+  {"type":"官方业绩PDF","title":"腾讯 · 2026年第二季度业绩公告","url":"https://www.tencent.com/wp-content/uploads/2026/08/Tencent-Announces-2026-Second-Quarter-Results.pdf","date":"2026-08-12","finding":"公告区分资本开支确认、现金付款、内容与租赁付款；AI采购预付款也会影响经营现金流。","application":"公司披露FCF与统一代理FCF分开；加入现金CapEx/CFO、SBC、利润兑现与实际现金压力。"},
+  {"type":"券商摘要二手线索","title":"iFinD检索 · 2026互联网业绩与竞争研究摘要","url":"https://www.cls.cn/detail/2322995","date":"2026-03-24","finding":"检索摘要出现对电商竞争、分部利润、UE、云增长及远期PE的关注；仅作为定位研究方向的二手线索，未获取券商完整原文。","application":"电商、本地生活、云和内容平台分别保留经营跟踪清单，不将摘要中的预测当作已实现财务值。"}
+]

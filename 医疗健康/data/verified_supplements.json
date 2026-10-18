@@ -1,0 +1,20 @@
+{
+  "verified": "2026-10-18",
+  "method": "AKShare三大报表及关键指标缺少对应附注项目后，提取年度报告PDF；不覆盖已有AKShare字段。仅作为独立产业观察，不计入财务评分。",
+  "records": [
+    {"code":"600276","period":"20251231","field":"rd_total","label":"研发投入合计","value":8723852446.23,"unit":"元","pdf_page":61,"file":"600276_2025.pdf","note":"费用化与资本化研发投入之和"},
+    {"code":"600276","period":"20251231","field":"rd_capitalized","label":"资本化研发投入","value":1762697033,"unit":"元","pdf_page":61,"file":"600276_2025.pdf","note":"当期流量；不以开发支出余额替代"},
+    {"code":"600276","period":"20251231","field":"license_revenue","label":"对外许可收入","value":3392409960.56,"unit":"元","pdf_page":203,"file":"600276_2025.pdf","note":"合并口径许可收入；不是签约总额或全部到账款"},
+    {"code":"300760","period":"20251231","field":"rd_total","label":"研发投入合计","value":3928860837,"unit":"元","pdf_page":112,"file":"300760_2025.pdf","note":"年报研发投入表"},
+    {"code":"300760","period":"20251231","field":"rd_capitalized","label":"资本化研发投入","value":350168630,"unit":"元","pdf_page":112,"file":"300760_2025.pdf","note":"年报研发投入表；资本化率8.91%"},
+    {"code":"300760","period":"20241231","field":"rd_total","label":"研发投入合计","value":4008274031,"unit":"元","pdf_page":112,"file":"300760_2025.pdf","note":"2025年报披露的2024对比数"},
+    {"code":"300760","period":"20241231","field":"rd_capitalized","label":"资本化研发投入","value":342413446,"unit":"元","pdf_page":112,"file":"300760_2025.pdf","note":"2025年报披露的2024对比数"},
+    {"code":"300760","period":"20231231","field":"rd_total","label":"研发投入合计","value":3779010749,"unit":"元","pdf_page":112,"file":"300760_2025.pdf","note":"2025年报披露的2023对比数"},
+    {"code":"300760","period":"20231231","field":"rd_capitalized","label":"资本化研发投入","value":346352017,"unit":"元","pdf_page":112,"file":"300760_2025.pdf","note":"2025年报披露的2023对比数"},
+    {"code":"300760","period":"20251231","field":"overseas_revenue","label":"国际业务收入","value":17650375200,"unit":"元","pdf_page":24,"file":"300760_2025.pdf","note":"原文1,765,037.52万元，转换为人民币元"},
+    {"code":"603259","period":"20251231","field":"backlog","label":"持续经营业务在手订单","value":58000000000,"unit":"元","pdf_page":11,"file":"603259_2025.pdf","note":"原文580.0亿元；订单为期末存量，不等于当期收入或未来保证收入"},
+    {"code":"603259","period":"20251231","field":"continuing_revenue","label":"持续经营业务收入","value":43420000000,"unit":"元","pdf_page":11,"file":"603259_2025.pdf","note":"原文434.2亿元；与合并营业收入454.56亿元口径不同"},
+    {"code":"300015","period":"20251231","field":"visits","label":"门诊量","value":18891700,"unit":"人次","pdf_page":23,"file":"300015_2025.pdf","note":"原文1,889.17万人次；非独立患者人数"},
+    {"code":"300015","period":"20251231","field":"surgeries","label":"手术量","value":1680000,"unit":"例","pdf_page":23,"file":"300015_2025.pdf","note":"原文168万例"}
+  ]
+}

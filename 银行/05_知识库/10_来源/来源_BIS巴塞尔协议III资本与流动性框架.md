@@ -4,7 +4,7 @@ note_type: source_note
 status: active
 created: 2026-07-22
 updated: 2026-07-22
-data_cutoff: 2026-07-22
+data_cutoff: 2026-09-27
 report_period: NA
 evidence_level: high
 evidence_class: official_fact

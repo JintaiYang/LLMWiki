@@ -1,0 +1,17 @@
+"use strict";
+const assert = require("node:assert/strict");
+const K = require("../dashboard/knowledge-core.js");
+const pack = require("../dashboard/knowledge.json");
+const company = "600519";
+assert.equal(K.related(pack, company, "cfi", "2025").filter((e) => e.kind === "report").length, 2);
+assert.equal(K.related(pack, company, "cff", "2025").filter((e) => e.kind === "report").length, 1);
+assert.equal(K.related(pack, company, "cfi", "2026-06-30").filter((e) => e.kind === "report").length, 0);
+assert.equal(K.related(pack, company, "cfi", "2024").filter((e) => e.kind === "report").length, 0, "Reference period is not an applicable period");
+assert.equal(K.related(pack, "000858", "cfi", "2025").filter((e) => e.kind === "report").length, 0, "Company facts are isolated");
+assert(K.related(pack, "000858", "cfi", "2025").some((e) => e.kind === "general"));
+assert(K.matches(pack.entries[2], { query: "邮储银行" }));
+assert(!K.matches(pack.entries[2], { metric: "net_profit" }));
+assert.match(K.href({ company, metric: "cfi", period: "2025" }, "abc"), /period=2025-12-31#abc/);
+assert.match(K.metricLink(pack, company, "cfi", "2024"), /period=2024-12-31/);
+assert.equal(K.esc('<img src=x onerror="bad">'), "&lt;img src=x onerror=&quot;bad&quot;&gt;");
+console.log("Knowledge company, metric, exact reporting period, reference-period separation, universal methods and links OK");

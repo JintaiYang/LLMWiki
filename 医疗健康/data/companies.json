@@ -1,0 +1,177 @@
+[
+  {
+    "code": "600276",
+    "name": "恒瑞医药",
+    "profile": "制药",
+    "sector": "创新药与化药",
+    "stage": "operating"
+  },
+  {
+    "code": "002422",
+    "name": "科伦药业",
+    "profile": "制药",
+    "sector": "创新药与化药",
+    "stage": "operating"
+  },
+  {
+    "code": "688235",
+    "name": "百济神州",
+    "profile": "制药",
+    "sector": "创新药与化药",
+    "stage": "biotech"
+  },
+  {
+    "code": "300122",
+    "name": "智飞生物",
+    "profile": "生物制品",
+    "sector": "生物制品",
+    "stage": "operating"
+  },
+  {
+    "code": "000661",
+    "name": "长春高新",
+    "profile": "生物制品",
+    "sector": "生物制品",
+    "stage": "operating"
+  },
+  {
+    "code": "300601",
+    "name": "康泰生物",
+    "profile": "生物制品",
+    "sector": "生物制品",
+    "stage": "operating"
+  },
+  {
+    "code": "000538",
+    "name": "云南白药",
+    "profile": "中药",
+    "sector": "中药",
+    "stage": "operating"
+  },
+  {
+    "code": "600436",
+    "name": "片仔癀",
+    "profile": "中药",
+    "sector": "中药",
+    "stage": "operating"
+  },
+  {
+    "code": "600085",
+    "name": "同仁堂",
+    "profile": "中药",
+    "sector": "中药",
+    "stage": "operating"
+  },
+  {
+    "code": "300760",
+    "name": "迈瑞医疗",
+    "profile": "器械",
+    "sector": "医疗器械",
+    "stage": "operating"
+  },
+  {
+    "code": "688271",
+    "name": "联影医疗",
+    "profile": "器械",
+    "sector": "医疗器械",
+    "stage": "operating"
+  },
+  {
+    "code": "688617",
+    "name": "惠泰医疗",
+    "profile": "器械",
+    "sector": "医疗器械",
+    "stage": "operating"
+  },
+  {
+    "code": "603259",
+    "name": "药明康德",
+    "profile": "CXO",
+    "sector": "CXO",
+    "stage": "operating"
+  },
+  {
+    "code": "300759",
+    "name": "康龙化成",
+    "profile": "CXO",
+    "sector": "CXO",
+    "stage": "operating"
+  },
+  {
+    "code": "300347",
+    "name": "泰格医药",
+    "profile": "CXO",
+    "sector": "CXO",
+    "stage": "operating"
+  },
+  {
+    "code": "300015",
+    "name": "爱尔眼科",
+    "profile": "服务",
+    "sector": "医疗服务",
+    "stage": "operating"
+  },
+  {
+    "code": "600763",
+    "name": "通策医疗",
+    "profile": "服务",
+    "sector": "医疗服务",
+    "stage": "operating"
+  },
+  {
+    "code": "000516",
+    "name": "国际医学",
+    "profile": "服务",
+    "sector": "医疗服务",
+    "stage": "operating"
+  },
+  {
+    "code": "601607",
+    "name": "上海医药",
+    "profile": "流通",
+    "sector": "医药流通",
+    "stage": "operating"
+  },
+  {
+    "code": "600998",
+    "name": "九州通",
+    "profile": "流通",
+    "sector": "医药流通",
+    "stage": "operating"
+  },
+  {
+    "code": "000028",
+    "name": "国药一致",
+    "profile": "流通",
+    "sector": "医药流通",
+    "stage": "operating"
+  },
+  {
+    "code": "603939",
+    "name": "益丰药房",
+    "profile": "零售",
+    "sector": "连锁药店",
+    "stage": "operating"
+  },
+  {
+    "code": "603233",
+    "name": "大参林",
+    "profile": "零售",
+    "sector": "连锁药店",
+    "stage": "operating"
+  },
+  {
+    "code": "603883",
+    "name": "老百姓",
+    "profile": "零售",
+    "sector": "连锁药店",
+    "stage": "operating"
+  },
+  {
+    "code": "688266",
+    "name": "泽璟制药",
+    "profile": "制药",
+    "sector": "创新药与化药",
+    "stage": "biotech"
+  }
+]
