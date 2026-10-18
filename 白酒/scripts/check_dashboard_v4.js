@@ -7,6 +7,8 @@ const { chromium } = require("playwright");
 
 const base = process.env.LIQUOR_DASHBOARD_URL || "http://127.0.0.1:8766/";
 const output = process.env.LIQUOR_SCREENSHOTS || "/tmp/liquor-v4-qa";
+const data = require("../dashboard/data.json");
+const { classify } = require("../dashboard/company-style.js");
 
 async function main() {
   fs.mkdirSync(output, { recursive: true });
@@ -152,7 +154,7 @@ async function main() {
     await page.waitForFunction(() => Chart.getChart(document.getElementById("ind-cash")).isDatasetVisible(0) === true);
     await go("index.html");
     await page.locator('[data-style-filter="missing"]').click();
-    assert.equal(await page.locator("#comparison-table tbody tr").count(), 1);
+    assert.equal(await page.locator("#comparison-table tbody tr").count(), data.companies.filter((c) => classify(c, 2025).id === "missing").length);
     await page.locator('[data-style-filter="all"]').click();
     await page.locator('#comparison-mode').click();
     await page.locator('[data-select="600519"]').check();

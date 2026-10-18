@@ -42,7 +42,7 @@
     basic_eps: "EPS = 基本每股收益。采用财报披露的加权平均股数口径，不是简单用净利润除以年末股数。",
     current_pe: "静态PE = 当前快照收盘价 × 同日总股本 / 最新完整年归母净利润。表示以过去一年利润计算的价格倍数，非TTM；亏损时不适用。",
     cfo_conversion: "五年累计经营现金转化：五年CFO合计 / 同期合并净利润合计，观察账面利润有多少现金支撑。不是单年度净现比。",
-    style_tag: "估值×基本面是研究分类：结合V5财务分、静态PE和已实施股息率。低估标签只代表本项目价格阈值，未核验为DCF内在价值低估；完整规则见评分方法。",
+    style_tag: "估值×基本面结合V5财务分与最新完整年报现金流计算的基准DCF。现价低于已核验可比的DCF每股价值时判为低估；净现金、股本或估值输入未核验时标记DCF估值待核验，不用PE或股息率替代。完整规则见评分方法。",
     pp: "pp = percentage points，百分点。利润率从20%升到22%，变化为+2 pp；相对增幅则是10%，两者不同。",
   };
   const explainedMetrics = new Set(["cfi", "cff", "fcff", "roic", "owner_fcf", "capex_intensity", "current_ratio", "quick_ratio_multiple", "contract_liabilities", "cfo_conversion", "fcf_conversion", "liquidity_constraint", "other_receivables_constraint", "receivables_constraint", "style_tag", "pp"]);
@@ -404,7 +404,7 @@
     }) })).filter((group) => group.columns.length);
   }
   function comparisonColumns() {
-    return [comparisonColumn("score", "财务质量", "score", "V5 最终财务分；缺关键项时总分留空", "分 / 100"), comparisonColumn("style_tag", "估值×基本面", "style", "静态PE与已实施股息率结合V5财务分；研究阈值见评分方法，按分类序号排序", ""), ...selectedComparisonGroups().flatMap((group) => group.columns)];
+    return [comparisonColumn("score", "财务质量", "score", "V5 最终财务分；缺关键项时总分留空", "分 / 100"), comparisonColumn("style_tag", "估值×基本面", "style", "最新年报基准DCF结合V5财务分；净现金未核验时暂不判断低估，按分类序号排序", ""), ...selectedComparisonGroups().flatMap((group) => group.columns)];
   }
   function comparisonTagFilters() {
     const tags = Object.entries(window.LiquorCompanyStyle.tags).sort((a, b) => a[1][2] - b[1][2]);
@@ -882,10 +882,10 @@
     const rates = [...new Set(sens.map((r) => r.effective_discount_rate ?? r.discount_rate))].sort((a,b) => a-b);
     const terms = [...new Set(sens.map((r) => r.terminal_growth))].sort((a,b) => a-b);
     const heatmap = rates.length ? `<div class="table-wrap"><table class="heatmap"><thead><tr><th>永续增长 / 折现率</th>${rates.map((r) => `<th>${pct(r * 100)}</th>`).join("")}</tr></thead><tbody>${terms.map((t) => `<tr><td>${pct(t * 100)}</td>${rates.map((r) => { const hit = sens.find((s) => s.terminal_growth === t && (s.effective_discount_rate ?? s.discount_rate) === r); return `<td style="background:rgba(8,127,112,${.03 + Math.max(0, Math.min(.14, (.13 - r) * 2 + t * 2))})">${fmt(hit?.value_per_share)}</td>`; }).join("")}</tr>`).join("")}</tbody></table></div>` : "";
-    return `<div class="banner warning">${d.price_comparable ? "净现金已核验；估值仍为研究情景。" : "债务组成未核验，当前价值代理不能直接与股价比较，不显示低估或安全边际结论。"} 基数：${esc(d.base_label || "数据不足").replace("owner FCF", "简化自由现金流").replace("FCFF", "企业自由现金流")}，${fmt(yi(d.base_cash_flow_CNY))} 亿元。</div>`
-      + `<div class="table-wrap"><table><thead><tr><th>情景</th><th>起始增长</th><th>永续增长</th><th>折现率</th><th>${label} / 元</th><th>安全边际</th></tr></thead><tbody>${rows || '<tr><td colspan="6" class="table-empty">连续三年现金流不足、非正或缺少股本，不外推价值</td></tr>'}</tbody></table></div>`
+    return `<div class="banner warning">${!scenarios.length ? "最新年报现金流缺失、非正或股本不足，暂不外推价值。" : d.price_comparable ? "净现金已核验；估值仍为研究情景。" : "债务组成未核验，当前价值代理不能直接与股价比较，不显示低估或安全边际结论。"} 基数：${esc(d.base_label || "数据不足").replace("owner FCF", "简化自由现金流").replace("FCFF", "企业自由现金流")}，${fmt(yi(d.base_cash_flow_CNY))} 亿元。直接取最新完整年报，不作多年平均或中位数平滑。</div>`
+      + `<div class="table-wrap"><table><thead><tr><th>情景</th><th>起始增长</th><th>永续增长</th><th>折现率</th><th>${label} / 元</th><th>安全边际</th></tr></thead><tbody>${rows || '<tr><td colspan="6" class="table-empty">最新年报现金流缺失、非正或缺少股本，不外推价值</td></tr>'}</tbody></table></div>`
       + (heatmap ? `<details class="disclosure"><summary>估值敏感性 · ${label} / 元</summary>${heatmap}<p class="score-caption">现金流基数固定为 100%；仅改变折现率与永续增长，其他假设不变。</p></details>` : "")
-      + `<details class="disclosure"><summary>估值输入与边界</summary><div class="table-wrap"><table><thead><tr><th>年度</th><th>CFO / 亿元</th><th>资本开支 / 亿元</th><th>简化 FCF / 亿元</th><th>FCFF / 亿元</th></tr></thead><tbody>${bridge}</tbody></table></div><p class="score-caption">预测五年、增长逐步收敛。FCFF 按资本成本折现；简化 FCF 路径使用股权成本代理。全部资本开支尚未分成维持与扩张，营收增速仅作增长代理；永续增长与再投资尚未构建完整经营驱动联动，因此本模型属于简化外推。</p><p class="score-caption">严格成熟企业估值需约束：再投资率 = 永续增长率 / 稳态资本回报率。财报债务、超额现金及维持性投资未核验时，不应把外推值视为目标价。</p></details>`;
+      + `<details class="disclosure"><summary>估值输入与边界</summary><p class="score-caption">下表历史年度仅供对照；基数只采用 ${d.base_year || "最新"} 年报。${esc(d.assumptions || "")}</p><div class="table-wrap"><table><thead><tr><th>年度</th><th>CFO / 亿元</th><th>资本开支 / 亿元</th><th>简化 FCF / 亿元</th><th>FCFF / 亿元</th></tr></thead><tbody>${bridge}</tbody></table></div><p class="score-caption">预测五年、增长逐步收敛。FCFF 按资本成本折现；简化 FCF 路径使用股权成本代理。全部资本开支尚未分成维持与扩张，营收增速仅作增长代理；永续增长与再投资尚未构建完整经营驱动联动，因此本模型属于简化外推。</p><p class="score-caption">严格成熟企业估值需约束：再投资率 = 永续增长率 / 稳态资本回报率。财报债务、超额现金及维持性投资未核验时，不应把外推值视为目标价。</p></details>`;
   }
 
   function renderFormula() {
@@ -897,7 +897,7 @@
       + section("formula-example", c.name + " · 得分拆解", `${s.window_years.join(" / ")} · 年报与已实施分红`, `<div class="formula-steps"><div class="formula-step"><span>01 · 原始财务分</span><strong>${fmt(s.raw_total)}</strong></div><div class="formula-step"><span>02 · 风险上限</span><strong>${s.risk_cap}</strong></div><div class="formula-step"><span>03 · 最终财务分</span><strong class="positive">${scoreText(c)}</strong></div></div>${s.total == null ? `<div class="banner warning">缺项不补零、不提高其他指标权重。已知贡献 ${fmt(s.known_points)}，可能区间 ${s.score_range?.map((v) => fmt(v)).join("–") || "—"}，暂不排名。</div>` : ""}${s.risk_gates.length ? `<div class="banner warning">${s.risk_gates.map((r) => `${esc(r.label)}：上限 ${r.cap}`).join("；")}</div>` : ""}${scoreDetail(c)}`)
       + section("formula-liquidity", c.name + " · 流动性复合约束", "C1 · 满分 10 · 最新年与五年中位系数取较小值", `<p class="score-caption">每年先取现金覆盖得分系数与速动比率得分系数的较小值。现金比率从 20% 至 100% 线性计分，速动比率从 50% 至 150% 线性计分，均截断至 0–1。两项不叠加奖励。</p>${liquidityDetail(c)}`)
       + section("formula-rules", "缺项、已知零值与风险闸门", "五个完整年度 · 固定绝对锚点", `<div class="method-grid"><div><h3>口径与最新年约束</h3><p>CFO 与合并净利匹配，分红与归母净利匹配。五年 CAGR 另取窗口首年前一年。非经常收益及两类应收取最新年与历史中较差者；流动性也约束最新年。</p></div><div><h3>零、亏损、缺失分开</h3><p>已核验零分红计零；累计净利非正的现金转化或派现率计零并标经济无效。缺项保留区间，不补零、不归一化。净值零也要核对账面余额和坏账准备。</p></div><div><h3>风险上限</h3><p>${state.data.model.risk_rules.map((r) => `${esc(r.label)} ≤ ${r.cap} 分`).join("；")}。多个闸门取最低上限。三年简化 FCF 合计非正保留复核提示，不自动压至 59 分。</p></div><div><h3>财务代理的边界</h3><p>ROIC 缺项 ${missingRoc} / ${state.companies.length * 5}，不使用 ROE 替代。货币资金未扣受限、流动负债含合同负债，流动性分不等于严格偿债安全。存货与合同负债不直接计分。</p></div></div>`)
-      + section("formula-style", "估值×基本面", "静态PE / 已实施股息率观察 · 独立于100分财务评分", `<div class="method-grid"><div><h3>价格与财报口径</h3><p>现价静态PE = 同日收盘价 × 总股本 / ${lastAnnualYear()}A归母净利润，非TTM。股息率采用该年度已实施分红与行情快照价格，分类不外推未来分红。</p></div><div><h3>价格观察阈值</h3><p>静态PE ≤ 15倍，或已实施股息率 ≥ 4.5%且年度派现率在0–100%，进入价格较低观察；PE ≥ 30倍时取消该判断。阈值为本项目研究假设，未经回测，不代表DCF内在价值低估。</p></div><div><h3>五类交叉标签</h3><p>V5 ≥ 80分视作财务较强，结合价格观察分为“质优低估”或“质优不便宜”；低于80分时分为“低估质弱”或“质弱价格一般”。价格较低且经营韧性得分不足该维满分50%时，提示“价值陷阱风险”。</p></div><div><h3>缺项与边界</h3><p>亏损或零利润显示“亏损估值不适用”；缺少关键评分、正利润、同日股价/股本或必要维度时显示“分类资料不足”。标签按上述五类、亏损、资料不足排序；不改变V5分数，也不将未核验净现金视为零。</p></div></div>`)
+      + section("formula-style", "估值×基本面", "最新年报基准DCF · 独立于100分财务评分", `<div class="method-grid"><div><h3>最新年报基数</h3><p>直接取最新完整年报的FCFF；缺失或非正时回退同年简化FCF，不取多年平均或中位数。同年回退值仍不可用时，不使用旧年度正现金流替代。</p></div><div><h3>低估与不便宜</h3><p>只使用已核验可比的基准DCF每股价值。安全边际 = 1 − 现价 / 基准每股价值；大于0时进入低估观察，否则归为不便宜。PE和股息率继续作为独立参考，不参与标签判断。DCF参数为研究假设，未经收益回测。</p></div><div><h3>五类交叉标签</h3><p>V5 ≥ 80分视作财务较强，结合DCF价格判断分为“质优低估”或“质优不便宜”；低于80分时分为“低估质弱”或“质弱价格一般”。DCF低估且经营韧性得分不足该维满分50%时，提示“价值陷阱风险”。</p></div><div><h3>缺项与边界</h3><p>亏损或零利润显示“亏损估值不适用”；最新年现金流非正且无可用回退值显示“现金流非正，DCF不适用”。净现金、同日股价/股本、最新年报DCF或财务分未核验时，显示“DCF估值待核验”。未加净现金的每股价值代理不与现价比较，不将空债务字段当作零。</p></div></div>`)
       + section("formula-safety", "独立安全核验", "财务观察分完整，不等于风险已核验通过", safetyDetail(c))
       + section("formula-changes", "从 V4 到 V5", "依据《手把手教你读财报》的三表交叉验证", `<div class="table-wrap"><table class="wrap-table"><thead><tr><th>V4 项目</th><th>V5 处理</th><th>依据</th></tr></thead><tbody>${[
         ["盈利 25：利润率低谷保持率", "ROA 8、营业利润率 10、非经常收益依赖 7", "补充收益来源验证，防止把报表营业利润当作纯主业盈利"],

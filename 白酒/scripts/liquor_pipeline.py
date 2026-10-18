@@ -86,6 +86,7 @@ PARAMETERS = {
         "growth_anchor_bounds": [-0.05, 0.06],
         "scenario_growth_bounds": [-0.10, 0.08],
         "scenario_growth_offsets": {"悲观": -0.05, "基准": 0, "乐观": 0.03},
+        "base_policy": "latest_annual_only",
     },
 }
 
@@ -936,18 +937,20 @@ def project_equity(base, growth, terminal_growth, discount_rate, shares, net_cas
             "value_per_share": equity_value / shares}
 
 
-def dcf_growth_anchor(annual):
+def dcf_growth_anchor(annual, anchor_year=None):
     rows = {row.get("year"): row for row in annual}
-    trend = cagr(rows.get(2022, {}).get("revenue"), rows.get(2025, {}).get("revenue"), 3)
+    anchor_year = anchor_year if anchor_year is not None else max(rows, default=YEARS[-1])
+    start_year = anchor_year - 3
+    trend = cagr(rows.get(start_year, {}).get("revenue"), rows.get(anchor_year, {}).get("revenue"), 3)
     lower, upper = PARAMETERS["dcf"]["growth_anchor_bounds"]
     anchor = max(lower, min(upper, trend / 100)) if trend is not None else PARAMETERS["dcf"]["基准"]["growth"]
     return {"anchor": anchor, "revenue_cagr_3y": trend / 100 if trend is not None else None,
-            "years": [2022, 2025], "bounds": [lower, upper],
+            "years": [start_year, anchor_year], "bounds": [lower, upper],
             "status": "derived_trend_assumption" if trend is not None else "default_research_assumption",
-            "method": "2022-2025 revenue CAGR clipped to mature-industry bounds; not a cash-flow forecast"}
+            "method": f"{start_year}-{anchor_year} revenue CAGR clipped to mature-industry bounds; not a cash-flow average"}
 
 
-def dcf_quotes(base, shares, price, net_cash, base_label, growth_anchor=None):
+def dcf_quotes(base, shares, price, net_cash, base_label, growth_anchor=None, anchor_year=2025):
     scenarios = []
     owner_path = "owner FCF" in base_label
     rate_adjustment = PARAMETERS["dcf"].get("owner_cost_of_equity_adjustment", 0) if owner_path else 0
@@ -958,7 +961,7 @@ def dcf_quotes(base, shares, price, net_cash, base_label, growth_anchor=None):
         growth = max(lower, min(upper, anchor + PARAMETERS["dcf"]["scenario_growth_offsets"][name]))
         assumptions = {**PARAMETERS["dcf"][name], "growth": growth}
         rate = assumptions["discount_rate"] + rate_adjustment
-        detail = project_equity(base, assumptions["growth"], assumptions["terminal_growth"], rate, shares, net_cash)
+        detail = project_equity(base, assumptions["growth"], assumptions["terminal_growth"], rate, shares, net_cash, anchor_year=anchor_year)
         fair = detail["value_per_share"]
         close = price.get("close") if price else None
         scenarios.append({
@@ -966,7 +969,7 @@ def dcf_quotes(base, shares, price, net_cash, base_label, growth_anchor=None):
             "value_per_share": round(fair, 2),
             "upside": round(fair / close - 1, 4) if close and fair > 0 and net_cash is not None else None,
             "margin_of_safety": round(1 - close / fair, 4) if close and fair > 0 and net_cash is not None else None,
-            "assumptions": {**assumptions, "discount_rate": rate, "rate_kind": rate_kind, "base_label": base_label, "base_cash_flow_CNY": base, "forecast_years": PARAMETERS["dcf"]["years"], "growth_fades_to_terminal": True},
+            "assumptions": {**assumptions, "discount_rate": rate, "rate_kind": rate_kind, "base_year": anchor_year, "base_label": base_label, "base_cash_flow_CNY": base, "forecast_years": PARAMETERS["dcf"]["years"], "growth_fades_to_terminal": True},
             "breakdown": detail,
         })
     sensitivity = []
@@ -976,7 +979,7 @@ def dcf_quotes(base, shares, price, net_cash, base_label, growth_anchor=None):
                 continue
             for multiplier in PARAMETERS["dcf"]["sensitivity_cash_flow_multiplier"]:
                 rate = discount_rate + rate_adjustment
-                detail = project_equity(base, anchor, terminal, rate, shares, net_cash, cash_flow_multiplier=multiplier)
+                detail = project_equity(base, anchor, terminal, rate, shares, net_cash, anchor_year=anchor_year, cash_flow_multiplier=multiplier)
                 sensitivity.append({"discount_rate": discount_rate, "effective_discount_rate": rate, "wacc": discount_rate, "terminal_growth": terminal,
                                     "growth": anchor, "cash_flow_multiplier": multiplier, "rate_kind": rate_kind,
                                     "value_per_share": round(detail["value_per_share"], 2),
@@ -985,9 +988,10 @@ def dcf_quotes(base, shares, price, net_cash, base_label, growth_anchor=None):
     return scenarios, sensitivity
 
 
-def owner_fcf_bridge(annual):
+def owner_fcf_bridge(annual, anchor_year=None):
     bridge = []
-    for year in (2023, 2024, 2025):
+    anchor_year = anchor_year if anchor_year is not None else max((r["year"] for r in annual), default=YEARS[-1])
+    for year in range(anchor_year - 2, anchor_year + 1):
         row = next((r for r in annual if r.get("year") == year), {})
         cfo, capex = row.get("cfo"), row.get("capex")
         owner_fcf = row.get("owner_fcf") if row.get("owner_fcf") is not None else cfo - capex if cfo is not None and capex is not None else None
@@ -996,37 +1000,35 @@ def owner_fcf_bridge(annual):
 
 
 def dcf(records, annual, price, shares=None):
-    bridge = owner_fcf_bridge(annual)
-    required_years = (2023, 2024, 2025)
-    assumptions = "FCFF 只取 2023A、2024A、2025A 三个连续完整年度的中位数；若这三年 FCFF 不完整或中位数非正，回退到同三年的 owner FCF = 经营现金流 - 资本开支，并使用成本权益率代理。owner FCF 未加入净借款，且未区分维持性与扩张性资本开支，不等同于严格 FCFE 或 Buffett owner earnings。基准起始增长由 2022A-2025A 营收 CAGR 限制在 -5% 至 6%；悲观下调 5 个百分点、乐观上调 3 个百分点，情景限制在 -10% 至 8%。趋势缺失时回退 3% 并标记默认假设。预测期 5 年，年度增长线性收敛到永续增长率。净现金只有货币资金、短期借款、长期借款和应付债券均有明确数字时才计入，空单元格不写成 0。"
-    rows_by_year = {r.get("year"): r for r in annual}
-    fcff_values = [rows_by_year.get(year, {}).get("fcff") for year in required_years]
-    owner_values = []
-    for year in required_years:
-        row = rows_by_year.get(year, {})
-        owner_values.append(row.get("owner_fcf") if row.get("owner_fcf") is not None else row.get("cfo") - row.get("capex") if row.get("cfo") is not None and row.get("capex") is not None else None)
-    fcff_complete = all(value is not None for value in fcff_values)
-    owner_complete = all(value is not None for value in owner_values)
-    base = statistics.median(fcff_values) if fcff_complete else None
-    base_method = "median_3y_fcff"
-    base_label = "2023-2025 FCFF 中位数"
+    rows_by_year = {r["year"]: r for r in annual if r.get("year") is not None and r.get("period") != "quarterly_ytd" and (not r.get("report_date") or r["report_date"].endswith("-12-31"))}
+    anchor_year = max(rows_by_year, default=YEARS[-1])
+    latest = rows_by_year.get(anchor_year, {})
+    bridge = owner_fcf_bridge(list(rows_by_year.values()), anchor_year)
+    assumptions = f"现金流基数直接取最新完整年报 {anchor_year}A 的 FCFF，不使用多年度均值或中位数；该年 FCFF 缺失或非正时，回退到同年 owner FCF = 经营现金流 - 资本开支，并使用成本权益率代理。同年回退现金流仍缺失或非正时，不借用旧年现金流外推。owner FCF 未加入净借款，且未区分维持性与扩张性资本开支，不等同于严格 FCFE 或 Buffett owner earnings。起始增长仍以 {anchor_year - 3}A-{anchor_year}A 营收 CAGR 为趋势假设，限制在 -5% 至 6%，不是现金流平均；悲观下调 5 个百分点、乐观上调 3 个百分点，情景限制在 -10% 至 8%。趋势缺失时回退 3% 并标记默认假设。预测期 5 年，年度增长线性收敛到永续增长率。净现金仅使用同一年报，货币资金、短期借款、长期借款和应付债券均有明确数字时才计入，空单元格不写成 0。"
+    fcff = number(latest.get("fcff"))
+    owner = number(latest.get("owner_fcf"))
+    if owner is None and number(latest.get("cfo")) is not None and number(latest.get("capex")) is not None:
+        owner = latest["cfo"] - latest["capex"]
+    base = fcff
+    base_method = "latest_annual_fcff"
+    base_label = f"{anchor_year}A FCFF"
     if base is None or base <= 0:
-        base = statistics.median(owner_values) if owner_complete else None
-        base_method = "median_3y_owner_fcf"
-        base_label = "2023-2025 owner FCF 中位数"
-    growth_basis = dcf_growth_anchor(annual)
-    payload = {"bridge": bridge, "base_cash_flow_CNY": base, "base_year": 2025, "base_years": list(required_years), "base_method": base_method, "base_label": base_label, "growth_basis": growth_basis, "cash_flow_uneven": fcff_complete and max(fcff_values) - min(fcff_values) > abs(statistics.median(fcff_values)) * 0.5 if fcff_complete else False, "assumptions": assumptions}
+        base = owner
+        base_method = "latest_annual_owner_fcf"
+        base_label = f"{anchor_year}A owner FCF"
+    growth_basis = dcf_growth_anchor(list(rows_by_year.values()), anchor_year)
+    payload = {"bridge": bridge, "base_cash_flow_CNY": base, "base_year": anchor_year, "base_years": [anchor_year], "base_method": base_method, "base_label": base_label, "growth_basis": growth_basis, "net_cash_CNY": None, "net_cash_status": "not_verified", "price_comparable": False, "assumptions": assumptions}
     missing = []
-    if not fcff_complete:
-        missing.append("2023-2025 FCFF 完整三年")
-    if not owner_complete:
-        missing.append("2023-2025 owner FCF 完整三年")
+    if fcff is None:
+        missing.append(f"{anchor_year}A FCFF 缺失，尝试同年 owner FCF")
+    if base is None:
+        missing.append(f"{anchor_year}A owner FCF 缺失")
     if not shares or shares <= 0:
         missing.append("核验总股本")
     if base is None or base <= 0 or not shares or shares <= 0:
-        status = "negative_owner_fcf" if owner_complete and statistics.median(owner_values) <= 0 else "insufficient_inputs"
-        return {**payload, "scenarios": [], "sensitivity": [], "status": status, "missing": missing or ["2023-2025 owner FCF 非正"]}
-    balance = records.get("2025-12-31", {})
+        status = "negative_owner_fcf" if owner is not None and owner <= 0 and (fcff is None or fcff <= 0) else "insufficient_inputs"
+        return {**payload, "scenarios": [], "sensitivity": [], "status": status, "missing": missing or [f"{anchor_year}A owner FCF 非正"]}
+    balance = records.get(f"{anchor_year}-12-31", {})
     balance_fields = ("cash", "short_debt", "long_debt", "bonds")
     net_cash = None
     net_cash_status = "not_verified"
@@ -1035,7 +1037,7 @@ def dcf(records, annual, price, shares=None):
         net_cash_status = "verified"
     payload["net_cash_CNY"] = net_cash
     payload["net_cash_status"] = net_cash_status
-    scenarios, sensitivity = dcf_quotes(base, shares, price, net_cash, base_label, growth_basis["anchor"])
+    scenarios, sensitivity = dcf_quotes(base, shares, price, net_cash, base_label, growth_basis["anchor"], anchor_year=anchor_year)
     payload["price_comparable"] = net_cash_status == "verified"
     payload["value_type"] = "equity_value_per_share" if payload["price_comparable"] else "enterprise_value_per_share_before_net_cash"
     if not payload["price_comparable"]:
@@ -1156,8 +1158,9 @@ def build(asof=None):
         company["score"]["rank"] = rank
     for company in companies:
         company["score"].setdefault("rank", None)
+    classification = stamp_company_styles(companies)
     stamp = datetime.now(timezone.utc).isoformat()
-    payload = {"generated_at": stamp, "as_of": asof, "history": {"start_year": YEARS[0], "end_year": YEARS[-1], "baseline_year": BASELINE_YEAR, "years": len(YEARS), "scope": "current_constituents_historical_disclosures_not_historical_industry_membership"}, "companies": companies, "prices": prices, "model": PARAMETERS, "financial_metrics": CATALOG}
+    payload = {"generated_at": stamp, "as_of": asof, "history": {"start_year": YEARS[0], "end_year": YEARS[-1], "baseline_year": BASELINE_YEAR, "years": len(YEARS), "scope": "current_constituents_historical_disclosures_not_historical_industry_membership"}, "companies": companies, "prices": prices, "model": {**PARAMETERS, "style": classification["rules"]}, "financial_metrics": CATALOG, "classification": {**classification, "generated_at": stamp}}
     n = len(companies)
     labels = {"revenue": "营业收入合计", "net_profit": "归母净利润合计", "cfo": "经营现金流合计"}
     sample_series = []
@@ -1174,6 +1177,21 @@ def build(asof=None):
     industry["as_of"] = asof
     industry["research"] = build_research(companies, industry["financial_trends"], asof)
     return payload, industry
+
+
+def stamp_company_styles(companies):
+    """Use the browser's classification rules for all persisted company labels."""
+    year = max((r["year"] for c in companies for r in c.get("annual", [])), default=YEARS[-1])
+    slim = [{"code": c["code"], "price": c.get("price"), "shares": c.get("shares"),
+             "score": c.get("score"), "dcf": c.get("dcf"),
+             "annual": [{"year": r["year"], "net_profit": r.get("net_profit")} for r in c.get("annual", [])]} for c in companies]
+    result = subprocess.run(["node", str(OUT / "company-style.js")], input=json.dumps({"year": year, "companies": slim}),
+                            text=True, capture_output=True, check=True)
+    labels = json.loads(result.stdout)
+    lookup = {c["code"]: c["style"] for c in labels["classified"]}
+    for company in companies:
+        company["style"] = lookup[company["code"]]
+    return {"year": year, "counts": labels["counts"], "rules": labels["rules"]}
 
 
 PNL_FIELDS = {

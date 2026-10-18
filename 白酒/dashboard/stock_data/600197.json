@@ -2752,15 +2752,13 @@
         "fcff": -230252190.17431495
       }
     ],
-    "base_cash_flow_CNY": -64447677.61999999,
+    "base_cash_flow_CNY": -299356299.15,
     "base_year": 2025,
     "base_years": [
-      2023,
-      2024,
       2025
     ],
-    "base_method": "median_3y_owner_fcf",
-    "base_label": "2023-2025 owner FCF 中位数",
+    "base_method": "latest_annual_owner_fcf",
+    "base_label": "2025A owner FCF",
     "growth_basis": {
       "anchor": 0.019963530399913276,
       "revenue_cagr_3y": 0.019963530399913276,
@@ -2773,15 +2771,17 @@
         0.06
       ],
       "status": "derived_trend_assumption",
-      "method": "2022-2025 revenue CAGR clipped to mature-industry bounds; not a cash-flow forecast"
+      "method": "2022-2025 revenue CAGR clipped to mature-industry bounds; not a cash-flow average"
     },
-    "cash_flow_uneven": true,
-    "assumptions": "FCFF 只取 2023A、2024A、2025A 三个连续完整年度的中位数；若这三年 FCFF 不完整或中位数非正，回退到同三年的 owner FCF = 经营现金流 - 资本开支，并使用成本权益率代理。owner FCF 未加入净借款，且未区分维持性与扩张性资本开支，不等同于严格 FCFE 或 Buffett owner earnings。基准起始增长由 2022A-2025A 营收 CAGR 限制在 -5% 至 6%；悲观下调 5 个百分点、乐观上调 3 个百分点，情景限制在 -10% 至 8%。趋势缺失时回退 3% 并标记默认假设。预测期 5 年，年度增长线性收敛到永续增长率。净现金只有货币资金、短期借款、长期借款和应付债券均有明确数字时才计入，空单元格不写成 0。",
+    "net_cash_CNY": null,
+    "net_cash_status": "not_verified",
+    "price_comparable": false,
+    "assumptions": "现金流基数直接取最新完整年报 2025A 的 FCFF，不使用多年度均值或中位数；该年 FCFF 缺失或非正时，回退到同年 owner FCF = 经营现金流 - 资本开支，并使用成本权益率代理。同年回退现金流仍缺失或非正时，不借用旧年现金流外推。owner FCF 未加入净借款，且未区分维持性与扩张性资本开支，不等同于严格 FCFE 或 Buffett owner earnings。起始增长仍以 2022A-2025A 营收 CAGR 为趋势假设，限制在 -5% 至 6%，不是现金流平均；悲观下调 5 个百分点、乐观上调 3 个百分点，情景限制在 -10% 至 8%。趋势缺失时回退 3% 并标记默认假设。预测期 5 年，年度增长线性收敛到永续增长率。净现金仅使用同一年报，货币资金、短期借款、长期借款和应付债券均有明确数字时才计入，空单元格不写成 0。",
     "scenarios": [],
     "sensitivity": [],
     "status": "negative_owner_fcf",
     "missing": [
-      "2023-2025 owner FCF 非正"
+      "2025A owner FCF 非正"
     ]
   },
   "price": {
@@ -21728,5 +21728,19 @@
     },
     "assumptions": "V5 五年财报质量观察分，25/30/25/10/10。固定绝对锚点；流动性取现金与速动瓶颈，应收与非经常收益取最新年和历史中较差者。CFO 与合并净利匹配，分红与归母净利匹配。缺项不补零、不归一化，经济无效计零并标注。三年简化 FCF 非正只触发复核，不自动限分。严格安全核验与估值独立，权重及锚点未经收益回测。",
     "rank": 16
+  },
+  "style": {
+    "id": "cashflow_invalid",
+    "label": "现金流非正，DCF不适用",
+    "tone": "warn",
+    "order": 7,
+    "pe": 20.556296455168162,
+    "reason": "2025A 单年现金流DCF；基准不可用（未核验为可比股权价值）；现价 9.40元；安全边际 不可比；净现金 未核验；V5财务分 40.69；经营韧性得分率 13.6%。仅以可比的基准DCF判断价格，不使用PE或股息率替代。",
+    "basis": "latest_annual_dcf",
+    "base_year": 2025,
+    "value_per_share": null,
+    "margin_of_safety": null,
+    "upside": null,
+    "price_date": "2026-10-09"
   }
 }

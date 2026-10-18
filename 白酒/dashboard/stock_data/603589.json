@@ -2772,15 +2772,13 @@
         "fcff": 69401121.7667979
       }
     ],
-    "base_cash_flow_CNY": 626652944.2019498,
+    "base_cash_flow_CNY": 69401121.7667979,
     "base_year": 2025,
     "base_years": [
-      2023,
-      2024,
       2025
     ],
-    "base_method": "median_3y_fcff",
-    "base_label": "2023-2025 FCFF 中位数",
+    "base_method": "latest_annual_fcff",
+    "base_label": "2025A FCFF",
     "growth_basis": {
       "anchor": -0.05,
       "revenue_cagr_3y": -0.08061757050531215,
@@ -2793,18 +2791,17 @@
         0.06
       ],
       "status": "derived_trend_assumption",
-      "method": "2022-2025 revenue CAGR clipped to mature-industry bounds; not a cash-flow forecast"
+      "method": "2022-2025 revenue CAGR clipped to mature-industry bounds; not a cash-flow average"
     },
-    "cash_flow_uneven": true,
-    "assumptions": "FCFF 只取 2023A、2024A、2025A 三个连续完整年度的中位数；若这三年 FCFF 不完整或中位数非正，回退到同三年的 owner FCF = 经营现金流 - 资本开支，并使用成本权益率代理。owner FCF 未加入净借款，且未区分维持性与扩张性资本开支，不等同于严格 FCFE 或 Buffett owner earnings。基准起始增长由 2022A-2025A 营收 CAGR 限制在 -5% 至 6%；悲观下调 5 个百分点、乐观上调 3 个百分点，情景限制在 -10% 至 8%。趋势缺失时回退 3% 并标记默认假设。预测期 5 年，年度增长线性收敛到永续增长率。净现金只有货币资金、短期借款、长期借款和应付债券均有明确数字时才计入，空单元格不写成 0。",
     "net_cash_CNY": null,
     "net_cash_status": "not_verified",
     "price_comparable": false,
+    "assumptions": "现金流基数直接取最新完整年报 2025A 的 FCFF，不使用多年度均值或中位数；该年 FCFF 缺失或非正时，回退到同年 owner FCF = 经营现金流 - 资本开支，并使用成本权益率代理。同年回退现金流仍缺失或非正时，不借用旧年现金流外推。owner FCF 未加入净借款，且未区分维持性与扩张性资本开支，不等同于严格 FCFE 或 Buffett owner earnings。起始增长仍以 2022A-2025A 营收 CAGR 为趋势假设，限制在 -5% 至 6%，不是现金流平均；悲观下调 5 个百分点、乐观上调 3 个百分点，情景限制在 -10% 至 8%。趋势缺失时回退 3% 并标记默认假设。预测期 5 年，年度增长线性收敛到永续增长率。净现金仅使用同一年报，货币资金、短期借款、长期借款和应付债券均有明确数字时才计入，空单元格不写成 0。",
     "value_type": "enterprise_value_per_share_before_net_cash",
     "scenarios": [
       {
         "name": "悲观",
-        "value_per_share": 8.17,
+        "value_per_share": 0.9,
         "upside": null,
         "margin_of_safety": null,
         "assumptions": {
@@ -2812,8 +2809,9 @@
           "terminal_growth": 0.01,
           "discount_rate": 0.11,
           "rate_kind": "WACC",
-          "base_label": "2023-2025 FCFF 中位数",
-          "base_cash_flow_CNY": 626652944.2019498,
+          "base_year": 2025,
+          "base_label": "2025A FCFF",
+          "base_cash_flow_CNY": 69401121.7667979,
           "forecast_years": 5,
           "growth_fades_to_terminal": true
         },
@@ -2822,54 +2820,54 @@
             {
               "year": 2026,
               "growth_rate": -0.1,
-              "fcff_CNY": 563987649.7817549,
+              "fcff_CNY": 62461009.59011811,
               "discount_factor": 1.11,
-              "present_value_CNY": 508096981.7853647
+              "present_value_CNY": 56271179.81091721
             },
             {
               "year": 2027,
               "growth_rate": -0.07250000000000001,
-              "fcff_CNY": 523098545.1725776,
+              "fcff_CNY": 57932586.39483455,
               "discount_factor": 1.2321000000000002,
-              "present_value_CNY": 424558514.0593925
+              "present_value_CNY": 47019386.73389704
             },
             {
               "year": 2028,
               "growth_rate": -0.045000000000000005,
-              "fcff_CNY": 499559110.63981164,
+              "fcff_CNY": 55325620.007066995,
               "discount_factor": 1.3676310000000003,
-              "present_value_CNY": 365273316.15019804
+              "present_value_CNY": 40453616.514298804
             },
             {
               "year": 2029,
               "growth_rate": -0.0175,
-              "fcff_CNY": 490816826.20361495,
+              "fcff_CNY": 54357421.65694332,
               "discount_factor": 1.5180704100000004,
-              "present_value_CNY": 323316246.0518645
+              "present_value_CNY": 35806917.320088804
             },
             {
               "year": 2030,
               "growth_rate": 0.009999999999999995,
-              "fcff_CNY": 495724994.4656511,
+              "fcff_CNY": 54900995.87351275,
               "discount_factor": 1.6850581551000008,
-              "present_value_CNY": 294188656.3174622
+              "present_value_CNY": 32581068.912873585
             }
           ],
-          "projected_fcff_pv_CNY": 1915433714.364282,
-          "terminal_value_CNY": 5006822444.103076,
-          "terminal_value_pv_CNY": 2971305428.8063684,
+          "projected_fcff_pv_CNY": 212132169.29207546,
+          "terminal_value_CNY": 554500058.3224788,
+          "terminal_value_pv_CNY": 329068796.0200232,
           "net_cash_CNY": null,
-          "equity_value_CNY": 4886739143.1706505,
+          "equity_value_CNY": 541200965.3120987,
           "shares": 598119472.0,
-          "base_cash_flow_CNY": 626652944.2019498,
+          "base_cash_flow_CNY": 69401121.7667979,
           "discount_rate": 0.11,
           "terminal_growth": 0.01,
-          "value_per_share": 8.170172301580997
+          "value_per_share": 0.9048375628073495
         }
       },
       {
         "name": "基准",
-        "value_per_share": 12.09,
+        "value_per_share": 1.34,
         "upside": null,
         "margin_of_safety": null,
         "assumptions": {
@@ -2877,8 +2875,9 @@
           "terminal_growth": 0.02,
           "discount_rate": 0.095,
           "rate_kind": "WACC",
-          "base_label": "2023-2025 FCFF 中位数",
-          "base_cash_flow_CNY": 626652944.2019498,
+          "base_year": 2025,
+          "base_label": "2025A FCFF",
+          "base_cash_flow_CNY": 69401121.7667979,
           "forecast_years": 5,
           "growth_fades_to_terminal": true
         },
@@ -2887,54 +2886,54 @@
             {
               "year": 2026,
               "growth_rate": -0.05,
-              "fcff_CNY": 595320296.9918523,
+              "fcff_CNY": 65931065.678458005,
               "discount_factor": 1.095,
-              "present_value_CNY": 543671504.1021482
+              "present_value_CNY": 60211018.88443653
             },
             {
               "year": 2027,
               "growth_rate": -0.0325,
-              "fcff_CNY": 575972387.3396171,
+              "fcff_CNY": 63788306.04390812,
               "discount_factor": 1.199025,
-              "present_value_CNY": 480367287.87107617
+              "present_value_CNY": 53200146.82255009
             },
             {
               "year": 2028,
               "growth_rate": -0.015,
-              "fcff_CNY": 567332801.5295229,
+              "fcff_CNY": 62831481.4532495,
               "discount_factor": 1.312932375,
-              "present_value_CNY": 432111213.2904202
+              "present_value_CNY": 47855839.8358099
             },
             {
               "year": 2029,
               "growth_rate": 0.0025000000000000022,
-              "fcff_CNY": 568751133.5333467,
+              "fcff_CNY": 62988560.15688262,
               "discount_factor": 1.4376609506249998,
-              "present_value_CNY": 395608667.875476
+              "present_value_CNY": 43813223.228675276
             },
             {
               "year": 2030,
               "growth_rate": 0.020000000000000004,
-              "fcff_CNY": 580126156.2040136,
+              "fcff_CNY": 64248331.36002027,
               "discount_factor": 1.5742387409343748,
-              "present_value_CNY": 368512183.774416
+              "present_value_CNY": 40812317.52808108
             }
           ],
-          "projected_fcff_pv_CNY": 2220270856.9135365,
-          "terminal_value_CNY": 7889715724.374585,
-          "terminal_value_pv_CNY": 5011765699.332058,
+          "projected_fcff_pv_CNY": 245892546.2995529,
+          "terminal_value_CNY": 873777306.4962758,
+          "terminal_value_pv_CNY": 555047518.3819027,
           "net_cash_CNY": null,
-          "equity_value_CNY": 7232036556.245594,
+          "equity_value_CNY": 800940064.6814556,
           "shares": 598119472.0,
-          "base_cash_flow_CNY": 626652944.2019498,
+          "base_cash_flow_CNY": 69401121.7667979,
           "discount_rate": 0.095,
           "terminal_growth": 0.02,
-          "value_per_share": 12.091290945708575
+          "value_per_share": 1.3390971238626648
         }
       },
       {
         "name": "乐观",
-        "value_per_share": 16.11,
+        "value_per_share": 1.78,
         "upside": null,
         "margin_of_safety": null,
         "assumptions": {
@@ -2942,8 +2941,9 @@
           "terminal_growth": 0.025,
           "discount_rate": 0.085,
           "rate_kind": "WACC",
-          "base_label": "2023-2025 FCFF 中位数",
-          "base_cash_flow_CNY": 626652944.2019498,
+          "base_year": 2025,
+          "base_label": "2025A FCFF",
+          "base_cash_flow_CNY": 69401121.7667979,
           "forecast_years": 5,
           "growth_fades_to_terminal": true
         },
@@ -2952,49 +2952,49 @@
             {
               "year": 2026,
               "growth_rate": -0.020000000000000004,
-              "fcff_CNY": 614119885.3179108,
+              "fcff_CNY": 68013099.33146194,
               "discount_factor": 1.085,
-              "present_value_CNY": 566009110.8920836
+              "present_value_CNY": 62684884.17646261
             },
             {
               "year": 2027,
               "growth_rate": -0.008750000000000003,
-              "fcff_CNY": 608746336.3213791,
+              "fcff_CNY": 67417984.71231164,
               "discount_factor": 1.177225,
-              "present_value_CNY": 517102793.7067078
+              "present_value_CNY": 57268563.539095454
             },
             {
               "year": 2028,
               "growth_rate": 0.0024999999999999988,
-              "fcff_CNY": 610268202.1621825,
+              "fcff_CNY": 67586529.67409241,
               "discount_factor": 1.2772891249999998,
-              "present_value_CNY": 477783917.68753415
+              "present_value_CNY": 52914041.42667575
             },
             {
               "year": 2029,
               "growth_rate": 0.013749999999999998,
-              "fcff_CNY": 618659389.9419124,
+              "fcff_CNY": 68515844.45711118,
               "discount_factor": 1.3858587006249998,
-              "present_value_CNY": 446408706.50298405
+              "present_value_CNY": 49439271.42515442
             },
             {
               "year": 2030,
               "growth_rate": 0.025,
-              "fcff_CNY": 634125874.6904602,
+              "fcff_CNY": 70228740.56853895,
               "discount_factor": 1.5036566901781248,
-              "present_value_CNY": 421722510.75166696
+              "present_value_CNY": 46705302.49841776
             }
           ],
-          "projected_fcff_pv_CNY": 2429027039.5409765,
-          "terminal_value_CNY": 10832983692.628693,
-          "terminal_value_pv_CNY": 7204426225.340976,
+          "projected_fcff_pv_CNY": 269012063.065806,
+          "terminal_value_CNY": 1199740984.7125401,
+          "terminal_value_pv_CNY": 797882251.0146365,
           "net_cash_CNY": null,
-          "equity_value_CNY": 9633453264.881952,
+          "equity_value_CNY": 1066894314.0804424,
           "shares": 598119472.0,
-          "base_cash_flow_CNY": 626652944.2019498,
+          "base_cash_flow_CNY": 69401121.7667979,
           "discount_rate": 0.085,
           "terminal_growth": 0.025,
-          "value_per_share": 16.106235820528433
+          "value_per_share": 1.7837478363861767
         }
       }
     ],
@@ -3007,7 +3007,7 @@
         "growth": -0.05,
         "cash_flow_multiplier": 0.9,
         "rate_kind": "WACC",
-        "value_per_share": 11.8,
+        "value_per_share": 1.31,
         "upside": null,
         "margin_of_safety": null
       },
@@ -3019,7 +3019,7 @@
         "growth": -0.05,
         "cash_flow_multiplier": 1.0,
         "rate_kind": "WACC",
-        "value_per_share": 13.11,
+        "value_per_share": 1.45,
         "upside": null,
         "margin_of_safety": null
       },
@@ -3031,7 +3031,7 @@
         "growth": -0.05,
         "cash_flow_multiplier": 1.1,
         "rate_kind": "WACC",
-        "value_per_share": 14.42,
+        "value_per_share": 1.6,
         "upside": null,
         "margin_of_safety": null
       },
@@ -3043,7 +3043,7 @@
         "growth": -0.05,
         "cash_flow_multiplier": 0.9,
         "rate_kind": "WACC",
-        "value_per_share": 13.57,
+        "value_per_share": 1.5,
         "upside": null,
         "margin_of_safety": null
       },
@@ -3055,7 +3055,7 @@
         "growth": -0.05,
         "cash_flow_multiplier": 1.0,
         "rate_kind": "WACC",
-        "value_per_share": 15.08,
+        "value_per_share": 1.67,
         "upside": null,
         "margin_of_safety": null
       },
@@ -3067,7 +3067,7 @@
         "growth": -0.05,
         "cash_flow_multiplier": 1.1,
         "rate_kind": "WACC",
-        "value_per_share": 16.59,
+        "value_per_share": 1.84,
         "upside": null,
         "margin_of_safety": null
       },
@@ -3079,7 +3079,7 @@
         "growth": -0.05,
         "cash_flow_multiplier": 0.9,
         "rate_kind": "WACC",
-        "value_per_share": 16.05,
+        "value_per_share": 1.78,
         "upside": null,
         "margin_of_safety": null
       },
@@ -3091,7 +3091,7 @@
         "growth": -0.05,
         "cash_flow_multiplier": 1.0,
         "rate_kind": "WACC",
-        "value_per_share": 17.83,
+        "value_per_share": 1.98,
         "upside": null,
         "margin_of_safety": null
       },
@@ -3103,7 +3103,7 @@
         "growth": -0.05,
         "cash_flow_multiplier": 1.1,
         "rate_kind": "WACC",
-        "value_per_share": 19.62,
+        "value_per_share": 2.17,
         "upside": null,
         "margin_of_safety": null
       },
@@ -3115,7 +3115,7 @@
         "growth": -0.05,
         "cash_flow_multiplier": 0.9,
         "rate_kind": "WACC",
-        "value_per_share": 10.34,
+        "value_per_share": 1.15,
         "upside": null,
         "margin_of_safety": null
       },
@@ -3127,7 +3127,7 @@
         "growth": -0.05,
         "cash_flow_multiplier": 1.0,
         "rate_kind": "WACC",
-        "value_per_share": 11.49,
+        "value_per_share": 1.27,
         "upside": null,
         "margin_of_safety": null
       },
@@ -3139,7 +3139,7 @@
         "growth": -0.05,
         "cash_flow_multiplier": 1.1,
         "rate_kind": "WACC",
-        "value_per_share": 12.64,
+        "value_per_share": 1.4,
         "upside": null,
         "margin_of_safety": null
       },
@@ -3151,7 +3151,7 @@
         "growth": -0.05,
         "cash_flow_multiplier": 0.9,
         "rate_kind": "WACC",
-        "value_per_share": 11.65,
+        "value_per_share": 1.29,
         "upside": null,
         "margin_of_safety": null
       },
@@ -3163,7 +3163,7 @@
         "growth": -0.05,
         "cash_flow_multiplier": 1.0,
         "rate_kind": "WACC",
-        "value_per_share": 12.95,
+        "value_per_share": 1.43,
         "upside": null,
         "margin_of_safety": null
       },
@@ -3175,7 +3175,7 @@
         "growth": -0.05,
         "cash_flow_multiplier": 1.1,
         "rate_kind": "WACC",
-        "value_per_share": 14.24,
+        "value_per_share": 1.58,
         "upside": null,
         "margin_of_safety": null
       },
@@ -3187,7 +3187,7 @@
         "growth": -0.05,
         "cash_flow_multiplier": 0.9,
         "rate_kind": "WACC",
-        "value_per_share": 13.4,
+        "value_per_share": 1.48,
         "upside": null,
         "margin_of_safety": null
       },
@@ -3199,7 +3199,7 @@
         "growth": -0.05,
         "cash_flow_multiplier": 1.0,
         "rate_kind": "WACC",
-        "value_per_share": 14.89,
+        "value_per_share": 1.65,
         "upside": null,
         "margin_of_safety": null
       },
@@ -3211,7 +3211,7 @@
         "growth": -0.05,
         "cash_flow_multiplier": 1.1,
         "rate_kind": "WACC",
-        "value_per_share": 16.38,
+        "value_per_share": 1.81,
         "upside": null,
         "margin_of_safety": null
       },
@@ -3223,7 +3223,7 @@
         "growth": -0.05,
         "cash_flow_multiplier": 0.9,
         "rate_kind": "WACC",
-        "value_per_share": 9.2,
+        "value_per_share": 1.02,
         "upside": null,
         "margin_of_safety": null
       },
@@ -3235,7 +3235,7 @@
         "growth": -0.05,
         "cash_flow_multiplier": 1.0,
         "rate_kind": "WACC",
-        "value_per_share": 10.22,
+        "value_per_share": 1.13,
         "upside": null,
         "margin_of_safety": null
       },
@@ -3247,7 +3247,7 @@
         "growth": -0.05,
         "cash_flow_multiplier": 1.1,
         "rate_kind": "WACC",
-        "value_per_share": 11.25,
+        "value_per_share": 1.25,
         "upside": null,
         "margin_of_safety": null
       },
@@ -3259,7 +3259,7 @@
         "growth": -0.05,
         "cash_flow_multiplier": 0.9,
         "rate_kind": "WACC",
-        "value_per_share": 10.21,
+        "value_per_share": 1.13,
         "upside": null,
         "margin_of_safety": null
       },
@@ -3271,7 +3271,7 @@
         "growth": -0.05,
         "cash_flow_multiplier": 1.0,
         "rate_kind": "WACC",
-        "value_per_share": 11.34,
+        "value_per_share": 1.26,
         "upside": null,
         "margin_of_safety": null
       },
@@ -3283,7 +3283,7 @@
         "growth": -0.05,
         "cash_flow_multiplier": 1.1,
         "rate_kind": "WACC",
-        "value_per_share": 12.48,
+        "value_per_share": 1.38,
         "upside": null,
         "margin_of_safety": null
       },
@@ -3295,7 +3295,7 @@
         "growth": -0.05,
         "cash_flow_multiplier": 0.9,
         "rate_kind": "WACC",
-        "value_per_share": 11.5,
+        "value_per_share": 1.27,
         "upside": null,
         "margin_of_safety": null
       },
@@ -3307,7 +3307,7 @@
         "growth": -0.05,
         "cash_flow_multiplier": 1.0,
         "rate_kind": "WACC",
-        "value_per_share": 12.78,
+        "value_per_share": 1.42,
         "upside": null,
         "margin_of_safety": null
       },
@@ -3319,7 +3319,7 @@
         "growth": -0.05,
         "cash_flow_multiplier": 1.1,
         "rate_kind": "WACC",
-        "value_per_share": 14.06,
+        "value_per_share": 1.56,
         "upside": null,
         "margin_of_safety": null
       },
@@ -3331,7 +3331,7 @@
         "growth": -0.05,
         "cash_flow_multiplier": 0.9,
         "rate_kind": "WACC",
-        "value_per_share": 8.29,
+        "value_per_share": 0.92,
         "upside": null,
         "margin_of_safety": null
       },
@@ -3343,7 +3343,7 @@
         "growth": -0.05,
         "cash_flow_multiplier": 1.0,
         "rate_kind": "WACC",
-        "value_per_share": 9.21,
+        "value_per_share": 1.02,
         "upside": null,
         "margin_of_safety": null
       },
@@ -3355,7 +3355,7 @@
         "growth": -0.05,
         "cash_flow_multiplier": 1.1,
         "rate_kind": "WACC",
-        "value_per_share": 10.13,
+        "value_per_share": 1.12,
         "upside": null,
         "margin_of_safety": null
       },
@@ -3367,7 +3367,7 @@
         "growth": -0.05,
         "cash_flow_multiplier": 0.9,
         "rate_kind": "WACC",
-        "value_per_share": 9.09,
+        "value_per_share": 1.01,
         "upside": null,
         "margin_of_safety": null
       },
@@ -3379,7 +3379,7 @@
         "growth": -0.05,
         "cash_flow_multiplier": 1.0,
         "rate_kind": "WACC",
-        "value_per_share": 10.1,
+        "value_per_share": 1.12,
         "upside": null,
         "margin_of_safety": null
       },
@@ -3391,7 +3391,7 @@
         "growth": -0.05,
         "cash_flow_multiplier": 1.1,
         "rate_kind": "WACC",
-        "value_per_share": 11.11,
+        "value_per_share": 1.23,
         "upside": null,
         "margin_of_safety": null
       },
@@ -3403,7 +3403,7 @@
         "growth": -0.05,
         "cash_flow_multiplier": 0.9,
         "rate_kind": "WACC",
-        "value_per_share": 10.08,
+        "value_per_share": 1.12,
         "upside": null,
         "margin_of_safety": null
       },
@@ -3415,7 +3415,7 @@
         "growth": -0.05,
         "cash_flow_multiplier": 1.0,
         "rate_kind": "WACC",
-        "value_per_share": 11.2,
+        "value_per_share": 1.24,
         "upside": null,
         "margin_of_safety": null
       },
@@ -3427,7 +3427,7 @@
         "growth": -0.05,
         "cash_flow_multiplier": 1.1,
         "rate_kind": "WACC",
-        "value_per_share": 12.32,
+        "value_per_share": 1.36,
         "upside": null,
         "margin_of_safety": null
       },
@@ -3439,7 +3439,7 @@
         "growth": -0.05,
         "cash_flow_multiplier": 0.9,
         "rate_kind": "WACC",
-        "value_per_share": 7.55,
+        "value_per_share": 0.84,
         "upside": null,
         "margin_of_safety": null
       },
@@ -3451,7 +3451,7 @@
         "growth": -0.05,
         "cash_flow_multiplier": 1.0,
         "rate_kind": "WACC",
-        "value_per_share": 8.38,
+        "value_per_share": 0.93,
         "upside": null,
         "margin_of_safety": null
       },
@@ -3463,7 +3463,7 @@
         "growth": -0.05,
         "cash_flow_multiplier": 1.1,
         "rate_kind": "WACC",
-        "value_per_share": 9.22,
+        "value_per_share": 1.02,
         "upside": null,
         "margin_of_safety": null
       },
@@ -3475,7 +3475,7 @@
         "growth": -0.05,
         "cash_flow_multiplier": 0.9,
         "rate_kind": "WACC",
-        "value_per_share": 8.19,
+        "value_per_share": 0.91,
         "upside": null,
         "margin_of_safety": null
       },
@@ -3487,7 +3487,7 @@
         "growth": -0.05,
         "cash_flow_multiplier": 1.0,
         "rate_kind": "WACC",
-        "value_per_share": 9.1,
+        "value_per_share": 1.01,
         "upside": null,
         "margin_of_safety": null
       },
@@ -3499,7 +3499,7 @@
         "growth": -0.05,
         "cash_flow_multiplier": 1.1,
         "rate_kind": "WACC",
-        "value_per_share": 10.01,
+        "value_per_share": 1.11,
         "upside": null,
         "margin_of_safety": null
       },
@@ -3511,7 +3511,7 @@
         "growth": -0.05,
         "cash_flow_multiplier": 0.9,
         "rate_kind": "WACC",
-        "value_per_share": 8.98,
+        "value_per_share": 0.99,
         "upside": null,
         "margin_of_safety": null
       },
@@ -3523,7 +3523,7 @@
         "growth": -0.05,
         "cash_flow_multiplier": 1.0,
         "rate_kind": "WACC",
-        "value_per_share": 9.97,
+        "value_per_share": 1.1,
         "upside": null,
         "margin_of_safety": null
       },
@@ -3535,7 +3535,7 @@
         "growth": -0.05,
         "cash_flow_multiplier": 1.1,
         "rate_kind": "WACC",
-        "value_per_share": 10.97,
+        "value_per_share": 1.21,
         "upside": null,
         "margin_of_safety": null
       }
@@ -18050,5 +18050,19 @@
     },
     "assumptions": "V5 五年财报质量观察分，25/30/25/10/10。固定绝对锚点；流动性取现金与速动瓶颈，应收与非经常收益取最新年和历史中较差者。CFO 与合并净利匹配，分红与归母净利匹配。缺项不补零、不归一化，经济无效计零并标注。三年简化 FCF 非正只触发复核，不自动限分。严格安全核验与估值独立，权重及锚点未经收益回测。",
     "rank": 12
+  },
+  "style": {
+    "id": "missing",
+    "label": "DCF估值待核验",
+    "tone": "warn",
+    "order": 8,
+    "pe": 16.122725833334087,
+    "reason": "2025A 单年现金流DCF；基准1.34元（未核验为可比股权价值）；现价 18.15元；安全边际 不可比；净现金 未核验；V5财务分 55.15；经营韧性得分率 0.0%。仅以可比的基准DCF判断价格，不使用PE或股息率替代。",
+    "basis": "latest_annual_dcf",
+    "base_year": 2025,
+    "value_per_share": null,
+    "margin_of_safety": null,
+    "upside": null,
+    "price_date": "2026-10-09"
   }
 }

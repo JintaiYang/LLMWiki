@@ -13,6 +13,12 @@ async function main() {
   const page = await browser.newPage({ acceptDownloads: true });
   const errors = [];
   page.on("pageerror", (error) => errors.push(error.message));
+  const fixture = structuredClone(require("../dashboard/data.json"));
+  for (const company of fixture.companies.filter((c) => ["600519", "000858"].includes(c.code))) {
+    Object.assign(company.dcf, { price_comparable: true, net_cash_status: "verified", net_cash_CNY: 0 });
+    company.dcf.scenarios.find((s) => s.name === "基准").value_per_share = company.price.close / 2;
+  }
+  await page.route("**/data.json?v=5", (route) => route.fulfill({ json: fixture }));
   const codes = () => page.locator("#comparison-table tbody tr[data-code]").evaluateAll((rows) => rows.map((row) => row.dataset.code).sort());
   async function ready() { await page.waitForFunction(() => window.__liquorReady === true); }
   async function go(url) { await page.goto(new URL(url, base).href); await ready(); }

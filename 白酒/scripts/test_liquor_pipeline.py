@@ -91,6 +91,9 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(p.dcf(records, annual, None)["status"], "insufficient_inputs")
         result = p.dcf(records, annual, {"close": 5}, 100)
         self.assertEqual(result["status"], "research_hypothesis")
+        self.assertEqual(result["base_method"], "latest_annual_fcff")
+        self.assertEqual(result["base_cash_flow_CNY"], 120)
+        self.assertEqual(result["base_years"], [2025])
         self.assertEqual([r["name"] for r in result["scenarios"]], ["悲观", "基准", "乐观"])
         self.assertEqual(len(result["sensitivity"]), 45)
         self.assertLess(result["scenarios"][0]["value_per_share"], result["scenarios"][2]["value_per_share"])
@@ -100,7 +103,7 @@ class PipelineTests(unittest.TestCase):
         self.assertAlmostEqual(detail["equity_value_CNY"], detail["projected_fcff_pv_CNY"] + detail["terminal_value_pv_CNY"] + detail["net_cash_CNY"])
         self.assertAlmostEqual(detail["value_per_share"], detail["equity_value_CNY"] / detail["shares"])
 
-    def test_dcf_requires_exact_2023_to_2025_window(self):
+    def test_dcf_does_not_require_three_year_cashflow_history(self):
         annual = [
             {"year": 2021, "fcff": 80, "cfo": 90, "capex": 10, "owner_fcf": 80},
             {"year": 2022, "fcff": 90, "cfo": 100, "capex": 10, "owner_fcf": 90},
@@ -108,9 +111,36 @@ class PipelineTests(unittest.TestCase):
             {"year": 2025, "fcff": 120, "cfo": 130, "capex": 10, "owner_fcf": 120},
         ]
         result = p.dcf({}, annual, {"close": 5}, 100)
-        self.assertEqual(result["status"], "insufficient_inputs")
-        self.assertEqual(result["scenarios"], [])
-        self.assertIn("2023-2025 FCFF 完整三年", result["missing"])
+        self.assertEqual(result["status"], "research_hypothesis")
+        self.assertEqual(result["base_cash_flow_CNY"], 120)
+        self.assertEqual(result["base_years"], [2025])
+        self.assertTrue(result["scenarios"])
+
+    def test_dcf_never_reuses_old_positive_cashflow_for_latest_missing_or_negative(self):
+        old = [{"year": y, "fcff": 100, "owner_fcf": 80} for y in (2023, 2024)]
+        missing = p.dcf({}, old + [{"year": 2025, "fcff": None}], {"close": 5}, 100)
+        self.assertEqual(missing["status"], "insufficient_inputs")
+        self.assertIsNone(missing["base_cash_flow_CNY"])
+        self.assertEqual(missing["scenarios"], [])
+        negative = p.dcf({}, old + [{"year": 2025, "fcff": -20, "owner_fcf": -10}], {"close": 5}, 100)
+        self.assertEqual(negative["status"], "negative_owner_fcf")
+        self.assertEqual(negative["base_cash_flow_CNY"], -10)
+        self.assertEqual(negative["sensitivity"], [])
+        fallback = p.dcf({}, old + [{"year": 2025, "fcff": -20, "owner_fcf": 10}], {"close": 5}, 100)
+        self.assertEqual(fallback["base_method"], "latest_annual_owner_fcf")
+        self.assertEqual(fallback["base_cash_flow_CNY"], 10)
+
+    def test_dcf_uses_newest_complete_year_for_base_balance_and_forecast(self):
+        annual = [{"year": 2025, "fcff": 100}, {"year": 2026, "fcff": 50},
+                  {"year": 2027, "report_date": "2027-06-30", "period": "quarterly_ytd", "fcff": 999}]
+        records = {"2025-12-31": {"cash": 100, "short_debt": 0, "long_debt": 0, "bonds": 0},
+                   "2026-12-31": {"cash": 30, "short_debt": 2, "long_debt": 3, "bonds": 4}}
+        result = p.dcf(records, annual, {"close": 5}, 100)
+        self.assertEqual(result["base_cash_flow_CNY"], 50)
+        self.assertEqual(result["base_years"], [2026])
+        self.assertEqual(result["net_cash_CNY"], 21)
+        self.assertEqual(result["growth_basis"]["years"], [2023, 2026])
+        self.assertEqual([r["year"] for r in result["scenarios"][0]["breakdown"]["cashflows"]], list(range(2027, 2032)))
 
     def test_dcf_uses_company_trend_and_sensitivity_matches_baseline(self):
         annual = [{"year": year, "revenue": 100 * 1.04 ** (year - 2022), "fcff": 100, "owner_fcf": 100, "cfo": 110, "capex": 10} for year in range(2022, 2026)]
@@ -300,8 +330,8 @@ class PipelineTests(unittest.TestCase):
         records = {"2025-12-31": {"cash": 100, "short_debt": None, "long_debt": None, "bonds": None}}
         result = p.dcf(records, annual, {"close": 10}, 10)
         self.assertEqual(result["status"], "research_hypothesis")
-        self.assertEqual(result["base_method"], "median_3y_owner_fcf")
-        self.assertAlmostEqual(result["base_cash_flow_CNY"], 30)
+        self.assertEqual(result["base_method"], "latest_annual_owner_fcf")
+        self.assertAlmostEqual(result["base_cash_flow_CNY"], 40)
         self.assertTrue(all(s["assumptions"]["rate_kind"] == "成本权益率代理" for s in result["scenarios"]))
         self.assertTrue(all(s["rate_kind"] == "成本权益率代理" for s in result["sensitivity"]))
         detail = result["scenarios"][1]["breakdown"]
