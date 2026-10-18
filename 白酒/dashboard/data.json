@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-18T12:29:11.397790+00:00",
+  "generated_at": "2026-10-18T12:33:58.784088+00:00",
   "as_of": "2026-10-10",
   "history": {
     "start_year": 2006,
@@ -111053,7 +111053,7 @@
       },
       "style": {
         "id": "cashflow_invalid",
-        "label": "现金流非正，DCF不适用",
+        "label": "现金流非正",
         "tone": "warn",
         "order": 7,
         "pe": 25.456692544127197,
@@ -218328,7 +218328,7 @@
       },
       "style": {
         "id": "cashflow_invalid",
-        "label": "现金流非正，DCF不适用",
+        "label": "现金流非正",
         "tone": "warn",
         "order": 7,
         "pe": 798.4871243521264,
@@ -240074,7 +240074,7 @@
       },
       "style": {
         "id": "cashflow_invalid",
-        "label": "现金流非正，DCF不适用",
+        "label": "现金流非正",
         "tone": "warn",
         "order": 7,
         "pe": 20.556296455168162,
@@ -305733,7 +305733,7 @@
       },
       "style": {
         "id": "cashflow_invalid",
-        "label": "现金流非正，DCF不适用",
+        "label": "现金流非正",
         "tone": "warn",
         "order": 7,
         "pe": 48.55567170897775,
@@ -327245,7 +327245,7 @@
       },
       "style": {
         "id": "cashflow_invalid",
-        "label": "现金流非正，DCF不适用",
+        "label": "现金流非正",
         "tone": "warn",
         "order": 7,
         "pe": 31.507939132996288,
@@ -363176,7 +363176,7 @@
       },
       "style": {
         "id": "cashflow_invalid",
-        "label": "现金流非正，DCF不适用",
+        "label": "现金流非正",
         "tone": "warn",
         "order": 7,
         "pe": 13.226078456401963,
@@ -400656,7 +400656,7 @@
     ],
     "source_note": "《手把手教你读财报》读书笔记 · 关键财务指标速查；诊断指标独立于财务评分"
   },
-  "valuation_updated_at": "2026-10-18T12:29:11.397790+00:00",
+  "valuation_updated_at": "2026-10-18T12:33:58.784088+00:00",
   "classification": {
     "year": 2025,
     "counts": {
@@ -400675,6 +400675,6 @@
       "cheapMarginOfSafety": 0,
       "weakGrowth": 0.5
     },
-    "generated_at": "2026-10-18T12:29:11.397790+00:00"
+    "generated_at": "2026-10-18T12:33:58.784088+00:00"
   }
 }

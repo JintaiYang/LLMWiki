@@ -21731,7 +21731,7 @@
   },
   "style": {
     "id": "cashflow_invalid",
-    "label": "现金流非正，DCF不适用",
+    "label": "现金流非正",
     "tone": "warn",
     "order": 7,
     "pe": 20.556296455168162,

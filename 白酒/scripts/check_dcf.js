@@ -56,7 +56,7 @@ async function main() {
       assert((await page.locator(".score-aside").innerText()).includes(company.style.label));
       assert.match(await page.locator("#stock-value").innerText(), /直接取最新完整年报/);
       assert(!/连续三年现金流不足/.test(await page.locator("#stock-value").innerText()));
-      await page.locator("#stock-value").scrollIntoViewIfNeeded();
+      await page.locator("#stock-value > .banner").scrollIntoViewIfNeeded();
       await page.screenshot({ path: output + `/${code}-desktop.png` });
     }
     await go("score-formula.html#formula-style");
@@ -69,7 +69,7 @@ async function main() {
       await page.screenshot({ path: output + `/labels-${width}.png` });
       await go("stock.html?code=000858#stock-value");
       assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
-      await page.locator("#stock-value").scrollIntoViewIfNeeded();
+      await page.locator("#stock-value > .banner").scrollIntoViewIfNeeded();
       await page.screenshot({ path: output + `/value-${width}.png` });
     }
     const fixture = structuredClone(data), company = fixture.companies.find((c) => c.code === "600519");

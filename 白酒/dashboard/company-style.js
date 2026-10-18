@@ -5,7 +5,7 @@
     quality_cheap: ["质优低估", "good", 1], quality_rich: ["质优不便宜", "blue", 2],
     cheap_weak: ["低估质弱", "warn", 3], value_trap: ["价值陷阱风险", "risk", 4],
     weak_fair: ["质弱价格一般", "", 5], loss: ["亏损估值不适用", "risk", 6],
-    cashflow_invalid: ["现金流非正，DCF不适用", "warn", 7],
+    cashflow_invalid: ["现金流非正", "warn", 7],
     missing: ["DCF估值待核验", "warn", 8],
   };
   const number = (v) => typeof v === "number" && Number.isFinite(v) ? v : null;
